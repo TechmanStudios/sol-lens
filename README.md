@@ -43,6 +43,8 @@ These are deterministic teaching fixtures, not live model captures. They use the
 
 SOL Lens is a new product layer over a larger, pre-existing research program. The distinction matters:
 
+Here, **SOL** means **Self-Organizing Logos**. It names the research framework and is not a reference to the GPT-5.6 Sol model name.
+
 - The **SOL Engine** is the experimental foundation. It treats a semantic graph as a coupled dynamical system whose nodes carry density, pressure, and belief-field state and whose edges carry flux.
 - **SOL Lens** is the Build Week application. It translates observable agent traces into a portable Logon graph and applies a deliberately small, deterministic browser scoring profile. It does **not** run the full SOL manifold simulation and does not claim access to hidden model reasoning.
 
