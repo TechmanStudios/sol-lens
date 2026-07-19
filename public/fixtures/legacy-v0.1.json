@@ -1,0 +1,64 @@
+{
+  "schema": "techman.sol-lens.proof-packet/v0.1",
+  "generated_at": "2026-07-18T00:00:00.000Z",
+  "observable_trace_only": true,
+  "fixture": "legacy-v01",
+  "logons": [
+    {
+      "id": "N0001",
+      "label": "Observable unit 1",
+      "status": "supported",
+      "evidence": 0.82,
+      "rho": 0.7,
+      "psi": 0.78,
+      "pressure": 0.08,
+      "detail": "Deterministic observable fixture unit 1.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0002",
+      "label": "Observable unit 2",
+      "status": "supported",
+      "evidence": 0.838,
+      "rho": 0.735,
+      "psi": 0.815,
+      "pressure": 0.115,
+      "detail": "Deterministic observable fixture unit 2.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0003",
+      "label": "Observable unit 3",
+      "status": "inferred",
+      "evidence": 0.856,
+      "rho": 0.77,
+      "psi": 0.85,
+      "pressure": 0.15,
+      "detail": "Deterministic observable fixture unit 3.",
+      "source": "Trace event"
+    }
+  ],
+  "edges": [
+    {
+      "from": "N0001",
+      "to": "N0002",
+      "status": "supported",
+      "kind": "dependency"
+    },
+    {
+      "from": "N0002",
+      "to": "N0003",
+      "status": "inferred",
+      "kind": "evidence"
+    }
+  ],
+  "metrics": {
+    "evidence": 0.1,
+    "coherence": 0.1,
+    "contradiction": 0.1,
+    "continuity": 0.1,
+    "authority": 0.1,
+    "faithfulness": 0.1
+  },
+  "verdict": "QUARANTINE"
+}

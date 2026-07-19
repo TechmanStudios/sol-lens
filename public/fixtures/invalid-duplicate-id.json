@@ -1,0 +1,44 @@
+{
+  "schema": "techman.sol-lens.proof-packet/v0.2",
+  "packet_id": "fixture-invalid-duplicate",
+  "generated_at": "2026-07-19T12:00:00.000Z",
+  "observable_trace_only": true,
+  "models": {
+    "baseline": "fixture-baseline",
+    "candidate": "fixture-candidate"
+  },
+  "logons": [
+    {
+      "id": "N0001",
+      "label": "Observable unit 1",
+      "status": "supported",
+      "evidence": 0.82,
+      "rho": 0.7,
+      "psi": 0.78,
+      "pressure": 0.08,
+      "detail": "Deterministic observable fixture unit 1.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0001",
+      "label": "Duplicate",
+      "status": "supported",
+      "evidence": 0.82,
+      "rho": 0.7,
+      "psi": 0.78,
+      "pressure": 0.08,
+      "detail": "Deterministic observable fixture unit 1.",
+      "source": "Tool event"
+    }
+  ],
+  "edges": [
+    {
+      "id": "E00001",
+      "from": "N0001",
+      "to": "N0002",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    }
+  ]
+}
