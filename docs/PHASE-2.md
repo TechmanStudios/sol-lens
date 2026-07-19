@@ -46,6 +46,8 @@ the metric cards continue to represent the complete trace.
 
 Users can:
 
+- choose one of five built-in teaching packets without understanding or
+  authoring JSON first
 - choose a local JSON file
 - drop JSON onto the graph
 - paste JSON into the built-in drawer
@@ -58,6 +60,22 @@ Users can:
 
 Every state continues to say that SOL Lens evaluates observable traces only.
 Uploaded packets are never described as live model captures.
+
+## Built-in teaching packets
+
+The example gallery uses the production validation, normalization, scoring,
+layout, and export paths. The examples are deliberately semantic rather than
+generic numbered stress fixtures:
+
+- 6 Logons: grounded linear answer chain
+- 10 Logons: branching agent-migration evidence graph
+- 48 Logons: self-correction graph with an explicit feedback cycle
+- 120 Logons: parallel conflicting sources that produce QUARANTINE
+- 300 Logons: 12 supplied program-migration groups for overview/drill-down
+
+Each card states its size, structure, and preview verdict. Selecting a card
+loads the full canonical packet and runs the local comparison. These packets
+are deterministic demonstrations, not captured live traces.
 
 ## Deterministic fixtures
 
@@ -82,8 +100,8 @@ npm run build
 
 The unit suite covers schema failures, v0.1 normalization, stable edge IDs,
 feedback cycles, deterministic layout, scale thresholds, structural grouping,
-claimed evaluation comparison, scoring independence from layout, and
-export/import round trips.
+claimed evaluation comparison, scoring independence from layout, the five
+example structures, rendered beginner guidance, and export/import round trips.
 
 ## Deliberate boundaries
 

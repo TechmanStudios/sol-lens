@@ -1,13 +1,16 @@
 "use client";
 
 import {
+  useEffect,
   useMemo,
+  useRef,
   useState,
   type CSSProperties,
 } from "react";
 import { PacketLoader } from "./components/packet-loader";
 import { SemanticGraph } from "./components/semantic-graph";
 import { demoPacket } from "../lib/demo-packet.ts";
+import type { PacketExample } from "../lib/example-packets.ts";
 import {
   chooseInitialLogon,
   createProofPacket,
@@ -20,6 +23,7 @@ type Filter = "all" | LogonStatus;
 type RunState = "ready" | "running" | "complete";
 type PacketSource =
   | { kind: "demo"; label: "Demo fixture"; detail: string }
+  | { kind: "example"; label: "Example packet"; detail: string }
   | { kind: "uploaded"; label: "Uploaded packet"; detail: string };
 
 const baselineTrace =
@@ -41,6 +45,16 @@ export default function SolLensWorkbench() {
     label: "Demo fixture",
     detail: demoPacket.fixture ?? demoPacket.packet_id,
   });
+  const comparisonTimer = useRef<number | undefined>(undefined);
+
+  useEffect(
+    () => () => {
+      if (comparisonTimer.current !== undefined) {
+        window.clearTimeout(comparisonTimer.current);
+      }
+    },
+    [],
+  );
 
   const metrics = packet.evaluation.metrics;
   const verdict = packet.evaluation.verdict;
@@ -64,7 +78,13 @@ export default function SolLensWorkbench() {
   const runComparison = () => {
     if (runState === "running") return;
     setRunState("running");
-    window.setTimeout(() => setRunState("complete"), 1100);
+    if (comparisonTimer.current !== undefined) {
+      window.clearTimeout(comparisonTimer.current);
+    }
+    comparisonTimer.current = window.setTimeout(
+      () => setRunState("complete"),
+      1100,
+    );
   };
 
   const loadDemo = () => {
@@ -78,6 +98,27 @@ export default function SolLensWorkbench() {
       label: "Demo fixture",
       detail: demoPacket.fixture ?? demoPacket.packet_id,
     });
+  };
+
+  const loadExample = (example: PacketExample) => {
+    const initial = chooseInitialLogon(example.packet);
+    setPacket(example.packet);
+    setSelectedId(initial.id);
+    setFilter("all");
+    setErrors([]);
+    setSource({
+      kind: "example",
+      label: "Example packet",
+      detail: example.title,
+    });
+    setRunState("running");
+    if (comparisonTimer.current !== undefined) {
+      window.clearTimeout(comparisonTimer.current);
+    }
+    comparisonTimer.current = window.setTimeout(
+      () => setRunState("complete"),
+      1100,
+    );
   };
 
   const loadPacketText = (text: string, sourceName: string) => {
@@ -151,6 +192,15 @@ export default function SolLensWorkbench() {
               and replay evidence, coherence, contradiction, and promotion
               readiness without hidden reasoning claims.
             </p>
+            <aside className="packet-primer">
+              <strong>New to SOL? Start with an example.</strong>
+              <span>
+                A packet is a portable JSON record of observable agent steps.
+                Each <b>Logon</b> is one atomic unit—such as a requirement,
+                tool result, check, or output—and the links show how those
+                units support, constrain, or challenge one another.
+              </span>
+            </aside>
             <div className="button-row phase-two-actions">
               <button
                 className="primary-button"
@@ -169,6 +219,7 @@ export default function SolLensWorkbench() {
                 errors={errors}
                 onDemo={loadDemo}
                 onErrors={setErrors}
+                onExample={loadExample}
                 onPacketText={loadPacketText}
               />
             </div>
