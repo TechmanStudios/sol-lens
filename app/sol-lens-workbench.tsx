@@ -15,6 +15,7 @@ import {
   chooseInitialLogon,
   createProofPacket,
   parsePacketJson,
+  type BaselineEvaluation,
   type NormalizedSolLensPacket,
 } from "../lib/packet-schema.ts";
 import type { LogonStatus } from "../lib/sol-engine.ts";
@@ -26,12 +27,9 @@ type PacketSource =
   | { kind: "example"; label: "Example packet"; detail: string }
   | { kind: "uploaded"; label: "Uploaded packet"; detail: string };
 
-const baselineTrace =
-  "2,30 22,27 42,29 62,21 82,24 102,18 122,21 142,16 162,20 182,13 202,17 222,10";
-const candidateTrace =
-  "2,31 22,28 42,25 62,25 82,18 102,20 122,15 142,18 162,12 182,14 202,9 222,7";
-
 const percentage = (value: number) => Math.round(value * 100);
+const signedDelta = (value: number) =>
+  `${value >= 0 ? "+" : "−"}${Math.abs(value).toFixed(2)}`;
 
 export default function SolLensWorkbench() {
   const [packet, setPacket] =
@@ -58,6 +56,14 @@ export default function SolLensWorkbench() {
 
   const metrics = packet.evaluation.metrics;
   const verdict = packet.evaluation.verdict;
+  const baseline = packet.baseline_evaluation;
+  const candidateSnapshot: BaselineEvaluation = {
+    label: "Locally replayed candidate",
+    logon_count: packet.logons.length,
+    source: source.detail,
+    metrics,
+    verdict,
+  };
   const traceStats = useMemo(() => {
     const supported = packet.logons.filter(
       (logon) => logon.status === "supported",
@@ -209,8 +215,12 @@ export default function SolLensWorkbench() {
                 disabled={runState === "running"}
               >
                 {runState === "running"
-                  ? "Tracing semantic flow…"
-                  : "Run comparison"}
+                  ? baseline
+                    ? "Comparing observable scores…"
+                    : "Replaying evaluation…"
+                  : baseline
+                    ? "Run comparison"
+                    : "Replay evaluation"}
                 <span className="button-arrow" aria-hidden="true">
                   →
                 </span>
@@ -235,27 +245,16 @@ export default function SolLensWorkbench() {
             <ModelCard
               className="baseline"
               title={packet.models?.baseline ?? "Baseline trace"}
-              trace={baselineTrace}
-              stroke="#55cff5"
               status={runState}
-              steps={source.kind === "demo" ? "24" : "reference"}
-              latency={source.kind === "demo" ? "1.24 s" : "packet"}
-              risk="Observed"
+              snapshot={baseline}
             />
             <ModelCard
               className="candidate"
               title={packet.models?.candidate ?? "Candidate trace"}
-              trace={candidateTrace}
-              stroke="#f2bd60"
               status={runState}
-              steps={String(packet.logons.length)}
-              latency={source.kind === "demo" ? "0.86 s" : "local"}
-              risk={
-                packet.evaluation.verdict === "QUARANTINE"
-                  ? "Review"
-                  : "Measured"
-              }
+              snapshot={candidateSnapshot}
             />
+            <ComparisonDelta baseline={baseline} candidate={candidateSnapshot} />
           </div>
         </section>
 
@@ -339,64 +338,112 @@ export default function SolLensWorkbench() {
 function ModelCard({
   className,
   title,
-  trace,
-  stroke,
   status,
-  steps,
-  latency,
-  risk,
+  snapshot,
 }: {
   className: string;
   title: string;
-  trace: string;
-  stroke: string;
   status: RunState;
-  steps: string;
-  latency: string;
-  risk: string;
+  snapshot?: BaselineEvaluation;
 }) {
   return (
-    <article className={`panel model-card ${className}`}>
+    <article
+      className={`panel model-card ${className} ${snapshot ? "" : "missing-snapshot"}`}
+    >
       <div className="model-title-row">
         <h2 className="model-title">{title}</h2>
         <i className="model-dot" />
       </div>
       <p className="model-status">
-        Trace status{" "}
-        <strong>{status === "running" ? "mapping" : "complete"}</strong>
+        {snapshot ? snapshot.label : "No observable baseline supplied"}{" "}
+        {snapshot && (
+          <strong>{status === "running" ? "comparing" : "ready"}</strong>
+        )}
       </p>
-      <div className="mini-trace" aria-hidden="true">
-        <svg viewBox="0 0 224 40" preserveAspectRatio="none">
-          <line
-            x1="0"
-            y1="35"
-            x2="224"
-            y2="35"
-            stroke="rgba(151,178,203,.12)"
-          />
-          <polyline
-            points={trace}
-            fill="none"
-            stroke={stroke}
-            strokeWidth="1.25"
-          />
-        </svg>
-      </div>
-      <div className="model-stats">
-        <div className="model-stat">
-          <span>Atomic steps</span>
-          <strong>{steps}</strong>
-        </div>
-        <div className="model-stat">
-          <span>Trace source</span>
-          <strong>{latency}</strong>
-        </div>
-        <div className="model-stat">
-          <span>Risk</span>
-          <strong>{risk}</strong>
-        </div>
-      </div>
+      {snapshot ? (
+        <>
+          <div className="snapshot-metrics" aria-label={`${title} SOL metrics`}>
+            {[
+              ["Evidence", snapshot.metrics.evidence],
+              ["Coherence", snapshot.metrics.coherence],
+              ["Contradiction", snapshot.metrics.contradiction],
+            ].map(([label, score]) => (
+              <div className="snapshot-row" key={label as string}>
+                <span>{label}</span>
+                <i>
+                  <b style={{ width: `${percentage(score as number)}%` }} />
+                </i>
+                <strong>{(score as number).toFixed(2)}</strong>
+              </div>
+            ))}
+          </div>
+          <div className="model-stats">
+            <div className="model-stat">
+              <span>Atomic units</span>
+              <strong>{snapshot.logon_count}</strong>
+            </div>
+            <div className="model-stat">
+              <span>SOL court</span>
+              <strong>{snapshot.verdict}</strong>
+            </div>
+          </div>
+        </>
+      ) : (
+        <p className="missing-snapshot-copy">
+          This packet can be replayed, but metric deltas require an optional
+          <code> baseline_evaluation</code> summary.
+        </p>
+      )}
     </article>
+  );
+}
+
+function ComparisonDelta({
+  baseline,
+  candidate,
+}: {
+  baseline?: BaselineEvaluation;
+  candidate: BaselineEvaluation;
+}) {
+  if (!baseline) {
+    return (
+      <aside
+        className="comparison-delta candidate-only"
+        data-testid="comparison-delta"
+      >
+        <strong>Candidate-only packet</strong>
+        <span>
+          The candidate evaluation is locally replayed; no baseline delta is
+          claimed.
+        </span>
+      </aside>
+    );
+  }
+
+  return (
+    <aside className="comparison-delta" data-testid="comparison-delta">
+      <strong>
+        {baseline.verdict} <span aria-hidden="true">→</span>{" "}
+        {candidate.verdict}
+      </strong>
+      <span>
+        Evidence{" "}
+        {signedDelta(candidate.metrics.evidence - baseline.metrics.evidence)}
+      </span>
+      <span>
+        Coherence{" "}
+        {signedDelta(
+          candidate.metrics.coherence - baseline.metrics.coherence,
+        )}
+      </span>
+      <span>
+        Contradiction{" "}
+        {signedDelta(
+          candidate.metrics.contradiction - baseline.metrics.contradiction,
+        )}
+      </span>
+      <small>Observable baseline vs locally replayed candidate</small>
+    </aside>
   );
 }
 

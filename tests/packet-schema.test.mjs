@@ -29,6 +29,7 @@ test("the checked-in demo is canonical and layout-free", () => {
   assert.equal("x" in demoPacket.logons[0], false);
   assert.equal("y" in demoPacket.logons[0], false);
   assert.equal(demoPacketInput.observable_trace_only, true);
+  assert.equal(demoPacket.baseline_evaluation.verdict, "HOLD");
   assert.equal(demoPacket.evaluation.verdict, "PROMOTE");
 });
 
@@ -78,6 +79,29 @@ test("recomputes supplied evaluation claims instead of trusting them", () => {
   assert.equal(normalized.claimed_evaluation.verdict, "QUARANTINE");
 });
 
+test("validates optional observable baseline summaries", () => {
+  const packet = structuredClone(valid24Packet);
+  packet.baseline_evaluation = {
+    label: "Broken baseline",
+    logon_count: 0,
+    metrics: {
+      evidence: 2,
+      coherence: 0.7,
+      contradiction: 0.1,
+      continuity: 0.7,
+      authority: 0.7,
+      faithfulness: 0.7,
+    },
+    verdict: "MAYBE",
+  };
+
+  const result = normalizePacket(packet);
+  assert.equal(result.ok, false);
+  assert.match(result.errors.join(" "), /baseline_evaluation\.logon_count/);
+  assert.match(result.errors.join(" "), /baseline_evaluation\.metrics\.evidence/);
+  assert.match(result.errors.join(" "), /baseline_evaluation\.verdict/);
+});
+
 test("exports and reimports v0.2 without losing graph or evaluation", () => {
   const normalized = requirePacket(normalizePacket(valid24Packet));
   const exported = createProofPacket(
@@ -96,6 +120,18 @@ test("exports and reimports v0.2 without losing graph or evaluation", () => {
   assert.deepEqual(replay.evaluation.metrics, normalized.evaluation.metrics);
   assert.equal(replay.evaluation.verdict, normalized.evaluation.verdict);
   assert.equal(replay.evaluation.claimed_evaluation_match, true);
+});
+
+test("preserves an observable baseline summary through export and replay", () => {
+  const exported = createProofPacket(
+    demoPacket,
+    "2026-07-19T13:30:00.000Z",
+  );
+  const replay = requirePacket(normalizePacket(exported));
+
+  assert.deepEqual(replay.baseline_evaluation, demoPacket.baseline_evaluation);
+  assert.equal(replay.baseline_evaluation.verdict, "HOLD");
+  assert.equal(replay.evaluation.verdict, "PROMOTE");
 });
 
 test("returns useful JSON and browser-size errors", () => {

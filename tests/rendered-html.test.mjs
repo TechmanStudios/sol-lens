@@ -33,6 +33,8 @@ test("renders canonical application metadata and beginner guidance", async () =>
   assert.match(html, /Try 5 examples/);
   assert.match(html, /Open packet/);
   assert.match(html, /New to SOL\? Start with an example\./);
+  assert.match(html, /HOLD/);
+  assert.match(html, /Observable baseline vs locally replayed candidate/);
   assert.match(html, /Observable trace · (?:<!-- -->)?10(?:<!-- -->)? atomic units/);
   assert.match(html, /Observable traces only · no hidden reasoning claims/);
 });

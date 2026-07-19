@@ -46,6 +46,20 @@ export const demoPacketInput: SolLensPacketV02 = {
     baseline: "gpt-5.5",
     candidate: "gpt-5.6-sol",
   },
+  baseline_evaluation: {
+    label: "Checked-in GPT-5.5 reference",
+    logon_count: 12,
+    source: "Observable baseline fixture",
+    metrics: {
+      evidence: 0.79,
+      coherence: 0.76,
+      contradiction: 0.12,
+      continuity: 0.74,
+      authority: 0.8,
+      faithfulness: 0.77,
+    },
+    verdict: "HOLD",
+  },
   logons: demoLogons.map(
     ({
       id,

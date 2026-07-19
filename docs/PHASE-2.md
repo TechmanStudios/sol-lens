@@ -15,6 +15,12 @@ it safely. Missing v0.1 edge IDs are generated deterministically. Imported
 metrics and verdicts are retained as claims, then compared with a fresh local
 SOL Engine evaluation.
 
+Canonical v0.2 packets may include `baseline_evaluation`: a labeled observable
+summary containing baseline Logon count, SOL metrics, verdict, and optional
+source. SOL Lens validates and preserves this summary, then computes visible
+deltas against the locally replayed candidate. It never fabricates a missing
+baseline; candidate-only packets are labeled as such.
+
 Browser prototype limits are deliberately explicit:
 
 - 5 MiB JSON
@@ -48,6 +54,7 @@ Users can:
 
 - choose one of five built-in teaching packets without understanding or
   authoring JSON first
+- compare a supplied observable baseline with the locally replayed candidate
 - choose a local JSON file
 - drop JSON onto the graph
 - paste JSON into the built-in drawer
@@ -74,7 +81,8 @@ generic numbered stress fixtures:
 - 300 Logons: 12 supplied program-migration groups for overview/drill-down
 
 Each card states its size, structure, and preview verdict. Selecting a card
-loads the full canonical packet and runs the local comparison. These packets
+loads the full canonical packet and runs a real baseline/candidate metric
+comparison. These packets
 are deterministic demonstrations, not captured live traces.
 
 ## Deterministic fixtures
@@ -101,7 +109,8 @@ npm run build
 The unit suite covers schema failures, v0.1 normalization, stable edge IDs,
 feedback cycles, deterministic layout, scale thresholds, structural grouping,
 claimed evaluation comparison, scoring independence from layout, the five
-example structures, rendered beginner guidance, and export/import round trips.
+example structures, baseline validation and replay, rendered beginner guidance,
+and export/import round trips.
 
 ## Deliberate boundaries
 

@@ -59,6 +59,14 @@ export type ClaimedEvaluation = {
   verdict?: SolVerdict;
 };
 
+export type BaselineEvaluation = {
+  label: string;
+  logon_count: number;
+  metrics: SolMetrics;
+  verdict: SolVerdict;
+  source?: string;
+};
+
 export type PacketEvaluation = {
   engine: "SOL Engine";
   scoring_profile: typeof SOL_SCORING_PROFILE;
@@ -77,6 +85,7 @@ export type SolLensPacketV02 = {
     baseline?: string;
     candidate?: string;
   };
+  baseline_evaluation?: BaselineEvaluation;
   logons: TraceLogon[];
   edges: TraceEdge[];
   groups?: TraceGroup[];
@@ -515,6 +524,63 @@ function readClaimedEvaluation(value: JsonRecord, errors: string[]) {
   return metrics || verdict ? { metrics, verdict } : undefined;
 }
 
+function readBaselineEvaluation(value: unknown, errors: string[]) {
+  if (value === undefined) return undefined;
+  if (!isRecord(value)) {
+    errors.push("baseline_evaluation must be an object when provided.");
+    return undefined;
+  }
+
+  const label = readString(
+    value.label,
+    "baseline_evaluation.label",
+    errors,
+  ) ?? "";
+  const source = readString(
+    value.source,
+    "baseline_evaluation.source",
+    errors,
+    true,
+  );
+  const logonCount = value.logon_count;
+  if (
+    !Number.isInteger(logonCount) ||
+    (logonCount as number) < 1 ||
+    (logonCount as number) > MAX_PACKET_LOGONS
+  ) {
+    errors.push(
+      `baseline_evaluation.logon_count must be an integer between 1 and ${MAX_PACKET_LOGONS.toLocaleString()}.`,
+    );
+  }
+  const metrics = readMetrics(
+    value.metrics,
+    "baseline_evaluation.metrics",
+    errors,
+  );
+  if (!metrics) {
+    errors.push("baseline_evaluation.metrics is required.");
+  }
+  const verdict = readVerdict(
+    value.verdict,
+    "baseline_evaluation.verdict",
+    errors,
+  );
+  if (!verdict) {
+    errors.push("baseline_evaluation.verdict is required.");
+  }
+
+  if (!metrics || !verdict || !Number.isInteger(logonCount)) {
+    return undefined;
+  }
+  return {
+    label,
+    logon_count: logonCount as number,
+    metrics,
+    verdict,
+    ...(source ? { source } : {}),
+  } satisfies BaselineEvaluation;
+}
+
 export function normalizePacket(value: unknown): PacketValidationResult {
   const errors: string[] = [];
   if (!isRecord(value)) {
@@ -539,6 +605,10 @@ export function normalizePacket(value: unknown): PacketValidationResult {
   const edges = readEdges(value.edges, acceptedSchema, logonIds, errors);
   const groups = readGroups(value.groups, logons, errors);
   const claimedEvaluation = readClaimedEvaluation(value, errors);
+  const baselineEvaluation = readBaselineEvaluation(
+    value.baseline_evaluation,
+    errors,
+  );
 
   const fixture = readString(value.fixture, "fixture", errors, true);
   let models: SolLensPacketV02["models"];
@@ -613,6 +683,7 @@ export function normalizePacket(value: unknown): PacketValidationResult {
   };
   if (fixture) packet.fixture = fixture;
   if (models) packet.models = models;
+  if (baselineEvaluation) packet.baseline_evaluation = baselineEvaluation;
   if (groups && groups.length > 0) packet.groups = groups;
   if (claimedEvaluation) packet.claimed_evaluation = claimedEvaluation;
   return { ok: true, packet };
@@ -648,6 +719,14 @@ export function createProofPacket(
     observable_trace_only: true,
     ...(packet.fixture ? { fixture: packet.fixture } : {}),
     ...(packet.models ? { models: { ...packet.models } } : {}),
+    ...(packet.baseline_evaluation
+      ? {
+          baseline_evaluation: {
+            ...packet.baseline_evaluation,
+            metrics: { ...packet.baseline_evaluation.metrics },
+          },
+        }
+      : {}),
     logons: packet.logons.map((logon) => ({
       ...logon,
       ...(logon.evidence_refs

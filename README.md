@@ -10,7 +10,7 @@ No SOL knowledge or JSON file is required. The app opens with a complete demo an
 
 ## Start without making a packet
 
-A **SOL packet** is a portable JSON record of observable agent activity. A **Logon** is one atomic unit in that record: a requirement, tool request, tool result, evidence claim, constraint check, contradiction, or output. Typed edges record how those units depend on, support, constrain, or feed back into one another.
+A **SOL packet** is a portable JSON record of observable agent activity. A **Logon** is one atomic unit in that record: a requirement, tool request, tool result, evidence claim, constraint check, contradiction, or output. Typed edges record how those units depend on, support, constrain, or feed back into one another. A packet may also include an observable `baseline_evaluation` summary so SOL Lens can show real metric and verdict deltas; when it is absent, the app explicitly labels the packet candidate-only.
 
 Select **Try 5 examples** in the live app and choose a structure:
 
@@ -26,7 +26,7 @@ These are deterministic teaching fixtures, not live model captures. They use the
 
 ## What the prototype demonstrates
 
-- GPT-5.5 baseline and GPT-5.6 Sol candidate comparison framing
+- observable baseline versus locally replayed candidate metrics, deltas, and verdict movement
 - beginner-friendly, one-click example gallery spanning multiple graph shapes and scale modes
 - v0.2 packet import with strict validation and safe v0.1 normalization
 - deterministic, cycle-aware Logon layout with supported, inferred, and contradictory units
@@ -78,6 +78,8 @@ The promotion court then applies explicit gates:
 
 This is a versioned Build Week demonstration profile, not a claim that one universal threshold fits every agent. A production adapter should calibrate a scoring profile per workflow against representative evals.
 
+SOL Lens never invents the baseline. Built-in teaching packets include a checked-in observable baseline summary. Uploaded packets without one still receive a complete local candidate evaluation, but the interface suppresses comparison deltas rather than presenting decorative or inferred numbers.
+
 ## Testing and experimental discipline
 
 SOL Lens has its own deterministic Node test suite. It checks schema failures, v0.1 migration, stable edge IDs, scoring, feedback cycles, scale thresholds, grouping, claimed evaluation mismatches, five example-packet replay round trips, rendered application copy, and complete export/re-import.
@@ -89,11 +91,14 @@ The original SOL repository maintains a separate `pytest` suite across manifold 
 ```mermaid
 flowchart TD
   A[Built-in example or observable SOL packet] --> B[Validate and normalize v0.1 or v0.2]
+  A --> J[Optional observable baseline summary]
   B --> C[Canonical Logons and typed edges]
   C --> D[Deterministic cycle-aware layout]
   C --> E[Browser-local scoring profile]
   D --> F[Detail, exploration, or grouped overview]
   E --> G[Promotion court]
+  J --> K[Evidence, coherence, contradiction, and verdict deltas]
+  G --> K
   G --> H[Replayable v0.2 proof packet]
 ```
 
