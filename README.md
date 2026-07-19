@@ -6,29 +6,31 @@
 
 SOL Lens answers a deceptively hard migration question: *did the new model actually make the agent better?* It turns an observable baseline/candidate trace into atomic semantic units called **Logons**, shows how those units support or challenge one another, recomputes a deterministic score, and issues a replayable promotion verdict.
 
-No SOL knowledge or JSON file is required. The app opens with a complete demo and includes five one-click example packets from a six-Logon chain to a 300-Logon grouped program migration. Advanced users can still open, drop, or paste their own v0.1 or v0.2 packet and export the replayed v0.2 result.
+No SOL knowledge or JSON file is required. The app opens with a complete demo and includes seven one-click example packets from a six-Logon chain to a 300-Logon grouped program migration. The judge-facing demo deliberately uses curated packets rather than accepting arbitrary historical SOL Engine JSON, whose meaning cannot be safely inferred from shape alone.
 
 ## Start without making a packet
 
 A **SOL packet** is a portable JSON record of observable agent activity. A **Logon** is one atomic unit in that record: a requirement, tool request, tool result, evidence claim, constraint check, contradiction, or output. Typed edges record how those units depend on, support, constrain, or feed back into one another. A packet may also include an observable `baseline_evaluation` summary so SOL Lens can show real metric and verdict deltas; when it is absent, the app explicitly labels the packet candidate-only.
 
-Select **Try 5 examples** in the live app and choose a structure:
+Select **Explore 7 examples** in the live app and choose a structure:
 
 | Example | Size | Semantic structure | Expected court |
 | --- | ---: | --- | --- |
 | Grounded answer | 6 Logons | Linear request → evidence → checked answer chain | PROMOTE |
 | Agent migration | 10 Logons | Evidence branches, contradiction, and merge | PROMOTE |
+| Parallel tool fan-out | 24 Logons | Six tool branches converging around an unresolved constraint | HOLD |
 | Self-correction loop | 48 Logons | Six phases with an explicit feedback edge into planning | PROMOTE |
+| Multi-agent handoff | 72 Logons | Six specialized agent lanes with observable state transfers | PROMOTE |
 | Conflicting sources | 120 Logons | Six parallel source branches with repeated constraint collisions | QUARANTINE |
 | Program-scale migration | 300 Logons | Twelve supplied groups with overview and drill-down | PROMOTE |
 
-These are deterministic teaching fixtures, not live model captures. They use the exact same validation, normalization, local evaluation, layout, and export paths as an uploaded packet.
+These are deterministic teaching fixtures, not live model captures. They use the same validation, normalization, local evaluation, layout, and export paths as the packet contract while avoiding misleading best-effort conversion of unrelated JSON.
 
 ## What the prototype demonstrates
 
 - observable baseline versus locally replayed candidate metrics, deltas, and verdict movement
-- beginner-friendly, one-click example gallery spanning multiple graph shapes and scale modes
-- v0.2 packet import with strict validation and safe v0.1 normalization
+- beginner-friendly, one-click example gallery spanning seven graph shapes and scale modes
+- strict v0.2 validation and safe v0.1 normalization retained in the packet library for future adapters
 - deterministic, cycle-aware Logon layout with supported, inferred, and contradictory units
 - automatic detail, exploration, and grouped overview modes
 - pointer-centered zoom, background pan, fit/reset, group focus, and keyboard selection
@@ -80,11 +82,11 @@ The promotion court then applies explicit gates:
 
 This is a versioned Build Week demonstration profile, not a claim that one universal threshold fits every agent. A production adapter should calibrate a scoring profile per workflow against representative evals.
 
-SOL Lens never invents the baseline. Built-in teaching packets include a checked-in observable baseline summary. Uploaded packets without one still receive a complete local candidate evaluation, but the interface suppresses comparison deltas rather than presenting decorative or inferred numbers.
+SOL Lens never invents the baseline. Every built-in teaching packet includes a checked-in observable baseline summary, so the interface can show evidence-based comparison deltas rather than decorative or inferred numbers.
 
 ## Testing and experimental discipline
 
-SOL Lens has its own deterministic Node test suite. It checks schema failures, v0.1 migration, stable edge IDs, scoring, feedback cycles, scale thresholds, grouping, claimed evaluation mismatches, five example-packet replay round trips, rendered application copy, and complete export/re-import.
+SOL Lens has its own deterministic Node test suite. It checks schema failures, v0.1 migration, stable edge IDs, scoring, feedback cycles, scale thresholds, grouping, claimed evaluation mismatches, seven example-packet replay round trips, rendered application copy, and complete export/replay.
 
 The original SOL repository maintains a separate `pytest` suite across manifold dynamics, telemetry, experiment indexing, memory/consolidation, orchestration, trust policy, adaptive simulation, and regression behavior. Its research chronicle separates **observations**, **measurements**, and **interpretations**, records baseline-restore and UI-neutral harness rules, and keeps open hypotheses distinct from locked findings. The links above lead to the underlying tests, experiment code, reports, and proof packets rather than asking judges to accept the Lens UI as the evidence for the engine.
 
@@ -92,7 +94,7 @@ The original SOL repository maintains a separate `pytest` suite across manifold 
 
 ```mermaid
 flowchart TD
-  A[Built-in example or observable SOL packet] --> B[Validate and normalize v0.1 or v0.2]
+  A[Curated built-in SOL packet] --> B[Validate and normalize the packet contract]
   A --> J[Optional observable baseline summary]
   B --> C[Canonical Logons and typed edges]
   C --> D[Deterministic cycle-aware layout]
@@ -126,10 +128,10 @@ npm run build
 ## Repository map
 
 - `app/sol-lens-workbench.tsx` — packet-driven comparison workbench
-- `app/components/packet-loader.tsx` — example gallery plus file, drop, and paste ingestion
+- `app/components/packet-loader.tsx` — curated example gallery and demo reset controls
 - `app/components/semantic-graph.tsx` — scalable graph viewport and controls
 - `app/globals.css` and `app/phase2.css` — Cosmic Semantic Lab × Solar Atlas visual system
-- `lib/example-packets.ts` — five deterministic teaching packets from 6 to 300 Logons
+- `lib/example-packets.ts` — seven deterministic teaching packets from 6 to 300 Logons
 - `lib/packet-schema.ts` — validation, normalization, evaluation comparison, and v0.2 export
 - `lib/graph-layout.ts` — deterministic SCC-aware layout
 - `lib/graph-groups.ts` — packet and structural overview grouping

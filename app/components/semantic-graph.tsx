@@ -6,7 +6,6 @@ import {
   useMemo,
   useRef,
   useState,
-  type DragEvent,
   type KeyboardEvent,
   type PointerEvent,
 } from "react";
@@ -25,15 +24,12 @@ import {
 } from "../../lib/graph-layout.ts";
 import type { NormalizedSolLensPacket } from "../../lib/packet-schema.ts";
 import type { LogonStatus } from "../../lib/sol-engine.ts";
-import { handleGraphFileDrop } from "./packet-loader";
 
 type Filter = "all" | LogonStatus;
 
 type SemanticGraphProps = {
   filter: Filter;
-  onErrors: (errors: string[]) => void;
   onFilter: (filter: Filter) => void;
-  onPacketText: (text: string, sourceName: string) => void;
   onSelect: (id: string) => void;
   packet: NormalizedSolLensPacket;
   selectedId: string;
@@ -70,9 +66,7 @@ function evaluationLabel(packet: NormalizedSolLensPacket) {
 
 export function SemanticGraph({
   filter,
-  onErrors,
   onFilter,
-  onPacketText,
   onSelect,
   packet,
   selectedId,
@@ -81,7 +75,6 @@ export function SemanticGraph({
   const [focus, setFocus] = useState<
     { packetId: string; groupId: string } | undefined
   >(undefined);
-  const [dropActive, setDropActive] = useState(false);
   const fullLayout = useMemo(
     () => layoutGraph(packet.logons, packet.edges),
     [packet],
@@ -275,32 +268,13 @@ export function SemanticGraph({
     }
   };
 
-  const onDrop = (event: DragEvent<HTMLElement>) => {
-    setDropActive(false);
-    handleGraphFileDrop(event, onErrors, onPacketText);
-  };
-
   return (
     <article
-      className={`panel graph-panel phase-two ${dropActive ? "drop-active" : ""}`}
+      className="panel graph-panel phase-two"
       onKeyDown={onPanelKeyDown}
-      onDragEnter={(event) => {
-        event.preventDefault();
-        setDropActive(true);
-      }}
-      onDragOver={(event) => event.preventDefault()}
-      onDragLeave={(event) => {
-        if (event.currentTarget === event.target) setDropActive(false);
-      }}
-      onDrop={onDrop}
       data-scale-mode={packetMode}
       data-testid="semantic-graph"
     >
-      {dropActive && (
-        <div className="drop-overlay" aria-hidden="true">
-          Drop packet to inspect
-        </div>
-      )}
       <header className="panel-header graph-panel-header">
         <div className="panel-title-row">
           <div>

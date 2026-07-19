@@ -133,6 +133,104 @@ const linearPacket = packet(
   baseline("Earlier straight-through answer", 7, 0.8, 0.75, 0.12, "HOLD"),
 );
 
+const toolStages = [
+  "Frame request",
+  "Dispatch tool",
+  "Inspect result",
+  "Synthesize answer",
+];
+const toolLanes = [
+  "repository",
+  "documentation",
+  "tests",
+  "runtime",
+  "security",
+  "constraints",
+];
+
+const toolFanoutLogons: TraceLogon[] = toolStages.flatMap(
+  (stage, stageIndex) =>
+    toolLanes.map((lane, laneIndex) => {
+      const index = stageIndex * toolLanes.length + laneIndex;
+      const status: LogonStatus =
+        stageIndex === 1
+          ? "inferred"
+          : stageIndex === 2 && laneIndex === 4
+            ? "contradiction"
+            : "supported";
+      return {
+        id: `T${String(index + 1).padStart(3, "0")}`,
+        label: `${stage} · ${lane}`,
+        status,
+        evidence:
+          status === "contradiction" ? 0.58 : status === "inferred" ? 0.76 : 0.82,
+        rho: status === "contradiction" ? 0.61 : 0.8,
+        psi: status === "contradiction" ? 0.66 : 0.84,
+        pressure: status === "contradiction" ? 0.78 : 0.22,
+        detail:
+          status === "contradiction"
+            ? "The security tool result conflicts with an observable request constraint and remains unresolved."
+            : `${stage} records the observable ${lane} branch of a parallel tool-use trace.`,
+        source: status === "contradiction" ? "Security result" : "Observable tool trace",
+        group_id: `G${String(stageIndex + 1).padStart(2, "0")}`,
+        phase_id: `P${String(stageIndex + 1).padStart(2, "0")}`,
+      };
+    }),
+);
+
+const toolFanoutEdges: TraceEdge[] = [];
+for (let stageIndex = 0; stageIndex < toolStages.length - 1; stageIndex += 1) {
+  for (let laneIndex = 0; laneIndex < toolLanes.length; laneIndex += 1) {
+    const fromIndex = stageIndex * toolLanes.length + laneIndex;
+    const toIndex = fromIndex + toolLanes.length;
+    const to = toolFanoutLogons[toIndex];
+    toolFanoutEdges.push(
+      edge(
+        `TE${String(toolFanoutEdges.length + 1).padStart(3, "0")}`,
+        toolFanoutLogons[fromIndex].id,
+        to.id,
+        to.status,
+        stageIndex === 0 ? "dependency" : stageIndex === 1 ? "evidence" : "flow",
+      ),
+    );
+  }
+}
+for (let laneIndex = 1; laneIndex < toolLanes.length; laneIndex += 1) {
+  toolFanoutEdges.push(
+    edge(
+      `TE${String(toolFanoutEdges.length + 1).padStart(3, "0")}`,
+      "T001",
+      `T${String(laneIndex + 1).padStart(3, "0")}`,
+      "supported",
+      "dependency",
+    ),
+  );
+  toolFanoutEdges.push(
+    edge(
+      `TE${String(toolFanoutEdges.length + 1).padStart(3, "0")}`,
+      `T${String(19 + laneIndex).padStart(3, "0")}`,
+      "T019",
+      "inferred",
+      "flow",
+    ),
+  );
+}
+
+const toolFanoutPacket = packet(
+  "example-tool-fanout-24",
+  toolFanoutLogons,
+  toolFanoutEdges,
+  toolStages.map((label, index) => ({
+    id: `G${String(index + 1).padStart(2, "0")}`,
+    label,
+    phase: `Tool phase ${index + 1}`,
+    logon_ids: toolFanoutLogons
+      .slice(index * toolLanes.length, (index + 1) * toolLanes.length)
+      .map((logon) => logon.id),
+  })),
+  baseline("Earlier serial tool run", 28, 0.76, 0.71, 0.08, "HOLD"),
+);
+
 const feedbackPhaseNames = [
   "Frame intent",
   "Plan investigation",
@@ -231,6 +329,101 @@ const feedbackPacket = packet(
       .map((logon) => logon.id),
   })),
   baseline("Earlier correction workflow", 39, 0.78, 0.74, 0.13, "HOLD"),
+);
+
+const agentNames = [
+  "Planner",
+  "Researcher",
+  "Builder",
+  "Reviewer",
+  "Verifier",
+  "Release agent",
+];
+const handoffStages = [
+  "receive brief",
+  "confirm scope",
+  "inspect context",
+  "collect evidence",
+  "record decision",
+  "produce artifact",
+  "challenge result",
+  "resolve exception",
+  "verify constraint",
+  "summarize state",
+  "prepare handoff",
+  "acknowledge transfer",
+];
+
+const handoffLogons: TraceLogon[] = agentNames.flatMap(
+  (agent, agentIndex) =>
+    handoffStages.map((stage, stageIndex) => {
+      const index = agentIndex * handoffStages.length + stageIndex;
+      const status: LogonStatus =
+        stageIndex === 7 && (agentIndex === 1 || agentIndex === 4)
+          ? "contradiction"
+          : [2, 4, 9].includes(stageIndex)
+            ? "inferred"
+            : "supported";
+      return {
+        id: `H${String(index + 1).padStart(3, "0")}`,
+        label: `${agent} · ${stage}`,
+        status,
+        evidence: status === "contradiction" ? 0.62 : status === "inferred" ? 0.88 : 0.94,
+        rho: status === "contradiction" ? 0.65 : 0.87,
+        psi: status === "contradiction" ? 0.7 : 0.92,
+        pressure: status === "contradiction" ? 0.7 : 0.15,
+        detail:
+          status === "contradiction"
+            ? `${agent} exposes a bounded handoff exception that is resolved before release.`
+            : `${agent} records the observable ${stage} step before transferring state.`,
+        source: status === "contradiction" ? "Handoff challenge" : "Multi-agent trace",
+        group_id: `G${String(agentIndex + 1).padStart(2, "0")}`,
+        phase_id: `P${String(stageIndex + 1).padStart(2, "0")}`,
+      };
+    }),
+);
+
+const handoffEdges: TraceEdge[] = [];
+for (let agentIndex = 0; agentIndex < agentNames.length; agentIndex += 1) {
+  const offset = agentIndex * handoffStages.length;
+  for (let stageIndex = 1; stageIndex < handoffStages.length; stageIndex += 1) {
+    const to = handoffLogons[offset + stageIndex];
+    handoffEdges.push(
+      edge(
+        `HE${String(handoffEdges.length + 1).padStart(3, "0")}`,
+        handoffLogons[offset + stageIndex - 1].id,
+        to.id,
+        to.status,
+        to.status === "contradiction" ? "constraint" : stageIndex === 3 ? "evidence" : "flow",
+      ),
+    );
+  }
+  if (agentIndex < agentNames.length - 1) {
+    handoffEdges.push(
+      edge(
+        `HE${String(handoffEdges.length + 1).padStart(3, "0")}`,
+        handoffLogons[offset + 11].id,
+        handoffLogons[offset + 12].id,
+        "supported",
+        "dependency",
+      ),
+    );
+  }
+}
+
+const handoffPacket = packet(
+  "example-multi-agent-handoff-72",
+  handoffLogons,
+  handoffEdges,
+  agentNames.map((label, index) => ({
+    id: `G${String(index + 1).padStart(2, "0")}`,
+    label,
+    phase: `Agent ${index + 1}`,
+    logon_ids: handoffLogons
+      .slice(index * handoffStages.length, (index + 1) * handoffStages.length)
+      .map((logon) => logon.id),
+  })),
+  baseline("Earlier loosely coordinated agents", 81, 0.79, 0.74, 0.12, "HOLD"),
 );
 
 const conflictSources = [
@@ -460,12 +653,28 @@ export const packetExamples: readonly PacketExample[] = [
     demoPacket,
   ),
   example(
+    "tool-fanout",
+    "Parallel tool fan-out",
+    "Small",
+    "Fan-out + convergence",
+    "Twenty-four Logons dispatch six tool branches and preserve an unresolved security constraint for a HOLD decision.",
+    toolFanoutPacket,
+  ),
+  example(
     "feedback",
     "Self-correction loop",
     "Medium",
     "Feedback cycle",
     "A 48-Logon trace challenges a draft and routes one finding back through planning before revision.",
     feedbackPacket,
+  ),
+  example(
+    "handoff",
+    "Multi-agent handoff",
+    "Medium",
+    "Layered handoff chain",
+    "Seventy-two Logons pass observable state through six specialized agents while retaining two bounded exceptions.",
+    handoffPacket,
   ),
   example(
     "conflict",
