@@ -17,7 +17,8 @@ The graph must derive its visible atomic units and relationships from the loaded
 The intended user experience is:
 
 1. Open SOL Lens.
-2. Load a valid SOL trace or proof packet, or use the existing demo.
+2. Choose a built-in teaching packet, load a valid SOL trace or proof packet,
+   or use the existing demo.
 3. See the atomic-unit count update from the packet.
 4. Explore its Logons and typed relationships.
 5. Inspect evidence, pressure, governance, coherence, and contradictions.
@@ -30,9 +31,12 @@ This is a developer-tooling and model-migration workbench. It must not claim acc
 
 ## 2. Existing Product State
 
-Live visual reference:
+Canonical live application:
 
-<https://sol-lens.techman-stud-2096.chatgpt.site>
+<https://sol-lens.onrender.com/>
+
+The original ChatGPT Site URL is retained only as a historical Phase 1
+checkpoint in `docs/PROVENANCE.md`.
 
 Current stack:
 
@@ -489,4 +493,3 @@ Do not expand this task into:
 - a wholesale visual redesign
 
 The goal is one strong extension: **any valid SOL packet should be able to drive a legible, auditable, scalable semantic trace graph.**
-

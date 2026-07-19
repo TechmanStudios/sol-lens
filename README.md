@@ -2,15 +2,32 @@
 
 **A semantic trace and migration workbench for GPT-5.6 agent workflows, built on the SOL Engine.**
 
-[Open the live prototype](https://sol-lens.techman-stud-2096.chatgpt.site)
+[Open SOL Lens](https://sol-lens.onrender.com/) · [Explore the original SOL Engine](https://github.com/TechmanStudios/sol)
 
-SOL Lens answers a deceptively hard migration question: *did the new model actually make the agent better?* It compares observable baseline and candidate traces, compiles the trace into atomic semantic units called **Logons**, scores the resulting evidence structure, and issues a deterministic promotion verdict.
+SOL Lens answers a deceptively hard migration question: *did the new model actually make the agent better?* It turns an observable baseline/candidate trace into atomic semantic units called **Logons**, shows how those units support or challenge one another, recomputes a deterministic score, and issues a replayable promotion verdict.
 
-The Phase 2 workbench remains credential-free, but it is no longer fixture-bound: users can load, drop, or paste observable SOL packets, replay their evaluation locally, explore the resulting graph at multiple scales, and export a complete packet for another lossless replay. The checked-in ten-Logon demo remains a one-click fallback.
+No SOL knowledge or JSON file is required. The app opens with a complete demo and includes five one-click example packets from a six-Logon chain to a 300-Logon grouped program migration. Advanced users can still open, drop, or paste their own v0.1 or v0.2 packet and export the replayed v0.2 result.
+
+## Start without making a packet
+
+A **SOL packet** is a portable JSON record of observable agent activity. A **Logon** is one atomic unit in that record: a requirement, tool request, tool result, evidence claim, constraint check, contradiction, or output. Typed edges record how those units depend on, support, constrain, or feed back into one another.
+
+Select **Try 5 examples** in the live app and choose a structure:
+
+| Example | Size | Semantic structure | Expected court |
+| --- | ---: | --- | --- |
+| Grounded answer | 6 Logons | Linear request → evidence → checked answer chain | PROMOTE |
+| Agent migration | 10 Logons | Evidence branches, contradiction, and merge | PROMOTE |
+| Self-correction loop | 48 Logons | Six phases with an explicit feedback edge into planning | PROMOTE |
+| Conflicting sources | 120 Logons | Six parallel source branches with repeated constraint collisions | QUARANTINE |
+| Program-scale migration | 300 Logons | Twelve supplied groups with overview and drill-down | PROMOTE |
+
+These are deterministic teaching fixtures, not live model captures. They use the exact same validation, normalization, local evaluation, layout, and export paths as an uploaded packet.
 
 ## What the prototype demonstrates
 
-- GPT-5.5 baseline and GPT-5.6 Sol candidate comparison
+- GPT-5.5 baseline and GPT-5.6 Sol candidate comparison framing
+- beginner-friendly, one-click example gallery spanning multiple graph shapes and scale modes
 - v0.2 packet import with strict validation and safe v0.1 normalization
 - deterministic, cycle-aware Logon layout with supported, inferred, and contradictory units
 - automatic detail, exploration, and grouped overview modes
@@ -22,22 +39,28 @@ The Phase 2 workbench remains credential-free, but it is no longer fixture-bound
 - downloadable v0.2 JSON proof packet with typed edges
 - accessible keyboard interaction and responsive dashboard layout
 
-## Why this is a meaningful SOL Engine extension
+## Where SOL Lens comes from
 
-The pre-existing SOL Engine supplied the semantic and mathematical foundation. SOL Lens is the new product layer created for OpenAI Build Week beginning July 18, 2026:
+SOL Lens is a new product layer over a larger, pre-existing research program. The distinction matters:
 
-- a GPT-5.5 to GPT-5.6 migration use case
-- an observable trace contract
-- an interactive semantic graph
-- deterministic promotion gates
-- a replayable proof-packet schema
-- a new Vinext/React implementation and visual system
+- The **SOL Engine** is the experimental foundation. It treats a semantic graph as a coupled dynamical system whose nodes carry density, pressure, and belief-field state and whose edges carry flux.
+- **SOL Lens** is the Build Week application. It translates observable agent traces into a portable Logon graph and applies a deliberately small, deterministic browser scoring profile. It does **not** run the full SOL manifold simulation and does not claim access to hidden model reasoning.
 
-See [PROVENANCE.md](./docs/PROVENANCE.md) for the clean boundary between the foundation and the new extension.
+Judge-facing source trail:
 
-## SOL scoring profile
+- [Original SOL repository](https://github.com/TechmanStudios/sol) — open research engine, tooling, tests, data, and audit history
+- [Conceptual specification](https://github.com/TechmanStudios/sol/blob/main/README_SOL.md) — self-organizing semantic graphs, runtime, memory, and multi-scale organization
+- [Mathematical foundation v2](https://github.com/TechmanStudios/sol/blob/main/solMath_v2.tex) — Riemannian semantic state, continuity and momentum equations, reaction-diffusion modes, incidence-matrix graph calculus, and edge flux
+- [Master research chronicle](https://github.com/TechmanStudios/sol/blob/main/SOL_Master_Chronicle.md) — phased protocols, observations, measurements, interpretations, open hypotheses, and falsification plans
+- [SOL Engine test suites](https://github.com/TechmanStudios/sol/tree/main/tests) — manifold/telemetry, experiment-ledger, memory, orchestration, trust, and regression coverage
+- [Experiment ledger](https://github.com/TechmanStudios/sol/blob/main/tools/analysis/experiment_ledger.py) and [proof-packet ledger](https://github.com/TechmanStudios/sol/blob/main/solKnowledge/proof_packets/LEDGER.md) — the path from run bundles to consolidated evidence
+- Representative experiment reports: [adaptive handshake](https://github.com/TechmanStudios/sol/blob/main/data/adaptive_handshake/report.md) and [emergent cognition](https://github.com/TechmanStudios/sol/blob/main/data/emergent_cognition/report.md)
 
-The demo engine aggregates only observable Logon fields. For a trace `L`:
+See [PROVENANCE.md](./docs/PROVENANCE.md) for the clean boundary between the foundation and the Build Week extension.
+
+## SOL Lens scoring profile
+
+The browser workbench aggregates only observable Logon fields. For a trace `L`:
 
 ```text
 evidence      = mean(evidence_i) for non-contradictory Logons
@@ -53,28 +76,32 @@ The promotion court then applies explicit gates:
 | HOLD | contradiction <= 0.20 but one promotion gate is missed |
 | QUARANTINE | contradiction > 0.20 or coherence < 0.72 |
 
-This profile is a Build Week demonstration, not a claim that one universal threshold fits every agent. A production adapter would version the scoring profile per workflow and validate it against representative evals.
+This is a versioned Build Week demonstration profile, not a claim that one universal threshold fits every agent. A production adapter should calibrate a scoring profile per workflow against representative evals.
+
+## Testing and experimental discipline
+
+SOL Lens has its own deterministic Node test suite. It checks schema failures, v0.1 migration, stable edge IDs, scoring, feedback cycles, scale thresholds, grouping, claimed evaluation mismatches, five example-packet replay round trips, rendered application copy, and complete export/re-import.
+
+The original SOL repository maintains a separate `pytest` suite across manifold dynamics, telemetry, experiment indexing, memory/consolidation, orchestration, trust policy, adaptive simulation, and regression behavior. Its research chronicle separates **observations**, **measurements**, and **interpretations**, records baseline-restore and UI-neutral harness rules, and keeps open hypotheses distinct from locked findings. The links above lead to the underlying tests, experiment code, reports, and proof packets rather than asking judges to accept the Lens UI as the evidence for the engine.
 
 ## Architecture
 
 ```mermaid
 flowchart TD
-  A[Demo or observable SOL packet] --> B[Validate and normalize v0.1 or v0.2]
+  A[Built-in example or observable SOL packet] --> B[Validate and normalize v0.1 or v0.2]
   B --> C[Canonical Logons and typed edges]
-  C --> D[Deterministic layout and scale mode]
-  C --> E[Evidence and coherence scores]
-  C --> F[Contradiction gates]
-  D --> I[Detail, exploration, or grouped overview]
+  C --> D[Deterministic cycle-aware layout]
+  C --> E[Browser-local scoring profile]
+  D --> F[Detail, exploration, or grouped overview]
   E --> G[Promotion court]
-  F --> G
   G --> H[Replayable v0.2 proof packet]
 ```
 
-The public URL remains the Phase 1 visual reference until a Phase 2 replacement checkpoint is intentionally published. The local Phase 2 source adds packet-driven replay without changing the boundary around credentials or hidden reasoning. A future Responses API adapter should emit the same observable packet contract.
+The canonical live application is deployed at [sol-lens.onrender.com](https://sol-lens.onrender.com/). The workbench is credential-free and browser-local; a future Responses API adapter can emit the same observable packet contract without changing the replay layer.
 
 ## Local development
 
-Requirements: Node.js 22.13 or newer on Linux.
+Requirements: Node.js 22.13 or newer and a POSIX-compatible shell.
 
 ```bash
 npm run install:ci
@@ -91,18 +118,19 @@ npm run build
 
 ## Repository map
 
-- `app/sol-lens-workbench.tsx` — Phase 2 packet-driven workbench
-- `app/components/packet-loader.tsx` — file, drop, and paste ingestion
+- `app/sol-lens-workbench.tsx` — packet-driven comparison workbench
+- `app/components/packet-loader.tsx` — example gallery plus file, drop, and paste ingestion
 - `app/components/semantic-graph.tsx` — scalable graph viewport and controls
-- `app/globals.css` — Cosmic Semantic Lab × Solar Atlas design system
+- `app/globals.css` and `app/phase2.css` — Cosmic Semantic Lab × Solar Atlas visual system
+- `lib/example-packets.ts` — five deterministic teaching packets from 6 to 300 Logons
 - `lib/packet-schema.ts` — validation, normalization, evaluation comparison, and v0.2 export
 - `lib/graph-layout.ts` — deterministic SCC-aware layout
 - `lib/graph-groups.ts` — packet and structural overview grouping
-- `lib/sol-engine.ts` — preserved scoring profile and promotion court
-- `docs/PHASE-2.md` — Phase 2 contract and verification guide
-- `docs/PROVENANCE.md` — pre-existing/new-work boundary
+- `lib/sol-engine.ts` — versioned Lens scoring profile and promotion court
+- `docs/PHASE-2.md` — packet contract and verification guide
+- `docs/PROVENANCE.md` — pre-existing/new-work boundary and foundation trail
 - `docs/SUBMISSION-CHECKLIST.md` — remaining Devpost packaging steps
 
 ## Build Week status
 
-The original visual workbench remains deployed. The Phase 2 packet-driven extension is implemented locally and awaits an intentional replacement checkpoint. Before final submission, the project still needs its selected source snapshot pushed, a narrated demo video, the final `/feedback` session ID, and a credentialed GPT-5.6 Responses API validation run.
+The packet-driven workbench is live on Render. Before final submission, the project still needs its selected source snapshot pushed, a narrated demo video, the final `/feedback` session ID, and a credentialed GPT-5.6 Responses API validation run.

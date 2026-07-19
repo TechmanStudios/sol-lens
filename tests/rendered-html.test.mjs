@@ -1,10 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-const developmentPreviewMeta =
-  /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
-
-test("renders development preview metadata", async () => {
+test("renders canonical application metadata and beginner guidance", async () => {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
@@ -30,8 +27,12 @@ test("renders development preview metadata", async () => {
     /^text\/html\b/i,
   );
   const html = await response.text();
-  assert.match(html, developmentPreviewMeta);
+  assert.match(html, /<link[^>]+rel="canonical"[^>]+href="https:\/\/sol-lens\.onrender\.com\/"/i);
+  assert.match(html, /property="og:image" content="https:\/\/sol-lens\.onrender\.com\/og\.png"/i);
+  assert.doesNotMatch(html, /codex-preview/i);
+  assert.match(html, /Try 5 examples/);
   assert.match(html, /Open packet/);
+  assert.match(html, /New to SOL\? Start with an example\./);
   assert.match(html, /Observable trace · (?:<!-- -->)?10(?:<!-- -->)? atomic units/);
   assert.match(html, /Observable traces only · no hidden reasoning claims/);
 });
