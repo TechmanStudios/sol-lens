@@ -45,14 +45,6 @@ const VIEWPORT_HEIGHT = 450;
 const MIN_ZOOM = 0.18;
 const MAX_ZOOM = 2.4;
 
-const fieldPaths = [
-  "M44 165 C170 48 276 74 438 200 S690 366 864 164",
-  "M35 242 C176 116 308 146 456 235 S693 324 870 235",
-  "M80 330 C208 250 300 248 430 295 S670 388 840 308",
-  "M120 84 C278 22 390 86 512 154 S730 208 878 92",
-  "M55 386 C182 312 338 348 464 353 S694 350 860 388",
-];
-
 const clamp = (value: number, minimum: number, maximum: number) =>
   Math.max(minimum, Math.min(maximum, value));
 
@@ -447,13 +439,6 @@ export function SemanticGraph({
             </marker>
           </defs>
 
-          {fieldPaths.map((path, index) => (
-            <path
-              className={`field-line ${index % 2 ? "solar" : ""}`}
-              d={path}
-              key={path}
-            />
-          ))}
           <rect
             className="graph-pan-surface"
             x="0"
