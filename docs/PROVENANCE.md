@@ -44,7 +44,7 @@ Development of **SOL Lens** began July 18, 2026 as a new application of that fou
 - typed Logon graph and deterministic promotion court
 - JSON proof-packet v0.1/v0.2 normalization and export
 - interactive filtering, selection, pan, zoom, grouping, and scale modes
-- five beginner-friendly example packets spanning linear, branching, feedback, conflict, and grouped-overview structures
+- seven beginner-friendly example packets spanning linear, branching, tool fan-out, feedback, multi-agent handoff, conflict, and grouped-overview structures
 - responsive Vinext/React application and visual system
 - SOL Lens-specific documentation, tests, and deployments
 

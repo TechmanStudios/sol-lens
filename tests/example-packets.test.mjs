@@ -4,12 +4,12 @@ import test from "node:test";
 import { packetExamples } from "../lib/example-packets.ts";
 import { createProofPacket, normalizePacket } from "../lib/packet-schema.ts";
 
-test("ships five valid examples from small detail to grouped overview", () => {
+test("ships seven valid examples from small detail to grouped overview", () => {
   assert.deepEqual(
     packetExamples.map((example) => example.packet.logons.length),
-    [6, 10, 48, 120, 300],
+    [6, 10, 24, 48, 72, 120, 300],
   );
-  assert.equal(new Set(packetExamples.map((example) => example.id)).size, 5);
+  assert.equal(new Set(packetExamples.map((example) => example.id)).size, 7);
   assert.equal(packetExamples.at(-1).packet.groups.length, 12);
   assert.equal(packetExamples.at(-1).verdict, "PROMOTE");
   assert.ok(
@@ -17,12 +17,14 @@ test("ships five valid examples from small detail to grouped overview", () => {
   );
 });
 
-test("examples cover linear, branching, feedback, conflict, and overview structures", () => {
-  const [linear, branching, feedback, conflict, program] = packetExamples;
+test("examples cover linear, branching, fan-out, feedback, handoff, conflict, and overview structures", () => {
+  const [linear, branching, fanout, feedback, handoff, conflict, program] = packetExamples;
 
   assert.equal(linear.packet.edges.length, linear.packet.logons.length - 1);
   assert.ok(branching.packet.edges.length > branching.packet.logons.length);
+  assert.equal(fanout.verdict, "HOLD");
   assert.ok(feedback.packet.edges.some((edge) => edge.kind === "feedback"));
+  assert.equal(handoff.packet.groups.length, 6);
   assert.equal(conflict.verdict, "QUARANTINE");
   assert.ok(
     conflict.packet.logons.filter((logon) => logon.status === "contradiction")

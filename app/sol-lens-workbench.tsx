@@ -14,7 +14,6 @@ import type { PacketExample } from "../lib/example-packets.ts";
 import {
   chooseInitialLogon,
   createProofPacket,
-  parsePacketJson,
   type BaselineEvaluation,
   type NormalizedSolLensPacket,
 } from "../lib/packet-schema.ts";
@@ -24,8 +23,7 @@ type Filter = "all" | LogonStatus;
 type RunState = "ready" | "running" | "complete";
 type PacketSource =
   | { kind: "demo"; label: "Demo fixture"; detail: string }
-  | { kind: "example"; label: "Example packet"; detail: string }
-  | { kind: "uploaded"; label: "Uploaded packet"; detail: string };
+  | { kind: "example"; label: "Example packet"; detail: string };
 
 const percentage = (value: number) => Math.round(value * 100);
 const signedDelta = (value: number) =>
@@ -37,7 +35,6 @@ export default function SolLensWorkbench() {
   const [selectedId, setSelectedId] = useState("L06");
   const [filter, setFilter] = useState<Filter>("all");
   const [runState, setRunState] = useState<RunState>("complete");
-  const [errors, setErrors] = useState<string[]>([]);
   const [source, setSource] = useState<PacketSource>({
     kind: "demo",
     label: "Demo fixture",
@@ -98,7 +95,6 @@ export default function SolLensWorkbench() {
     setSelectedId("L06");
     setFilter("all");
     setRunState("complete");
-    setErrors([]);
     setSource({
       kind: "demo",
       label: "Demo fixture",
@@ -111,7 +107,6 @@ export default function SolLensWorkbench() {
     setPacket(example.packet);
     setSelectedId(initial.id);
     setFilter("all");
-    setErrors([]);
     setSource({
       kind: "example",
       label: "Example packet",
@@ -125,26 +120,6 @@ export default function SolLensWorkbench() {
       () => setRunState("complete"),
       1100,
     );
-  };
-
-  const loadPacketText = (text: string, sourceName: string) => {
-    const result = parsePacketJson(text);
-    if (!result.ok) {
-      setErrors(result.errors);
-      return;
-    }
-    const nextPacket = result.packet;
-    const initial = chooseInitialLogon(nextPacket);
-    setPacket(nextPacket);
-    setSelectedId(initial.id);
-    setFilter("all");
-    setRunState("complete");
-    setErrors([]);
-    setSource({
-      kind: "uploaded",
-      label: "Uploaded packet",
-      detail: sourceName,
-    });
   };
 
   const downloadProofPacket = () => {
@@ -165,7 +140,7 @@ export default function SolLensWorkbench() {
   const evaluationCopy =
     packet.evaluation.claimed_evaluation_match === false
       ? "The supplied evaluation differs from the locally replayed SOL result. This verdict uses observable Logon data."
-      : "Evidence and constraint gates were replayed locally. The complete graph is ready for export and re-import.";
+      : "Evidence and constraint gates were replayed locally. The complete graph is ready for export and independent replay.";
 
   return (
     <main className="app-shell phase-two-shell">
@@ -221,7 +196,7 @@ export default function SolLensWorkbench() {
             <p className="eyebrow">Semantic migration workbench</p>
             <h1>See whether your agent actually got better.</h1>
             <p className="hero-copy">
-              Load an observable SOL packet, explore its typed semantic graph,
+              Choose a curated SOL packet, explore its typed semantic graph,
               and replay evidence, coherence, contradiction, and promotion
               readiness without hidden reasoning claims.
             </p>
@@ -253,11 +228,8 @@ export default function SolLensWorkbench() {
                 </span>
               </button>
               <PacketLoader
-                errors={errors}
                 onDemo={loadDemo}
-                onErrors={setErrors}
                 onExample={loadExample}
-                onPacketText={loadPacketText}
               />
             </div>
             <div className="packet-summary" aria-live="polite">
@@ -288,9 +260,7 @@ export default function SolLensWorkbench() {
         <section className="right-stack" aria-label="Semantic analysis">
           <SemanticGraph
             filter={filter}
-            onErrors={setErrors}
             onFilter={setFilter}
-            onPacketText={loadPacketText}
             onSelect={setSelectedId}
             packet={packet}
             selectedId={selectedId}

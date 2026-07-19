@@ -52,21 +52,21 @@ the metric cards continue to represent the complete trace.
 
 Users can:
 
-- choose one of five built-in teaching packets without understanding or
+- choose one of seven built-in teaching packets without understanding or
   authoring JSON first
 - compare a supplied observable baseline with the locally replayed candidate
-- choose a local JSON file
-- drop JSON onto the graph
-- paste JSON into the built-in drawer
 - reload the canonical ten-Logon demo
 - filter supported, inferred, and contradictory units
 - select Logons by mouse, touch, Enter, or Space
 - zoom around the pointer, pan the background, fit, or reset
 - open overview groups and press Escape to return
-- export a complete v0.2 packet and import it again
+- export a complete v0.2 packet for independent replay
 
 Every state continues to say that SOL Lens evaluates observable traces only.
-Uploaded packets are never described as live model captures.
+The judge-facing interface intentionally excludes arbitrary JSON ingestion. A
+historical SOL Engine document cannot be safely converted into a Logon trace by
+shape alone, so the demo favors deterministic teaching fixtures over semantic
+guesswork.
 
 ## Built-in teaching packets
 
@@ -76,7 +76,9 @@ generic numbered stress fixtures:
 
 - 6 Logons: grounded linear answer chain
 - 10 Logons: branching agent-migration evidence graph
+- 24 Logons: parallel tool fan-out with a converging HOLD decision
 - 48 Logons: self-correction graph with an explicit feedback cycle
+- 72 Logons: six-stage multi-agent handoff trace
 - 120 Logons: parallel conflicting sources that produce QUARANTINE
 - 300 Logons: 12 supplied program-migration groups for overview/drill-down
 
@@ -108,7 +110,7 @@ npm run build
 
 The unit suite covers schema failures, v0.1 normalization, stable edge IDs,
 feedback cycles, deterministic layout, scale thresholds, structural grouping,
-claimed evaluation comparison, scoring independence from layout, the five
+claimed evaluation comparison, scoring independence from layout, the seven
 example structures, baseline validation and replay, rendered beginner guidance,
 and export/import round trips.
 
