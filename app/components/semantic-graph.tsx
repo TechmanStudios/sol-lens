@@ -441,7 +441,7 @@ export function SemanticGraph({
                 edge.to !== selectedId;
               return (
                 <path
-                  className={`graph-edge ${edge.status} ${edge.active ? "active-flow" : ""} ${isDimmed(edge.status) ? "dimmed" : ""} ${unrelated ? "unrelated" : ""}`}
+                  className={`graph-edge ${edge.status} ${isDimmed(edge.status) ? "dimmed" : ""} ${unrelated ? "unrelated" : ""}`}
                   d={edgePath(from as PositionedLogon, to as PositionedLogon)}
                   key={edge.id}
                 />

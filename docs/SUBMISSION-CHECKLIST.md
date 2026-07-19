@@ -4,7 +4,7 @@
 
 - [x] Working SOL Lens dashboard
 - [x] Meaningful new extension built during the event window
-- [x] GPT-5.5 baseline and GPT-5.6 candidate migration story
+- [x] Reference-agent and candidate-agent migration story
 - [x] Replayable proof-packet export
 - [x] Production deployment
 - [x] Canonical Render URL: <https://sol-lens.onrender.com/>

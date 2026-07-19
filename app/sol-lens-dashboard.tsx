@@ -68,7 +68,7 @@ export default function SolLensDashboard() {
             <span className="brand-mark" aria-hidden="true"><span className="brand-sun" /></span>
             <span className="brand-name">SOL Lens</span>
           </div>
-          <span className="status-badge"><i /> GPT-5.6 × SOL Engine</span>
+          <span className="status-badge"><i /> Agent traces × SOL Engine</span>
         </div>
         <div className="topbar-actions" aria-label="Application controls">
           <button className="icon-button" type="button" aria-label="Run status">⌁</button>
@@ -95,10 +95,10 @@ export default function SolLensDashboard() {
             </div>
           </div>
 
-          <div className="model-grid" aria-label="Model comparison">
+          <div className="model-grid" aria-label="Agent comparison">
             <ModelCard
               className="baseline"
-              title="GPT-5.5 Baseline"
+              title="Reference agent"
               trace={baselineTrace}
               stroke="#55cff5"
               status={runState}
@@ -108,7 +108,7 @@ export default function SolLensDashboard() {
             />
             <ModelCard
               className="candidate"
-              title="GPT-5.6 Sol"
+              title="Candidate agent"
               trace={candidateTrace}
               stroke="#f2bd60"
               status={runState}
@@ -174,7 +174,7 @@ export default function SolLensDashboard() {
                   const dimmed = isDimmed(edge.status);
                   return (
                     <path
-                      className={`graph-edge ${edge.status} ${edge.active ? "active-flow" : ""} ${dimmed ? "dimmed" : ""}`}
+                      className={`graph-edge ${edge.status} ${dimmed ? "dimmed" : ""}`}
                       d={`M${from.x} ${from.y} C${(from.x + to.x) / 2} ${from.y}, ${(from.x + to.x) / 2} ${to.y}, ${to.x} ${to.y}`}
                       key={`${edge.from}-${edge.to}`}
                     />

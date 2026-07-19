@@ -240,7 +240,7 @@ export default function SolLensWorkbench() {
             </div>
           </div>
 
-          <div className="model-grid" aria-label="Model comparison">
+          <div className="model-grid" aria-label="Agent comparison">
             <ModelCard
               className="baseline"
               title={packet.models?.baseline ?? "Baseline trace"}
