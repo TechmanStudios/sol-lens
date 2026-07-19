@@ -43,11 +43,11 @@ export const demoPacketInput: SolLensPacketV02 = {
   observable_trace_only: true,
   fixture: "build-week-agent-migration-01",
   models: {
-    baseline: "gpt-5.5",
-    candidate: "gpt-5.6-sol",
+    baseline: "Reference agent",
+    candidate: "Candidate agent",
   },
   baseline_evaluation: {
-    label: "Checked-in GPT-5.5 reference",
+    label: "Checked-in reference agent",
     logon_count: 12,
     source: "Observable baseline fixture",
     metrics: {

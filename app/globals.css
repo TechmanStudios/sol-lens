@@ -743,11 +743,6 @@ a:focus-visible,
   opacity: 0.08;
 }
 
-.graph-edge.active-flow {
-  stroke-dasharray: 8 7;
-  animation: semantic-flow 3.2s linear infinite;
-}
-
 .logon-node {
   cursor: pointer;
   transition: 180ms ease;
@@ -765,7 +760,6 @@ a:focus-visible,
 
 .logon-node.selected .node-halo {
   stroke: rgba(242, 189, 96, 0.42);
-  animation: quiet-pulse 2.8s ease-in-out infinite;
 }
 
 .logon-node .node-core {
@@ -1053,23 +1047,6 @@ a:focus-visible,
   background: linear-gradient(105deg, transparent 34%, rgba(85, 207, 245, 0.04) 48%, transparent 62%);
   transform: translateX(-100%);
   animation: scan 1.25s ease-in-out infinite;
-}
-
-@keyframes semantic-flow {
-  to {
-    stroke-dashoffset: -30;
-  }
-}
-
-@keyframes quiet-pulse {
-  0%, 100% {
-    r: 24;
-    opacity: 0.35;
-  }
-  50% {
-    r: 31;
-    opacity: 0.06;
-  }
 }
 
 @keyframes scan {

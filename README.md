@@ -1,10 +1,10 @@
 # SOL Lens
 
-**A semantic trace and migration workbench for GPT-5.6 agent workflows, built on the SOL Engine.**
+**A semantic trace and migration workbench for agent workflows, built on the SOL Engine.**
 
 [Open SOL Lens](https://sol-lens.onrender.com/) · [Explore the original SOL Engine](https://github.com/TechmanStudios/sol)
 
-SOL Lens answers a deceptively hard migration question: *did the new model actually make the agent better?* It turns an observable baseline/candidate trace into atomic semantic units called **Logons**, shows how those units support or challenge one another, recomputes a deterministic score, and issues a replayable promotion verdict.
+SOL Lens answers a deceptively hard migration question: *did the candidate agent actually improve on the reference agent?* It turns an observable baseline/candidate trace into atomic semantic units called **Logons**, shows how those units support or challenge one another, recomputes a deterministic score, and issues a replayable promotion verdict.
 
 No SOL knowledge or JSON file is required. The app opens with a complete demo and includes seven one-click example packets from a six-Logon chain to a 300-Logon grouped program migration. The judge-facing demo deliberately uses curated packets rather than accepting arbitrary historical SOL Engine JSON, whose meaning cannot be safely inferred from shape alone.
 

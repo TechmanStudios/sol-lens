@@ -110,7 +110,7 @@ export const demoLogons: Logon[] = [
     rho: 0.93,
     psi: 0.9,
     pressure: 0.15,
-    source: "GPT-5.6 Sol",
+    source: "Candidate agent trace",
     detail: "Reconciles supported and inferred claims into one observable evidence path.",
   },
   {
@@ -231,8 +231,8 @@ export function createProofPacket(logons: Logon[], metrics: SolMetrics) {
     generated_at: new Date().toISOString(),
     fixture: "build-week-agent-migration-01",
     models: {
-      baseline: "gpt-5.5",
-      candidate: "gpt-5.6-sol",
+      baseline: "Reference agent",
+      candidate: "Candidate agent",
     },
     observable_trace_only: true,
     metrics,
