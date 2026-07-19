@@ -15,8 +15,9 @@
 ## Devpost package
 
 - [x] Public source repository: <https://github.com/TechmanStudios/sol-lens>
-- [ ] Final README screenshots
+- [x] Final README screenshots
 - [x] README architecture description and provenance trail
+- [x] Timed three-minute narration and screen-action script
 - [ ] Public YouTube demo, no longer than three minutes, with narration
 - [ ] Demonstrate the working product in the video
 - [ ] Explain how Codex and GPT-5.6 were used
