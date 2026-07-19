@@ -6,6 +6,20 @@
 
 SOL Lens answers a deceptively hard migration question: *did the candidate agent actually improve on the reference agent?* It turns an observable baseline/candidate trace into atomic semantic units called **Logons**, shows how those units support or challenge one another, recomputes a deterministic score, and issues a replayable promotion verdict.
 
+## Product tour
+
+![SOL Lens agent comparison dashboard](./docs/images/sol-lens-dashboard.png)
+
+Open the curated gallery to move from a six-Logon grounded answer through tool fan-out, feedback, multi-agent handoffs, conflicting sources, and a 300-Logon grouped migration.
+
+![SOL Lens curated example gallery](./docs/images/sol-lens-example-gallery.png)
+
+The conflict example makes the court legible: observable contradiction rises from `0.09` to `0.24`, moving the candidate from **PROMOTE** to **QUARANTINE**.
+
+![SOL Lens conflicting-sources comparison and quarantine verdict](./docs/images/sol-lens-conflict-verdict.png)
+
+For a recording-ready walkthrough, use the [timed three-minute narration script](./docs/DEMO-NARRATION.md).
+
 No SOL knowledge or JSON file is required. The app opens with a complete demo and includes seven one-click example packets from a six-Logon chain to a 300-Logon grouped program migration. The judge-facing demo deliberately uses curated packets rather than accepting arbitrary historical SOL Engine JSON, whose meaning cannot be safely inferred from shape alone.
 
 ## Start without making a packet
