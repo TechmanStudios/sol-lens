@@ -6,6 +6,12 @@ import {
   type PacketExample,
 } from "../../lib/example-packets.ts";
 
+const judgeTourSteps = new Map([
+  ["linear", "Tour 1"],
+  ["tool-fanout", "Tour 2"],
+  ["conflict", "Tour 3"],
+]);
+
 type PacketLoaderProps = {
   onDemo: () => void;
   onExample: (example: PacketExample) => void;
@@ -34,6 +40,10 @@ export function PacketLoader({
           Reset demo
         </button>
       </div>
+      <p className="packet-tour-hint">
+        <strong>Suggested judge tour:</strong> Grounded answer → Tool fan-out →
+        Conflicting sources
+      </p>
 
       {examplesOpen && (
         <section
@@ -63,7 +73,7 @@ export function PacketLoader({
           <div className="packet-example-grid">
             {packetExamples.map((example) => (
               <button
-                className="packet-example-card"
+                className={`packet-example-card ${judgeTourSteps.has(example.id) ? "tour-stop" : ""}`}
                 type="button"
                 key={example.id}
                 onClick={() => {
@@ -73,6 +83,11 @@ export function PacketLoader({
                 data-testid={`packet-example-${example.id}`}
               >
                 <span className="example-card-meta">
+                  {judgeTourSteps.has(example.id) && (
+                    <span className="tour-step">
+                      {judgeTourSteps.get(example.id)}
+                    </span>
+                  )}
                   <span>{example.scale}</span>
                   <span>{example.packet.logons.length} Logons</span>
                   <span>{example.structure}</span>
