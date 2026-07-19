@@ -658,16 +658,6 @@ a:focus-visible,
   display: block;
 }
 
-.field-line {
-  fill: none;
-  stroke: rgba(85, 207, 245, 0.07);
-  stroke-width: 0.8;
-}
-
-.field-line.solar {
-  stroke: rgba(217, 154, 54, 0.075);
-}
-
 .graph-edge {
   fill: none;
   stroke: rgba(166, 189, 210, 0.42);
