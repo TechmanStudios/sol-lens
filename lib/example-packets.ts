@@ -2,6 +2,7 @@ import { demoPacket } from "./demo-packet.ts";
 import {
   PACKET_SCHEMA_V02,
   normalizePacket,
+  type BaselineEvaluation,
   type NormalizedSolLensPacket,
   type SolLensPacketV02,
   type TraceEdge,
@@ -37,6 +38,7 @@ function packet(
   logons: TraceLogon[],
   edges: TraceEdge[],
   groups?: TraceGroup[],
+  baselineEvaluation?: BaselineEvaluation,
 ) {
   return requirePacket({
     schema: PACKET_SCHEMA_V02,
@@ -48,10 +50,37 @@ function packet(
       baseline: "reference agent",
       candidate: "candidate agent",
     },
+    ...(baselineEvaluation
+      ? { baseline_evaluation: baselineEvaluation }
+      : {}),
     logons,
     edges,
     ...(groups ? { groups } : {}),
   });
+}
+
+function baseline(
+  label: string,
+  logonCount: number,
+  evidence: number,
+  coherence: number,
+  contradiction: number,
+  verdict: SolVerdict,
+): BaselineEvaluation {
+  return {
+    label,
+    logon_count: logonCount,
+    source: "Observable teaching baseline",
+    metrics: {
+      evidence,
+      coherence,
+      contradiction,
+      continuity: Math.min(1, evidence + 0.01),
+      authority: Math.min(1, evidence + 0.02),
+      faithfulness: Math.max(0, coherence - 0.01),
+    },
+    verdict,
+  };
 }
 
 function edge(
@@ -101,6 +130,7 @@ const linearPacket = packet(
     { id: "G02", label: "Evidence", phase: "Observe", logon_ids: ["L03", "L04"] },
     { id: "G03", label: "Answer", phase: "Decide", logon_ids: ["L05", "L06"] },
   ],
+  baseline("Earlier straight-through answer", 7, 0.8, 0.75, 0.12, "HOLD"),
 );
 
 const feedbackPhaseNames = [
@@ -200,6 +230,7 @@ const feedbackPacket = packet(
       .slice(index * feedbackLaneNames.length, (index + 1) * feedbackLaneNames.length)
       .map((logon) => logon.id),
   })),
+  baseline("Earlier correction workflow", 39, 0.78, 0.74, 0.13, "HOLD"),
 );
 
 const conflictSources = [
@@ -297,6 +328,7 @@ const conflictPacket = packet(
       .slice(index * conflictStages.length, (index + 1) * conflictStages.length)
       .map((logon) => logon.id),
   })),
+  baseline("Earlier source review", 92, 0.86, 0.79, 0.09, "PROMOTE"),
 );
 
 const programPhases = [
@@ -388,6 +420,7 @@ const programPacket = packet(
       .slice(index * 25, (index + 1) * 25)
       .map((logon) => logon.id),
   })),
+  baseline("Earlier program migration", 244, 0.8, 0.76, 0.11, "HOLD"),
 );
 
 function example(

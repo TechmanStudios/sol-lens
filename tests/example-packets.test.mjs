@@ -12,6 +12,9 @@ test("ships five valid examples from small detail to grouped overview", () => {
   assert.equal(new Set(packetExamples.map((example) => example.id)).size, 5);
   assert.equal(packetExamples.at(-1).packet.groups.length, 12);
   assert.equal(packetExamples.at(-1).verdict, "PROMOTE");
+  assert.ok(
+    packetExamples.every((example) => example.packet.baseline_evaluation),
+  );
 });
 
 test("examples cover linear, branching, feedback, conflict, and overview structures", () => {
@@ -40,6 +43,10 @@ test("every example survives proof export and local replay", () => {
     assert.equal(replay.packet.packet_id, example.packet.packet_id);
     assert.equal(replay.packet.logons.length, example.packet.logons.length);
     assert.equal(replay.packet.evaluation.verdict, example.verdict);
+    assert.deepEqual(
+      replay.packet.baseline_evaluation,
+      example.packet.baseline_evaluation,
+    );
     assert.equal(replay.packet.evaluation.claimed_evaluation_match, true);
   }
 });

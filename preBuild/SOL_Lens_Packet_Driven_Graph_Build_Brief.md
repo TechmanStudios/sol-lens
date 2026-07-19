@@ -148,6 +148,13 @@ export type SolLensPacketV02 = {
     baseline?: string;
     candidate?: string;
   };
+  baseline_evaluation?: {
+    label: string;
+    logon_count: number;
+    metrics: SolMetrics;
+    verdict: "PROMOTE" | "HOLD" | "QUARANTINE";
+    source?: string;
+  };
   logons: TraceLogon[];
   edges: TraceEdge[];
   groups?: TraceGroup[];
