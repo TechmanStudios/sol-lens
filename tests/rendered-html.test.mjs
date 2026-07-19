@@ -35,6 +35,10 @@ test("renders canonical application metadata and beginner guidance", async () =>
   assert.match(html, /New to SOL\? Start with an example\./);
   assert.match(html, /HOLD/);
   assert.match(html, /Observable baseline vs locally replayed candidate/);
+  assert.match(html, /Self-Organizing Logos/);
+  assert.match(html, /Not(?:<!-- -->)? the GPT-5\.6 Sol model name/i);
+  assert.match(html, /href="https:\/\/github\.com\/TechmanStudios\/sol"/);
+  assert.match(html, /href="https:\/\/github\.com\/TechmanStudios\/sol-lens"/);
   assert.doesNotMatch(html, /field-line/);
   assert.match(html, /Observable trace · (?:<!-- -->)?10(?:<!-- -->)? atomic units/);
   assert.match(html, /Observable traces only · no hidden reasoning claims/);

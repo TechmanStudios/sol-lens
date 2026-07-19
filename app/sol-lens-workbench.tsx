@@ -181,6 +181,33 @@ export default function SolLensWorkbench() {
             <i /> Local replay × SOL Engine
           </span>
         </div>
+        <div className="sol-context" aria-label="About SOL and its repositories">
+          <div className="sol-context-copy">
+            <span>
+              <strong>SOL</strong> = Self-Organizing Logos
+            </span>
+            <small>
+              Engine: research foundation · Lens: semantic trace workbench · Not
+              the GPT-5.6 Sol model name
+            </small>
+          </div>
+          <nav className="repo-links" aria-label="Project repositories">
+            <a
+              href="https://github.com/TechmanStudios/sol"
+              target="_blank"
+              rel="noreferrer"
+            >
+              SOL Engine <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              href="https://github.com/TechmanStudios/sol-lens"
+              target="_blank"
+              rel="noreferrer"
+            >
+              SOL Lens repo <span aria-hidden="true">↗</span>
+            </a>
+          </nav>
+        </div>
         <div className="topbar-actions" aria-label="Application status">
           <span className="topbar-mode">
             {source.label} · {packet.schema.split("/").at(-1)}
