@@ -142,4 +142,4 @@ npm run build
 
 ## Build Week status
 
-The packet-driven workbench is live on Render. Before final submission, the project still needs its selected source snapshot pushed, a narrated demo video, the final `/feedback` session ID, and a credentialed GPT-5.6 Responses API validation run.
+The packet-driven workbench is live on Render and its source repository is public. Before final submission, the project still needs final README screenshots, a narrated demo video, the final `/feedback` session ID, and a credentialed GPT-5.6 Responses API validation run.

@@ -31,6 +31,10 @@ test("renders canonical application metadata and beginner guidance", async () =>
   assert.match(html, /property="og:image" content="https:\/\/sol-lens\.onrender\.com\/og\.png"/i);
   assert.doesNotMatch(html, /codex-preview/i);
   assert.match(html, /Explore 7 examples/);
+  assert.match(html, /Suggested judge tour:/);
+  assert.match(html, /Grounded answer/);
+  assert.match(html, /Tool fan-out/);
+  assert.match(html, /Conflicting sources/);
   assert.doesNotMatch(html, /Open packet/);
   assert.doesNotMatch(html, /Paste JSON/);
   assert.match(html, /New to SOL\? Start with an example\./);
