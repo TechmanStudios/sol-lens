@@ -1,0 +1,29 @@
+# OpenAI Build Week submission checklist
+
+## Product
+
+- [x] Working SOL Lens dashboard
+- [x] Meaningful new extension built during the event window
+- [x] GPT-5.5 baseline and GPT-5.6 candidate migration story
+- [x] Replayable proof-packet export
+- [x] Production deployment
+- [ ] Credentialed GPT-5.6 Responses API validation run
+- [ ] Replace or supplement the demo fixture with a captured live trace
+
+## Devpost package
+
+- [ ] Public source repository or public mirror
+- [ ] Final README screenshots and architecture description
+- [ ] Public YouTube demo, no longer than three minutes, with narration
+- [ ] Demonstrate the working product in the video
+- [ ] Explain how Codex and GPT-5.6 were used
+- [ ] Add the final Codex Session ID via the required `/feedback` flow
+- [ ] Recheck all team, eligibility, and submission fields before the deadline
+
+## Suggested three-minute demo
+
+1. **0:00-0:25 — Problem.** Model migrations are usually judged from final-answer vibes, not inspectable semantic evidence.
+2. **0:25-1:15 — Product.** Run the comparison, filter the Logon graph, and inspect the contradiction node.
+3. **1:15-1:55 — SOL court.** Explain evidence, coherence, contradiction, and the deterministic promotion gates.
+4. **1:55-2:25 — Proof.** Download the JSON packet and show that the verdict is replayable from observable fields.
+5. **2:25-3:00 — Build Week extension.** Show the provenance boundary and describe GPT-5.6 plus Codex collaboration.

@@ -1,0 +1,2286 @@
+{
+  "schema": "techman.sol-lens.proof-packet/v0.2",
+  "packet_id": "fixture-exploration-120",
+  "generated_at": "2026-07-19T12:00:00.000Z",
+  "observable_trace_only": true,
+  "models": {
+    "baseline": "fixture-baseline",
+    "candidate": "fixture-candidate"
+  },
+  "logons": [
+    {
+      "id": "N0001",
+      "label": "Observable unit 1",
+      "status": "supported",
+      "evidence": 0.82,
+      "rho": 0.7,
+      "psi": 0.78,
+      "pressure": 0.08,
+      "detail": "Deterministic observable fixture unit 1.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0002",
+      "label": "Observable unit 2",
+      "status": "supported",
+      "evidence": 0.838,
+      "rho": 0.735,
+      "psi": 0.815,
+      "pressure": 0.115,
+      "detail": "Deterministic observable fixture unit 2.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0003",
+      "label": "Observable unit 3",
+      "status": "inferred",
+      "evidence": 0.856,
+      "rho": 0.77,
+      "psi": 0.85,
+      "pressure": 0.15,
+      "detail": "Deterministic observable fixture unit 3.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0004",
+      "label": "Observable unit 4",
+      "status": "supported",
+      "evidence": 0.874,
+      "rho": 0.805,
+      "psi": 0.885,
+      "pressure": 0.185,
+      "detail": "Deterministic observable fixture unit 4.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0005",
+      "label": "Observable unit 5",
+      "status": "supported",
+      "evidence": 0.892,
+      "rho": 0.84,
+      "psi": 0.92,
+      "pressure": 0.22,
+      "detail": "Deterministic observable fixture unit 5.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0006",
+      "label": "Observable unit 6",
+      "status": "supported",
+      "evidence": 0.91,
+      "rho": 0.875,
+      "psi": 0.955,
+      "pressure": 0.255,
+      "detail": "Deterministic observable fixture unit 6.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0007",
+      "label": "Observable unit 7",
+      "status": "inferred",
+      "evidence": 0.928,
+      "rho": 0.91,
+      "psi": 0.78,
+      "pressure": 0.29,
+      "detail": "Deterministic observable fixture unit 7.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0008",
+      "label": "Observable unit 8",
+      "status": "supported",
+      "evidence": 0.946,
+      "rho": 0.7,
+      "psi": 0.815,
+      "pressure": 0.325,
+      "detail": "Deterministic observable fixture unit 8.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0009",
+      "label": "Observable unit 9",
+      "status": "supported",
+      "evidence": 0.964,
+      "rho": 0.735,
+      "psi": 0.85,
+      "pressure": 0.08,
+      "detail": "Deterministic observable fixture unit 9.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0010",
+      "label": "Observable unit 10",
+      "status": "supported",
+      "evidence": 0.82,
+      "rho": 0.77,
+      "psi": 0.885,
+      "pressure": 0.115,
+      "detail": "Deterministic observable fixture unit 10.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0011",
+      "label": "Observable unit 11",
+      "status": "inferred",
+      "evidence": 0.838,
+      "rho": 0.805,
+      "psi": 0.92,
+      "pressure": 0.15,
+      "detail": "Deterministic observable fixture unit 11.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0012",
+      "label": "Observable unit 12",
+      "status": "supported",
+      "evidence": 0.856,
+      "rho": 0.84,
+      "psi": 0.955,
+      "pressure": 0.185,
+      "detail": "Deterministic observable fixture unit 12.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0013",
+      "label": "Observable unit 13",
+      "status": "supported",
+      "evidence": 0.874,
+      "rho": 0.875,
+      "psi": 0.78,
+      "pressure": 0.22,
+      "detail": "Deterministic observable fixture unit 13.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0014",
+      "label": "Observable unit 14",
+      "status": "supported",
+      "evidence": 0.892,
+      "rho": 0.91,
+      "psi": 0.815,
+      "pressure": 0.255,
+      "detail": "Deterministic observable fixture unit 14.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0015",
+      "label": "Observable unit 15",
+      "status": "inferred",
+      "evidence": 0.91,
+      "rho": 0.7,
+      "psi": 0.85,
+      "pressure": 0.29,
+      "detail": "Deterministic observable fixture unit 15.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0016",
+      "label": "Observable unit 16",
+      "status": "supported",
+      "evidence": 0.928,
+      "rho": 0.735,
+      "psi": 0.885,
+      "pressure": 0.325,
+      "detail": "Deterministic observable fixture unit 16.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0017",
+      "label": "Observable unit 17",
+      "status": "supported",
+      "evidence": 0.946,
+      "rho": 0.77,
+      "psi": 0.92,
+      "pressure": 0.08,
+      "detail": "Deterministic observable fixture unit 17.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0018",
+      "label": "Observable unit 18",
+      "status": "supported",
+      "evidence": 0.964,
+      "rho": 0.805,
+      "psi": 0.955,
+      "pressure": 0.115,
+      "detail": "Deterministic observable fixture unit 18.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0019",
+      "label": "Observable unit 19",
+      "status": "inferred",
+      "evidence": 0.82,
+      "rho": 0.84,
+      "psi": 0.78,
+      "pressure": 0.15,
+      "detail": "Deterministic observable fixture unit 19.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0020",
+      "label": "Observable unit 20",
+      "status": "supported",
+      "evidence": 0.838,
+      "rho": 0.875,
+      "psi": 0.815,
+      "pressure": 0.185,
+      "detail": "Deterministic observable fixture unit 20.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0021",
+      "label": "Observable unit 21",
+      "status": "supported",
+      "evidence": 0.856,
+      "rho": 0.91,
+      "psi": 0.85,
+      "pressure": 0.22,
+      "detail": "Deterministic observable fixture unit 21.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0022",
+      "label": "Observable unit 22",
+      "status": "supported",
+      "evidence": 0.874,
+      "rho": 0.7,
+      "psi": 0.885,
+      "pressure": 0.255,
+      "detail": "Deterministic observable fixture unit 22.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0023",
+      "label": "Observable unit 23",
+      "status": "inferred",
+      "evidence": 0.892,
+      "rho": 0.735,
+      "psi": 0.92,
+      "pressure": 0.29,
+      "detail": "Deterministic observable fixture unit 23.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0024",
+      "label": "Observable unit 24",
+      "status": "supported",
+      "evidence": 0.91,
+      "rho": 0.77,
+      "psi": 0.955,
+      "pressure": 0.325,
+      "detail": "Deterministic observable fixture unit 24.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0025",
+      "label": "Observable unit 25",
+      "status": "supported",
+      "evidence": 0.928,
+      "rho": 0.805,
+      "psi": 0.78,
+      "pressure": 0.08,
+      "detail": "Deterministic observable fixture unit 25.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0026",
+      "label": "Observable unit 26",
+      "status": "supported",
+      "evidence": 0.946,
+      "rho": 0.84,
+      "psi": 0.815,
+      "pressure": 0.115,
+      "detail": "Deterministic observable fixture unit 26.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0027",
+      "label": "Observable unit 27",
+      "status": "inferred",
+      "evidence": 0.964,
+      "rho": 0.875,
+      "psi": 0.85,
+      "pressure": 0.15,
+      "detail": "Deterministic observable fixture unit 27.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0028",
+      "label": "Observable unit 28",
+      "status": "supported",
+      "evidence": 0.82,
+      "rho": 0.91,
+      "psi": 0.885,
+      "pressure": 0.185,
+      "detail": "Deterministic observable fixture unit 28.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0029",
+      "label": "Observable unit 29",
+      "status": "supported",
+      "evidence": 0.838,
+      "rho": 0.7,
+      "psi": 0.92,
+      "pressure": 0.22,
+      "detail": "Deterministic observable fixture unit 29.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0030",
+      "label": "Observable unit 30",
+      "status": "contradiction",
+      "evidence": 0.856,
+      "rho": 0.735,
+      "psi": 0.955,
+      "pressure": 0.72,
+      "detail": "Deterministic observable fixture unit 30.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0031",
+      "label": "Observable unit 31",
+      "status": "inferred",
+      "evidence": 0.874,
+      "rho": 0.77,
+      "psi": 0.78,
+      "pressure": 0.29,
+      "detail": "Deterministic observable fixture unit 31.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0032",
+      "label": "Observable unit 32",
+      "status": "supported",
+      "evidence": 0.892,
+      "rho": 0.805,
+      "psi": 0.815,
+      "pressure": 0.325,
+      "detail": "Deterministic observable fixture unit 32.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0033",
+      "label": "Observable unit 33",
+      "status": "supported",
+      "evidence": 0.91,
+      "rho": 0.84,
+      "psi": 0.85,
+      "pressure": 0.08,
+      "detail": "Deterministic observable fixture unit 33.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0034",
+      "label": "Observable unit 34",
+      "status": "supported",
+      "evidence": 0.928,
+      "rho": 0.875,
+      "psi": 0.885,
+      "pressure": 0.115,
+      "detail": "Deterministic observable fixture unit 34.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0035",
+      "label": "Observable unit 35",
+      "status": "inferred",
+      "evidence": 0.946,
+      "rho": 0.91,
+      "psi": 0.92,
+      "pressure": 0.15,
+      "detail": "Deterministic observable fixture unit 35.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0036",
+      "label": "Observable unit 36",
+      "status": "supported",
+      "evidence": 0.964,
+      "rho": 0.7,
+      "psi": 0.955,
+      "pressure": 0.185,
+      "detail": "Deterministic observable fixture unit 36.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0037",
+      "label": "Observable unit 37",
+      "status": "supported",
+      "evidence": 0.82,
+      "rho": 0.735,
+      "psi": 0.78,
+      "pressure": 0.22,
+      "detail": "Deterministic observable fixture unit 37.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0038",
+      "label": "Observable unit 38",
+      "status": "supported",
+      "evidence": 0.838,
+      "rho": 0.77,
+      "psi": 0.815,
+      "pressure": 0.255,
+      "detail": "Deterministic observable fixture unit 38.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0039",
+      "label": "Observable unit 39",
+      "status": "inferred",
+      "evidence": 0.856,
+      "rho": 0.805,
+      "psi": 0.85,
+      "pressure": 0.29,
+      "detail": "Deterministic observable fixture unit 39.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0040",
+      "label": "Observable unit 40",
+      "status": "supported",
+      "evidence": 0.874,
+      "rho": 0.84,
+      "psi": 0.885,
+      "pressure": 0.325,
+      "detail": "Deterministic observable fixture unit 40.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0041",
+      "label": "Observable unit 41",
+      "status": "supported",
+      "evidence": 0.892,
+      "rho": 0.875,
+      "psi": 0.92,
+      "pressure": 0.08,
+      "detail": "Deterministic observable fixture unit 41.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0042",
+      "label": "Observable unit 42",
+      "status": "supported",
+      "evidence": 0.91,
+      "rho": 0.91,
+      "psi": 0.955,
+      "pressure": 0.115,
+      "detail": "Deterministic observable fixture unit 42.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0043",
+      "label": "Observable unit 43",
+      "status": "inferred",
+      "evidence": 0.928,
+      "rho": 0.7,
+      "psi": 0.78,
+      "pressure": 0.15,
+      "detail": "Deterministic observable fixture unit 43.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0044",
+      "label": "Observable unit 44",
+      "status": "supported",
+      "evidence": 0.946,
+      "rho": 0.735,
+      "psi": 0.815,
+      "pressure": 0.185,
+      "detail": "Deterministic observable fixture unit 44.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0045",
+      "label": "Observable unit 45",
+      "status": "supported",
+      "evidence": 0.964,
+      "rho": 0.77,
+      "psi": 0.85,
+      "pressure": 0.22,
+      "detail": "Deterministic observable fixture unit 45.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0046",
+      "label": "Observable unit 46",
+      "status": "supported",
+      "evidence": 0.82,
+      "rho": 0.805,
+      "psi": 0.885,
+      "pressure": 0.255,
+      "detail": "Deterministic observable fixture unit 46.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0047",
+      "label": "Observable unit 47",
+      "status": "inferred",
+      "evidence": 0.838,
+      "rho": 0.84,
+      "psi": 0.92,
+      "pressure": 0.29,
+      "detail": "Deterministic observable fixture unit 47.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0048",
+      "label": "Observable unit 48",
+      "status": "supported",
+      "evidence": 0.856,
+      "rho": 0.875,
+      "psi": 0.955,
+      "pressure": 0.325,
+      "detail": "Deterministic observable fixture unit 48.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0049",
+      "label": "Observable unit 49",
+      "status": "supported",
+      "evidence": 0.874,
+      "rho": 0.91,
+      "psi": 0.78,
+      "pressure": 0.08,
+      "detail": "Deterministic observable fixture unit 49.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0050",
+      "label": "Observable unit 50",
+      "status": "supported",
+      "evidence": 0.892,
+      "rho": 0.7,
+      "psi": 0.815,
+      "pressure": 0.115,
+      "detail": "Deterministic observable fixture unit 50.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0051",
+      "label": "Observable unit 51",
+      "status": "inferred",
+      "evidence": 0.91,
+      "rho": 0.735,
+      "psi": 0.85,
+      "pressure": 0.15,
+      "detail": "Deterministic observable fixture unit 51.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0052",
+      "label": "Observable unit 52",
+      "status": "supported",
+      "evidence": 0.928,
+      "rho": 0.77,
+      "psi": 0.885,
+      "pressure": 0.185,
+      "detail": "Deterministic observable fixture unit 52.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0053",
+      "label": "Observable unit 53",
+      "status": "supported",
+      "evidence": 0.946,
+      "rho": 0.805,
+      "psi": 0.92,
+      "pressure": 0.22,
+      "detail": "Deterministic observable fixture unit 53.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0054",
+      "label": "Observable unit 54",
+      "status": "supported",
+      "evidence": 0.964,
+      "rho": 0.84,
+      "psi": 0.955,
+      "pressure": 0.255,
+      "detail": "Deterministic observable fixture unit 54.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0055",
+      "label": "Observable unit 55",
+      "status": "inferred",
+      "evidence": 0.82,
+      "rho": 0.875,
+      "psi": 0.78,
+      "pressure": 0.29,
+      "detail": "Deterministic observable fixture unit 55.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0056",
+      "label": "Observable unit 56",
+      "status": "supported",
+      "evidence": 0.838,
+      "rho": 0.91,
+      "psi": 0.815,
+      "pressure": 0.325,
+      "detail": "Deterministic observable fixture unit 56.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0057",
+      "label": "Observable unit 57",
+      "status": "supported",
+      "evidence": 0.856,
+      "rho": 0.7,
+      "psi": 0.85,
+      "pressure": 0.08,
+      "detail": "Deterministic observable fixture unit 57.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0058",
+      "label": "Observable unit 58",
+      "status": "supported",
+      "evidence": 0.874,
+      "rho": 0.735,
+      "psi": 0.885,
+      "pressure": 0.115,
+      "detail": "Deterministic observable fixture unit 58.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0059",
+      "label": "Observable unit 59",
+      "status": "contradiction",
+      "evidence": 0.892,
+      "rho": 0.77,
+      "psi": 0.92,
+      "pressure": 0.72,
+      "detail": "Deterministic observable fixture unit 59.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0060",
+      "label": "Observable unit 60",
+      "status": "supported",
+      "evidence": 0.91,
+      "rho": 0.805,
+      "psi": 0.955,
+      "pressure": 0.185,
+      "detail": "Deterministic observable fixture unit 60.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0061",
+      "label": "Observable unit 61",
+      "status": "supported",
+      "evidence": 0.928,
+      "rho": 0.84,
+      "psi": 0.78,
+      "pressure": 0.22,
+      "detail": "Deterministic observable fixture unit 61.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0062",
+      "label": "Observable unit 62",
+      "status": "supported",
+      "evidence": 0.946,
+      "rho": 0.875,
+      "psi": 0.815,
+      "pressure": 0.255,
+      "detail": "Deterministic observable fixture unit 62.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0063",
+      "label": "Observable unit 63",
+      "status": "inferred",
+      "evidence": 0.964,
+      "rho": 0.91,
+      "psi": 0.85,
+      "pressure": 0.29,
+      "detail": "Deterministic observable fixture unit 63.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0064",
+      "label": "Observable unit 64",
+      "status": "supported",
+      "evidence": 0.82,
+      "rho": 0.7,
+      "psi": 0.885,
+      "pressure": 0.325,
+      "detail": "Deterministic observable fixture unit 64.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0065",
+      "label": "Observable unit 65",
+      "status": "supported",
+      "evidence": 0.838,
+      "rho": 0.735,
+      "psi": 0.92,
+      "pressure": 0.08,
+      "detail": "Deterministic observable fixture unit 65.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0066",
+      "label": "Observable unit 66",
+      "status": "supported",
+      "evidence": 0.856,
+      "rho": 0.77,
+      "psi": 0.955,
+      "pressure": 0.115,
+      "detail": "Deterministic observable fixture unit 66.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0067",
+      "label": "Observable unit 67",
+      "status": "inferred",
+      "evidence": 0.874,
+      "rho": 0.805,
+      "psi": 0.78,
+      "pressure": 0.15,
+      "detail": "Deterministic observable fixture unit 67.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0068",
+      "label": "Observable unit 68",
+      "status": "supported",
+      "evidence": 0.892,
+      "rho": 0.84,
+      "psi": 0.815,
+      "pressure": 0.185,
+      "detail": "Deterministic observable fixture unit 68.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0069",
+      "label": "Observable unit 69",
+      "status": "supported",
+      "evidence": 0.91,
+      "rho": 0.875,
+      "psi": 0.85,
+      "pressure": 0.22,
+      "detail": "Deterministic observable fixture unit 69.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0070",
+      "label": "Observable unit 70",
+      "status": "supported",
+      "evidence": 0.928,
+      "rho": 0.91,
+      "psi": 0.885,
+      "pressure": 0.255,
+      "detail": "Deterministic observable fixture unit 70.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0071",
+      "label": "Observable unit 71",
+      "status": "inferred",
+      "evidence": 0.946,
+      "rho": 0.7,
+      "psi": 0.92,
+      "pressure": 0.29,
+      "detail": "Deterministic observable fixture unit 71.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0072",
+      "label": "Observable unit 72",
+      "status": "supported",
+      "evidence": 0.964,
+      "rho": 0.735,
+      "psi": 0.955,
+      "pressure": 0.325,
+      "detail": "Deterministic observable fixture unit 72.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0073",
+      "label": "Observable unit 73",
+      "status": "supported",
+      "evidence": 0.82,
+      "rho": 0.77,
+      "psi": 0.78,
+      "pressure": 0.08,
+      "detail": "Deterministic observable fixture unit 73.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0074",
+      "label": "Observable unit 74",
+      "status": "supported",
+      "evidence": 0.838,
+      "rho": 0.805,
+      "psi": 0.815,
+      "pressure": 0.115,
+      "detail": "Deterministic observable fixture unit 74.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0075",
+      "label": "Observable unit 75",
+      "status": "inferred",
+      "evidence": 0.856,
+      "rho": 0.84,
+      "psi": 0.85,
+      "pressure": 0.15,
+      "detail": "Deterministic observable fixture unit 75.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0076",
+      "label": "Observable unit 76",
+      "status": "supported",
+      "evidence": 0.874,
+      "rho": 0.875,
+      "psi": 0.885,
+      "pressure": 0.185,
+      "detail": "Deterministic observable fixture unit 76.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0077",
+      "label": "Observable unit 77",
+      "status": "supported",
+      "evidence": 0.892,
+      "rho": 0.91,
+      "psi": 0.92,
+      "pressure": 0.22,
+      "detail": "Deterministic observable fixture unit 77.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0078",
+      "label": "Observable unit 78",
+      "status": "supported",
+      "evidence": 0.91,
+      "rho": 0.7,
+      "psi": 0.955,
+      "pressure": 0.255,
+      "detail": "Deterministic observable fixture unit 78.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0079",
+      "label": "Observable unit 79",
+      "status": "inferred",
+      "evidence": 0.928,
+      "rho": 0.735,
+      "psi": 0.78,
+      "pressure": 0.29,
+      "detail": "Deterministic observable fixture unit 79.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0080",
+      "label": "Observable unit 80",
+      "status": "supported",
+      "evidence": 0.946,
+      "rho": 0.77,
+      "psi": 0.815,
+      "pressure": 0.325,
+      "detail": "Deterministic observable fixture unit 80.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0081",
+      "label": "Observable unit 81",
+      "status": "supported",
+      "evidence": 0.964,
+      "rho": 0.805,
+      "psi": 0.85,
+      "pressure": 0.08,
+      "detail": "Deterministic observable fixture unit 81.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0082",
+      "label": "Observable unit 82",
+      "status": "supported",
+      "evidence": 0.82,
+      "rho": 0.84,
+      "psi": 0.885,
+      "pressure": 0.115,
+      "detail": "Deterministic observable fixture unit 82.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0083",
+      "label": "Observable unit 83",
+      "status": "inferred",
+      "evidence": 0.838,
+      "rho": 0.875,
+      "psi": 0.92,
+      "pressure": 0.15,
+      "detail": "Deterministic observable fixture unit 83.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0084",
+      "label": "Observable unit 84",
+      "status": "supported",
+      "evidence": 0.856,
+      "rho": 0.91,
+      "psi": 0.955,
+      "pressure": 0.185,
+      "detail": "Deterministic observable fixture unit 84.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0085",
+      "label": "Observable unit 85",
+      "status": "supported",
+      "evidence": 0.874,
+      "rho": 0.7,
+      "psi": 0.78,
+      "pressure": 0.22,
+      "detail": "Deterministic observable fixture unit 85.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0086",
+      "label": "Observable unit 86",
+      "status": "supported",
+      "evidence": 0.892,
+      "rho": 0.735,
+      "psi": 0.815,
+      "pressure": 0.255,
+      "detail": "Deterministic observable fixture unit 86.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0087",
+      "label": "Observable unit 87",
+      "status": "inferred",
+      "evidence": 0.91,
+      "rho": 0.77,
+      "psi": 0.85,
+      "pressure": 0.29,
+      "detail": "Deterministic observable fixture unit 87.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0088",
+      "label": "Observable unit 88",
+      "status": "contradiction",
+      "evidence": 0.928,
+      "rho": 0.805,
+      "psi": 0.885,
+      "pressure": 0.72,
+      "detail": "Deterministic observable fixture unit 88.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0089",
+      "label": "Observable unit 89",
+      "status": "supported",
+      "evidence": 0.946,
+      "rho": 0.84,
+      "psi": 0.92,
+      "pressure": 0.08,
+      "detail": "Deterministic observable fixture unit 89.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0090",
+      "label": "Observable unit 90",
+      "status": "supported",
+      "evidence": 0.964,
+      "rho": 0.875,
+      "psi": 0.955,
+      "pressure": 0.115,
+      "detail": "Deterministic observable fixture unit 90.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0091",
+      "label": "Observable unit 91",
+      "status": "inferred",
+      "evidence": 0.82,
+      "rho": 0.91,
+      "psi": 0.78,
+      "pressure": 0.15,
+      "detail": "Deterministic observable fixture unit 91.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0092",
+      "label": "Observable unit 92",
+      "status": "supported",
+      "evidence": 0.838,
+      "rho": 0.7,
+      "psi": 0.815,
+      "pressure": 0.185,
+      "detail": "Deterministic observable fixture unit 92.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0093",
+      "label": "Observable unit 93",
+      "status": "supported",
+      "evidence": 0.856,
+      "rho": 0.735,
+      "psi": 0.85,
+      "pressure": 0.22,
+      "detail": "Deterministic observable fixture unit 93.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0094",
+      "label": "Observable unit 94",
+      "status": "supported",
+      "evidence": 0.874,
+      "rho": 0.77,
+      "psi": 0.885,
+      "pressure": 0.255,
+      "detail": "Deterministic observable fixture unit 94.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0095",
+      "label": "Observable unit 95",
+      "status": "inferred",
+      "evidence": 0.892,
+      "rho": 0.805,
+      "psi": 0.92,
+      "pressure": 0.29,
+      "detail": "Deterministic observable fixture unit 95.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0096",
+      "label": "Observable unit 96",
+      "status": "supported",
+      "evidence": 0.91,
+      "rho": 0.84,
+      "psi": 0.955,
+      "pressure": 0.325,
+      "detail": "Deterministic observable fixture unit 96.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0097",
+      "label": "Observable unit 97",
+      "status": "supported",
+      "evidence": 0.928,
+      "rho": 0.875,
+      "psi": 0.78,
+      "pressure": 0.08,
+      "detail": "Deterministic observable fixture unit 97.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0098",
+      "label": "Observable unit 98",
+      "status": "supported",
+      "evidence": 0.946,
+      "rho": 0.91,
+      "psi": 0.815,
+      "pressure": 0.115,
+      "detail": "Deterministic observable fixture unit 98.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0099",
+      "label": "Observable unit 99",
+      "status": "inferred",
+      "evidence": 0.964,
+      "rho": 0.7,
+      "psi": 0.85,
+      "pressure": 0.15,
+      "detail": "Deterministic observable fixture unit 99.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0100",
+      "label": "Observable unit 100",
+      "status": "supported",
+      "evidence": 0.82,
+      "rho": 0.735,
+      "psi": 0.885,
+      "pressure": 0.185,
+      "detail": "Deterministic observable fixture unit 100.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0101",
+      "label": "Observable unit 101",
+      "status": "supported",
+      "evidence": 0.838,
+      "rho": 0.77,
+      "psi": 0.92,
+      "pressure": 0.22,
+      "detail": "Deterministic observable fixture unit 101.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0102",
+      "label": "Observable unit 102",
+      "status": "supported",
+      "evidence": 0.856,
+      "rho": 0.805,
+      "psi": 0.955,
+      "pressure": 0.255,
+      "detail": "Deterministic observable fixture unit 102.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0103",
+      "label": "Observable unit 103",
+      "status": "inferred",
+      "evidence": 0.874,
+      "rho": 0.84,
+      "psi": 0.78,
+      "pressure": 0.29,
+      "detail": "Deterministic observable fixture unit 103.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0104",
+      "label": "Observable unit 104",
+      "status": "supported",
+      "evidence": 0.892,
+      "rho": 0.875,
+      "psi": 0.815,
+      "pressure": 0.325,
+      "detail": "Deterministic observable fixture unit 104.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0105",
+      "label": "Observable unit 105",
+      "status": "supported",
+      "evidence": 0.91,
+      "rho": 0.91,
+      "psi": 0.85,
+      "pressure": 0.08,
+      "detail": "Deterministic observable fixture unit 105.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0106",
+      "label": "Observable unit 106",
+      "status": "supported",
+      "evidence": 0.928,
+      "rho": 0.7,
+      "psi": 0.885,
+      "pressure": 0.115,
+      "detail": "Deterministic observable fixture unit 106.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0107",
+      "label": "Observable unit 107",
+      "status": "inferred",
+      "evidence": 0.946,
+      "rho": 0.735,
+      "psi": 0.92,
+      "pressure": 0.15,
+      "detail": "Deterministic observable fixture unit 107.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0108",
+      "label": "Observable unit 108",
+      "status": "supported",
+      "evidence": 0.964,
+      "rho": 0.77,
+      "psi": 0.955,
+      "pressure": 0.185,
+      "detail": "Deterministic observable fixture unit 108.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0109",
+      "label": "Observable unit 109",
+      "status": "supported",
+      "evidence": 0.82,
+      "rho": 0.805,
+      "psi": 0.78,
+      "pressure": 0.22,
+      "detail": "Deterministic observable fixture unit 109.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0110",
+      "label": "Observable unit 110",
+      "status": "supported",
+      "evidence": 0.838,
+      "rho": 0.84,
+      "psi": 0.815,
+      "pressure": 0.255,
+      "detail": "Deterministic observable fixture unit 110.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0111",
+      "label": "Observable unit 111",
+      "status": "inferred",
+      "evidence": 0.856,
+      "rho": 0.875,
+      "psi": 0.85,
+      "pressure": 0.29,
+      "detail": "Deterministic observable fixture unit 111.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0112",
+      "label": "Observable unit 112",
+      "status": "supported",
+      "evidence": 0.874,
+      "rho": 0.91,
+      "psi": 0.885,
+      "pressure": 0.325,
+      "detail": "Deterministic observable fixture unit 112.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0113",
+      "label": "Observable unit 113",
+      "status": "supported",
+      "evidence": 0.892,
+      "rho": 0.7,
+      "psi": 0.92,
+      "pressure": 0.08,
+      "detail": "Deterministic observable fixture unit 113.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0114",
+      "label": "Observable unit 114",
+      "status": "supported",
+      "evidence": 0.91,
+      "rho": 0.735,
+      "psi": 0.955,
+      "pressure": 0.115,
+      "detail": "Deterministic observable fixture unit 114.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0115",
+      "label": "Observable unit 115",
+      "status": "inferred",
+      "evidence": 0.928,
+      "rho": 0.77,
+      "psi": 0.78,
+      "pressure": 0.15,
+      "detail": "Deterministic observable fixture unit 115.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0116",
+      "label": "Observable unit 116",
+      "status": "supported",
+      "evidence": 0.946,
+      "rho": 0.805,
+      "psi": 0.815,
+      "pressure": 0.185,
+      "detail": "Deterministic observable fixture unit 116.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0117",
+      "label": "Observable unit 117",
+      "status": "contradiction",
+      "evidence": 0.964,
+      "rho": 0.84,
+      "psi": 0.85,
+      "pressure": 0.72,
+      "detail": "Deterministic observable fixture unit 117.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0118",
+      "label": "Observable unit 118",
+      "status": "supported",
+      "evidence": 0.82,
+      "rho": 0.875,
+      "psi": 0.885,
+      "pressure": 0.255,
+      "detail": "Deterministic observable fixture unit 118.",
+      "source": "Tool event"
+    },
+    {
+      "id": "N0119",
+      "label": "Observable unit 119",
+      "status": "inferred",
+      "evidence": 0.838,
+      "rho": 0.91,
+      "psi": 0.92,
+      "pressure": 0.29,
+      "detail": "Deterministic observable fixture unit 119.",
+      "source": "Trace event"
+    },
+    {
+      "id": "N0120",
+      "label": "Observable unit 120",
+      "status": "supported",
+      "evidence": 0.856,
+      "rho": 0.7,
+      "psi": 0.955,
+      "pressure": 0.325,
+      "detail": "Deterministic observable fixture unit 120.",
+      "source": "Trace event"
+    }
+  ],
+  "edges": [
+    {
+      "id": "E00001",
+      "from": "N0001",
+      "to": "N0002",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00002",
+      "from": "N0001",
+      "to": "N0003",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00003",
+      "from": "N0001",
+      "to": "N0004",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00004",
+      "from": "N0001",
+      "to": "N0005",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00005",
+      "from": "N0001",
+      "to": "N0006",
+      "status": "supported",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00006",
+      "from": "N0001",
+      "to": "N0007",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00007",
+      "from": "N0002",
+      "to": "N0008",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00008",
+      "from": "N0003",
+      "to": "N0009",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00009",
+      "from": "N0004",
+      "to": "N0010",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00010",
+      "from": "N0005",
+      "to": "N0011",
+      "status": "inferred",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00011",
+      "from": "N0006",
+      "to": "N0012",
+      "status": "supported",
+      "kind": "flow",
+      "active": true
+    },
+    {
+      "id": "E00012",
+      "from": "N0007",
+      "to": "N0013",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00013",
+      "from": "N0008",
+      "to": "N0014",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00014",
+      "from": "N0009",
+      "to": "N0015",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00015",
+      "from": "N0010",
+      "to": "N0016",
+      "status": "supported",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00016",
+      "from": "N0011",
+      "to": "N0017",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00017",
+      "from": "N0012",
+      "to": "N0018",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00018",
+      "from": "N0013",
+      "to": "N0019",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00019",
+      "from": "N0014",
+      "to": "N0020",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00020",
+      "from": "N0015",
+      "to": "N0021",
+      "status": "supported",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00021",
+      "from": "N0016",
+      "to": "N0022",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00022",
+      "from": "N0017",
+      "to": "N0023",
+      "status": "inferred",
+      "kind": "flow",
+      "active": true
+    },
+    {
+      "id": "E00023",
+      "from": "N0018",
+      "to": "N0024",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00024",
+      "from": "N0019",
+      "to": "N0025",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00025",
+      "from": "N0020",
+      "to": "N0026",
+      "status": "supported",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00026",
+      "from": "N0021",
+      "to": "N0027",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00027",
+      "from": "N0022",
+      "to": "N0028",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00028",
+      "from": "N0023",
+      "to": "N0029",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00029",
+      "from": "N0024",
+      "to": "N0030",
+      "status": "contradiction",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00030",
+      "from": "N0025",
+      "to": "N0031",
+      "status": "inferred",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00031",
+      "from": "N0026",
+      "to": "N0032",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00032",
+      "from": "N0027",
+      "to": "N0033",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00033",
+      "from": "N0028",
+      "to": "N0034",
+      "status": "supported",
+      "kind": "flow",
+      "active": true
+    },
+    {
+      "id": "E00034",
+      "from": "N0029",
+      "to": "N0035",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00035",
+      "from": "N0030",
+      "to": "N0036",
+      "status": "supported",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00036",
+      "from": "N0031",
+      "to": "N0037",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00037",
+      "from": "N0032",
+      "to": "N0038",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00038",
+      "from": "N0033",
+      "to": "N0039",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00039",
+      "from": "N0034",
+      "to": "N0040",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00040",
+      "from": "N0035",
+      "to": "N0041",
+      "status": "supported",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00041",
+      "from": "N0036",
+      "to": "N0042",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00042",
+      "from": "N0037",
+      "to": "N0043",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00043",
+      "from": "N0038",
+      "to": "N0044",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00044",
+      "from": "N0039",
+      "to": "N0045",
+      "status": "supported",
+      "kind": "flow",
+      "active": true
+    },
+    {
+      "id": "E00045",
+      "from": "N0040",
+      "to": "N0046",
+      "status": "supported",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00046",
+      "from": "N0041",
+      "to": "N0047",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00047",
+      "from": "N0042",
+      "to": "N0048",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00048",
+      "from": "N0043",
+      "to": "N0049",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00049",
+      "from": "N0044",
+      "to": "N0050",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00050",
+      "from": "N0045",
+      "to": "N0051",
+      "status": "inferred",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00051",
+      "from": "N0046",
+      "to": "N0052",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00052",
+      "from": "N0047",
+      "to": "N0053",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00053",
+      "from": "N0048",
+      "to": "N0054",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00054",
+      "from": "N0049",
+      "to": "N0055",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00055",
+      "from": "N0050",
+      "to": "N0056",
+      "status": "supported",
+      "kind": "evidence",
+      "active": true
+    },
+    {
+      "id": "E00056",
+      "from": "N0051",
+      "to": "N0057",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00057",
+      "from": "N0052",
+      "to": "N0058",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00058",
+      "from": "N0053",
+      "to": "N0059",
+      "status": "contradiction",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00059",
+      "from": "N0054",
+      "to": "N0060",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00060",
+      "from": "N0055",
+      "to": "N0061",
+      "status": "supported",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00061",
+      "from": "N0056",
+      "to": "N0062",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00062",
+      "from": "N0057",
+      "to": "N0063",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00063",
+      "from": "N0058",
+      "to": "N0064",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00064",
+      "from": "N0059",
+      "to": "N0065",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00065",
+      "from": "N0060",
+      "to": "N0066",
+      "status": "supported",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00066",
+      "from": "N0061",
+      "to": "N0067",
+      "status": "inferred",
+      "kind": "flow",
+      "active": true
+    },
+    {
+      "id": "E00067",
+      "from": "N0062",
+      "to": "N0068",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00068",
+      "from": "N0063",
+      "to": "N0069",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00069",
+      "from": "N0064",
+      "to": "N0070",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00070",
+      "from": "N0065",
+      "to": "N0071",
+      "status": "inferred",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00071",
+      "from": "N0066",
+      "to": "N0072",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00072",
+      "from": "N0067",
+      "to": "N0073",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00073",
+      "from": "N0068",
+      "to": "N0074",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00074",
+      "from": "N0069",
+      "to": "N0075",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00075",
+      "from": "N0070",
+      "to": "N0076",
+      "status": "supported",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00076",
+      "from": "N0071",
+      "to": "N0077",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00077",
+      "from": "N0072",
+      "to": "N0078",
+      "status": "supported",
+      "kind": "flow",
+      "active": true
+    },
+    {
+      "id": "E00078",
+      "from": "N0073",
+      "to": "N0079",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00079",
+      "from": "N0074",
+      "to": "N0080",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00080",
+      "from": "N0075",
+      "to": "N0081",
+      "status": "supported",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00081",
+      "from": "N0076",
+      "to": "N0082",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00082",
+      "from": "N0077",
+      "to": "N0083",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00083",
+      "from": "N0078",
+      "to": "N0084",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00084",
+      "from": "N0079",
+      "to": "N0085",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00085",
+      "from": "N0080",
+      "to": "N0086",
+      "status": "supported",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00086",
+      "from": "N0081",
+      "to": "N0087",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00087",
+      "from": "N0082",
+      "to": "N0088",
+      "status": "contradiction",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00088",
+      "from": "N0083",
+      "to": "N0089",
+      "status": "supported",
+      "kind": "flow",
+      "active": true
+    },
+    {
+      "id": "E00089",
+      "from": "N0084",
+      "to": "N0090",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00090",
+      "from": "N0085",
+      "to": "N0091",
+      "status": "inferred",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00091",
+      "from": "N0086",
+      "to": "N0092",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00092",
+      "from": "N0087",
+      "to": "N0093",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00093",
+      "from": "N0088",
+      "to": "N0094",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00094",
+      "from": "N0089",
+      "to": "N0095",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00095",
+      "from": "N0090",
+      "to": "N0096",
+      "status": "supported",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00096",
+      "from": "N0091",
+      "to": "N0097",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00097",
+      "from": "N0092",
+      "to": "N0098",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00098",
+      "from": "N0093",
+      "to": "N0099",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00099",
+      "from": "N0094",
+      "to": "N0100",
+      "status": "supported",
+      "kind": "flow",
+      "active": true
+    },
+    {
+      "id": "E00100",
+      "from": "N0095",
+      "to": "N0101",
+      "status": "supported",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00101",
+      "from": "N0096",
+      "to": "N0102",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00102",
+      "from": "N0097",
+      "to": "N0103",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00103",
+      "from": "N0098",
+      "to": "N0104",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00104",
+      "from": "N0099",
+      "to": "N0105",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00105",
+      "from": "N0100",
+      "to": "N0106",
+      "status": "supported",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00106",
+      "from": "N0101",
+      "to": "N0107",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00107",
+      "from": "N0102",
+      "to": "N0108",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00108",
+      "from": "N0103",
+      "to": "N0109",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00109",
+      "from": "N0104",
+      "to": "N0110",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00110",
+      "from": "N0105",
+      "to": "N0111",
+      "status": "inferred",
+      "kind": "evidence",
+      "active": true
+    },
+    {
+      "id": "E00111",
+      "from": "N0106",
+      "to": "N0112",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00112",
+      "from": "N0107",
+      "to": "N0113",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00113",
+      "from": "N0108",
+      "to": "N0114",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00114",
+      "from": "N0109",
+      "to": "N0115",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00115",
+      "from": "N0110",
+      "to": "N0116",
+      "status": "supported",
+      "kind": "evidence",
+      "active": false
+    },
+    {
+      "id": "E00116",
+      "from": "N0111",
+      "to": "N0117",
+      "status": "contradiction",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00117",
+      "from": "N0112",
+      "to": "N0118",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00118",
+      "from": "N0113",
+      "to": "N0119",
+      "status": "inferred",
+      "kind": "flow",
+      "active": false
+    },
+    {
+      "id": "E00119",
+      "from": "N0114",
+      "to": "N0120",
+      "status": "supported",
+      "kind": "flow",
+      "active": false
+    }
+  ]
+}
