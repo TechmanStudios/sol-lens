@@ -50,4 +50,8 @@ test("renders canonical application metadata and beginner guidance", async () =>
   assert.doesNotMatch(html, /field-line/);
   assert.match(html, /Observable trace · (?:<!-- -->)?10(?:<!-- -->)? atomic units/);
   assert.match(html, /Observable traces only · no hidden reasoning claims/);
+  assert.match(html, /Trace Court/);
+  assert.match(html, /Manifold Replay/);
+  assert.match(html, /Experimental/i);
+  assert.match(html, /Replay does not modify this verdict/);
 });

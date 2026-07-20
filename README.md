@@ -51,6 +51,7 @@ These are deterministic teaching fixtures, not live model captures. They use the
 - per-Logon evidence density (`rho`), semantic pressure (`p`), and governance alignment (`psi`)
 - aggregate evidence, coherence, and contradiction scoring
 - deterministic **PROMOTE / HOLD / QUARANTINE** court
+- optional deterministic Manifold Replay telemetry with dynamic density, pressure, conductance, flux, and damping
 - claimed-versus-recomputed evaluation comparison
 - downloadable v0.2 JSON proof packet with typed edges
 - accessible keyboard interaction and responsive dashboard layout
@@ -98,6 +99,17 @@ This is a versioned Build Week demonstration profile, not a claim that one unive
 
 SOL Lens never invents the baseline. Every built-in teaching packet includes a checked-in observable baseline summary, so the interface can show evidence-based comparison deltas rather than decorative or inferred numbers.
 
+## Optional Manifold Replay
+
+SOL Lens does not run the complete research SOL Engine. Its optional **Manifold Replay** tab runs a deliberately small, deterministic graph-dynamics profile for visualization and inspection. It uses only observable packet fields, remains browser-local, and keeps its dynamic state separate from the packet. The Trace Court remains a separate static evaluation path and its verdict is never changed by replay telemetry.
+
+The product distinction is intentional:
+
+- **Trace Court:** What does the observable trace prove?
+- **Manifold Replay:** How might semantic activity propagate through the observable graph?
+
+See [MANIFOLD-REPLAY.md](./docs/MANIFOLD-REPLAY.md) for the equations, default parameters, fixed-timestep behavior, provenance boundaries, and limitations.
+
 ## Testing and experimental discipline
 
 SOL Lens has its own deterministic Node test suite. It checks schema failures, v0.1 migration, stable edge IDs, scoring, feedback cycles, scale thresholds, grouping, claimed evaluation mismatches, seven example-packet replay round trips, rendered application copy, and complete export/replay.
@@ -111,13 +123,26 @@ flowchart TD
   A[Curated built-in SOL packet] --> B[Validate and normalize the packet contract]
   A --> J[Optional observable baseline summary]
   B --> C[Canonical Logons and typed edges]
-  C --> D[Deterministic cycle-aware layout]
-  C --> E[Browser-local scoring profile]
-  D --> F[Detail, exploration, or grouped overview]
-  E --> G[Promotion court]
+  C --> D[Deterministic Trace Court]
+  C --> M[Optional Manifold Replay]
+  D --> E[Browser-local scoring profile]
+  E --> G[Promotion verdict]
+  M --> N[Dynamic replay telemetry]
+  C --> L[Deterministic cycle-aware layout]
+  L --> F[Detail, exploration, or grouped overview]
   J --> K[Evidence, coherence, contradiction, and verdict deltas]
   G --> K
   G --> H[Replayable v0.2 proof packet]
+```
+
+In compact form:
+
+```text
+Normalized packet
+├── Deterministic Trace Court
+│   └── Promotion verdict + proof packet
+└── Optional Manifold Replay
+    └── Dynamic replay telemetry
 ```
 
 The canonical live application is deployed at [sol-lens.onrender.com](https://sol-lens.onrender.com/). The workbench is credential-free and browser-local; a future Responses API adapter can emit the same observable packet contract without changing the replay layer.
@@ -144,12 +169,15 @@ npm run build
 - `app/sol-lens-workbench.tsx` — packet-driven comparison workbench
 - `app/components/packet-loader.tsx` — curated example gallery and demo reset controls
 - `app/components/semantic-graph.tsx` — scalable graph viewport and controls
+- `app/components/manifold-replay-panel.tsx` — optional replay controls, graph, telemetry, and inspector
 - `app/globals.css` and `app/phase2.css` — Cosmic Semantic Lab × Solar Atlas visual system
 - `lib/example-packets.ts` — seven deterministic teaching packets from 6 to 300 Logons
 - `lib/packet-schema.ts` — validation, normalization, evaluation comparison, and v0.2 export
 - `lib/graph-layout.ts` — deterministic SCC-aware layout
 - `lib/graph-groups.ts` — packet and structural overview grouping
 - `lib/sol-engine.ts` — versioned Lens scoring profile and promotion court
+- `lib/manifold-replay.ts` — pure deterministic replay state and equations
+- `docs/MANIFOLD-REPLAY.md` — replay model, defaults, boundaries, and limitations
 - `docs/PHASE-2.md` — packet contract and verification guide
 - `docs/PROVENANCE.md` — pre-existing/new-work boundary and foundation trail
 - `docs/SUBMISSION-CHECKLIST.md` — remaining Devpost packaging steps
