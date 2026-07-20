@@ -47,6 +47,15 @@ Development of **SOL Lens** began July 18, 2026 as a new application of that fou
 - seven beginner-friendly example packets spanning linear, branching, tool fan-out, feedback, multi-agent handoff, conflict, and grouped-overview structures
 - responsive Vinext/React application and visual system
 - SOL Lens-specific documentation, tests, and deployments
+- optional browser-local Manifold Replay with deterministic density, pressure, conductance, flux, and damping telemetry
+
+## Manifold Replay provenance boundary
+
+The optional Manifold Replay derives only from observable packet fields: Logon `rho`, `psi`, pressure, status, stable IDs, and typed edges with optional weights. It does not reconstruct private chain-of-thought or hidden model reasoning, and it does not infer missing agent events.
+
+Replay state is ephemeral and separate from the normalized packet. It does not modify court metrics, court thresholds, or the authoritative verdict. Replay telemetry is not persisted into the v0.2 proof packet or its export path. Given the same packet, configuration, and step count, the replay produces the same sorted state and digest.
+
+The graph coordinates shown in the replay are deterministic visual layout coordinates optimized for readable inspection. They are not manifold metric coordinates or evidence of physical semantic distance. The replay is a deliberately small SOL-inspired graph-dynamics profile, not the complete historical SOL Engine runtime.
 
 ## Checkpoints
 

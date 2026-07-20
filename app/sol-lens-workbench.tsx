@@ -6,7 +6,9 @@ import {
   useRef,
   useState,
   type CSSProperties,
+  type KeyboardEvent,
 } from "react";
+import { ManifoldReplayPanel } from "./components/manifold-replay-panel";
 import { PacketLoader } from "./components/packet-loader";
 import { SemanticGraph } from "./components/semantic-graph";
 import { demoPacket } from "../lib/demo-packet.ts";
@@ -21,6 +23,7 @@ import type { LogonStatus } from "../lib/sol-engine.ts";
 
 type Filter = "all" | LogonStatus;
 type RunState = "ready" | "running" | "complete";
+type WorkbenchMode = "court" | "manifold";
 type PacketSource =
   | { kind: "demo"; label: "Demo fixture"; detail: string }
   | { kind: "example"; label: "Example packet"; detail: string };
@@ -35,12 +38,16 @@ export default function SolLensWorkbench() {
   const [selectedId, setSelectedId] = useState("L06");
   const [filter, setFilter] = useState<Filter>("all");
   const [runState, setRunState] = useState<RunState>("complete");
+  const [workbenchMode, setWorkbenchMode] =
+    useState<WorkbenchMode>("court");
   const [source, setSource] = useState<PacketSource>({
     kind: "demo",
     label: "Demo fixture",
     detail: demoPacket.fixture ?? demoPacket.packet_id,
   });
   const comparisonTimer = useRef<number | undefined>(undefined);
+  const courtTabRef = useRef<HTMLButtonElement>(null);
+  const manifoldTabRef = useRef<HTMLButtonElement>(null);
 
   useEffect(
     () => () => {
@@ -142,6 +149,17 @@ export default function SolLensWorkbench() {
       ? "The supplied evaluation differs from the locally replayed SOL result. This verdict uses observable Logon data."
       : "Evidence and constraint gates were replayed locally. The complete graph is ready for export and independent replay.";
 
+  const onTabKeyDown = (
+    event: KeyboardEvent<HTMLButtonElement>,
+    mode: WorkbenchMode,
+  ) => {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    event.preventDefault();
+    const nextMode = mode === "court" ? "manifold" : "court";
+    setWorkbenchMode(nextMode);
+    (nextMode === "court" ? courtTabRef : manifoldTabRef).current?.focus();
+  };
+
   return (
     <main className="app-shell phase-two-shell">
       <header className="topbar">
@@ -155,6 +173,37 @@ export default function SolLensWorkbench() {
           <span className="status-badge">
             <i /> Local replay × SOL Engine
           </span>
+        </div>
+        <div className="workbench-tabs" role="tablist" aria-label="Workbench mode">
+          <button
+            ref={courtTabRef}
+            id="workbench-tab-court"
+            className={`workbench-tab ${workbenchMode === "court" ? "active" : ""}`}
+            type="button"
+            role="tab"
+            aria-selected={workbenchMode === "court"}
+            aria-controls="workbench-panel-court"
+            tabIndex={workbenchMode === "court" ? 0 : -1}
+            onClick={() => setWorkbenchMode("court")}
+            onKeyDown={(event) => onTabKeyDown(event, "court")}
+          >
+            Trace Court
+          </button>
+          <button
+            ref={manifoldTabRef}
+            id="workbench-tab-manifold"
+            className={`workbench-tab ${workbenchMode === "manifold" ? "active" : ""}`}
+            type="button"
+            role="tab"
+            aria-selected={workbenchMode === "manifold"}
+            aria-controls="workbench-panel-manifold"
+            aria-label="Manifold Replay, Experimental. Replay does not modify this verdict."
+            tabIndex={workbenchMode === "manifold" ? 0 : -1}
+            onClick={() => setWorkbenchMode("manifold")}
+            onKeyDown={(event) => onTabKeyDown(event, "manifold")}
+          >
+            Manifold Replay <span className="experimental-tag">Experimental</span>
+          </button>
         </div>
         <div className="sol-context" aria-label="About SOL and its repositories">
           <div className="sol-context-copy">
@@ -190,7 +239,13 @@ export default function SolLensWorkbench() {
         </div>
       </header>
 
-      <div className="main-grid">
+      {workbenchMode === "court" ? (
+      <div
+        className="main-grid"
+        id="workbench-panel-court"
+        role="tabpanel"
+        aria-labelledby="workbench-tab-court"
+      >
         <section className="left-stack" aria-label="Comparison setup">
           <div className="hero">
             <p className="eyebrow">Semantic migration workbench</p>
@@ -328,6 +383,21 @@ export default function SolLensWorkbench() {
           </footer>
         </section>
       </div>
+      ) : (
+        <section
+          id="workbench-panel-manifold"
+          role="tabpanel"
+          aria-labelledby="workbench-tab-manifold"
+        >
+          <ManifoldReplayPanel
+            key={packet.packet_id}
+            packet={packet}
+            sourceLabel={source.label}
+            sourceDetail={source.detail}
+            courtVerdict={verdict}
+          />
+        </section>
+      )}
     </main>
   );
 }
