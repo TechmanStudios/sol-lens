@@ -55,3 +55,34 @@ test("renders canonical application metadata and beginner guidance", async () =>
   assert.match(html, /Experimental/i);
   assert.match(html, /Replay does not modify this verdict/);
 });
+
+test("renders clean distraction-free SOL Studio route", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+
+  const response = await worker.fetch(
+    new Request("http://localhost/studio", {
+      headers: { accept: "text/html" },
+    }),
+    {
+      ASSETS: {
+        fetch: async () => new Response("Not found", { status: 404 }),
+      },
+    },
+    {
+      waitUntil() {},
+      passThroughOnException() {},
+    },
+  );
+
+  assert.equal(response.status, 200);
+  assert.match(
+    response.headers.get("content-type") ?? "",
+    /^text\/html\b/i,
+  );
+  const html = await response.text();
+  assert.match(html, /SOL Studio/);
+  assert.match(html, /Trace Court/);
+});
+

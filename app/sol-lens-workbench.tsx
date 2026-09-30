@@ -8,6 +8,7 @@ import {
   type CSSProperties,
   type KeyboardEvent,
 } from "react";
+import { LiveManifold3DPanel } from "./components/live-manifold-3d-panel";
 import { ManifoldReplayPanel } from "./components/manifold-replay-panel";
 import { PacketLoader } from "./components/packet-loader";
 import { SemanticGraph } from "./components/semantic-graph";
@@ -16,6 +17,7 @@ import type { PacketExample } from "../lib/example-packets.ts";
 import {
   chooseInitialLogon,
   createProofPacket,
+  normalizePacket,
   type BaselineEvaluation,
   type NormalizedSolLensPacket,
 } from "../lib/packet-schema.ts";
@@ -23,10 +25,11 @@ import type { LogonStatus } from "../lib/sol-engine.ts";
 
 type Filter = "all" | LogonStatus;
 type RunState = "ready" | "running" | "complete";
-type WorkbenchMode = "court" | "manifold";
+type WorkbenchMode = "court" | "manifold" | "stream3d";
 type PacketSource =
   | { kind: "demo"; label: "Demo fixture"; detail: string }
-  | { kind: "example"; label: "Example packet"; detail: string };
+  | { kind: "example"; label: "Example packet"; detail: string }
+  | { kind: "live"; label: "Live SOL Engine"; detail: string };
 
 const percentage = (value: number) => Math.round(value * 100);
 const signedDelta = (value: number) =>
@@ -40,6 +43,7 @@ export default function SolLensWorkbench() {
   const [runState, setRunState] = useState<RunState>("complete");
   const [workbenchMode, setWorkbenchMode] =
     useState<WorkbenchMode>("court");
+  const [isAutoSyncing, setIsAutoSyncing] = useState(false);
   const [source, setSource] = useState<PacketSource>({
     kind: "demo",
     label: "Demo fixture",
@@ -48,6 +52,7 @@ export default function SolLensWorkbench() {
   const comparisonTimer = useRef<number | undefined>(undefined);
   const courtTabRef = useRef<HTMLButtonElement>(null);
   const manifoldTabRef = useRef<HTMLButtonElement>(null);
+  const stream3dTabRef = useRef<HTMLButtonElement>(null);
 
   useEffect(
     () => () => {
@@ -129,6 +134,38 @@ export default function SolLensWorkbench() {
     );
   };
 
+  const syncLivePacket = async () => {
+    try {
+      const res = await fetch("http://localhost:8765/api/packet/live");
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const rawData = await res.json();
+      const normalized = normalizePacket(rawData);
+      if (normalized.ok) {
+        setPacket(normalized.packet);
+        const initial = chooseInitialLogon(normalized.packet);
+        setSelectedId(initial.id);
+        setSource({
+          kind: "live",
+          label: "Live SOL Engine",
+          detail: `${normalized.packet.logons.length} Logons · Live 20 Hz Stream`,
+        });
+        setRunState("complete");
+      } else {
+        console.warn("Packet validation error:", normalized.errors);
+      }
+    } catch (err) {
+      console.warn("Could not sync live packet from SOL engine:", err);
+    }
+  };
+
+  useEffect(() => {
+    if (!isAutoSyncing) return;
+    const interval = window.setInterval(() => {
+      syncLivePacket();
+    }, 1000);
+    return () => window.clearInterval(interval);
+  }, [isAutoSyncing]);
+
   const downloadProofPacket = () => {
     const proofPacket = createProofPacket(packet);
     const blob = new Blob([JSON.stringify(proofPacket, null, 2)], {
@@ -155,9 +192,15 @@ export default function SolLensWorkbench() {
   ) => {
     if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
     event.preventDefault();
-    const nextMode = mode === "court" ? "manifold" : "court";
+    const modes: WorkbenchMode[] = ["court", "manifold", "stream3d"];
+    const currentIdx = modes.indexOf(mode);
+    const direction = event.key === "ArrowRight" ? 1 : -1;
+    const nextIdx = (currentIdx + direction + modes.length) % modes.length;
+    const nextMode = modes[nextIdx];
     setWorkbenchMode(nextMode);
-    (nextMode === "court" ? courtTabRef : manifoldTabRef).current?.focus();
+    if (nextMode === "court") courtTabRef.current?.focus();
+    else if (nextMode === "manifold") manifoldTabRef.current?.focus();
+    else stream3dTabRef.current?.focus();
   };
 
   return (
@@ -204,6 +247,36 @@ export default function SolLensWorkbench() {
           >
             Manifold Replay <span className="experimental-tag">Experimental</span>
           </button>
+          <button
+            ref={stream3dTabRef}
+            id="workbench-tab-stream3d"
+            className={`workbench-tab ${workbenchMode === "stream3d" ? "active" : ""}`}
+            type="button"
+            role="tab"
+            aria-selected={workbenchMode === "stream3d"}
+            aria-controls="workbench-panel-stream3d"
+            aria-label="3D Live Manifold Stream"
+            tabIndex={workbenchMode === "stream3d" ? 0 : -1}
+            onClick={() => setWorkbenchMode("stream3d")}
+            onKeyDown={(event) => onTabKeyDown(event, "stream3d")}
+          >
+            3D Live Manifold <span className="experimental-tag" style={{ color: "#34d399", borderColor: "rgba(52, 211, 153, 0.4)", background: "rgba(6, 78, 59, 0.5)" }}>Live 3D</span>
+          </button>
+          <a
+            href="/studio"
+            className="workbench-tab"
+            style={{
+              textDecoration: "none",
+              display: "inline-flex",
+              alignItems: "center",
+              color: "#38bdf8",
+              borderColor: "rgba(56, 189, 248, 0.3)",
+              background: "rgba(56, 189, 248, 0.08)",
+            }}
+            title="Open distraction-free SOL Studio (Full Window)"
+          >
+            ⚡ Studio Mode ↗
+          </a>
         </div>
         <div className="sol-context" aria-label="About SOL and its repositories">
           <div className="sol-context-copy">
@@ -285,6 +358,8 @@ export default function SolLensWorkbench() {
               <PacketLoader
                 onDemo={loadDemo}
                 onExample={loadExample}
+                onLiveSync={syncLivePacket}
+                isLive={source.kind === "live"}
               />
             </div>
             <div className="packet-summary" aria-live="polite">
@@ -383,7 +458,7 @@ export default function SolLensWorkbench() {
           </footer>
         </section>
       </div>
-      ) : (
+      ) : workbenchMode === "manifold" ? (
         <section
           id="workbench-panel-manifold"
           role="tabpanel"
@@ -395,6 +470,19 @@ export default function SolLensWorkbench() {
             sourceLabel={source.label}
             sourceDetail={source.detail}
             courtVerdict={verdict}
+          />
+        </section>
+      ) : (
+        <section
+          id="workbench-panel-stream3d"
+          role="tabpanel"
+          aria-labelledby="workbench-tab-stream3d"
+        >
+          <LiveManifold3DPanel
+            packet={packet}
+            onSyncLivePacket={syncLivePacket}
+            isAutoSyncing={isAutoSyncing}
+            onToggleAutoSync={() => setIsAutoSyncing((prev) => !prev)}
           />
         </section>
       )}
