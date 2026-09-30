@@ -15,11 +15,15 @@ const judgeTourSteps = new Map([
 type PacketLoaderProps = {
   onDemo: () => void;
   onExample: (example: PacketExample) => void;
+  onLiveSync?: () => void;
+  isLive?: boolean;
 };
 
 export function PacketLoader({
   onDemo,
   onExample,
+  onLiveSync,
+  isLive = false,
 }: PacketLoaderProps) {
   const [examplesOpen, setExamplesOpen] = useState(false);
 
@@ -36,6 +40,17 @@ export function PacketLoader({
         >
           Explore 7 examples
         </button>
+        {onLiveSync && (
+          <button
+            className="secondary-button"
+            type="button"
+            onClick={onLiveSync}
+            title="Fetch latest telemetry packet from live SOL Engine"
+            style={isLive ? { borderColor: "rgba(52, 211, 153, 0.5)", color: "#34d399" } : undefined}
+          >
+            {isLive ? "● SOL Stream Live" : "Sync SOL Stream"}
+          </button>
+        )}
         <button className="quiet-button" type="button" onClick={onDemo}>
           Reset demo
         </button>
