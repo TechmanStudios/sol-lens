@@ -1,0 +1,903 @@
+{
+  "schema": "techman.sol-lens.proof-packet/v0.2",
+  "packet_id": "sol-decide-lens-pkg-5f246b89d178",
+  "generated_at": "2026-10-15T16:34:11.000Z",
+  "observable_trace_only": true,
+  "fixture": "Artemis Lunar Surface Microgrid Power Architecture Trade Study (gemini-4-argon)",
+  "models": {
+    "baseline": "Ungoverned Single-Pass LLM (gemini-4-argon)",
+    "candidate": "SOL-Decide Sheaf + SOL-Edge Gate (gemini-4-argon)"
+  },
+  "baseline_evaluation": {
+    "label": "Ungoverned Single-Pass LLM (gemini-4-argon)",
+    "logon_count": 24,
+    "source": "Ungoverned baseline counterfactual (boundary violations unquarantined)",
+    "metrics": {
+      "evidence": 0.68,
+      "coherence": 0.64,
+      "contradiction": 0.25,
+      "continuity": 0.62,
+      "authority": 0.705,
+      "faithfulness": 0.595
+    },
+    "verdict": "QUARANTINE"
+  },
+  "logons": [
+    {
+      "id": "L01",
+      "label": "Mission & Gemini Structured Elicitation",
+      "status": "supported",
+      "evidence": 0.96,
+      "rho": 0.89,
+      "psi": 0.95,
+      "pressure": 0.09,
+      "detail": "Gemini model 'gemini-4-argon' (interaction=v1_ChdhZ0RSYXZTbkRfLTJxdHNQenYyOGtBOBIXYWdEUmF2U25EXy0ycXRzUHp2MjhrQTg) elicited multi-agent trade study 'Artemis Lunar Surface Microgrid Power Architecture Trade Study' with 13 sheaf vertices and 12 restriction morphisms.",
+      "source": "Gemini Interactions API (gemini-4-argon)",
+      "phase_id": "elicitation",
+      "group_id": "G01",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "gemini:interaction:v1_ChdhZ0RSYXZTbkRfLTJxdHNQenYyOGtBOBIXYWdEUmF2U25EXy0ycXRzUHp2MjhrQTg",
+        "gemini:model:gemini-4-argon",
+        "schema:MultiAgentTradeStudySpec"
+      ]
+    },
+    {
+      "id": "L02",
+      "label": "Cognitive Reasoning & Thought Signature (gemini-4-argon)",
+      "status": "supported",
+      "evidence": 0.96,
+      "rho": 0.88,
+      "psi": 0.94,
+      "pressure": 0.1,
+      "detail": "Reasoning telemetry for 'gemini-4-argon': thought_steps=1, input_tokens=2575, thought_tokens=1494, output_tokens=1912, thought_to_output_ratio=0.781 | Summary: **Lunar Microgrid Trade Study Specification**  Okay, let's get this trade study spec hammered out for a **lunar surface microgrid power architecture**. First, I need to define the ",
+      "source": "Gemini Thought Engine (gemini-4-argon)",
+      "phase_id": "elicitation",
+      "group_id": "G01",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "gemini:input_tokens:2575",
+        "gemini:thought_tokens:1494",
+        "gemini:output_tokens:1912",
+        "gemini:thought_ratio:0.7814",
+        "gemini:thought_sig:sha256:c28c4e73bd3cd5b7d"
+      ]
+    },
+    {
+      "id": "L03",
+      "label": "Calibrated Cellular Sheaf Restriction Complex",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.87,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "Compiled cellular sheaf complex 'Artemis Lunar Surface Microgrid Power Architecture Trade Study': beta_0=7, beta_1=0, kappa(Delta^0)=12.6354, Kuramoto r=1.0000, causal_emergence_delta_ei=+0.9331 bits.",
+      "source": "SOL-Decide Sheaf Compiler",
+      "phase_id": "elicitation",
+      "group_id": "G01",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "sheaf:vertices:13",
+        "sheaf:edges:12",
+        "sheaf:cond_num:12.6354",
+        "sheaf:delta_ei:+0.9331"
+      ]
+    },
+    {
+      "id": "L04",
+      "label": "The Statistician \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Statistician (PASSED): metric=0.0900, passed=True \u2014 Audited 2 assumptions; max uncertainty sigma=0.090",
+      "source": "7 Giants MoA \u00b7 The Statistician",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "giant:Statistician:PASSED",
+        "metric:0.090000",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L05",
+      "label": "The Statistician \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Statistician (PASSED): metric=0.0900, passed=True \u2014 Audited 2 assumptions; max uncertainty sigma=0.090",
+      "source": "7 Giants MoA \u00b7 The Statistician",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "giant:The Statistician:PASSED",
+        "metric:0.090000",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L06",
+      "label": "The Graph Navigator \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Graph Navigator (PASSED): metric=12.0000, passed=True \u2014 Verified topological cell complex with 13 vertices, 12 edges (cycles=False)",
+      "source": "7 Giants MoA \u00b7 The Graph Navigator",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "giant:Graph Navigator:PASSED",
+        "metric:12.000000",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L07",
+      "label": "The Graph Navigator \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Graph Navigator (PASSED): metric=12.0000, passed=True \u2014 Verified topological cell complex with 13 vertices, 12 edges (cycles=False)",
+      "source": "7 Giants MoA \u00b7 The Graph Navigator",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "giant:The Graph Navigator:PASSED",
+        "metric:12.000000",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L08",
+      "label": "The Linear Algebraist \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Linear Algebraist (PASSED): metric=12.6354, passed=True \u2014 Spectral condition number kappa(Delta^0)=12.64 (bound <= 500.0)",
+      "source": "7 Giants MoA \u00b7 The Linear Algebraist",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "giant:Linear Algebraist:PASSED",
+        "metric:12.635376",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L09",
+      "label": "The Linear Algebraist \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Linear Algebraist (PASSED): metric=12.6354, passed=True \u2014 Spectral condition number kappa(Delta^0)=12.64 (bound <= 500.0)",
+      "source": "7 Giants MoA \u00b7 The Linear Algebraist",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "giant:The Linear Algebraist:PASSED",
+        "metric:12.635376",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L10",
+      "label": "The Aligner \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Aligner (PASSED): metric=1.0000, passed=True \u2014 Kuramoto phase synchronization r=1.0000 (threshold >= 0.70)",
+      "source": "7 Giants MoA \u00b7 The Aligner",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "giant:Aligner:PASSED",
+        "metric:0.999963",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L11",
+      "label": "The Aligner \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Aligner (PASSED): metric=1.0000, passed=True \u2014 Kuramoto phase synchronization r=1.0000 (threshold >= 0.70)",
+      "source": "7 Giants MoA \u00b7 The Aligner",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "giant:The Aligner:PASSED",
+        "metric:0.999963",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L12",
+      "label": "The Integrator \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Integrator (PASSED): metric=0.9331, passed=True \u2014 Volume invariance preserved; macroscopic causal emergence Delta EI = +0.93 bits",
+      "source": "7 Giants MoA \u00b7 The Integrator",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "giant:Integrator:PASSED",
+        "metric:0.933132",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L13",
+      "label": "The Integrator \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Integrator (PASSED): metric=0.9331, passed=True \u2014 Volume invariance preserved; macroscopic causal emergence Delta EI = +0.93 bits",
+      "source": "7 Giants MoA \u00b7 The Integrator",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "giant:The Integrator:PASSED",
+        "metric:0.933132",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L14",
+      "label": "Option opt_hybrid_rfc_fission: Hybrid Stirling Micro-Reactor with Regenerative Fuel Cell Buffer [Balanced_Systems_Architect]",
+      "status": "supported",
+      "evidence": 0.96,
+      "rho": 0.92,
+      "psi": 0.95,
+      "pressure": 0.1,
+      "detail": "[SELECTED HARMONIC WINNER] Option 'Hybrid Stirling Micro-Reactor with Regenerative Fuel Cell Buffer [Balanced_Systems_Architect]' (state=[0.28, 285.0, 2150.0], cost=$145.0M, TRL=6, MRL=6) -> utility=131.2167, obstructed_edges=[], sol-edge status=ELIGIBLE.",
+      "source": "SOL-Decide Option Stalk Evaluator",
+      "phase_id": "sheaf_cohomology",
+      "group_id": "G03",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "option:opt_hybrid_rfc_fission:utility:131.2167",
+        "sol-edge:proposal:sha256:f2691dcc893a0",
+        "sol-edge:status:ELIGIBLE"
+      ]
+    },
+    {
+      "id": "L15",
+      "label": "Option opt_conservative_solar_liion: Deployable Vertical Solar Array with Space-Qualified Li-Ion Bank [Conservative_Baseline_Agent]",
+      "status": "inferred",
+      "evidence": 0.89,
+      "rho": 0.81,
+      "psi": 0.88,
+      "pressure": 0.17,
+      "detail": "[FEASIBLE ALTERNATIVE CANDIDATE] Option 'Deployable Vertical Solar Array with Space-Qualified Li-Ion Bank [Conservative_Baseline_Agent]' (state=[0.16, 175.0, 2550.0], cost=$88.0M, TRL=8, MRL=8) -> utility=115.5167, obstructed_edges=[], sol-edge status=ELIGIBLE.",
+      "source": "SOL-Decide Option Stalk Evaluator",
+      "phase_id": "sheaf_cohomology",
+      "group_id": "G03",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "option:opt_conservative_solar_liion:utility:115.5167",
+        "sol-edge:proposal:sha256:041fcef65c8d6",
+        "sol-edge:status:ELIGIBLE"
+      ]
+    },
+    {
+      "id": "L16",
+      "label": "Cycle 0 Quarantined Option opt_aggressive_brayton_reactor (Pre-Repair)",
+      "status": "contradiction",
+      "evidence": 0.34,
+      "rho": 0.42,
+      "psi": 0.56,
+      "pressure": 0.84,
+      "detail": "[CYCLE 0 QUARANTINE] Option 'opt_aggressive_brayton_reactor' initial state=[0.42, 355.0, 3120.0] breached sheaf coboundary bounds (specific_power_kw_per_kg=0.42 outside [0.12, 0.38], total_payload_mass_kg=3120.00 outside [1000.00, 2800.00]) -> quarantined_state_digest=sha256:a2e8c5ac636dc....",
+      "source": "SOL-Edge Cycle 0 Quarantine Gate",
+      "phase_id": "sheaf_cohomology",
+      "group_id": "G03",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "sol-edge:quarantined_state:sha256:a2e8c5ac636dcedb8763b",
+        "sol-edge:quarantined_decision:sha256:da7e9da4612a10c742192",
+        "sol-edge:transition:INVESTIGATE_AND_CLEAR_QUARANTINE"
+      ]
+    },
+    {
+      "id": "L17",
+      "label": "Cohomological Self-Correction: Option opt_aggressive_brayton_reactor (ELIGIBLE)",
+      "status": "supported",
+      "evidence": 0.96,
+      "rho": 0.91,
+      "psi": 0.95,
+      "pressure": 0.09,
+      "detail": "[CYCLE 1 COHOMOLOGICAL REPAIR CLEARED] Projected 'opt_aggressive_brayton_reactor' from [0.42, 355.0, 3120.0] -> [0.345, 335.0, 2580.0] (||Delta x||_2=540.370) via Gemini interaction 'v1_ChdhZ0RSYXZTbkRfLTJxdHNQenYyOGtBOBIXZ2dEUmF2MkJNT2VLbXRrUGo5U1AyQWM' -> utility=128.1583, sol-edge status=ELIGIBLE.",
+      "source": "SOL-Decide Closed-Loop Cohomological Repair (gemini-4-argon)",
+      "phase_id": "sheaf_cohomology",
+      "group_id": "G03",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "sol-edge:quarantined_state:sha256:a2e8c5ac636dcedb8763b",
+        "sol-edge:cleared_state:sha256:1b50606cfbd3c80f4ad82",
+        "gemini:repair_interaction:v1_ChdhZ0RSYXZTbkRfLTJxdHNQenYyOGtBOBIXZ2dEUmF2MkJNT2VLbXRrUGo5U1AyQWM",
+        "gemini:previous_interaction:v1_ChdhZ0RSYXZTbkRfLTJxdHNQenYyOGtBOBIXYWdEUmF2U25EXy0ycXRzUHp2MjhrQTg",
+        "sol-edge:status:ELIGIBLE",
+        "gemini:repair_thought_sig:sha256:f2790bf2c657fc9735b18"
+      ]
+    },
+    {
+      "id": "L18",
+      "label": "Sheaf Coboundary & Hodge Decomposition Audit",
+      "status": "supported",
+      "evidence": 0.96,
+      "rho": 0.9,
+      "psi": 0.94,
+      "pressure": 0.11,
+      "detail": "Global sheaf evaluation: feasible=True, selected=opt_hybrid_rfc_fission, E(x)=286937.5298, ||delta_0 x||=757.5454, beta_0=7, beta_1=0.",
+      "source": "SheafDecisionComplex Cohomology Auditor",
+      "phase_id": "sheaf_cohomology",
+      "group_id": "G03",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "hodge:dirichlet_energy:286937.529812",
+        "hodge:coboundary_norm:757.545418",
+        "hodge:beta_0:7:beta_1:0",
+        "hodge:selected:opt_hybrid_rfc_fission"
+      ]
+    },
+    {
+      "id": "L19",
+      "label": "Sensitivity Inflection & MSCK Sweep",
+      "status": "supported",
+      "evidence": 0.94,
+      "rho": 0.87,
+      "psi": 0.92,
+      "pressure": 0.13,
+      "detail": "SensitivityAblator swept 5 parameters: most_fragile=Hybrid Stirling Micro-Reactor with Regenerative Fuel Cell Buffer [Balanced_Systems_Architect][ch_2], sensitive_flips=5, MSCK=['ass_rfc_roundtrip_efficiency', 'ass_shielding_mass_fraction', 'opt_hybrid_rfc_fission'].",
+      "source": "SensitivityAblator",
+      "phase_id": "adversarial_audit",
+      "group_id": "G04",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "sensitivity:most_fragile:Hybrid Stirling Micro-Reactor with Regenerative Fuel Cell Buffer [Balanced_Systems_Architect][ch_2]",
+        "sensitivity:flips:5",
+        "sensitivity:msck_size:3"
+      ]
+    },
+    {
+      "id": "L20",
+      "label": "Dialectical Adversary Optimism-Bias Stress Test",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.88,
+      "psi": 0.93,
+      "pressure": 0.12,
+      "detail": "DialecticalAdversary injected bounded coboundary strain: max_strain_tolerated=0.0500, false_commit_rate=0.0000 across 24 adversarial trials.",
+      "source": "DialecticalAdversary",
+      "phase_id": "adversarial_audit",
+      "group_id": "G04",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "dialectics:false_commit_rate:0.0000",
+        "dialectics:max_strain:0.0500",
+        "dialectics:trials:24"
+      ]
+    },
+    {
+      "id": "L21",
+      "label": "SOL-Edge CapabilityManifest & ExperimentPlan Binding",
+      "status": "supported",
+      "evidence": 0.96,
+      "rho": 0.9,
+      "psi": 0.95,
+      "pressure": 0.09,
+      "detail": "Bound CapabilityManifest 'manifest:artemis-lunar-surface-microgrid-power-architecture-trade-study' (digest=sha256:85e5d62fecdaf...) and ExperimentPlan 'plan:artemis-lunar-surface-microgrid-power-architecture-trade-study' (digest=sha256:ed3e71f264eb0...).",
+      "source": "SOL-Edge Contract Compiler",
+      "phase_id": "sol_edge_gate",
+      "group_id": "G05",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "sol-edge:manifest:sha256:85e5d62fecdafdab58131",
+        "sol-edge:plan:sha256:ed3e71f264eb002f8dc52"
+      ]
+    },
+    {
+      "id": "L22",
+      "label": "SOL-Edge EvidencePacket & PolicyDecision (ELIGIBLE)",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.92,
+      "psi": 0.96,
+      "pressure": 0.08,
+      "detail": "Verified EvidencePacket 'evidence:opt_hybrid_rfc_fission' (digest=sha256:686c31cc90aeb...) and recorded PolicyDecision 'decision:opt_hybrid_rfc_fission' -> status=ELIGIBLE, next_transition=RELEASE_REVIEW.",
+      "source": "SOL-Edge Policy Gate",
+      "phase_id": "sol_edge_gate",
+      "group_id": "G05",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "sol-edge:evidence:sha256:686c31cc90aeb38972787",
+        "sol-edge:policy:sha256:67a271bd205364c1e067d",
+        "sol-edge:status:ELIGIBLE"
+      ]
+    },
+    {
+      "id": "L23",
+      "label": "SOL-Edge Hash-Chained Event Stream Replay",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.94,
+      "psi": 0.97,
+      "pressure": 0.07,
+      "detail": "Replayed 4 hash-chained RuntimeEvents (RUN_OPENED -> PROPOSAL_RECORDED -> EVIDENCE_RECORDED -> POLICY_DECISION_RECORDED): runtime_status=ELIGIBLE, state_digest=sha256:a0738b5397a06....",
+      "source": "SOL-Edge Runtime State Machine",
+      "phase_id": "sol_edge_gate",
+      "group_id": "G05",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "sol-edge:state_digest:sha256:a0738b5397a06eb49a429",
+        "sol-edge:last_event:sha256:e16167a64a1593cbcc0a1",
+        "sol-edge:runtime_status:ELIGIBLE"
+      ]
+    },
+    {
+      "id": "L24",
+      "label": "Signer-Ready Decision Package (PKG-5F246B89D178)",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.93,
+      "psi": 0.96,
+      "pressure": 0.08,
+      "detail": "Compiled SignerReadyDecisionPackage 'PKG-5F246B89D178' selecting 'Hybrid Stirling Micro-Reactor with Regenerative Fuel Cell Buffer [Balanced_Systems_Architect]' (certifiable=True, sha256=5f246b89d178915e...).",
+      "source": "SOL-Decide Package Compiler",
+      "phase_id": "sol_edge_gate",
+      "group_id": "G05",
+      "timestamp": "2026-10-15T16:34:11.000Z",
+      "evidence_refs": [
+        "sol-decide:proof_hash:5f246b89d178915e8b0ca774",
+        "sol-decide:package_id:PKG-5F246B89D178",
+        "sol-decide:certifiable:True"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "E01",
+      "from": "L01",
+      "to": "L02",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.95,
+      "active": true
+    },
+    {
+      "id": "E02",
+      "from": "L02",
+      "to": "L03",
+      "status": "supported",
+      "kind": "dependency",
+      "weight": 0.94,
+      "active": true
+    },
+    {
+      "id": "E03",
+      "from": "L03",
+      "to": "L04",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E04",
+      "from": "L03",
+      "to": "L05",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E05",
+      "from": "L03",
+      "to": "L06",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E06",
+      "from": "L03",
+      "to": "L07",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E07",
+      "from": "L03",
+      "to": "L08",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E08",
+      "from": "L03",
+      "to": "L09",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E09",
+      "from": "L03",
+      "to": "L10",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E10",
+      "from": "L03",
+      "to": "L11",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E11",
+      "from": "L03",
+      "to": "L12",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E12",
+      "from": "L03",
+      "to": "L13",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E13",
+      "from": "L04",
+      "to": "L14",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.86,
+      "active": true
+    },
+    {
+      "id": "E14",
+      "from": "L05",
+      "to": "L14",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.86,
+      "active": true
+    },
+    {
+      "id": "E15",
+      "from": "L06",
+      "to": "L14",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.86,
+      "active": true
+    },
+    {
+      "id": "E16",
+      "from": "L04",
+      "to": "L15",
+      "status": "inferred",
+      "kind": "flow",
+      "weight": 0.86,
+      "active": true
+    },
+    {
+      "id": "E17",
+      "from": "L05",
+      "to": "L15",
+      "status": "inferred",
+      "kind": "flow",
+      "weight": 0.86,
+      "active": true
+    },
+    {
+      "id": "E18",
+      "from": "L06",
+      "to": "L15",
+      "status": "inferred",
+      "kind": "flow",
+      "weight": 0.86,
+      "active": true
+    },
+    {
+      "id": "E19",
+      "from": "L04",
+      "to": "L16",
+      "status": "contradiction",
+      "kind": "constraint",
+      "weight": 0.52,
+      "active": false
+    },
+    {
+      "id": "E20",
+      "from": "L05",
+      "to": "L16",
+      "status": "contradiction",
+      "kind": "constraint",
+      "weight": 0.52,
+      "active": false
+    },
+    {
+      "id": "E21",
+      "from": "L06",
+      "to": "L16",
+      "status": "contradiction",
+      "kind": "constraint",
+      "weight": 0.52,
+      "active": false
+    },
+    {
+      "id": "E22",
+      "from": "L16",
+      "to": "L17",
+      "status": "supported",
+      "kind": "feedback",
+      "weight": 0.94,
+      "active": true
+    },
+    {
+      "id": "E23",
+      "from": "L07",
+      "to": "L18",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.87,
+      "active": true
+    },
+    {
+      "id": "E24",
+      "from": "L08",
+      "to": "L18",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.87,
+      "active": true
+    },
+    {
+      "id": "E25",
+      "from": "L09",
+      "to": "L18",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.87,
+      "active": true
+    },
+    {
+      "id": "E26",
+      "from": "L10",
+      "to": "L18",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.87,
+      "active": true
+    },
+    {
+      "id": "E27",
+      "from": "L11",
+      "to": "L18",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.87,
+      "active": true
+    },
+    {
+      "id": "E28",
+      "from": "L12",
+      "to": "L18",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.87,
+      "active": true
+    },
+    {
+      "id": "E29",
+      "from": "L13",
+      "to": "L18",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.87,
+      "active": true
+    },
+    {
+      "id": "E30",
+      "from": "L14",
+      "to": "L18",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.91,
+      "active": true
+    },
+    {
+      "id": "E31",
+      "from": "L15",
+      "to": "L18",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.91,
+      "active": true
+    },
+    {
+      "id": "E32",
+      "from": "L17",
+      "to": "L18",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.91,
+      "active": true
+    },
+    {
+      "id": "E33",
+      "from": "L18",
+      "to": "L19",
+      "status": "supported",
+      "kind": "dependency",
+      "weight": 0.9,
+      "active": true
+    },
+    {
+      "id": "E34",
+      "from": "L19",
+      "to": "L20",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.91,
+      "active": true
+    },
+    {
+      "id": "E35",
+      "from": "L20",
+      "to": "L21",
+      "status": "supported",
+      "kind": "dependency",
+      "weight": 0.93,
+      "active": true
+    },
+    {
+      "id": "E36",
+      "from": "L21",
+      "to": "L22",
+      "status": "supported",
+      "kind": "constraint",
+      "weight": 0.95,
+      "active": true
+    },
+    {
+      "id": "E37",
+      "from": "L22",
+      "to": "L23",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.96,
+      "active": true
+    },
+    {
+      "id": "E38",
+      "from": "L23",
+      "to": "L24",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.97,
+      "active": true
+    }
+  ],
+  "groups": [
+    {
+      "id": "G01",
+      "label": "Phase 1 \u00b7 Gemini Multi-Agent Elicitation",
+      "phase": "elicitation",
+      "logon_ids": [
+        "L01",
+        "L02",
+        "L03"
+      ]
+    },
+    {
+      "id": "G02",
+      "label": "Phase 2 \u00b7 7 Giants Operator Verification",
+      "phase": "giants_verification",
+      "logon_ids": [
+        "L04",
+        "L05",
+        "L06",
+        "L07",
+        "L08",
+        "L09",
+        "L10",
+        "L11",
+        "L12",
+        "L13"
+      ]
+    },
+    {
+      "id": "G03",
+      "label": "Phase 3 \u00b7 Competing Agent Option Stalks & Sheaf Audit",
+      "phase": "sheaf_cohomology",
+      "logon_ids": [
+        "L14",
+        "L15",
+        "L16",
+        "L17",
+        "L18"
+      ]
+    },
+    {
+      "id": "G04",
+      "label": "Phase 4 \u00b7 Sensitivity & Dialectical Adversary",
+      "phase": "adversarial_audit",
+      "logon_ids": [
+        "L19",
+        "L20"
+      ]
+    },
+    {
+      "id": "G05",
+      "label": "Phase 5 \u00b7 SOL-Edge Pre-Execution Governance Gate",
+      "phase": "sol_edge_gate",
+      "logon_ids": [
+        "L21",
+        "L22",
+        "L23",
+        "L24"
+      ]
+    }
+  ],
+  "metrics": {
+    "evidence": 0.9526086956521739,
+    "coherence": 0.9274822463768115,
+    "contradiction": 0.03571428571428571,
+    "continuity": 0.94,
+    "authority": 0.9776086956521739,
+    "faithfulness": 0.9139880952380952
+  },
+  "verdict": "PROMOTE"
+}

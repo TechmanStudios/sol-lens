@@ -85,6 +85,12 @@ export type SolLensPacketV02 = {
     baseline?: string;
     candidate?: string;
   };
+  observatory_context?: Record<string, unknown>;
+  lumina_sovereign_context?: Record<string, unknown>;
+  frontier_k_verification?: Record<string, unknown>;
+  frontier_l_verification?: Record<string, unknown>;
+  frontier_n_verification?: Record<string, unknown>;
+  reasoning_telemetry?: Record<string, unknown>;
   baseline_evaluation?: BaselineEvaluation;
   logons: TraceLogon[];
   edges: TraceEdge[];
@@ -632,6 +638,146 @@ export function normalizePacket(value: unknown): PacketValidationResult {
     }
   }
 
+  let observatoryContext: Record<string, unknown> | undefined;
+  if (value.observatory_context !== undefined) {
+    if (!isRecord(value.observatory_context)) {
+      errors.push("observatory_context must be an object when provided.");
+    } else {
+      observatoryContext = structuredClone(value.observatory_context);
+    }
+  }
+
+  let luminaSovereignContext: Record<string, unknown> | undefined;
+  if (value.lumina_sovereign_context !== undefined) {
+    if (!isRecord(value.lumina_sovereign_context)) {
+      errors.push("lumina_sovereign_context must be an object when provided.");
+    } else {
+      luminaSovereignContext = structuredClone(value.lumina_sovereign_context);
+    }
+  }
+
+  let frontierKVerification: Record<string, unknown> | undefined;
+  if (value.frontier_k_verification !== undefined) {
+    if (!isRecord(value.frontier_k_verification)) {
+      errors.push("frontier_k_verification must be an object when provided.");
+    } else {
+      frontierKVerification = structuredClone(value.frontier_k_verification);
+    }
+  }
+
+  let frontierLVerification: Record<string, unknown> | undefined;
+  if (value.frontier_l_verification !== undefined) {
+    if (!isRecord(value.frontier_l_verification)) {
+      errors.push("frontier_l_verification must be an object when provided.");
+    } else {
+      for (const sectionKey of [
+        "circuit_to_wideword_lowering",
+        "fault_matrix_verification",
+        "multimanifold_atomic_commit",
+        "sovereign_runtime_shadow",
+        "ranger_squadron_packets",
+      ] as const) {
+        const sectionVal = value.frontier_l_verification[sectionKey];
+        if (sectionVal !== undefined && !isRecord(sectionVal)) {
+          errors.push(
+            `frontier_l_verification.${sectionKey} must be an object when provided.`,
+          );
+        }
+      }
+      const rtShadow = value.frontier_l_verification.sovereign_runtime_shadow;
+      if (
+        isRecord(rtShadow) &&
+        rtShadow.allow_production_execution === true
+      ) {
+        errors.push(
+          "frontier_l_verification.sovereign_runtime_shadow.allow_production_execution must be false.",
+        );
+      }
+      frontierLVerification = structuredClone(value.frontier_l_verification);
+    }
+  }
+
+  let frontierNVerification: Record<string, unknown> | undefined;
+  if (value.frontier_n_verification !== undefined) {
+    if (!isRecord(value.frontier_n_verification)) {
+      errors.push("frontier_n_verification must be an object when provided.");
+    } else {
+      for (const sectionKey of [
+        "epistemic_gap_intake",
+        "bimodal_dream_consolidation",
+        "bilateral_entangler_control",
+        "statistical_evolution_governance",
+      ] as const) {
+        const sectionVal = value.frontier_n_verification[sectionKey];
+        if (sectionVal !== undefined && !isRecord(sectionVal)) {
+          errors.push(
+            `frontier_n_verification.${sectionKey} must be an object when provided.`,
+          );
+        }
+      }
+      if (value.frontier_n_verification.autopoietic_loop_verified === false) {
+        errors.push(
+          "frontier_n_verification.autopoietic_loop_verified must be true.",
+        );
+      }
+      const gapIntake = value.frontier_n_verification.epistemic_gap_intake;
+      if (
+        isRecord(gapIntake) &&
+        gapIntake.core_immutability_verified === false
+      ) {
+        errors.push(
+          "frontier_n_verification.epistemic_gap_intake.core_immutability_verified must be true.",
+        );
+      }
+      const bimodalDream = value.frontier_n_verification.bimodal_dream_consolidation;
+      if (
+        isRecord(bimodalDream) &&
+        bimodalDream.bimodal_synapse_verified === false
+      ) {
+        errors.push(
+          "frontier_n_verification.bimodal_dream_consolidation.bimodal_synapse_verified must be true.",
+        );
+      }
+      const bilateralControl = value.frontier_n_verification.bilateral_entangler_control;
+      if (isRecord(bilateralControl)) {
+        if (bilateralControl.bilateral_lock_verified === false) {
+          errors.push(
+            "frontier_n_verification.bilateral_entangler_control.bilateral_lock_verified must be true.",
+          );
+        }
+        if (
+          bilateralControl.transverse_msf_lambda_hat !== undefined &&
+          (typeof bilateralControl.transverse_msf_lambda_hat !== "number" ||
+            !Number.isFinite(bilateralControl.transverse_msf_lambda_hat) ||
+            bilateralControl.transverse_msf_lambda_hat > 0)
+        ) {
+          errors.push(
+            "frontier_n_verification.bilateral_entangler_control.transverse_msf_lambda_hat must be a finite non-positive number.",
+          );
+        }
+      }
+      const statGov = value.frontier_n_verification.statistical_evolution_governance;
+      if (
+        isRecord(statGov) &&
+        statGov.promotion_statistically_governed === false
+      ) {
+        errors.push(
+          "frontier_n_verification.statistical_evolution_governance.promotion_statistically_governed must be true.",
+        );
+      }
+      frontierNVerification = structuredClone(value.frontier_n_verification);
+    }
+  }
+
+  let reasoningTelemetry: Record<string, unknown> | undefined;
+  if (value.reasoning_telemetry !== undefined) {
+    if (!isRecord(value.reasoning_telemetry)) {
+      errors.push("reasoning_telemetry must be an object when provided.");
+    } else {
+      reasoningTelemetry = structuredClone(value.reasoning_telemetry);
+    }
+  }
+
   let packetId: string;
   if (acceptedSchema === PACKET_SCHEMA_V02) {
     packetId = readString(value.packet_id, "packet_id", errors) ?? "";
@@ -683,6 +829,12 @@ export function normalizePacket(value: unknown): PacketValidationResult {
   };
   if (fixture) packet.fixture = fixture;
   if (models) packet.models = models;
+  if (observatoryContext) packet.observatory_context = observatoryContext;
+  if (luminaSovereignContext) packet.lumina_sovereign_context = luminaSovereignContext;
+  if (frontierKVerification) packet.frontier_k_verification = frontierKVerification;
+  if (frontierLVerification) packet.frontier_l_verification = frontierLVerification;
+  if (frontierNVerification) packet.frontier_n_verification = frontierNVerification;
+  if (reasoningTelemetry) packet.reasoning_telemetry = reasoningTelemetry;
   if (baselineEvaluation) packet.baseline_evaluation = baselineEvaluation;
   if (groups && groups.length > 0) packet.groups = groups;
   if (claimedEvaluation) packet.claimed_evaluation = claimedEvaluation;
@@ -719,6 +871,24 @@ export function createProofPacket(
     observable_trace_only: true,
     ...(packet.fixture ? { fixture: packet.fixture } : {}),
     ...(packet.models ? { models: { ...packet.models } } : {}),
+    ...(packet.observatory_context
+      ? { observatory_context: structuredClone(packet.observatory_context) }
+      : {}),
+    ...(packet.lumina_sovereign_context
+      ? { lumina_sovereign_context: structuredClone(packet.lumina_sovereign_context) }
+      : {}),
+    ...(packet.frontier_k_verification
+      ? { frontier_k_verification: structuredClone(packet.frontier_k_verification) }
+      : {}),
+    ...(packet.frontier_l_verification
+      ? { frontier_l_verification: structuredClone(packet.frontier_l_verification) }
+      : {}),
+    ...(packet.frontier_n_verification
+      ? { frontier_n_verification: structuredClone(packet.frontier_n_verification) }
+      : {}),
+    ...(packet.reasoning_telemetry
+      ? { reasoning_telemetry: structuredClone(packet.reasoning_telemetry) }
+      : {}),
     ...(packet.baseline_evaluation
       ? {
           baseline_evaluation: {

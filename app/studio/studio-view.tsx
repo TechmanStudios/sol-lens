@@ -74,6 +74,33 @@ export default function StudioView() {
     }
   };
 
+  const triggerGovernedWormholeBridge = async () => {
+    setIsSyncing(true);
+    try {
+      const res = await fetch(`${streamUrl}/api/homology/wormhole_bridge`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          inject_cycle0_throat_shear: 0.35,
+          pin_live_packet: true,
+        }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        const ep = data.episode || {};
+        showToast(
+          `Wormhole Bridge Governed: ${String(ep.cycle0_policy_status || "QUARANTINE").toUpperCase()} → ${String(ep.cycle1_policy_status || "ELIGIBLE").toUpperCase()} (α=1.0 · Pinned to Court)`
+        );
+      } else {
+        showToast("Wormhole bridge request failed");
+      }
+    } catch {
+      showToast("Wormhole bridge failed - server unreachable");
+    } finally {
+      setIsSyncing(false);
+    }
+  };
+
   return (
     <div
       style={{
@@ -254,6 +281,26 @@ export default function StudioView() {
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
             <button
               type="button"
+              onClick={triggerGovernedWormholeBridge}
+              disabled={!online || isSyncing}
+              style={{
+                background: "rgba(192, 132, 252, 0.14)",
+                border: "1px solid rgba(192, 132, 252, 0.42)",
+                color: "#c084fc",
+                fontSize: "12px",
+                fontWeight: 600,
+                padding: "5px 12px",
+                borderRadius: "8px",
+                cursor: online ? "pointer" : "default",
+                transition: "all 0.15s ease",
+              }}
+              title="Execute SOL-Edge Governed Inter-Dimensional Wormhole Homology Bridge (Cycle 0 QUARANTINE -> Cycle 1 ELIGIBLE) and pin to Trace Court"
+            >
+              🌀 Governed Wormhole
+            </button>
+
+            <button
+              type="button"
               onClick={syncToCourt}
               disabled={!online || isSyncing}
               style={{
@@ -270,6 +317,7 @@ export default function StudioView() {
             >
               {isSyncing ? "Syncing…" : "Sync to Court ↓"}
             </button>
+
 
             <button
               type="button"
