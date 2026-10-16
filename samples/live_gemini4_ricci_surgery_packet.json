@@ -1,0 +1,223 @@
+{
+  "schema": "techman.sol-lens.proof-packet/v0.2",
+  "packet_id": "sol-ricci-surgery-sol_persistent_homology_ricci_surgery",
+  "generated_at": "2026-10-15T21:11:11.000Z",
+  "observable_trace_only": true,
+  "fixture": "Persistent Homology & Ollivier-Ricci Flow Surgery (gemini-4-argon)",
+  "models": {
+    "baseline": "Unspliced Hyperbolic Ricci Neck-Pinch (Barcode Collapse)",
+    "candidate": "Hamilton-Perelman Ricci Surgery + Persistent Barcode (gemini-4-argon)"
+  },
+  "baseline_evaluation": {
+    "label": "Unspliced Hyperbolic Ricci Neck-Pinch",
+    "logon_count": 6,
+    "source": "Cycle 0 neck-pinch singularity counterfactual",
+    "metrics": {
+      "evidence": 0.64,
+      "coherence": 0.59,
+      "contradiction": 0.29,
+      "continuity": 0.57,
+      "authority": 0.665,
+      "faithfulness": 0.55
+    },
+    "verdict": "QUARANTINE"
+  },
+  "logons": [
+    {
+      "id": "L01",
+      "label": "Cellular Filtration Subcomplexes X_\u03b5 (d=3, 8 scales, \u2202\u2081\u2218\u2202\u2082=0)",
+      "status": "supported",
+      "evidence": 0.96,
+      "rho": 0.94,
+      "psi": 0.97,
+      "pressure": 0.05,
+      "detail": "Constructed monotone sheaf filtration X_\u03b5 across [0.50, 5.00] separating 3 essential H\u2081 wormhole bars from 3 transient 2-cell plaquette bars.",
+      "source": "PersistentHomologyFiltrationEngine",
+      "phase_id": "sheaf_cohomology",
+      "group_id": "G01",
+      "timestamp": "2026-10-15T21:11:11.000Z",
+      "evidence_refs": [
+        "sol-persistence:essential_h1=3"
+      ]
+    },
+    {
+      "id": "L02",
+      "label": "Cycle 0 Ollivier-Ricci Neck-Pinch QUARANTINE (\u03ba_throat=-0.767, \u0394_BN=4.00)",
+      "status": "contradiction",
+      "evidence": 0.93,
+      "rho": 0.89,
+      "psi": 0.86,
+      "pressure": 0.25,
+      "detail": "Hyperbolic shear drove throat curvature \u03ba=-0.7668 < -0.15 and pinched w(e_ps)=0.04, collapsing essential H\u2081 lifetime to 0.00; intercepted into QUARANTINE (sha256:a4fda63aa6fe3d5...).",
+      "source": "SolEdgeRicciSurgeryGate (Cycle 0)",
+      "phase_id": "dialectical_stress",
+      "group_id": "G03",
+      "timestamp": "2026-10-15T21:11:11.000Z",
+      "evidence_refs": [
+        "sol-edge:quarantine:sha256:a4fda63aa6fe3d527"
+      ]
+    },
+    {
+      "id": "L03",
+      "label": "Cycle 1 Gemini 4 Hamilton-Perelman Ricci Surgery (\u03ba_throat=0.111, \u0394_BN=0.00e+00)",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.96,
+      "psi": 0.98,
+      "pressure": 0.04,
+      "detail": "Excised neck-pinch singularity on e_ps and spliced harmonic cap (w=1.00). Rationale: During Discrete Ricci Flow (dS/dt = -2 R_ij + T_ij), hyperbolic Exciton shear drove the Ollivier-Ricci curvature on wormhole throat edge e_ps to -0.7668, inducing a neck-pinch singularity that collapsed throat conductance w(e_ps) to 0.0400 (delaying filtration birth to epsilon = 25.00), inflated the vertex metric condition number kappa(g) to 44.74, and annihilated the essential H_1 wormhole persistence bar (Bottleneck shift Delta_BN = 4.0000). Executing Hamilton-Perelman surgery on e_ps excises the negatively curved hyperbolic horn and splices a Ricci-flat harmonic cap (ricci_scalar_target = 0.0) with canonical isometric conductance (restored_throat_conductance = 1.0). This restores early filtration birth of the non-contractible wormhole cycle, re-establishes the essential H_1 persistence bar, and applies 0.85 plaquette 2-cell gauge damping to contract transient short-lived H_1 noise bars.",
+      "source": "Gemini 4 Ricci Surgery Arbiter (gemini-4-argon)",
+      "phase_id": "dialectical_stress",
+      "group_id": "G03",
+      "timestamp": "2026-10-15T21:11:11.000Z",
+      "evidence_refs": [
+        "gemini:interaction:v1_ChdfVURSYXZyWktfZnlxdHNQOFBXV29BURIXX1VEUmF2clpLX2Z5cXRzUDhQV1dvQVE",
+        "sol-edge:cleared_from:sha256:a4fda63aa6fe3d527"
+      ]
+    },
+    {
+      "id": "L04",
+      "label": "Topological Persistence Barcode Separation (\u03c4_essential=0.80 vs \u03c4_noise=0.17)",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.95,
+      "psi": 0.97,
+      "pressure": 0.04,
+      "detail": "Essential H\u2081 wormhole bar [1.00, \u221e) preserved with SNR=4.71x while secondary cycle (e_sp, e_pa, e_sa) is killed at \u03b5=2.10 by im(\u2202\u2082).",
+      "source": "PersistentHomologyFiltrationEngine",
+      "phase_id": "sheaf_cohomology",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T21:11:11.000Z",
+      "evidence_refs": [
+        "sol-persistence:snr=4.71"
+      ]
+    },
+    {
+      "id": "L05",
+      "label": "Log-Euclidean SPD Metric Retraction & SOL-Edge Gate (\u03ba(g)=1.52, ELIGIBLE)",
+      "status": "supported",
+      "evidence": 0.99,
+      "rho": 0.97,
+      "psi": 0.99,
+      "pressure": 0.03,
+      "detail": "Verified det(g_ij) > 0 and condition number \u03ba(g)=1.52 <= 25.0 with SOL-Edge status ELIGIBLE.",
+      "source": "DiscreteRicciFlowEngine \u00d7 SolEdgeRicciSurgeryGate",
+      "phase_id": "sol_edge_gate",
+      "group_id": "G05",
+      "timestamp": "2026-10-15T21:11:11.000Z",
+      "evidence_refs": [
+        "sol-edge:eligible:sha256:a252c48ca4f4cc50a"
+      ]
+    },
+    {
+      "id": "L06",
+      "label": "Cohen-Steiner Bottleneck Stability & Persistence Entropy (\u0394_BN=0.00e+00, H_pers=1.563)",
+      "status": "supported",
+      "evidence": 0.99,
+      "rho": 0.98,
+      "psi": 0.99,
+      "pressure": 0.03,
+      "detail": "Verified d_B(Dgm_1(X_surgery), Dgm_1(X_canonical)) = 0.00e+00 <= ||1/w_surgery - 1/w_canonical||_inf and Shannon persistence entropy H_pers=1.563.",
+      "source": "PersistentHomologyFiltrationEngine \u00d7 SolEdgeRicciSurgeryGate",
+      "phase_id": "sol_edge_gate",
+      "group_id": "G05",
+      "timestamp": "2026-10-15T21:11:11.000Z",
+      "evidence_refs": [
+        "sol-persistence:bottleneck=0.00e+00",
+        "sol-persistence:entropy=1.563"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "E01",
+      "from": "L01",
+      "to": "L02",
+      "status": "contradiction",
+      "kind": "flow",
+      "weight": 0.91,
+      "active": true
+    },
+    {
+      "id": "E02",
+      "from": "L02",
+      "to": "L03",
+      "status": "supported",
+      "kind": "feedback",
+      "weight": 0.98,
+      "active": true
+    },
+    {
+      "id": "E03",
+      "from": "L03",
+      "to": "L04",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.97,
+      "active": true
+    },
+    {
+      "id": "E04",
+      "from": "L04",
+      "to": "L05",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.99,
+      "active": true
+    },
+    {
+      "id": "E05",
+      "from": "L05",
+      "to": "L06",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.99,
+      "active": true
+    }
+  ],
+  "groups": [
+    {
+      "id": "G01",
+      "label": "Phase 1 \u00b7 Cellular Persistent Filtration X_\u03b5",
+      "phase": "seven_giants_elicitation",
+      "logon_ids": [
+        "L01"
+      ]
+    },
+    {
+      "id": "G02",
+      "label": "Phase 2 \u00b7 Persistence Barcode Signal/Noise Separation",
+      "phase": "sheaf_cohomology",
+      "logon_ids": [
+        "L04"
+      ]
+    },
+    {
+      "id": "G03",
+      "label": "Phase 3 \u00b7 Ollivier-Ricci Neck-Pinch & Surgery",
+      "phase": "dialectical_stress",
+      "logon_ids": [
+        "L02",
+        "L03"
+      ]
+    },
+    {
+      "id": "G05",
+      "label": "Phase 5 \u00b7 SPD Metric Retraction & SOL-Edge Gate",
+      "phase": "sol_edge_gate",
+      "logon_ids": [
+        "L05",
+        "L06"
+      ]
+    }
+  ],
+  "metrics": {
+    "evidence": 0.978,
+    "coherence": 0.9637666666666667,
+    "contradiction": 0.1,
+    "continuity": 1.0,
+    "authority": 1.0,
+    "faithfulness": 0.942
+  },
+  "verdict": "PROMOTE"
+}

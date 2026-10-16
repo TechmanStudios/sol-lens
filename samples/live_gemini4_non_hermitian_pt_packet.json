@@ -1,0 +1,222 @@
+{
+  "schema": "techman.sol-lens.proof-packet/v0.2",
+  "packet_id": "sol-nhse-pt-sol_nonhermitian_skin_and_pt_symmetry",
+  "generated_at": "2026-10-15T21:31:02.000Z",
+  "observable_trace_only": true,
+  "fixture": "Non-Hermitian Skin Effect & Exceptional Point PT-Symmetry (gemini-4-argon)",
+  "models": {
+    "baseline": "PT-Broken Exceptional Point & NHSE Skin Pileup",
+    "candidate": "GBZ Imaginary Gauge & Unbroken PT-Symmetry (gemini-4-argon)"
+  },
+  "baseline_evaluation": {
+    "label": "PT-Broken Exceptional Point & NHSE Skin Pileup",
+    "logon_count": 6,
+    "source": "Cycle 0 PT-broken & skin-localized counterfactual",
+    "metrics": {
+      "evidence": 0.63,
+      "coherence": 0.58,
+      "contradiction": 0.3,
+      "continuity": 0.56,
+      "authority": 0.65,
+      "faithfulness": 0.54
+    },
+    "verdict": "QUARANTINE"
+  },
+  "logons": [
+    {
+      "id": "L01",
+      "label": "Non-Hermitian Hatano-Nelson & PT-Dimer Operator L_NH (d=3, g_EP=1.00)",
+      "status": "supported",
+      "evidence": 0.96,
+      "rho": 0.94,
+      "psi": 0.97,
+      "pressure": 0.05,
+      "detail": "Constructed biorthogonal Non-Hermitian Sheaf Laplacian L_NH(\u03b3, g) over 4-vertex Exciton/Photonic ring with Exceptional Point bifurcation threshold g_EP = 1.00.",
+      "source": "NonHermitianSkinEngine",
+      "phase_id": "sheaf_cohomology",
+      "group_id": "G01",
+      "timestamp": "2026-10-15T21:31:02.000Z",
+      "evidence_refs": [
+        "sol-nhpt:g_ep=1.00"
+      ]
+    },
+    {
+      "id": "L02",
+      "label": "Cycle 0 PT-Broken & NHSE Skin Pileup QUARANTINE (|Im \u03bb|=0.907, K_max=26.30, IPR=0.741)",
+      "status": "contradiction",
+      "evidence": 0.93,
+      "rho": 0.89,
+      "psi": 0.86,
+      "pressure": 0.25,
+      "detail": "Supercritical gain g=1.35 > g_EP=1.00 and non-reciprocal drift \u03b3=0.95 broke PT-symmetry (|Im \u03bb|=0.9069), inflated Petermann factor K_max=26.30, and localized skin modes (OBC IPR=0.7405, winding \u03bd=-1); intercepted into QUARANTINE (sha256:e441f6882e55503...).",
+      "source": "SolEdgeNonHermitianPTGate (Cycle 0)",
+      "phase_id": "dialectical_stress",
+      "group_id": "G03",
+      "timestamp": "2026-10-15T21:31:02.000Z",
+      "evidence_refs": [
+        "sol-edge:quarantine:sha256:e441f6882e555038c"
+      ]
+    },
+    {
+      "id": "L03",
+      "label": "Cycle 1 Gemini 4 GBZ Imaginary Gauge & PT Stabilization (|Im \u03bb|=1.11e-16, K_max=1.140)",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.96,
+      "psi": 0.98,
+      "pressure": 0.04,
+      "detail": "Applied imaginary gauge S=diag(exp(-\u03b3 x_v)) (\u03b3_eff=0.00) and clamped gain g=0.35 < g_EP=1.00. Rationale: Applying the Generalized Brillouin Zone (GBZ) similarity transformation S = diag(exp(-gamma * x_v)) with gamma = 0.9500 maps the non-reciprocal Hatano-Nelson hopping amplitudes (t_R = w * exp(+gamma), t_L = w * exp(-gamma)) to a Hermitian-equivalent reciprocal lattice S^(-1) H S with uniform hopping w = sqrt(t_R * t_L), resulting in calibrated_skin_gauge_gamma = 0.0. This delocalizes the macroscopic boundary pileup of bulk eigenstates caused by the Non-Hermitian Skin Effect (NHSE), restoring the open-boundary Inverse Participation Ratio (IPR) from 0.7405 to the uniform bulk limit of 0.2500 and collapsing the complex-energy point-gap spectral topology to a trivial winding number nu(E_0) = 0 at wormhole_pbc_flux_phase_rad = 0.0. Simultaneously, attenuating the balanced optical gain/loss amplitude from g = 1.3500 to clamped_pt_gain_loss_g = 0.35 (strictly below the second-order Exceptional Point threshold g_EP = 1.00) transitions the exciton/photonic waveguide back into the unbroken PT-symmetric phase. In this regime, the complex-conjugate eigenvalue pairs re-coalesce and become purely real (|Im(lambda)| = 0.0), lifting the defective biorthogonal eigenstate self-orthogonality (<psi_L|psi_R> != 0) and suppressing the divergent Petermann excess noise factor K_max from 26.3023 to a bounded regime well below 2.50.",
+      "source": "Gemini 4 Non-Hermitian PT Arbiter (gemini-4-argon)",
+      "phase_id": "dialectical_stress",
+      "group_id": "G03",
+      "timestamp": "2026-10-15T21:31:02.000Z",
+      "evidence_refs": [
+        "gemini:interaction:v1_ChdGa2JSYXZDQUFleUFtdGtQNnZhRC1BSRIXRmtiUmF2Q0FBZXlBbXRrUDZ2YUQtQUk",
+        "sol-edge:cleared_from:sha256:e441f6882e555038c"
+      ]
+    },
+    {
+      "id": "L04",
+      "label": "NHSE Skin Delocalization & Point-Gap Winding Trivialization (IPR: 0.741\u21920.250, \u03bd: -1\u21920)",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.95,
+      "psi": 0.97,
+      "pressure": 0.04,
+      "detail": "Delocalized boundary skin pileup (3.40x \u2192 1.00x uniform bulk) and collapsed complex point-gap ellipse to real line segment (\u03bd=0).",
+      "source": "NonHermitianSkinEngine",
+      "phase_id": "sheaf_cohomology",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T21:31:02.000Z",
+      "evidence_refs": [
+        "sol-nhpt:ipr=0.2500"
+      ]
+    },
+    {
+      "id": "L05",
+      "label": "Biorthogonal Completeness & Petermann Noise Suppression (K_max: 26.30\u21921.140)",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.96,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "Prevented Exceptional Point eigenvector coalescence (<\u03c8_L|\u03c8_R> != 0), bounding Petermann excess noise factor K_max=1.1396 <= 2.50.",
+      "source": "NonHermitianSkinEngine",
+      "phase_id": "sheaf_cohomology",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T21:31:02.000Z",
+      "evidence_refs": [
+        "sol-nhpt:petermann=1.1396"
+      ]
+    },
+    {
+      "id": "L06",
+      "label": "Unbroken PT-Symmetry & SOL-Edge Pre-Execution Gate (g=0.35 < g_EP, ELIGIBLE)",
+      "status": "supported",
+      "evidence": 0.99,
+      "rho": 0.98,
+      "psi": 0.99,
+      "pressure": 0.03,
+      "detail": "Verified purely real spectrum (max|Im \u03bb|=1.11e-16) and SOL-Edge status ELIGIBLE.",
+      "source": "NonHermitianSkinEngine \u00d7 SolEdgeNonHermitianPTGate",
+      "phase_id": "sol_edge_gate",
+      "group_id": "G05",
+      "timestamp": "2026-10-15T21:31:02.000Z",
+      "evidence_refs": [
+        "sol-edge:eligible:sha256:fcc8a8291b461a97d"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "E01",
+      "from": "L01",
+      "to": "L02",
+      "status": "contradiction",
+      "kind": "flow",
+      "weight": 0.91,
+      "active": true
+    },
+    {
+      "id": "E02",
+      "from": "L02",
+      "to": "L03",
+      "status": "supported",
+      "kind": "feedback",
+      "weight": 0.98,
+      "active": true
+    },
+    {
+      "id": "E03",
+      "from": "L03",
+      "to": "L04",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.97,
+      "active": true
+    },
+    {
+      "id": "E04",
+      "from": "L04",
+      "to": "L05",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.98,
+      "active": true
+    },
+    {
+      "id": "E05",
+      "from": "L05",
+      "to": "L06",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.99,
+      "active": true
+    }
+  ],
+  "groups": [
+    {
+      "id": "G01",
+      "label": "Phase 1 \u00b7 Non-Hermitian Hatano-Nelson & PT Operator L_NH",
+      "phase": "seven_giants_elicitation",
+      "logon_ids": [
+        "L01"
+      ]
+    },
+    {
+      "id": "G02",
+      "label": "Phase 2 \u00b7 NHSE Skin Delocalization & Petermann Bound",
+      "phase": "sheaf_cohomology",
+      "logon_ids": [
+        "L04",
+        "L05"
+      ]
+    },
+    {
+      "id": "G03",
+      "label": "Phase 3 \u00b7 Exceptional Point Quarantine & GBZ Gauge Surgery",
+      "phase": "dialectical_stress",
+      "logon_ids": [
+        "L02",
+        "L03"
+      ]
+    },
+    {
+      "id": "G05",
+      "label": "Phase 5 \u00b7 Unbroken PT-Symmetry & SOL-Edge Gate",
+      "phase": "sol_edge_gate",
+      "logon_ids": [
+        "L06"
+      ]
+    }
+  ],
+  "metrics": {
+    "evidence": 0.976,
+    "coherence": 0.9621666666666666,
+    "contradiction": 0.1,
+    "continuity": 1.0,
+    "authority": 1.0,
+    "faithfulness": 0.9403333333333334
+  },
+  "verdict": "PROMOTE"
+}

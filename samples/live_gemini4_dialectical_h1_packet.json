@@ -1,0 +1,1035 @@
+{
+  "schema": "techman.sol-lens.proof-packet/v0.2",
+  "packet_id": "sol-decide-lens-pkg-259b5b31e262",
+  "generated_at": "2026-10-15T17:55:27.000Z",
+  "observable_trace_only": true,
+  "fixture": "Multi-Agent Dialectical H1 Cohomological Obstruction Study - Hodge-Harmonic Reconciled Bus (gemini-4-argon)",
+  "models": {
+    "baseline": "Ungoverned Single-Pass LLM (gemini-4-argon)",
+    "candidate": "SOL-Decide Sheaf + SOL-Edge Gate (gemini-4-argon)"
+  },
+  "baseline_evaluation": {
+    "label": "Ungoverned Single-Pass LLM (gemini-4-argon)",
+    "logon_count": 28,
+    "source": "Ungoverned baseline counterfactual (boundary violations unquarantined)",
+    "metrics": {
+      "evidence": 0.68,
+      "coherence": 0.64,
+      "contradiction": 0.25,
+      "continuity": 0.62,
+      "authority": 0.705,
+      "faithfulness": 0.595
+    },
+    "verdict": "QUARANTINE"
+  },
+  "logons": [
+    {
+      "id": "L01",
+      "label": "Mission & Gemini Structured Elicitation",
+      "status": "supported",
+      "evidence": 0.96,
+      "rho": 0.89,
+      "psi": 0.95,
+      "pressure": 0.09,
+      "detail": "Gemini model 'gemini-4-argon' (interaction=v1_ChdmaFBSYXVDWklwVG96N0lQaDdmcDRBOBIXZmhQUmF1Q1pJcFRvejdJUGg3ZnA0QTg) elicited multi-agent trade study 'Multi-Agent Dialectical H1 Cohomological Obstruction Study - Hodge-Harmonic Reconciled Bus' with 13 sheaf vertices and 15 restriction morphisms.",
+      "source": "Gemini Interactions API (gemini-4-argon)",
+      "phase_id": "elicitation",
+      "group_id": "G01",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "gemini:interaction:v1_ChdmaFBSYXVDWklwVG96N0lQaDdmcDRBOBIXZmhQUmF1Q1pJcFRvejdJUGg3ZnA0QTg",
+        "gemini:model:gemini-4-argon",
+        "schema:MultiAgentTradeStudySpec"
+      ]
+    },
+    {
+      "id": "L02",
+      "label": "Cognitive Reasoning & Thought Signature (gemini-4-argon)",
+      "status": "supported",
+      "evidence": 0.96,
+      "rho": 0.88,
+      "psi": 0.94,
+      "pressure": 0.1,
+      "detail": "Reasoning telemetry for 'gemini-4-argon': thought_steps=1, input_tokens=1169, thought_tokens=116, output_tokens=325, thought_to_output_ratio=0.357 | Summary: **Constructing a Specialist Proposal for Power/Thermal**  Okay, let's craft a `SpecialistSubsystemProposalSpec` specifically for the `Power_Thermal_Specialist`. First, I'm going to",
+      "source": "Gemini Thought Engine (gemini-4-argon)",
+      "phase_id": "elicitation",
+      "group_id": "G01",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "gemini:input_tokens:1169",
+        "gemini:thought_tokens:116",
+        "gemini:output_tokens:325",
+        "gemini:thought_ratio:0.3569",
+        "gemini:thought_sig:sha256:e1733119de324a0d2"
+      ]
+    },
+    {
+      "id": "L03",
+      "label": "Specialist Sub-Agent: Power_Thermal_Specialist (sub_power_thermal)",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.89,
+      "psi": 0.94,
+      "pressure": 0.1,
+      "detail": "Independent Gemini sub-agent 'Power_Thermal_Specialist' (interaction=v1_ChdiUlBSYXNmQkxwMkV6N0lQd282MGlBVRIXYlJQUmFzZkJMcDJFejdJUHdvNjBpQVU) authored locally compliant stalk [595.0, 88.0, 4.2] and bilateral interface claim +0.42 -> 'Structures_Mass_Specialist'.",
+      "source": "Gemini Specialist Sub-Agent \u00b7 Power_Thermal_Specialist",
+      "phase_id": "elicitation",
+      "group_id": "G01",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "gemini:specialist_role:Power_Thermal_Specialist",
+        "gemini:interaction:v1_ChdiUlBSYXNmQkxwMkV6N0lQd282MGlBVRIXYlJQUmFzZkJMcDJFejdJUHdvNjBpQVU",
+        "sheaf:interface_claim:+0.420",
+        "gemini:thought_sig:sha256:e1733119de324a0d2"
+      ]
+    },
+    {
+      "id": "L04",
+      "label": "Specialist Sub-Agent: Structures_Mass_Specialist (sub_structures_mass)",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.89,
+      "psi": 0.94,
+      "pressure": 0.1,
+      "detail": "Independent Gemini sub-agent 'Structures_Mass_Specialist' (interaction=v1_ChdkaFBSYXJUVUlibUd6N0lQeVA3Ty1RURIXZGhQUmFyVFVJYm1HejdJUHlQN08tUVE) authored locally compliant stalk [445.0, 82.5, 5.1] and bilateral interface claim +0.27 -> 'Avionics_Guidance_Specialist'.",
+      "source": "Gemini Specialist Sub-Agent \u00b7 Structures_Mass_Specialist",
+      "phase_id": "elicitation",
+      "group_id": "G01",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "gemini:specialist_role:Structures_Mass_Specialist",
+        "gemini:interaction:v1_ChdkaFBSYXJUVUlibUd6N0lQeVA3Ty1RURIXZGhQUmFyVFVJYm1HejdJUHlQN08tUVE",
+        "sheaf:interface_claim:+0.270",
+        "gemini:thought_sig:sha256:64105e51aafa74c35"
+      ]
+    },
+    {
+      "id": "L05",
+      "label": "Specialist Sub-Agent: Avionics_Guidance_Specialist (sub_avionics_guidance)",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.89,
+      "psi": 0.94,
+      "pressure": 0.1,
+      "detail": "Independent Gemini sub-agent 'Avionics_Guidance_Specialist' (interaction=v1_ChdmaFBSYXVDWklwVG96N0lQaDdmcDRBOBIXZmhQUmF1Q1pJcFRvejdJUGg3ZnA0QTg) authored locally compliant stalk [415.0, 82.0, 5.65] and bilateral interface claim -0.26 -> 'Power_Thermal_Specialist'.",
+      "source": "Gemini Specialist Sub-Agent \u00b7 Avionics_Guidance_Specialist",
+      "phase_id": "elicitation",
+      "group_id": "G01",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "gemini:specialist_role:Avionics_Guidance_Specialist",
+        "gemini:interaction:v1_ChdmaFBSYXVDWklwVG96N0lQaDdmcDRBOBIXZmhQUmF1Q1pJcFRvejdJUGg3ZnA0QTg",
+        "sheaf:interface_claim:-0.260",
+        "gemini:thought_sig:sha256:e28537bc9649b9f8c"
+      ]
+    },
+    {
+      "id": "L06",
+      "label": "Calibrated Cellular Sheaf Restriction Complex",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.87,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "Compiled cellular sheaf complex 'Multi-Agent Dialectical H1 Cohomological Obstruction Study - Hodge-Harmonic Reconciled Bus': beta_0=4, beta_1=0, kappa(Delta^0)=92.2570, Kuramoto r=0.9997, causal_emergence_delta_ei=+0.9508 bits.",
+      "source": "SOL-Decide Sheaf Compiler",
+      "phase_id": "elicitation",
+      "group_id": "G01",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "sheaf:vertices:13",
+        "sheaf:edges:15",
+        "sheaf:cond_num:92.2570",
+        "sheaf:delta_ei:+0.9508"
+      ]
+    },
+    {
+      "id": "L07",
+      "label": "The Statistician \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Statistician (PASSED): metric=0.0700, passed=True \u2014 Audited 2 assumptions; max uncertainty sigma=0.070",
+      "source": "7 Giants MoA \u00b7 The Statistician",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "giant:Statistician:PASSED",
+        "metric:0.070000",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L08",
+      "label": "The Statistician \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Statistician (PASSED): metric=0.0700, passed=True \u2014 Audited 2 assumptions; max uncertainty sigma=0.070",
+      "source": "7 Giants MoA \u00b7 The Statistician",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "giant:The Statistician:PASSED",
+        "metric:0.070000",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L09",
+      "label": "The Graph Navigator \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Graph Navigator (PASSED): metric=15.0000, passed=True \u2014 Verified topological cell complex with 13 vertices, 15 edges (cycles=False)",
+      "source": "7 Giants MoA \u00b7 The Graph Navigator",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "giant:Graph Navigator:PASSED",
+        "metric:15.000000",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L10",
+      "label": "The Graph Navigator \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Graph Navigator (PASSED): metric=15.0000, passed=True \u2014 Verified topological cell complex with 13 vertices, 15 edges (cycles=False)",
+      "source": "7 Giants MoA \u00b7 The Graph Navigator",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "giant:The Graph Navigator:PASSED",
+        "metric:15.000000",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L11",
+      "label": "The Linear Algebraist \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Linear Algebraist (PASSED): metric=92.2570, passed=True \u2014 Spectral condition number kappa(Delta^0)=92.26 (bound <= 500.0)",
+      "source": "7 Giants MoA \u00b7 The Linear Algebraist",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "giant:Linear Algebraist:PASSED",
+        "metric:92.257017",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L12",
+      "label": "The Linear Algebraist \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Linear Algebraist (PASSED): metric=92.2570, passed=True \u2014 Spectral condition number kappa(Delta^0)=92.26 (bound <= 500.0)",
+      "source": "7 Giants MoA \u00b7 The Linear Algebraist",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "giant:The Linear Algebraist:PASSED",
+        "metric:92.257017",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L13",
+      "label": "The Aligner \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Aligner (PASSED): metric=0.9997, passed=True \u2014 Kuramoto phase synchronization r=0.9997 (threshold >= 0.70)",
+      "source": "7 Giants MoA \u00b7 The Aligner",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "giant:Aligner:PASSED",
+        "metric:0.999741",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L14",
+      "label": "The Aligner \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Aligner (PASSED): metric=0.9997, passed=True \u2014 Kuramoto phase synchronization r=0.9997 (threshold >= 0.70)",
+      "source": "7 Giants MoA \u00b7 The Aligner",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "giant:The Aligner:PASSED",
+        "metric:0.999741",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L15",
+      "label": "The Integrator \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Integrator (PASSED): metric=0.9508, passed=True \u2014 Volume invariance preserved; macroscopic causal emergence Delta EI = +0.95 bits",
+      "source": "7 Giants MoA \u00b7 The Integrator",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "giant:Integrator:PASSED",
+        "metric:0.950808",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L16",
+      "label": "The Integrator \u00b7 PASSED",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.86,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "The Integrator (PASSED): metric=0.9508, passed=True \u2014 Volume invariance preserved; macroscopic causal emergence Delta EI = +0.95 bits",
+      "source": "7 Giants MoA \u00b7 The Integrator",
+      "phase_id": "giants_verification",
+      "group_id": "G02",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "giant:The Integrator:PASSED",
+        "metric:0.950808",
+        "passed:True"
+      ]
+    },
+    {
+      "id": "L17",
+      "label": "Option sub_power_thermal: High-Energy Solid-State Li-Metal Power & Pumped Two-Phase Thermal Bus [Power_Thermal_Specialist]",
+      "status": "inferred",
+      "evidence": 0.89,
+      "rho": 0.81,
+      "psi": 0.88,
+      "pressure": 0.17,
+      "detail": "[FEASIBLE ALTERNATIVE CANDIDATE] Option 'High-Energy Solid-State Li-Metal Power & Pumped Two-Phase Thermal Bus [Power_Thermal_Specialist]' (state=[485.0, 84.17, 4.98], cost=$44.5M, TRL=6, MRL=6) -> utility=223.8597, obstructed_edges=[], sol-edge status=ELIGIBLE.",
+      "source": "SOL-Decide Option Stalk Evaluator",
+      "phase_id": "sheaf_cohomology",
+      "group_id": "G03",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "option:sub_power_thermal:utility:223.8597",
+        "sol-edge:proposal:sha256:0a79ff985d7fd",
+        "sol-edge:status:ELIGIBLE"
+      ]
+    },
+    {
+      "id": "L18",
+      "label": "Option sub_structures_mass: Isogrid Carbon-Cyanate Composite Bus with Integrated Multifunctional Load-Bearing Panels [Structures_Mass_Specialist]",
+      "status": "inferred",
+      "evidence": 0.89,
+      "rho": 0.81,
+      "psi": 0.88,
+      "pressure": 0.17,
+      "detail": "[FEASIBLE ALTERNATIVE CANDIDATE] Option 'Isogrid Carbon-Cyanate Composite Bus with Integrated Multifunctional Load-Bearing Panels [Structures_Mass_Specialist]' (state=[485.0, 84.17, 4.98], cost=$28.4M, TRL=7, MRL=7) -> utility=227.8597, obstructed_edges=[], sol-edge status=ELIGIBLE.",
+      "source": "SOL-Decide Option Stalk Evaluator",
+      "phase_id": "sheaf_cohomology",
+      "group_id": "G03",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "option:sub_structures_mass:utility:227.8597",
+        "sol-edge:proposal:sha256:7e0a97d17590d",
+        "sol-edge:status:ELIGIBLE"
+      ]
+    },
+    {
+      "id": "L19",
+      "label": "Option sub_avionics_guidance: Fault-Tolerant Radiation-Hardened SiC/SOI Avionics & Star-Tracker Guidance Suite [Avionics_Guidance_Specialist]",
+      "status": "supported",
+      "evidence": 0.96,
+      "rho": 0.92,
+      "psi": 0.95,
+      "pressure": 0.1,
+      "detail": "[SELECTED HARMONIC WINNER] Option 'Fault-Tolerant Radiation-Hardened SiC/SOI Avionics & Star-Tracker Guidance Suite [Avionics_Guidance_Specialist]' (state=[485.0, 84.17, 4.98], cost=$44.5M, TRL=8, MRL=7) -> utility=229.8597, obstructed_edges=[], sol-edge status=ELIGIBLE.",
+      "source": "SOL-Decide Option Stalk Evaluator",
+      "phase_id": "sheaf_cohomology",
+      "group_id": "G03",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "option:sub_avionics_guidance:utility:229.8597",
+        "sol-edge:proposal:sha256:3f4908cec790a",
+        "sol-edge:status:ELIGIBLE"
+      ]
+    },
+    {
+      "id": "L20",
+      "label": "Cycle 0 H^1 Topological Obstruction (beta_1=1) & Hodge Decomposition",
+      "status": "contradiction",
+      "evidence": 0.35,
+      "rho": 0.44,
+      "psi": 0.58,
+      "pressure": 0.86,
+      "detail": "[CYCLE 0 H^1 OBSTRUCTION QUARANTINED] All 3 specialist local stalks satisfied hard bounds, but cross-subsystem interface cycle ['e_if_power_to_structures', 'e_if_structures_to_avionics', 'e_if_power_to_avionics'] induced beta_1=1 with Hodge 1-Laplacian decomposition: ||omega_exact||_2=271.3917, ||omega_coexact||_2=0.0000, ||omega_harmonic||_2=0.5485 (holonomy=+0.9500).",
+      "source": "1-Hodge Laplacian Delta^1 Obstruction Auditor",
+      "phase_id": "sheaf_cohomology",
+      "group_id": "G03",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "hodge:pre_beta_1:1",
+        "hodge:pre_harmonic_norm:0.548483",
+        "hodge:pre_exact_norm:271.391670",
+        "sol-edge:quarantined_state:sha256:ed1f96b18ba351d56f52a",
+        "hodge:frustrated_edge:e_if_power_to_structures",
+        "hodge:frustrated_edge:e_if_structures_to_avionics",
+        "hodge:frustrated_edge:e_if_power_to_avionics"
+      ]
+    },
+    {
+      "id": "L21",
+      "label": "Cycle 1 Hodge-Harmonic Negotiation Cleared (beta_1: 1 -> 0)",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.93,
+      "psi": 0.96,
+      "pressure": 0.08,
+      "detail": "[CYCLE 1 HODGE-HARMONIC NEGOTIATION CLEARED] Gemini interaction 'v1_ChdmaFBSYXVDWklwVG96N0lQaDdmcDRBOBIWamhQUmFzU0pJT2VlejdJUHJkU25LQQ' annihilated harmonic 1-cochain ||omega_harmonic||_2: 0.5485 -> 0.0000 and resolved beta_1: 1 -> 0 (1. Hard Sheaf Constraint Interval Verification: All three reconciled subsystem stalks equal s* = [485.0, 84.17, 4.98]. Channel 0: 485.0 in [350.0, 620.0] Wh/kg (strictly interior). Channel 1: 84.17 in [25.0, 95.0] K (strictly interior). Channel 2: 4.98 in [1.8, 6.0] k-cycles (strictly interior). 2. Exact Coboundary Clearance (ker(Delta^0)): Because s_power = s_structures = s_avionics = [485.0, 84.17, 4.98], the nodal coboundary d^0(s*) = 0 across all three interface edges, reducing ||omega_exact||_2 from 271.391670 to 0.000000. 3. Cyclic Interface Holonomy Clearance (ker(Delta^1)): The reconciled bilateral interface claims [b_PS, b_SA, b_PA] = [0.1033, -0.0467, -0.0566] satisfy the closed-loop Kirchhoff/holonomy sum b_PS + b_SA + b_PA = 0.1033 + (-0.0467) + (-0.0566) = 0.0000. Consequently, ||omega_harmonic||_2 = 0.000000 and beta_1 = dim H^1(X, F) = 0.).",
+      "source": "SOL-Decide Hodge-Harmonic Negotiator (gemini-4-argon)",
+      "phase_id": "sheaf_cohomology",
+      "group_id": "G03",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "hodge:post_beta_1:0",
+        "hodge:post_harmonic_norm:0.000000",
+        "gemini:negotiation_interaction:v1_ChdmaFBSYXVDWklwVG96N0lQaDdmcDRBOBIWamhQUmFzU0pJT2VlejdJUHJkU25LQQ",
+        "gemini:previous_interaction:v1_ChdmaFBSYXVDWklwVG96N0lQaDdmcDRBOBIXZmhQUmF1Q1pJcFRvejdJUGg3ZnA0QTg",
+        "sol-edge:cleared_state:sha256:eeb512a3e4a22e08f0745",
+        "gemini:negotiation_thought_sig:sha256:339841657873ea40c326a"
+      ]
+    },
+    {
+      "id": "L22",
+      "label": "Sheaf Coboundary & Hodge Decomposition Audit",
+      "status": "supported",
+      "evidence": 0.96,
+      "rho": 0.9,
+      "psi": 0.94,
+      "pressure": 0.11,
+      "detail": "Global sheaf evaluation: feasible=True, selected=sub_avionics_guidance, E(x)=27514.9939, ||delta_0 x||=234.5847, beta_0=4, beta_1=0.",
+      "source": "SheafDecisionComplex Cohomology Auditor",
+      "phase_id": "sheaf_cohomology",
+      "group_id": "G03",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "hodge:dirichlet_energy:27514.993950",
+        "hodge:coboundary_norm:234.584714",
+        "hodge:beta_0:4:beta_1:0",
+        "hodge:selected:sub_avionics_guidance"
+      ]
+    },
+    {
+      "id": "L23",
+      "label": "Sensitivity Inflection & MSCK Sweep",
+      "status": "supported",
+      "evidence": 0.94,
+      "rho": 0.87,
+      "psi": 0.92,
+      "pressure": 0.13,
+      "detail": "SensitivityAblator swept 5 parameters: most_fragile=Structural Cold-Plate Thermal Conductance, sensitive_flips=5, MSCK=['ass_bus_efficiency', 'ass_structural_conduction', 'sub_avionics_guidance'].",
+      "source": "SensitivityAblator",
+      "phase_id": "adversarial_audit",
+      "group_id": "G04",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "sensitivity:most_fragile:Structural Cold-Plate Thermal Conductance",
+        "sensitivity:flips:5",
+        "sensitivity:msck_size:3"
+      ]
+    },
+    {
+      "id": "L24",
+      "label": "Dialectical Adversary Optimism-Bias Stress Test",
+      "status": "supported",
+      "evidence": 0.95,
+      "rho": 0.88,
+      "psi": 0.93,
+      "pressure": 0.12,
+      "detail": "DialecticalAdversary injected bounded coboundary strain: max_strain_tolerated=0.0500, false_commit_rate=0.0000 across 24 adversarial trials.",
+      "source": "DialecticalAdversary",
+      "phase_id": "adversarial_audit",
+      "group_id": "G04",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "dialectics:false_commit_rate:0.0000",
+        "dialectics:max_strain:0.0500",
+        "dialectics:trials:24"
+      ]
+    },
+    {
+      "id": "L25",
+      "label": "SOL-Edge CapabilityManifest & ExperimentPlan Binding",
+      "status": "supported",
+      "evidence": 0.96,
+      "rho": 0.9,
+      "psi": 0.95,
+      "pressure": 0.09,
+      "detail": "Bound CapabilityManifest 'manifest:multi-agent-dialectical-h1-cohomological-obstruction-study-hodge-harmonic-reconciled-bus' (digest=sha256:a0fa8c4fca372...) and ExperimentPlan 'plan:multi-agent-dialectical-h1-cohomological-obstruction-study-hodge-harmonic-reconciled-bus' (digest=sha256:9f512e73857dd...).",
+      "source": "SOL-Edge Contract Compiler",
+      "phase_id": "sol_edge_gate",
+      "group_id": "G05",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "sol-edge:manifest:sha256:a0fa8c4fca3722e20f195",
+        "sol-edge:plan:sha256:9f512e73857ddd9eebb54"
+      ]
+    },
+    {
+      "id": "L26",
+      "label": "SOL-Edge EvidencePacket & PolicyDecision (ELIGIBLE)",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.92,
+      "psi": 0.96,
+      "pressure": 0.08,
+      "detail": "Verified EvidencePacket 'evidence:sub_avionics_guidance:repair-1' (digest=sha256:0bc2697a8418b...) and recorded PolicyDecision 'decision:sub_avionics_guidance:repair-1' -> status=ELIGIBLE, next_transition=RELEASE_REVIEW.",
+      "source": "SOL-Edge Policy Gate",
+      "phase_id": "sol_edge_gate",
+      "group_id": "G05",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "sol-edge:evidence:sha256:0bc2697a8418b2fcddbaf",
+        "sol-edge:policy:sha256:2c41ecb306778d8311f07",
+        "sol-edge:status:ELIGIBLE"
+      ]
+    },
+    {
+      "id": "L27",
+      "label": "SOL-Edge Hash-Chained Event Stream Replay",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.94,
+      "psi": 0.97,
+      "pressure": 0.07,
+      "detail": "Replayed 4 hash-chained RuntimeEvents (RUN_OPENED -> PROPOSAL_RECORDED -> EVIDENCE_RECORDED -> POLICY_DECISION_RECORDED): runtime_status=ELIGIBLE, state_digest=sha256:eeb512a3e4a22....",
+      "source": "SOL-Edge Runtime State Machine",
+      "phase_id": "sol_edge_gate",
+      "group_id": "G05",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "sol-edge:state_digest:sha256:eeb512a3e4a22e08f0745",
+        "sol-edge:last_event:sha256:405ea162fdfda0daab0f0",
+        "sol-edge:runtime_status:ELIGIBLE"
+      ]
+    },
+    {
+      "id": "L28",
+      "label": "Signer-Ready Decision Package (PKG-259B5B31E262)",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.93,
+      "psi": 0.96,
+      "pressure": 0.08,
+      "detail": "Compiled SignerReadyDecisionPackage 'PKG-259B5B31E262' selecting 'Fault-Tolerant Radiation-Hardened SiC/SOI Avionics & Star-Tracker Guidance Suite [Avionics_Guidance_Specialist]' (certifiable=True, sha256=259b5b31e262fcd5...).",
+      "source": "SOL-Decide Package Compiler",
+      "phase_id": "sol_edge_gate",
+      "group_id": "G05",
+      "timestamp": "2026-10-15T17:55:27.000Z",
+      "evidence_refs": [
+        "sol-decide:proof_hash:259b5b31e262fcd5f86f23dd",
+        "sol-decide:package_id:PKG-259B5B31E262",
+        "sol-decide:certifiable:True"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "E01",
+      "from": "L01",
+      "to": "L02",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.95,
+      "active": true
+    },
+    {
+      "id": "E02",
+      "from": "L02",
+      "to": "L03",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.93,
+      "active": true
+    },
+    {
+      "id": "E03",
+      "from": "L03",
+      "to": "L04",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.93,
+      "active": true
+    },
+    {
+      "id": "E04",
+      "from": "L04",
+      "to": "L05",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.93,
+      "active": true
+    },
+    {
+      "id": "E05",
+      "from": "L05",
+      "to": "L06",
+      "status": "supported",
+      "kind": "dependency",
+      "weight": 0.94,
+      "active": true
+    },
+    {
+      "id": "E06",
+      "from": "L06",
+      "to": "L07",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E07",
+      "from": "L06",
+      "to": "L08",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E08",
+      "from": "L06",
+      "to": "L09",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E09",
+      "from": "L06",
+      "to": "L10",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E10",
+      "from": "L06",
+      "to": "L11",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E11",
+      "from": "L06",
+      "to": "L12",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E12",
+      "from": "L06",
+      "to": "L13",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E13",
+      "from": "L06",
+      "to": "L14",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E14",
+      "from": "L06",
+      "to": "L15",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E15",
+      "from": "L06",
+      "to": "L16",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.88,
+      "active": true
+    },
+    {
+      "id": "E16",
+      "from": "L07",
+      "to": "L17",
+      "status": "inferred",
+      "kind": "flow",
+      "weight": 0.86,
+      "active": true
+    },
+    {
+      "id": "E17",
+      "from": "L08",
+      "to": "L17",
+      "status": "inferred",
+      "kind": "flow",
+      "weight": 0.86,
+      "active": true
+    },
+    {
+      "id": "E18",
+      "from": "L09",
+      "to": "L17",
+      "status": "inferred",
+      "kind": "flow",
+      "weight": 0.86,
+      "active": true
+    },
+    {
+      "id": "E19",
+      "from": "L07",
+      "to": "L18",
+      "status": "inferred",
+      "kind": "flow",
+      "weight": 0.86,
+      "active": true
+    },
+    {
+      "id": "E20",
+      "from": "L08",
+      "to": "L18",
+      "status": "inferred",
+      "kind": "flow",
+      "weight": 0.86,
+      "active": true
+    },
+    {
+      "id": "E21",
+      "from": "L09",
+      "to": "L18",
+      "status": "inferred",
+      "kind": "flow",
+      "weight": 0.86,
+      "active": true
+    },
+    {
+      "id": "E22",
+      "from": "L07",
+      "to": "L19",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.86,
+      "active": true
+    },
+    {
+      "id": "E23",
+      "from": "L08",
+      "to": "L19",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.86,
+      "active": true
+    },
+    {
+      "id": "E24",
+      "from": "L09",
+      "to": "L19",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.86,
+      "active": true
+    },
+    {
+      "id": "E25",
+      "from": "L07",
+      "to": "L20",
+      "status": "contradiction",
+      "kind": "constraint",
+      "weight": 0.54,
+      "active": false
+    },
+    {
+      "id": "E26",
+      "from": "L08",
+      "to": "L20",
+      "status": "contradiction",
+      "kind": "constraint",
+      "weight": 0.54,
+      "active": false
+    },
+    {
+      "id": "E27",
+      "from": "L20",
+      "to": "L21",
+      "status": "supported",
+      "kind": "feedback",
+      "weight": 0.96,
+      "active": true
+    },
+    {
+      "id": "E28",
+      "from": "L10",
+      "to": "L22",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.87,
+      "active": true
+    },
+    {
+      "id": "E29",
+      "from": "L11",
+      "to": "L22",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.87,
+      "active": true
+    },
+    {
+      "id": "E30",
+      "from": "L12",
+      "to": "L22",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.87,
+      "active": true
+    },
+    {
+      "id": "E31",
+      "from": "L13",
+      "to": "L22",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.87,
+      "active": true
+    },
+    {
+      "id": "E32",
+      "from": "L14",
+      "to": "L22",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.87,
+      "active": true
+    },
+    {
+      "id": "E33",
+      "from": "L15",
+      "to": "L22",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.87,
+      "active": true
+    },
+    {
+      "id": "E34",
+      "from": "L16",
+      "to": "L22",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.87,
+      "active": true
+    },
+    {
+      "id": "E35",
+      "from": "L17",
+      "to": "L22",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.91,
+      "active": true
+    },
+    {
+      "id": "E36",
+      "from": "L18",
+      "to": "L22",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.91,
+      "active": true
+    },
+    {
+      "id": "E37",
+      "from": "L19",
+      "to": "L22",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.91,
+      "active": true
+    },
+    {
+      "id": "E38",
+      "from": "L22",
+      "to": "L23",
+      "status": "supported",
+      "kind": "dependency",
+      "weight": 0.9,
+      "active": true
+    },
+    {
+      "id": "E39",
+      "from": "L23",
+      "to": "L24",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.91,
+      "active": true
+    },
+    {
+      "id": "E40",
+      "from": "L24",
+      "to": "L25",
+      "status": "supported",
+      "kind": "dependency",
+      "weight": 0.93,
+      "active": true
+    },
+    {
+      "id": "E41",
+      "from": "L25",
+      "to": "L26",
+      "status": "supported",
+      "kind": "constraint",
+      "weight": 0.95,
+      "active": true
+    },
+    {
+      "id": "E42",
+      "from": "L26",
+      "to": "L27",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.96,
+      "active": true
+    },
+    {
+      "id": "E43",
+      "from": "L27",
+      "to": "L28",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.97,
+      "active": true
+    }
+  ],
+  "groups": [
+    {
+      "id": "G01",
+      "label": "Phase 1 \u00b7 Gemini Multi-Agent Elicitation",
+      "phase": "elicitation",
+      "logon_ids": [
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06"
+      ]
+    },
+    {
+      "id": "G02",
+      "label": "Phase 2 \u00b7 7 Giants Operator Verification",
+      "phase": "giants_verification",
+      "logon_ids": [
+        "L07",
+        "L08",
+        "L09",
+        "L10",
+        "L11",
+        "L12",
+        "L13",
+        "L14",
+        "L15",
+        "L16"
+      ]
+    },
+    {
+      "id": "G03",
+      "label": "Phase 3 \u00b7 Competing Agent Option Stalks & Sheaf Audit",
+      "phase": "sheaf_cohomology",
+      "logon_ids": [
+        "L17",
+        "L18",
+        "L19",
+        "L20",
+        "L21",
+        "L22"
+      ]
+    },
+    {
+      "id": "G04",
+      "label": "Phase 4 \u00b7 Sensitivity & Dialectical Adversary",
+      "phase": "adversarial_audit",
+      "logon_ids": [
+        "L23",
+        "L24"
+      ]
+    },
+    {
+      "id": "G05",
+      "label": "Phase 5 \u00b7 SOL-Edge Pre-Execution Governance Gate",
+      "phase": "sol_edge_gate",
+      "logon_ids": [
+        "L25",
+        "L26",
+        "L27",
+        "L28"
+      ]
+    }
+  ],
+  "metrics": {
+    "evidence": 0.9503703703703704,
+    "coherence": 0.9275095238095238,
+    "contradiction": 0.03125,
+    "continuity": 0.9428571428571428,
+    "authority": 0.9753703703703704,
+    "faithfulness": 0.9165178571428572
+  },
+  "verdict": "PROMOTE"
+}

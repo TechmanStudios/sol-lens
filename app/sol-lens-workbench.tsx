@@ -8,6 +8,7 @@ import {
   type CSSProperties,
   type KeyboardEvent,
 } from "react";
+import { GeminiTradeStudyPanel } from "./components/gemini-trade-study-panel";
 import { LiveManifold3DPanel } from "./components/live-manifold-3d-panel";
 import { ManifoldReplayPanel } from "./components/manifold-replay-panel";
 import { PacketLoader } from "./components/packet-loader";
@@ -362,6 +363,21 @@ export default function SolLensWorkbench() {
                 isLive={source.kind === "live"}
               />
             </div>
+            <GeminiTradeStudyPanel
+              currentPacket={packet}
+              onPacketLoaded={(loadedPacket, detail) => {
+                setPacket(loadedPacket);
+                const initial = chooseInitialLogon(loadedPacket);
+                setSelectedId(initial.id);
+                setFilter("all");
+                setSource({
+                  kind: "live",
+                  label: "Live SOL Engine",
+                  detail,
+                });
+                setRunState("complete");
+              }}
+            />
             <div className="packet-summary" aria-live="polite">
               <span className={`provenance-dot ${source.kind}`} />
               <strong>{source.label}</strong>
