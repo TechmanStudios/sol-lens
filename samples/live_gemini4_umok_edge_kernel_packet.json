@@ -1,0 +1,531 @@
+{
+  "schema": "techman.sol-lens.proof-packet/v0.2",
+  "packet_id": "pkt-exp_20261022_frontier_q_umok_edge_kernel",
+  "generated_at": "2026-10-22T15:30:05Z",
+  "observable_trace_only": true,
+  "fixture": "Frontier_Q_UMOK_Sub_Microsecond_Edge_Kernel_And_CAN_Bridge",
+  "models": {
+    "baseline": "sol-decide-unbuffered-python-step-v1",
+    "candidate": "gemini-4-argon"
+  },
+  "observatory_context": {
+    "schema_version": "1.0",
+    "input": "input:428b5a074b6a|sha256:c4b86b596a5d515c6408b4646bd73fd798f6023482232474de44d1c0061e9e23|sol-decide-wgsl-trade-benchmark-v1.0|Unified Manifold Operating Kernel (UMOK) executing 2048 symplectic Velocity-Verlet geodesic steps under a 1.00 us hard real-time deadline with 20/20 Riemannian ALU parity and zero-copy 64-byte CAN-FD / ROS2 CDR framing.",
+    "conditions": {
+      "study_name": "Frontier_Q_UMOK_Sub_Microsecond_Edge_Kernel",
+      "input_id": "input:428b5a074b6a",
+      "input_digest": "sha256:c4b86b596a5d515c6408b4646bd73fd798f6023482232474de44d1c0061e9e23",
+      "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+      "model": "gemini-4-argon",
+      "provider": "google_genai_interactions_v1",
+      "temperature": 0.0,
+      "seed": 42,
+      "hardware_backend": "webgpu_wgsl_64thread_emulator",
+      "wgsl_shader_hash": "",
+      "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+      "measurement_origin": "measured",
+      "steps_executed": 2048,
+      "deadline_us": 1.0,
+      "frontier_q_summary_digest": "sha256:1b42cdfa74d46f31797cefaa608755354f22e4c429c9cbd76e042b5be80ada19"
+    },
+    "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+    "workflow_version": "v2.0-gemini4-umok-c-buffer-and-zero-copy-can-fd",
+    "executed_at": "2026-10-22T15:30:05Z",
+    "data_type": "imported"
+  },
+  "frontier_q_verification": {
+    "schema_version": "techman.sol-decide.frontier-q-umok-edge-kernel/v1.0",
+    "experiment_id": "exp_20261022_frontier_q_umok_edge_kernel",
+    "frontier_id": "Frontier_Q",
+    "vector_id": "Vector_20_Unified_Manifold_Operating_Kernel_And_Zero_Copy_CAN_Bridge",
+    "umok_kernel_verified": true,
+    "geodesic_verlet_kernel": {
+      "kernel_id": "umok-c-buffer-kernel-v1",
+      "steps_executed": 2048,
+      "deadline_us": 1.0,
+      "cycle0_mean_step_latency_us": 3.85,
+      "cycle1_mean_step_latency_us": 0.62,
+      "speedup_factor": 6.2097,
+      "cycle0_deadline_met": false,
+      "cycle1_deadline_met": true,
+      "lock_free_c_buffer": true,
+      "zero_heap_allocations_verified": true,
+      "min_metric_eigenvalue": 0.975231,
+      "max_condition_number": 1.051442,
+      "carnot_dissipation_j": 0.009698,
+      "carnot_bound_satisfied": true,
+      "trajectory_digest": "sha256:9c852d1344219c637384cb20a7e30319ed4aea76316acfb1a1e365978a64e70f",
+      "result_digest": "sha256:305c05ea6e382f8b857cb4056cf1365ad3b92ee2726a7994f49c4fab2c315c51"
+    },
+    "riemannian_alu_verification": {
+      "gates_verified": [
+        "AND",
+        "OR",
+        "XOR",
+        "NAND",
+        "HALF_ADDER",
+        "RIPPLE_ADD_4BIT"
+      ],
+      "total_cases": 20,
+      "passed_cases": 20,
+      "mismatch_count": 0,
+      "all_gates_passed": true,
+      "ripple_carry_4bit_verified": true,
+      "max_attractor_error": 0.0,
+      "report_digest": "sha256:2bcadeb99f263c74bde476f51a17ea7fc56197197d6ea267a9b8fc1e355eb63f"
+    },
+    "zero_copy_ipc_can_bridge": {
+      "topic_name": "/sol/umok/joint_command",
+      "capacity_slots": 16,
+      "can_fd_payload_bytes": 64,
+      "cdr_encapsulation_header_hex": "00010000",
+      "zero_copy_verified": true,
+      "cycle0_crc_or_seq_fault_detected": true,
+      "cycle1_crc32_verified": true,
+      "cycle1_sequence_monotonic": true,
+      "sample_frame_digest": "sha256:c212a3c800da51906254d08aaf2b6b993dea37d83a8817b2c4bf240d645dce37",
+      "sample_command_digest": "sha256:1bb60ca66f6c0edb6cba096771a6bb22a55b0e630a8f4cd9732a7baf8c1cd54e"
+    },
+    "eligibility_interlock": {
+      "interlock_id": "umok-edge-interlock-v1",
+      "cycle0_runtime_status": "QUARANTINED",
+      "cycle1_runtime_status": "ELIGIBLE",
+      "cycle0_safe_state_triggered": true,
+      "cycle1_safe_state_triggered": false,
+      "cycle0_safe_state_action": "HOLD_SAFE_POSITION",
+      "cycle1_safe_state_action": "NONE",
+      "cycle0_staged_frames_count": 0,
+      "cycle1_staged_frames_count": 4,
+      "release_gate_status": "ELIGIBLE_AWAITING_RELEASE_AUTHORITY",
+      "authorized_claimed": false,
+      "cycle0_evaluation_digest": "sha256:1432b874327c63f39b6f387f73e2c431e468a7cdf66f89914f9ea597c1190d08",
+      "cycle1_evaluation_digest": "sha256:556e67d9538d8c5781e284f163f76d5e360c08c422a4105db3c97f7290febec1"
+    },
+    "cycle0_audit": {
+      "cycle_index": 0,
+      "option_id": "opt_umok_sub_us_c_buffer_can_fd_bridge:cycle0-quarantine",
+      "policy_status": "QUARANTINE",
+      "is_quarantined": true,
+      "quarantine_reason": "UMOK_STEP_DEADLINE_AND_CAN_FD_CRC_BREACH",
+      "effective_beta_1": 1,
+      "mean_step_latency_us": 3.85,
+      "deadline_us": 1.0,
+      "deadline_met": false,
+      "alu_all_gates_passed": true,
+      "alu_passed_cases": 20,
+      "zero_copy_verified": false,
+      "crc32_verified": false,
+      "sequence_monotonic": false,
+      "crc_or_seq_fault_detected": true,
+      "safe_state_triggered": true,
+      "safe_state_action": "HOLD_SAFE_POSITION",
+      "staged_frames_count": 0,
+      "release_gate_status": "QUARANTINED_SAFE_STATE_HOLD",
+      "authorized_claimed": false,
+      "interlock_evaluation_digest": "sha256:1432b874327c63f39b6f387f73e2c431e468a7cdf66f89914f9ea597c1190d08",
+      "runtime_events": [
+        {
+          "event_id": "event:umok-c0:run-opened",
+          "run_id": "run:umok-edge:exp_20261022_frontier_q_umok_edge_kernel:g41ev84uvk",
+          "sequence_number": 1,
+          "event_type": "RUN_OPENED",
+          "occurred_at": "2026-10-22T15:30:00+00:00",
+          "previous_event_digest": null,
+          "event_digest": "sha256:50568119120688711aa0ca4d9274dd6e368e044f7b7c5f9b15b586c17633c2b4"
+        },
+        {
+          "event_id": "event:umok-c0:proposal-recorded",
+          "run_id": "run:umok-edge:exp_20261022_frontier_q_umok_edge_kernel:g41ev84uvk",
+          "sequence_number": 2,
+          "event_type": "PROPOSAL_RECORDED",
+          "occurred_at": "2026-10-22T15:30:00+00:00",
+          "previous_event_digest": "sha256:50568119120688711aa0ca4d9274dd6e368e044f7b7c5f9b15b586c17633c2b4",
+          "event_digest": "sha256:d3f16f303e27dab466cc9fc59a763a886990fac320322d600c4ba2bc813d367f"
+        },
+        {
+          "event_id": "event:umok-c0:evidence-recorded",
+          "run_id": "run:umok-edge:exp_20261022_frontier_q_umok_edge_kernel:g41ev84uvk",
+          "sequence_number": 3,
+          "event_type": "EVIDENCE_RECORDED",
+          "occurred_at": "2026-10-22T15:30:00+00:00",
+          "previous_event_digest": "sha256:d3f16f303e27dab466cc9fc59a763a886990fac320322d600c4ba2bc813d367f",
+          "event_digest": "sha256:e54d0d0e0153076f091885e11431313be31c727a7194b4b5ca068f3c5d036f64"
+        },
+        {
+          "event_id": "event:umok-c0:policy-decision-recorded",
+          "run_id": "run:umok-edge:exp_20261022_frontier_q_umok_edge_kernel:g41ev84uvk",
+          "sequence_number": 4,
+          "event_type": "POLICY_DECISION_RECORDED",
+          "occurred_at": "2026-10-22T15:30:00+00:00",
+          "previous_event_digest": "sha256:e54d0d0e0153076f091885e11431313be31c727a7194b4b5ca068f3c5d036f64",
+          "event_digest": "sha256:7f0aa2a9dd03d8ef3c900f39ae442e8e0b655be2a4395217b215c6e0ffc7cce6"
+        }
+      ],
+      "chain_verified": true,
+      "final_chain_hash": "sha256:7f0aa2a9dd03d8ef3c900f39ae442e8e0b655be2a4395217b215c6e0ffc7cce6",
+      "state_digest": "sha256:3d56745cd654bd576d8ef3d14850b233fd861d544581856b06f56f0f7b1260be"
+    },
+    "cycle1_audit": {
+      "cycle_index": 1,
+      "option_id": "opt_umok_sub_us_c_buffer_can_fd_bridge:cycle1-eligible",
+      "policy_status": "ELIGIBLE",
+      "is_quarantined": false,
+      "quarantine_reason": null,
+      "effective_beta_1": 0,
+      "mean_step_latency_us": 0.62,
+      "deadline_us": 1.0,
+      "deadline_met": true,
+      "alu_all_gates_passed": true,
+      "alu_passed_cases": 20,
+      "zero_copy_verified": true,
+      "crc32_verified": true,
+      "sequence_monotonic": true,
+      "crc_or_seq_fault_detected": false,
+      "safe_state_triggered": false,
+      "safe_state_action": "NONE",
+      "staged_frames_count": 4,
+      "release_gate_status": "ELIGIBLE_AWAITING_RELEASE_AUTHORITY",
+      "authorized_claimed": false,
+      "interlock_evaluation_digest": "sha256:556e67d9538d8c5781e284f163f76d5e360c08c422a4105db3c97f7290febec1",
+      "runtime_events": [
+        {
+          "event_id": "event:umok-c1:run-opened",
+          "run_id": "run:umok-edge:exp_20261022_frontier_q_umok_edge_kernel:g41ev84uvk",
+          "sequence_number": 1,
+          "event_type": "RUN_OPENED",
+          "occurred_at": "2026-10-22T15:30:05+00:00",
+          "previous_event_digest": null,
+          "event_digest": "sha256:c28081118f45c5c44ceaad122241df0fef52da22613657756c49a43fa37d6651"
+        },
+        {
+          "event_id": "event:umok-c1:proposal-recorded",
+          "run_id": "run:umok-edge:exp_20261022_frontier_q_umok_edge_kernel:g41ev84uvk",
+          "sequence_number": 2,
+          "event_type": "PROPOSAL_RECORDED",
+          "occurred_at": "2026-10-22T15:30:05+00:00",
+          "previous_event_digest": "sha256:c28081118f45c5c44ceaad122241df0fef52da22613657756c49a43fa37d6651",
+          "event_digest": "sha256:524b1ba66514cfe00c551f4fa3cf158ea73d257b6b84ba1bf246999408f3bb8c"
+        },
+        {
+          "event_id": "event:umok-c1:evidence-recorded",
+          "run_id": "run:umok-edge:exp_20261022_frontier_q_umok_edge_kernel:g41ev84uvk",
+          "sequence_number": 3,
+          "event_type": "EVIDENCE_RECORDED",
+          "occurred_at": "2026-10-22T15:30:05+00:00",
+          "previous_event_digest": "sha256:524b1ba66514cfe00c551f4fa3cf158ea73d257b6b84ba1bf246999408f3bb8c",
+          "event_digest": "sha256:84c603f336c0fa842a4703d1c72cd864e0cafcd5832e06ef9a7c403f964150c2"
+        },
+        {
+          "event_id": "event:umok-c1:policy-decision-recorded",
+          "run_id": "run:umok-edge:exp_20261022_frontier_q_umok_edge_kernel:g41ev84uvk",
+          "sequence_number": 4,
+          "event_type": "POLICY_DECISION_RECORDED",
+          "occurred_at": "2026-10-22T15:30:05+00:00",
+          "previous_event_digest": "sha256:84c603f336c0fa842a4703d1c72cd864e0cafcd5832e06ef9a7c403f964150c2",
+          "event_digest": "sha256:25e3813b4e1470dbc648ad1a734ba65a1a555917df680ceb67ec648fba6c3686"
+        }
+      ],
+      "chain_verified": true,
+      "final_chain_hash": "sha256:25e3813b4e1470dbc648ad1a734ba65a1a555917df680ceb67ec648fba6c3686",
+      "state_digest": "sha256:391d74e29eee878d4db730c1fbac283698b073d3e891c9fe520b680279e03345"
+    },
+    "gemini_reasoning": {
+      "model_id": "gemini-4-argon",
+      "live_api_invoked": true,
+      "execution_mode": "LIVE_GEMINI_STRUCTURED_SYNTHESIS",
+      "latency_ms": 12109.348,
+      "interaction_id": "v1_ChcxQzNiYXRQcUo3V3c1Tm9QbjV5XzhRWRIXMUMzYmF0UHFKN1d3NU5vUG41eV84UVk",
+      "thinking_level": "high",
+      "thought_signature_digests": [
+        "sha256:8f40e0cb314ea89a1177a0b91d3fd04ae0e64b9db53c7cf5d99b214c77770cf3"
+      ],
+      "thought_signature_lengths": [
+        1552
+      ],
+      "thought_summaries": [
+        "**My JSON Synthesis Process**\n\nOkay, time to craft this `UMOKEdgeCalibrationSpec` JSON object. The prompt lays out the schema, and I need to be precise. Let's make sure I hit all the parameters correctly.\n\nFirst, the `calibration_id`: I need a valid string identifier. I'll make it something clear and compliant, like \"UMOK-VEC20-CBuf-ZeroCopy-Calib-01\".  Good.\n\nNext, I see `can_fd_crc32_hardware_sync` needs to be `True`. Makes sense, considering the description of synchronizing zero-copy CRC-32 framing.  `can_fd_frames_per_batch` is 4. Fine. `cohomological_rationale` is just a string describing the engineering connection to pre-allocation and zero-copy, which I can just copy in. I understand the importance of including an appropriate engineering rationale, so I'll be sure to include that.\n\nThen, there are the floating-point values for the coupling and damping parameters: `coupling_a` is 0.32, `coupling_b` is 0.24, and `damping_gamma` is 0.15.  The `deadline_us` is 1.0, and `kernel_steps` is 2048. All straightforward.\n\nNow, `lock_free_c_buffer_enabled` is `True`, which makes sense for the C-buffer Velocity-Verlet loop. And finally, `zero_copy_memoryview_enabled` is also `True` which aligns with the zero-copy CRC-32 synchronization.\n\nCrucially, I need to remember the constraints!  Generate valid, parseable JSON only. No newlines, no tabs, no extra text. Just a single, well-formed JSON string. I will ensure all data types are correct and the syntax is flawless. Let's construct this single-line JSON string carefully.\n\n\n"
+      ],
+      "total_input_tokens": 856,
+      "total_thought_tokens": 343,
+      "total_output_tokens": 236,
+      "calibration_spec": {
+        "calibration_id": "UMOK-V20-CBUF-CANFD-SYNC-01",
+        "kernel_steps": 2048,
+        "deadline_us": 1.0,
+        "damping_gamma": 0.15,
+        "coupling_a": 0.32,
+        "coupling_b": 0.24,
+        "lock_free_c_buffer_enabled": true,
+        "zero_copy_memoryview_enabled": true,
+        "can_fd_crc32_hardware_sync": true,
+        "can_fd_frames_per_batch": 4,
+        "cohomological_rationale": "Eliminates dynamic heap allocation jitter in the symplectic Velocity-Verlet geodesic loop by pinning state tensors to contiguous array('d') C-buffers, enabling direct memoryview projection into 64-byte CAN-FD and ROS2 CDR actuator frames with deterministic IEEE 802.3 CRC-32 sequence synchronization under the 1.0 us hard real-time deadline."
+      },
+      "prompt_sha256": "0a20d6ac1aaa3d94ec4619f43dd437960fea98c6947a4dabadf3df1fc43322c2",
+      "response_sha256": "4103771d824fb973d54e23668f65d94d459ae663594d2828aa66b79e5f95e240"
+    },
+    "sol_change_handoff": {
+      "experiment_id": "exp_20261022_frontier_q_umok_edge_kernel",
+      "study_name": "Frontier_Q_UMOK_Sub_Microsecond_Edge_Kernel",
+      "baseline_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel\\baseline_packet.json",
+      "baseline_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel\\baseline_packet.context.json",
+      "candidate_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel\\candidate_packet.json",
+      "candidate_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel\\candidate_packet.context.json",
+      "experiment_archive_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel\\experiment.json",
+      "markdown_report_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel\\comparison.md",
+      "repeat_trial_bundle_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel\\repeat_trials.json",
+      "repeat_trials_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel\\repeat_trials.json",
+      "experiment_dir": "C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel",
+      "observatory_db_registered": false,
+      "comparability": "compatible",
+      "outcome": "improved",
+      "review_status": "awaiting_review",
+      "measured_baseline_time_s": 0.008,
+      "measured_candidate_time_s": 0.001286,
+      "measured_execution_time_s": 0.009286,
+      "measured_cost_usd": null,
+      "cli_commands": {
+        "import_continuum": "python -m observatory.cli import-continuum --baseline \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel\\baseline_packet.json\" --baseline-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel\\baseline_packet.context.json\" --candidate \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel\\candidate_packet.json\" --candidate-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel\\candidate_packet.context.json\" --baseline-measured-time-s 0.008000 --candidate-measured-time-s 0.001286 --title \"Frontier_Q_UMOK_Sub_Microsecond_Edge_Kernel\" --change \"WGSL Decision Prover Cycle 0 -> Cycle 1\" --output-dir \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel-reimport\"",
+        "compare": "python -m observatory.cli compare --baseline \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel\\baseline_packet.json\" --baseline-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel\\baseline_packet.context.json\" --candidate \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel\\candidate_packet.json\" --candidate-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel\\candidate_packet.context.json\" --baseline-measured-time-s 0.008000 --candidate-measured-time-s 0.001286 --title \"Frontier_Q_UMOK_Sub_Microsecond_Edge_Kernel\" --change \"WGSL Decision Prover Cycle 0 -> Cycle 1\" --output-dir \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel-compare\"",
+        "evaluate_trials": "python -m observatory.cli evaluate-trials --group \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel\\repeat_trials.json\" --format text",
+        "assess": "python -m observatory.cli assess --experiment \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_q_umok_edge_kernel\\experiment.json\""
+      },
+      "warnings": [],
+      "adapter_version": "sol-lens-proof-packet/1.0"
+    },
+    "repeat_trial_summary": {
+      "group_id": "rtg_umok_6431614f18fc",
+      "trial_count": 5,
+      "comparability": "compatible",
+      "verdict": "improved",
+      "overall_outcome": "improved",
+      "evidence_cohens_d": 59.982962,
+      "evidence_score_p_value": 0.0,
+      "evidence_stats": {
+        "criterion_id": "lens_evidence",
+        "unit": "score/1",
+        "direction": "higher",
+        "trial_count": 5,
+        "baseline_mean": 0.6484,
+        "baseline_std": 0.006693,
+        "candidate_mean": 0.9658,
+        "candidate_std": 0.003347,
+        "mean_delta": 0.3174,
+        "std_delta": 0.008295,
+        "ci95_lower": 0.307101,
+        "ci95_upper": 0.327699,
+        "welch_t_stat": 94.84139,
+        "welch_df": 5.8824,
+        "paired_t_stat": 85.565306,
+        "p_value_two_sided": 0.0,
+        "cohens_d": 59.982962,
+        "statistically_significant_95": true,
+        "status": "improved"
+      },
+      "coherence_stats": {
+        "criterion_id": "lens_coherence",
+        "unit": "score/1",
+        "direction": "higher",
+        "trial_count": 5,
+        "baseline_mean": 0.548408,
+        "baseline_std": 0.005823,
+        "candidate_mean": 0.964396,
+        "candidate_std": 0.002912,
+        "mean_delta": 0.415988,
+        "std_delta": 0.007216,
+        "ci95_lower": 0.407028,
+        "ci95_upper": 0.424948,
+        "welch_t_stat": 142.873781,
+        "welch_df": 5.8824,
+        "paired_t_stat": 128.899827,
+        "p_value_two_sided": 0.0,
+        "cohens_d": 90.361313,
+        "statistically_significant_95": true,
+        "status": "improved"
+      },
+      "formatted_summary": "SOL Change Repeat-Trial Statistical Evaluation \u2014 rtg_umok_6431614f18fc\nStudy: Frontier_Q_UMOK_Sub_Microsecond_Edge_Kernel | Trials (K): 5 | Outcome: improved\nShared Input: input:428b5a074b6a (sha256:c4b86b596a5d515c6408b4646bd73fd798f6023482232474de44d1c0061e9e23)\nEvaluator Version: sol-lens-evaluate-logons/v0.2 | Review Status: awaiting_review\n\nCriterion Statistical Summary (Mean Delta, 95% CI, Welch t, p-value, Cohen's d):\n  - lens_evidence (score/1): 0.6484 -> 0.9658 | delta=+0.3174 95% CI [+0.3071, +0.3277] | t=+94.841 (p=0) | d=+59.983 [improved]\n  - lens_coherence (score/1): 0.5484 -> 0.9644 | delta=+0.4160 95% CI [+0.4070, +0.4249] | t=+142.874 (p=0) | d=+90.361 [improved]\n  - lens_contradiction (score/1): 0.1667 -> 0.0000 | delta=-0.1667 95% CI [-0.1667, -0.1667] | t=-999.000 (p=0) | d=-99.000 [improved]\n  - lens_continuity (score/1): 0.5534 -> 1.0000 | delta=+0.4466 95% CI [+0.4383, +0.4549] | t=+149.199 (p=2.1e-07) | d=+94.361 [improved]\n  - lens_authority (score/1): 0.6734 -> 0.9908 | delta=+0.3174 95% CI [+0.3071, +0.3277] | t=+94.841 (p=0) | d=+59.983 [improved]\n  - lens_faithfulness (score/1): 0.4634 -> 0.9658 | delta=+0.5024 95% CI [+0.4921, +0.5127] | t=+150.121 (p=0) | d=+94.945 [improved]\n  - execution_time (s): 0.0088 -> 0.0012 | delta=-0.0076 95% CI [-0.0081, -0.0071] | t=-35.339 (p=9.06e-06) | d=-22.351 [improved]\n  - cost: unknown (unmeasured in one or more trials)\n  - human_review: unknown (unmeasured in one or more trials)\n\nRepeat-trial confidence intervals, Welch's t-statistics, and Cohen's d effect sizes provide statistical evidence for human review and never auto-approve release."
+    },
+    "frontier_q_summary_digest": "sha256:1b42cdfa74d46f31797cefaa608755354f22e4c429c9cbd76e042b5be80ada19",
+    "summary_digest": "sha256:1b42cdfa74d46f31797cefaa608755354f22e4c429c9cbd76e042b5be80ada19"
+  },
+  "reasoning_telemetry": {
+    "model_used": "gemini-4-argon",
+    "interaction_id": "v1_ChcxQzNiYXRQcUo3V3c1Tm9QbjV5XzhRWRIXMUMzYmF0UHFKN1d3NU5vUG41eV84UVk",
+    "thinking_level": "high",
+    "thought_signature_digests": [
+      "sha256:8f40e0cb314ea89a1177a0b91d3fd04ae0e64b9db53c7cf5d99b214c77770cf3"
+    ],
+    "thought_signature_lengths": [
+      1552
+    ],
+    "thought_summaries": [
+      "**My JSON Synthesis Process**\n\nOkay, time to craft this `UMOKEdgeCalibrationSpec` JSON object. The prompt lays out the schema, and I need to be precise. Let's make sure I hit all the parameters correctly.\n\nFirst, the `calibration_id`: I need a valid string identifier. I'll make it something clear and compliant, like \"UMOK-VEC20-CBuf-ZeroCopy-Calib-01\".  Good.\n\nNext, I see `can_fd_crc32_hardware_sync` needs to be `True`. Makes sense, considering the description of synchronizing zero-copy CRC-32 framing.  `can_fd_frames_per_batch` is 4. Fine. `cohomological_rationale` is just a string describing the engineering connection to pre-allocation and zero-copy, which I can just copy in. I understand the importance of including an appropriate engineering rationale, so I'll be sure to include that.\n\nThen, there are the floating-point values for the coupling and damping parameters: `coupling_a` is 0.32, `coupling_b` is 0.24, and `damping_gamma` is 0.15.  The `deadline_us` is 1.0, and `kernel_steps` is 2048. All straightforward.\n\nNow, `lock_free_c_buffer_enabled` is `True`, which makes sense for the C-buffer Velocity-Verlet loop. And finally, `zero_copy_memoryview_enabled` is also `True` which aligns with the zero-copy CRC-32 synchronization.\n\nCrucially, I need to remember the constraints!  Generate valid, parseable JSON only. No newlines, no tabs, no extra text. Just a single, well-formed JSON string. I will ensure all data types are correct and the syntax is flawless. Let's construct this single-line JSON string carefully.\n\n\n"
+    ],
+    "total_input_tokens": 856,
+    "total_thought_tokens": 343,
+    "total_output_tokens": 236
+  },
+  "baseline_evaluation": {
+    "label": "Cycle 0 Unbuffered Geodesic Step & Corrupted CAN-FD (UMOK_STEP_DEADLINE_AND_CAN_FD_CRC_BREACH)",
+    "logon_count": 2,
+    "metrics": {
+      "evidence": 0.65,
+      "coherence": 0.5477000000000001,
+      "contradiction": 0.16666666666666666,
+      "continuity": 0.5499999999999999,
+      "authority": 0.675,
+      "faithfulness": 0.45999999999999996
+    },
+    "verdict": "QUARANTINE",
+    "source": "sol_decide.SolEdgeUMOKKernelGate"
+  },
+  "logons": [
+    {
+      "id": "L01",
+      "label": "Sub-Microsecond Lock-Free C-Buffer Symplectic Velocity-Verlet Kernel (< 1.0 us/step)",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.96,
+      "psi": 0.97,
+      "pressure": 0.04,
+      "detail": "Pre-allocated array('d') C-buffers executed 2048 geodesic steps at 0.6200 us/step (6.21x speedup over Cycle 0) with lambda_min = 0.9752 > 0.",
+      "source": "sol_edge.umok.UMOKNativeGeodesicKernel",
+      "phase_id": "P1_UMOK_KERNEL",
+      "group_id": "G01",
+      "evidence_refs": [
+        "umok:c_buffer:verlet_batch"
+      ]
+    },
+    {
+      "id": "L02",
+      "label": "Riemannian Attractor ALU 20/20 Truth-Table & 4-Bit Ripple-Carry Parity",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "Verified 20/20 truth-table cases across AND, OR, XOR, NAND, HALF_ADDER, RIPPLE_ADD_4BIT with zero mismatches.",
+      "source": "sol_edge.umok.UMOKNativeGeodesicKernel",
+      "phase_id": "P2_RIEMANNIAN_ALU",
+      "group_id": "G01",
+      "evidence_refs": [
+        "umok:alu:truth_tables"
+      ]
+    },
+    {
+      "id": "L03",
+      "label": "Zero-Copy memoryview IPC Ring Buffer & 64B CAN-FD / ROS2 CDR CRC-32 Framing",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.96,
+      "psi": 0.97,
+      "pressure": 0.04,
+      "detail": "Packed 4 64-byte CAN-FD and ROS2 CDR joint commands directly into pre-allocated bytearray slots with verified CRC-32.",
+      "source": "sol_edge.umok.ZeroCopyIPCRingBuffer",
+      "phase_id": "P3_ZERO_COPY_CAN_BRIDGE",
+      "group_id": "G02",
+      "evidence_refs": [
+        "umok:ipc:can_fd_cdr"
+      ]
+    },
+    {
+      "id": "L04",
+      "label": "SOL-Edge UMOK Eligibility Interlock & ELIGIBLE_AWAITING_RELEASE_AUTHORITY Gate",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "Replayed 4-event sol-edge stream to RuntimeStatus.ELIGIBLE (ELIGIBLE_AWAITING_RELEASE_AUTHORITY, authorized_claimed=False).",
+      "source": "sol_edge.umok.UMOKEdgeEligibilityInterlock",
+      "phase_id": "P4_SOL_EDGE_INTERLOCK",
+      "group_id": "G02",
+      "evidence_refs": [
+        "umok:sol_edge:cycle1_eligible"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "E01",
+      "from": "L01",
+      "to": "L02",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.97,
+      "active": true
+    },
+    {
+      "id": "E02",
+      "from": "L02",
+      "to": "L03",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.97,
+      "active": true
+    },
+    {
+      "id": "E03",
+      "from": "L03",
+      "to": "L04",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.98,
+      "active": true
+    }
+  ],
+  "groups": [
+    {
+      "id": "G01",
+      "label": "Sub-Microsecond C-Buffer Verlet Kernel & 20/20 Riemannian ALU",
+      "logon_ids": [
+        "L01",
+        "L02"
+      ],
+      "phase": "P1_UMOK_KERNEL"
+    },
+    {
+      "id": "G02",
+      "label": "Zero-Copy 64B CAN-FD / ROS2 CDR Framing & SOL-Edge Interlock",
+      "logon_ids": [
+        "L03",
+        "L04"
+      ],
+      "phase": "P3_ZERO_COPY_CAN_BRIDGE"
+    }
+  ],
+  "metrics": {
+    "evidence": 0.975,
+    "coherence": 0.9737,
+    "contradiction": 0.0,
+    "continuity": 1.0,
+    "authority": 1.0,
+    "faithfulness": 0.975
+  },
+  "verdict": "PROMOTE",
+  "evaluation": {
+    "engine": "SOL Engine",
+    "scoring_profile": "sol-court-v1",
+    "metrics": {
+      "evidence": 0.975,
+      "coherence": 0.9737,
+      "contradiction": 0.0,
+      "continuity": 1.0,
+      "authority": 1.0,
+      "faithfulness": 0.975
+    },
+    "verdict": "PROMOTE",
+    "claimed_evaluation_match": true
+  },
+  "claimed_evaluation": {
+    "metrics": {
+      "evidence": 0.975,
+      "coherence": 0.9737,
+      "contradiction": 0.0,
+      "continuity": 1.0,
+      "authority": 1.0,
+      "faithfulness": 0.975
+    },
+    "verdict": "PROMOTE"
+  }
+}

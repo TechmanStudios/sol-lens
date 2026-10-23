@@ -101,6 +101,66 @@ export default function StudioView() {
     }
   };
 
+  const triggerMitoticPocket = async () => {
+    setIsSyncing(true);
+    try {
+      const res = await fetch(`${streamUrl}/api/continuum/mitotic_foliation`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pin_live_packet: true }),
+      });
+      if (res.ok) {
+        showToast("Frontier R Mitotic n+1 Pocket Budded & Hawking Sink Governed (ELIGIBLE)");
+      } else {
+        showToast("Mitotic foliation request failed");
+      }
+    } catch {
+      showToast("Mitotic foliation failed - server unreachable");
+    } finally {
+      setIsSyncing(false);
+    }
+  };
+
+  const triggerStwmWavefront = async () => {
+    setIsSyncing(true);
+    try {
+      const res = await fetch(`${streamUrl}/api/continuum/stwm_wavefront`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pin_live_packet: true }),
+      });
+      if (res.ok) {
+        showToast("Frontier S Coprime STWM [11,13,17,19] & MHD-GRU-Jeans Bus Governed (ELIGIBLE)");
+      } else {
+        showToast("STWM wavefront request failed");
+      }
+    } catch {
+      showToast("STWM wavefront failed - server unreachable");
+    } finally {
+      setIsSyncing(false);
+    }
+  };
+
+  const triggerRsiCompiler = async () => {
+    setIsSyncing(true);
+    try {
+      const res = await fetch(`${streamUrl}/api/continuum/rsi_compiler`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pin_live_packet: true }),
+      });
+      if (res.ok) {
+        showToast("Frontier T Governed RSI & Waveguide Pass Replay Verified (ELIGIBLE)");
+      } else {
+        showToast("RSI compiler request failed");
+      }
+    } catch {
+      showToast("RSI compiler failed - server unreachable");
+    } finally {
+      setIsSyncing(false);
+    }
+  };
+
   return (
     <div
       style={{
@@ -297,6 +357,63 @@ export default function StudioView() {
               title="Execute SOL-Edge Governed Inter-Dimensional Wormhole Homology Bridge (Cycle 0 QUARANTINE -> Cycle 1 ELIGIBLE) and pin to Trace Court"
             >
               🌀 Governed Wormhole
+            </button>
+
+            <button
+              type="button"
+              onClick={triggerMitoticPocket}
+              disabled={!online || isSyncing}
+              style={{
+                background: "rgba(217, 70, 239, 0.14)",
+                border: "1px solid rgba(217, 70, 239, 0.42)",
+                color: "#f0abfc",
+                fontSize: "11px",
+                fontWeight: 600,
+                padding: "5px 10px",
+                borderRadius: "8px",
+                cursor: online ? "pointer" : "default",
+              }}
+              title="Execute Frontier R Mitotic n+1 Pocket Budding & Hawking Sink"
+            >
+              🌌 Mitotic Pocket
+            </button>
+
+            <button
+              type="button"
+              onClick={triggerStwmWavefront}
+              disabled={!online || isSyncing}
+              style={{
+                background: "rgba(16, 185, 129, 0.14)",
+                border: "1px solid rgba(16, 185, 129, 0.42)",
+                color: "#6ee7b7",
+                fontSize: "11px",
+                fontWeight: 600,
+                padding: "5px 10px",
+                borderRadius: "8px",
+                cursor: online ? "pointer" : "default",
+              }}
+              title="Execute Frontier S Coprime STWM & MHD-GRU-Jeans Wavefront"
+            >
+              〰️ STWM Wavefront
+            </button>
+
+            <button
+              type="button"
+              onClick={triggerRsiCompiler}
+              disabled={!online || isSyncing}
+              style={{
+                background: "rgba(234, 179, 8, 0.14)",
+                border: "1px solid rgba(234, 179, 8, 0.42)",
+                color: "#fde047",
+                fontSize: "11px",
+                fontWeight: 600,
+                padding: "5px 10px",
+                borderRadius: "8px",
+                cursor: online ? "pointer" : "default",
+              }}
+              title="Execute Frontier T Governed RSI & Waveguide Pass Replay"
+            >
+              📜 RSI Compiler
             </button>
 
             <button

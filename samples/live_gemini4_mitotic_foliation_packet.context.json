@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "input": "input:115acb9af578|sha256:8a2493395dbcc1cb535898d19dfadab16f5a74fa8b2ac66570ef2c96a82439a2|sol-decide-wgsl-trade-benchmark-v1.0|Frontier R Mitotic 2D Surface Foliation, Toroidal Surgery (S^1 x S^1) & Hippocampal Hawking Radiation Memory Sink Trade Study (Frontier_R_Mitotic_2D_Surface_Foliation_Toroidal_Hawking_v1)",
+  "conditions": {
+    "study_name": "Frontier_R_Mitotic_2D_Surface_Foliation_Toroidal_Hawking_v1",
+    "input_id": "input:115acb9af578",
+    "input_digest": "sha256:8a2493395dbcc1cb535898d19dfadab16f5a74fa8b2ac66570ef2c96a82439a2",
+    "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+    "model": "gemini-4-argon",
+    "provider": "google_genai_interactions_v1",
+    "temperature": 0.0,
+    "seed": 42,
+    "hardware_backend": "webgpu_wgsl_64thread_emulator",
+    "wgsl_shader_hash": "",
+    "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+    "measurement_origin": "measured",
+    "frontier_r_verified": true,
+    "frontier_r_summary_digest": "sha256:6c13e709be16500437b8186275ae6ffb95c2c69d96304a063ada26b1107430c7",
+    "toroidal_genus_g": 1,
+    "euler_characteristic_chi": 0
+  },
+  "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+  "workflow_version": "v2.0-gemini4-mitotic-2d-toroidal-hawking-sink",
+  "executed_at": "2026-10-23T12:00:05Z",
+  "data_type": "imported"
+}

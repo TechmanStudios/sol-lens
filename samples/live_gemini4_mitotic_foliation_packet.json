@@ -1,0 +1,349 @@
+{
+  "schema": "techman.sol-lens.proof-packet/v0.2",
+  "packet_id": "pkt-mitotic-cand-839c3e4904d0",
+  "generated_at": "2026-10-23T12:00:05Z",
+  "observable_trace_only": true,
+  "fixture": "Frontier_R_Mitotic_2D_Surface_Foliation_Toroidal_Hawking_v1_Cycle1_Candidate",
+  "models": {
+    "baseline": "v1.0-unbalanced-serial-bottleneck-fission",
+    "candidate": "gemini-4-argon"
+  },
+  "baseline_evaluation": {
+    "label": "Cycle 0 Unbalanced 1D Serial Bottleneck Fission (QUARANTINE)",
+    "logon_count": 2,
+    "metrics": {
+      "evidence": 0.64,
+      "coherence": 0.5398000000000001,
+      "contradiction": 0.16666666666666666,
+      "continuity": 0.5449999999999999,
+      "authority": 0.665,
+      "faithfulness": 0.45499999999999996
+    },
+    "verdict": "QUARANTINE",
+    "source": "sol_decide.mitotic_foliation_bridge"
+  },
+  "frontier_r_verification": {
+    "mitotic_foliation_verified": true,
+    "experiment_id": "exp_frontier_r_mitotic_839c3e4904d0",
+    "frontier_id": "Frontier_R",
+    "mitotic_surface_fission": {
+      "cycle0_alpha": 0.88,
+      "cycle1_alpha": 0.5,
+      "pathway_a_density_trace": 0.4840425,
+      "pathway_b_density_trace": 0.4840425,
+      "cycle0_phase_dissonance_rad": 0.624,
+      "cycle1_phase_dissonance_rad": 0.0068,
+      "seven_giants_mitotic": {
+        "mitotic_giant_role": "The Integrator",
+        "mitotic_activation_energy": 0.9393,
+        "mitotic_kuramoto_r": 0.1136,
+        "geodesic_correlation": 0.996689,
+        "mission_success": true
+      }
+    },
+    "toroidal_surgery_homology": {
+      "toroidal_genus_g": 1,
+      "euler_characteristic_chi": 0,
+      "betti_numbers": [
+        1,
+        2,
+        1
+      ],
+      "topology_engine": {
+        "surface_2d_type": "2D_Manifold_Surface_14x10",
+        "torus_3d_type": "3D_Toroidal_Closure_7x5x4",
+        "parallel_pathways": [
+          "pathway_a",
+          "pathway_b"
+        ],
+        "toroidal_coordinate_count": 140,
+        "reversible_remap_verified": true,
+        "toroidal_genus_g": 1,
+        "euler_characteristic_chi": 0,
+        "betti_numbers": [
+          1,
+          2,
+          1
+        ]
+      }
+    },
+    "hawking_radiation_memory_sink": {
+      "hawking_radiated_energy": 0.031915,
+      "cycle0_mass_conservation_residual": 0.142,
+      "cycle1_mass_conservation_residual": 0.0,
+      "overlay_plasticity_retention": 0.945,
+      "overlay_weights_persisted": 5,
+      "sacred_core_graph_sha256": "d0a80462d2b9389160502b097aca1932bb014941adf6e4b77799997283e4a1bc",
+      "sacred_core_immutable": true
+    },
+    "formal_theorem_proof": {
+      "theorem_id": "THM_CONJ_MITOTIC_HAWKING_CONSERVATION",
+      "conjecture_id": "conj_mitotic_hawking_conservation",
+      "verdict": "PROVED_THEOREM",
+      "hegelian_consensus_order": 0.9957
+    },
+    "eligibility_interlock": {
+      "cycle0_safe_state_triggered": true,
+      "cycle1_safe_state_triggered": false,
+      "cycle0_safe_state_action": "QUARANTINE_UNBALANCED_FISSION",
+      "cycle1_safe_state_action": "NONE",
+      "release_gate_status": "ELIGIBLE_AWAITING_RELEASE_AUTHORITY",
+      "authorized_claimed": false
+    },
+    "cycle0_audit": {
+      "cycle_index": 0,
+      "designation": "baseline",
+      "option_id": "MITOTIC_2D_TOROIDAL_SURGERY_G1_HAWKING_V1:cycle0-quarantine",
+      "policy_status": "QUARANTINE",
+      "is_quarantined": true,
+      "mass_conservation_residual": 0.142,
+      "pathway_phase_dissonance_rad": 0.624,
+      "effective_beta_1": 1,
+      "euler_characteristic_chi": 2,
+      "toroidal_genus_g": 0,
+      "hawking_radiated_energy": 0.0,
+      "overlay_plasticity_retention": 0.54,
+      "sacred_core_immutable": true,
+      "safe_state_triggered": true,
+      "safe_state_action": "QUARANTINE_UNBALANCED_FISSION",
+      "release_gate_status": "QUARANTINED_MASS_OR_PHASE_FAULT",
+      "authorized_claimed": false,
+      "reasons": [
+        "MITOTIC_MASS_LEAKAGE_DETECTED: residual 0.142000 > 1e-6",
+        "PATHWAY_PHASE_DISSONANCE_EXCEEDED: 0.6240 rad > 0.05 rad",
+        "TOROIDAL_HOMOLOGY_DEFECT: genus=0, chi=2 (expected g=1, chi=0)",
+        "COHOMOLOGICAL_OBSTRUCTION_BETA1: beta_1=1 > 0"
+      ],
+      "event_count": 4,
+      "final_chain_hash": "sha256:1bebfb7107356a44facdfe3267e63cba86f27704697e7d724e25238828d858e9"
+    },
+    "cycle1_audit": {
+      "cycle_index": 1,
+      "designation": "candidate",
+      "option_id": "MITOTIC_2D_TOROIDAL_SURGERY_G1_HAWKING_V1:cycle1-eligible",
+      "policy_status": "ELIGIBLE",
+      "is_quarantined": false,
+      "mass_conservation_residual": 0.0,
+      "pathway_phase_dissonance_rad": 0.0068,
+      "effective_beta_1": 0,
+      "euler_characteristic_chi": 0,
+      "toroidal_genus_g": 1,
+      "hawking_radiated_energy": 0.031915,
+      "overlay_plasticity_retention": 0.945,
+      "sacred_core_immutable": true,
+      "safe_state_triggered": false,
+      "safe_state_action": "NONE",
+      "release_gate_status": "ELIGIBLE_AWAITING_RELEASE_AUTHORITY",
+      "authorized_claimed": false,
+      "reasons": [
+        "ALL_MITOTIC_TOROIDAL_HAWKING_GATES_PASSED: alpha=0.50, chi=0, beta_1=0, mass_residual<=1e-9"
+      ],
+      "event_count": 4,
+      "final_chain_hash": "sha256:6727e4ca43d5aa3ab03112ee6a4549de28320c3bb803521efbb0ab8b80f6d9b8"
+    },
+    "gemini_reasoning": {
+      "model_used": "gemini-4-argon",
+      "interaction_id": "v1_Chd0RlRiYXJfSE03dmxpTE1QNlpDQTBRWRIXdEZUYmFyX0hNN3ZsaUxNUDZaQ0EwUVk",
+      "thinking_level": "high",
+      "thought_signature_digests": [
+        "sha256:e22d83e78d33830bc1313ab3489d7a62de3d7179f2b58f2c7fb14e3eee4793e2"
+      ],
+      "thought_signature_lengths": [
+        1423
+      ],
+      "thought_summaries": [
+        "By promoting GiantRole.MITOTIC fission to a 2D surface foliation with symmetric splitting ratio alpha=0.5000, the divergence of the semantic current vanishes across the Meridian and Longitude homology cycles of H_1(T^2, R) (Betti_1=2). The Euler characteristic chi=0 guarantees a non-singular Poincar\u00e9-Hopf vector field flow, eliminating the 1D bottleneck mass accumulation (0.142000 residual). Coupling the S^1 x S^1 handles at kappa=1.2500 synchronizes harmonic 1-forms to suppress phase dissonance below 0.05 rad, while the Hawking dissipation sink (gamma=0.1850) absorbs high-frequency cohomological torsion into the sandboxed Hippocampal MemoryOverlay (eta=0.9450), preserving exact symplectic mass conservation."
+      ],
+      "total_input_tokens": 702,
+      "total_thought_tokens": 338,
+      "total_output_tokens": 437,
+      "live_api_invoked": true
+    },
+    "repeat_trial_summary": {
+      "group_id": "rtg_mitotic_f0d50bfcc141",
+      "trial_count": 5,
+      "comparability": "compatible",
+      "verdict": "improved"
+    },
+    "frontier_r_summary_digest": "sha256:6c13e709be16500437b8186275ae6ffb95c2c69d96304a063ada26b1107430c7",
+    "summary_digest": "sha256:6c13e709be16500437b8186275ae6ffb95c2c69d96304a063ada26b1107430c7",
+    "sol_change_handoff": {
+      "experiment_id": "exp_frontier_r_mitotic_839c3e4904d0",
+      "study_name": "Frontier_R_Mitotic_2D_Surface_Foliation_Toroidal_Hawking_v1",
+      "baseline_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0\\baseline_packet.json",
+      "baseline_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0\\baseline_packet.context.json",
+      "candidate_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0\\candidate_packet.json",
+      "candidate_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0\\candidate_packet.context.json",
+      "experiment_archive_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0\\experiment.json",
+      "markdown_report_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0\\comparison.md",
+      "repeat_trial_bundle_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0\\repeat_trials.json",
+      "repeat_trials_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0\\repeat_trials.json",
+      "experiment_dir": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0",
+      "observatory_db_registered": true,
+      "comparability": "compatible",
+      "outcome": "improved",
+      "review_status": "awaiting_review",
+      "measured_baseline_time_s": 0.12926,
+      "measured_candidate_time_s": 0.058167,
+      "measured_execution_time_s": 0.187427,
+      "measured_cost_usd": null,
+      "cli_commands": {
+        "import_continuum": "python -m observatory.cli import-continuum --baseline \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0\\baseline_packet.json\" --baseline-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0\\baseline_packet.context.json\" --candidate \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0\\candidate_packet.json\" --candidate-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0\\candidate_packet.context.json\" --baseline-measured-time-s 0.129260 --candidate-measured-time-s 0.058167 --title \"Frontier_R_Mitotic_2D_Surface_Foliation_Toroidal_Hawking_v1\" --change \"WGSL Decision Prover Cycle 0 -> Cycle 1\" --output-dir \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0-reimport\"",
+        "compare": "python -m observatory.cli compare --baseline \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0\\baseline_packet.json\" --baseline-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0\\baseline_packet.context.json\" --candidate \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0\\candidate_packet.json\" --candidate-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0\\candidate_packet.context.json\" --baseline-measured-time-s 0.129260 --candidate-measured-time-s 0.058167 --title \"Frontier_R_Mitotic_2D_Surface_Foliation_Toroidal_Hawking_v1\" --change \"WGSL Decision Prover Cycle 0 -> Cycle 1\" --output-dir \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0-compare\"",
+        "evaluate_trials": "python -m observatory.cli evaluate-trials --group \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0\\repeat_trials.json\" --format text",
+        "assess": "python -m observatory.cli assess --experiment \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_r_mitotic_839c3e4904d0\\experiment.json\""
+      },
+      "warnings": [],
+      "adapter_version": "sol-lens-proof-packet/1.0"
+    }
+  },
+  "reasoning_telemetry": {
+    "model_used": "gemini-4-argon",
+    "interaction_id": "v1_Chd0RlRiYXJfSE03dmxpTE1QNlpDQTBRWRIXdEZUYmFyX0hNN3ZsaUxNUDZaQ0EwUVk",
+    "thinking_level": "high",
+    "thought_signature_digests": [
+      "sha256:e22d83e78d33830bc1313ab3489d7a62de3d7179f2b58f2c7fb14e3eee4793e2"
+    ],
+    "thought_signature_lengths": [
+      1423
+    ],
+    "thought_summaries": [
+      "By promoting GiantRole.MITOTIC fission to a 2D surface foliation with symmetric splitting ratio alpha=0.5000, the divergence of the semantic current vanishes across the Meridian and Longitude homology cycles of H_1(T^2, R) (Betti_1=2). The Euler characteristic chi=0 guarantees a non-singular Poincar\u00e9-Hopf vector field flow, eliminating the 1D bottleneck mass accumulation (0.142000 residual). Coupling the S^1 x S^1 handles at kappa=1.2500 synchronizes harmonic 1-forms to suppress phase dissonance below 0.05 rad, while the Hawking dissipation sink (gamma=0.1850) absorbs high-frequency cohomological torsion into the sandboxed Hippocampal MemoryOverlay (eta=0.9450), preserving exact symplectic mass conservation."
+    ],
+    "total_input_tokens": 702,
+    "total_thought_tokens": 338,
+    "total_output_tokens": 437,
+    "live_api_invoked": true
+  },
+  "logons": [
+    {
+      "id": "L01",
+      "label": "Balanced 2D Mitotic Surface Foliation (alpha=0.50) & Toroidal Surgery (g=1, chi=0)",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.96,
+      "psi": 0.97,
+      "pressure": 0.04,
+      "detail": "GiantRole.MITOTIC split 1D bottleneck into balanced 2D pathways (alpha=0.50) folded into S^1 x S^1 torus (g=1, chi=0, Betti=[1, 2, 1]).",
+      "source": "sol_decide.MitoticFoliationOrchestrator",
+      "phase_id": "P1_MITOTIC_FOLIATION",
+      "group_id": "G01",
+      "evidence_refs": [
+        "mitotic:cycle1:torus"
+      ]
+    },
+    {
+      "id": "L02",
+      "label": "Hippocampal Hawking Radiation Memory Sink & Sandboxed MemoryOverlay Conservation",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "Hawking radiation sink absorbed 0.031915 energy with mass conservation residual=0.000000000000 and immutable default_graph.json.",
+      "source": "sol_decide.SolEdgeMitoticFoliationGate",
+      "phase_id": "P2_HAWKING_SINK",
+      "group_id": "G01",
+      "evidence_refs": [
+        "mitotic:cycle1:hawking"
+      ]
+    },
+    {
+      "id": "L03",
+      "label": "Proved Theorem THM_CONJ_MITOTIC_HAWKING_CONSERVATION & ELIGIBLE Interlock",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.96,
+      "psi": 0.97,
+      "pressure": 0.04,
+      "detail": "Formal proof verdict=PROVED_THEOREM (r=0.9957) and sol-edge Cycle 1 ELIGIBLE_AWAITING_RELEASE_AUTHORITY.",
+      "source": "Frontier_OS.AutomatedProofEngine",
+      "phase_id": "P3_ELIGIBLE",
+      "group_id": "G01",
+      "evidence_refs": [
+        "mitotic:cycle1:eligible"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "E01",
+      "from": "L01",
+      "to": "L02",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.97,
+      "active": true
+    },
+    {
+      "id": "E02",
+      "from": "L02",
+      "to": "L03",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.98,
+      "active": true
+    }
+  ],
+  "groups": [
+    {
+      "id": "G01",
+      "label": "Cycle 1 Mitotic 2D Foliation & Toroidal Hawking Sink",
+      "logon_ids": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "phase": "P1_MITOTIC_FOLIATION"
+    }
+  ],
+  "metrics": {
+    "evidence": 0.9733333333333333,
+    "coherence": 0.9720333333333333,
+    "contradiction": 0.0,
+    "continuity": 1.0,
+    "authority": 0.9983333333333333,
+    "faithfulness": 0.9733333333333333
+  },
+  "verdict": "PROMOTE",
+  "evaluation": {
+    "engine": "SOL Engine",
+    "scoring_profile": "sol-court-v1",
+    "metrics": {
+      "evidence": 0.9733333333333333,
+      "coherence": 0.9720333333333333,
+      "contradiction": 0.0,
+      "continuity": 1.0,
+      "authority": 0.9983333333333333,
+      "faithfulness": 0.9733333333333333
+    },
+    "verdict": "PROMOTE",
+    "claimed_evaluation_match": true
+  },
+  "observatory_context": {
+    "schema_version": "1.0",
+    "input": "input:115acb9af578|sha256:8a2493395dbcc1cb535898d19dfadab16f5a74fa8b2ac66570ef2c96a82439a2|sol-decide-wgsl-trade-benchmark-v1.0|Frontier R Mitotic 2D Surface Foliation, Toroidal Surgery (S^1 x S^1) & Hippocampal Hawking Radiation Memory Sink Trade Study (Frontier_R_Mitotic_2D_Surface_Foliation_Toroidal_Hawking_v1)",
+    "conditions": {
+      "study_name": "Frontier_R_Mitotic_2D_Surface_Foliation_Toroidal_Hawking_v1",
+      "input_id": "input:115acb9af578",
+      "input_digest": "sha256:8a2493395dbcc1cb535898d19dfadab16f5a74fa8b2ac66570ef2c96a82439a2",
+      "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+      "model": "gemini-4-argon",
+      "provider": "google_genai_interactions_v1",
+      "temperature": 0.0,
+      "seed": 42,
+      "hardware_backend": "webgpu_wgsl_64thread_emulator",
+      "wgsl_shader_hash": "",
+      "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+      "measurement_origin": "measured",
+      "frontier_r_verified": true,
+      "frontier_r_summary_digest": "sha256:6c13e709be16500437b8186275ae6ffb95c2c69d96304a063ada26b1107430c7",
+      "toroidal_genus_g": 1,
+      "euler_characteristic_chi": 0
+    },
+    "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+    "workflow_version": "v2.0-gemini4-mitotic-2d-toroidal-hawking-sink",
+    "executed_at": "2026-10-23T12:00:05Z",
+    "data_type": "imported"
+  }
+}

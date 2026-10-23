@@ -630,3 +630,521 @@ test("normalizes live Gemini 4 Argon Lumina Coding Library & Ranger Corps Sovere
   );
 });
 
+test("validates and round-trips Frontier O WGSL Decision Prover & SOL Change Producer packet (live_gemini4_wgsl_decision_prover_packet.json)", async () => {
+  const fs = await import("node:fs/promises");
+  const path = await import("node:path");
+  const samplePath = path.resolve(
+    import.meta.dirname,
+    "../samples/live_gemini4_wgsl_decision_prover_packet.json",
+  );
+  const rawJson = await fs.readFile(samplePath, "utf8");
+  const packet = requirePacket(parsePacketJson(rawJson));
+
+  assert.equal(packet.schema, PACKET_SCHEMA_V02);
+  assert.equal(packet.evaluation.verdict, "PROMOTE");
+  assert.equal(packet.baseline_evaluation.verdict, "QUARANTINE");
+  assert.ok(packet.observatory_context);
+  assert.equal(
+    packet.observatory_context.conditions.study_name,
+    "NGCV_WGSL_Pareto_MSCK_Inflection_Study_v1",
+  );
+  assert.equal(packet.observatory_context.conditions.wgsl_shader_name, "decision_prover.wgsl");
+
+  assert.ok(packet.frontier_o_verification);
+  assert.equal(packet.frontier_o_verification.wgsl_decision_prover_verified, true);
+  assert.equal(packet.frontier_o_verification.shader_validation.is_valid, true);
+  assert.equal(packet.frontier_o_verification.trade_space_sweep.total_grid_cells, 4096);
+  assert.equal(packet.frontier_o_verification.trade_space_sweep.num_permutations, 10000);
+  assert.ok(packet.frontier_o_verification.trade_space_sweep.speedup_factor > 1);
+  assert.equal(
+    packet.frontier_o_verification.msck_inflection_prover.cycle0_frustrated_point.effective_beta_1,
+    1,
+  );
+  assert.equal(
+    packet.frontier_o_verification.msck_inflection_prover.cycle1_harmonic_point.effective_beta_1,
+    0,
+  );
+  assert.ok(
+    Array.isArray(packet.frontier_o_verification.msck_inflection_prover.assumption_inflection_points),
+  );
+  assert.equal(packet.frontier_o_verification.repeat_trial_governance.comparability, "compatible");
+  assert.equal(packet.frontier_o_verification.repeat_trial_governance.overall_outcome, "improved");
+  assert.equal(
+    packet.frontier_o_verification.repeat_trial_governance.evidence_stats.statistically_significant_95,
+    true,
+  );
+  assert.ok(packet.frontier_o_verification.sol_change_handoff);
+  assert.equal(packet.frontier_o_verification.sol_change_handoff.review_status, "awaiting_review");
+  assert.equal(packet.frontier_o_verification.sol_change_handoff.measured_cost_usd, null);
+  assert.ok(packet.frontier_o_verification.sol_change_handoff.cli_commands.compare);
+
+  const exported = createProofPacket(packet, "2026-10-22T16:00:00.000Z");
+  assert.deepEqual(exported.frontier_o_verification, packet.frontier_o_verification);
+
+  // Tamper checks for frontier_o_verification
+  const nonObjFrontierO = structuredClone(exported);
+  nonObjFrontierO.frontier_o_verification = "tampered";
+  const resNonObjO = normalizePacket(nonObjFrontierO);
+  assert.equal(resNonObjO.ok, false);
+  assert.match(resNonObjO.errors.join(" "), /frontier_o_verification must be an object/);
+
+  const unverifiedFrontierO = structuredClone(exported);
+  unverifiedFrontierO.frontier_o_verification.wgsl_decision_prover_verified = false;
+  const resUnverifiedO = normalizePacket(unverifiedFrontierO);
+  assert.equal(resUnverifiedO.ok, false);
+  assert.match(
+    resUnverifiedO.errors.join(" "),
+    /frontier_o_verification\.wgsl_decision_prover_verified must be true/,
+  );
+
+  const badShaderFrontierO = structuredClone(exported);
+  badShaderFrontierO.frontier_o_verification.shader_validation.is_valid = false;
+  const resBadShaderO = normalizePacket(badShaderFrontierO);
+  assert.equal(resBadShaderO.ok, false);
+  assert.match(
+    resBadShaderO.errors.join(" "),
+    /frontier_o_verification\.shader_validation\.is_valid must be true/,
+  );
+
+  const badSweepFrontierO = structuredClone(exported);
+  badSweepFrontierO.frontier_o_verification.trade_space_sweep = "invalid";
+  const resBadSweepO = normalizePacket(badSweepFrontierO);
+  assert.equal(resBadSweepO.ok, false);
+  assert.match(
+    resBadSweepO.errors.join(" "),
+    /frontier_o_verification\.trade_space_sweep must be an object/,
+  );
+
+  const badCycle1FrontierO = structuredClone(exported);
+  badCycle1FrontierO.frontier_o_verification.cycle1_audit.is_quarantined = true;
+  const resBadCycle1O = normalizePacket(badCycle1FrontierO);
+  assert.equal(resBadCycle1O.ok, false);
+  assert.match(
+    resBadCycle1O.errors.join(" "),
+    /frontier_o_verification\.cycle1_audit\.is_quarantined must be false/,
+  );
+
+  const badTrialsFrontierO = structuredClone(exported);
+  badTrialsFrontierO.frontier_o_verification.repeat_trial_governance.trial_count = 2;
+  const resBadTrialsO = normalizePacket(badTrialsFrontierO);
+  assert.equal(resBadTrialsO.ok, false);
+  assert.match(
+    resBadTrialsO.errors.join(" "),
+    /frontier_o_verification\.repeat_trial_governance\.trial_count must be an integer >= 3/,
+  );
+
+  const badHandoffFrontierO = structuredClone(exported);
+  badHandoffFrontierO.frontier_o_verification.sol_change_handoff.review_status = "approved";
+  const resBadHandoffO = normalizePacket(badHandoffFrontierO);
+  assert.equal(resBadHandoffO.ok, false);
+  assert.match(
+    resBadHandoffO.errors.join(" "),
+    /frontier_o_verification\.sol_change_handoff\.review_status must be awaiting_review/,
+  );
+});
+
+test("validates and round-trips Frontier P Multi-Robot Swarm Cohomology & 25kg Bimanual Manipulation packet (live_gemini4_swarm_cohomology_packet.json)", async () => {
+  const fs = await import("node:fs/promises");
+  const path = await import("node:path");
+  const samplePath = path.resolve(
+    import.meta.dirname,
+    "../samples/live_gemini4_swarm_cohomology_packet.json",
+  );
+  const rawJson = await fs.readFile(samplePath, "utf8");
+  const packet = requirePacket(parsePacketJson(rawJson));
+
+  assert.equal(packet.schema, PACKET_SCHEMA_V02);
+  assert.equal(packet.evaluation.verdict, "PROMOTE");
+  assert.equal(packet.baseline_evaluation.verdict, "QUARANTINE");
+  assert.ok(packet.observatory_context);
+  assert.equal(
+    packet.observatory_context.conditions.study_name,
+    "Frontier_P_Bimanual_25kg_Swarm_Cohomology",
+  );
+  assert.equal(packet.observatory_context.conditions.payload_mass_kg, 25.0);
+  assert.equal(packet.observatory_context.conditions.num_robots, 2);
+
+  assert.ok(packet.frontier_p_verification);
+  assert.equal(packet.frontier_p_verification.swarm_cohomology_verified, true);
+  assert.equal(packet.frontier_p_verification.fleet_kinematics_and_payload.payload_mass_kg, 25.0);
+  assert.equal(packet.frontier_p_verification.fleet_kinematics_and_payload.num_robots, 2);
+  assert.equal(packet.frontier_p_verification.fleet_kinematics_and_payload.total_dof, 12);
+  assert.equal(packet.frontier_p_verification.decentralized_se3_holonomy.gps_or_mocap_required, false);
+  assert.equal(packet.frontier_p_verification.closed_chain_sheaf_audit.cycle0_effective_beta_1, 1);
+  assert.equal(packet.frontier_p_verification.closed_chain_sheaf_audit.cycle1_effective_beta_1, 0);
+  assert.ok(
+    packet.frontier_p_verification.closed_chain_sheaf_audit.cycle0_internal_squeeze_wrench_n > 15.0,
+  );
+  assert.ok(
+    packet.frontier_p_verification.closed_chain_sheaf_audit.cycle1_internal_squeeze_wrench_n <= 15.0,
+  );
+  assert.ok(
+    packet.frontier_p_verification.decentralized_se3_holonomy.cycle0_rotational_defect_deg > 3.0,
+  );
+  assert.ok(
+    packet.frontier_p_verification.decentralized_se3_holonomy.cycle1_rotational_defect_deg <= 3.0,
+  );
+  assert.ok(packet.frontier_p_verification.estop_safety_arbiter.estop_latency_us <= 200.0);
+  assert.equal(packet.frontier_p_verification.estop_safety_arbiter.cycle0_estop_triggered, true);
+  assert.equal(packet.frontier_p_verification.estop_safety_arbiter.cycle1_estop_triggered, false);
+  assert.equal(packet.frontier_p_verification.cycle1_audit.is_quarantined, false);
+  assert.equal(packet.frontier_p_verification.cycle1_audit.policy_status, "ELIGIBLE");
+  assert.equal(packet.frontier_p_verification.sol_change_handoff.review_status, "awaiting_review");
+
+  const exported = createProofPacket(packet, "2026-10-22T16:30:00.000Z");
+  assert.deepEqual(exported.frontier_p_verification, packet.frontier_p_verification);
+
+  // Tamper checks for frontier_p_verification
+  const nonObjFrontierP = structuredClone(exported);
+  nonObjFrontierP.frontier_p_verification = "tampered";
+  const resNonObjP = normalizePacket(nonObjFrontierP);
+  assert.equal(resNonObjP.ok, false);
+  assert.match(resNonObjP.errors.join(" "), /frontier_p_verification must be an object/);
+
+  const lowPayloadP = structuredClone(exported);
+  lowPayloadP.frontier_p_verification.fleet_kinematics_and_payload.payload_mass_kg = 20.0;
+  const resLowPayloadP = normalizePacket(lowPayloadP);
+  assert.equal(resLowPayloadP.ok, false);
+  assert.match(
+    resLowPayloadP.errors.join(" "),
+    /frontier_p_verification\.fleet_kinematics_and_payload\.payload_mass_kg must be a finite number >= 25\.0/,
+  );
+
+  const gpsRequiredP = structuredClone(exported);
+  gpsRequiredP.frontier_p_verification.decentralized_se3_holonomy.gps_or_mocap_required = true;
+  const resGpsP = normalizePacket(gpsRequiredP);
+  assert.equal(resGpsP.ok, false);
+  assert.match(
+    resGpsP.errors.join(" "),
+    /frontier_p_verification\.decentralized_se3_holonomy\.gps_or_mocap_required must be false/,
+  );
+
+  const highSqueezeP = structuredClone(exported);
+  highSqueezeP.frontier_p_verification.closed_chain_sheaf_audit.cycle1_internal_squeeze_wrench_n = 18.5;
+  const resHighSqueezeP = normalizePacket(highSqueezeP);
+  assert.equal(resHighSqueezeP.ok, false);
+  assert.match(
+    resHighSqueezeP.errors.join(" "),
+    /frontier_p_verification\.closed_chain_sheaf_audit\.cycle1_internal_squeeze_wrench_n must be between 0 and 15\.0 N/,
+  );
+
+  const highRotP = structuredClone(exported);
+  highRotP.frontier_p_verification.decentralized_se3_holonomy.cycle1_rotational_defect_deg = 4.2;
+  const resHighRotP = normalizePacket(highRotP);
+  assert.equal(resHighRotP.ok, false);
+  assert.match(
+    resHighRotP.errors.join(" "),
+    /frontier_p_verification\.decentralized_se3_holonomy\.cycle1_rotational_defect_deg must be between 0 and 3\.0 deg/,
+  );
+
+  const slowEstopP = structuredClone(exported);
+  slowEstopP.frontier_p_verification.estop_safety_arbiter.estop_latency_us = 250.0;
+  const resSlowEstopP = normalizePacket(slowEstopP);
+  assert.equal(resSlowEstopP.ok, false);
+  assert.match(
+    resSlowEstopP.errors.join(" "),
+    /frontier_p_verification\.estop_safety_arbiter\.estop_latency_us must be between 0 and 200\.0 us/,
+  );
+
+  const cycle0EstopNotTriggeredP = structuredClone(exported);
+  cycle0EstopNotTriggeredP.frontier_p_verification.estop_safety_arbiter.cycle0_estop_triggered = false;
+  const resCycle0EstopNotTriggeredP = normalizePacket(cycle0EstopNotTriggeredP);
+  assert.equal(resCycle0EstopNotTriggeredP.ok, false);
+  assert.match(
+    resCycle0EstopNotTriggeredP.errors.join(" "),
+    /frontier_p_verification\.estop_safety_arbiter\.cycle0_estop_triggered must be true/,
+  );
+
+  const highTransP = structuredClone(exported);
+  highTransP.frontier_p_verification.decentralized_se3_holonomy.cycle1_translational_defect_mm = 7.5;
+  const resHighTransP = normalizePacket(highTransP);
+  assert.equal(resHighTransP.ok, false);
+  assert.match(
+    resHighTransP.errors.join(" "),
+    /frontier_p_verification\.decentralized_se3_holonomy\.cycle1_translational_defect_mm must be between 0 and 5\.0 mm/,
+  );
+
+  const estopTriggeredP = structuredClone(exported);
+  estopTriggeredP.frontier_p_verification.estop_safety_arbiter.cycle1_estop_triggered = true;
+  const resEstopTriggeredP = normalizePacket(estopTriggeredP);
+  assert.equal(resEstopTriggeredP.ok, false);
+  assert.match(
+    resEstopTriggeredP.errors.join(" "),
+    /frontier_p_verification\.estop_safety_arbiter\.cycle1_estop_triggered must be false/,
+  );
+
+  const cycle1QuarantinedP = structuredClone(exported);
+  cycle1QuarantinedP.frontier_p_verification.cycle1_audit.is_quarantined = true;
+  const resCycle1QuarantinedP = normalizePacket(cycle1QuarantinedP);
+  assert.equal(resCycle1QuarantinedP.ok, false);
+  assert.match(
+    resCycle1QuarantinedP.errors.join(" "),
+    /frontier_p_verification\.cycle1_audit\.is_quarantined must be false/,
+  );
+});
+
+test("validates and round-trips Frontier Q Unified Manifold Operating Kernel & Zero-Copy CAN Bridge packet (live_gemini4_umok_edge_kernel_packet.json)", async () => {
+  const fs = await import("node:fs/promises");
+  const path = await import("node:path");
+  const samplePath = path.resolve(
+    import.meta.dirname,
+    "../samples/live_gemini4_umok_edge_kernel_packet.json",
+  );
+  const rawJson = await fs.readFile(samplePath, "utf8");
+  const packet = requirePacket(parsePacketJson(rawJson));
+
+  assert.equal(packet.schema, PACKET_SCHEMA_V02);
+  assert.equal(packet.evaluation.verdict, "PROMOTE");
+  assert.equal(packet.baseline_evaluation.verdict, "QUARANTINE");
+  assert.ok(packet.observatory_context);
+  assert.equal(
+    packet.observatory_context.conditions.study_name,
+    "Frontier_Q_UMOK_Sub_Microsecond_Edge_Kernel",
+  );
+
+  assert.ok(packet.frontier_q_verification);
+  assert.equal(packet.frontier_q_verification.umok_kernel_verified, true);
+  assert.equal(packet.frontier_q_verification.geodesic_verlet_kernel.steps_executed, 2048);
+  assert.ok(
+    packet.frontier_q_verification.geodesic_verlet_kernel.cycle0_mean_step_latency_us > 1.0,
+  );
+  assert.ok(
+    packet.frontier_q_verification.geodesic_verlet_kernel.cycle1_mean_step_latency_us <= 1.0,
+  );
+  assert.equal(packet.frontier_q_verification.geodesic_verlet_kernel.lock_free_c_buffer, true);
+  assert.equal(
+    packet.frontier_q_verification.geodesic_verlet_kernel.zero_heap_allocations_verified,
+    true,
+  );
+  assert.equal(packet.frontier_q_verification.riemannian_alu_verification.all_gates_passed, true);
+  assert.equal(packet.frontier_q_verification.riemannian_alu_verification.passed_cases, 20);
+  assert.equal(packet.frontier_q_verification.riemannian_alu_verification.mismatch_count, 0);
+  assert.equal(packet.frontier_q_verification.zero_copy_ipc_can_bridge.zero_copy_verified, true);
+  assert.equal(
+    packet.frontier_q_verification.zero_copy_ipc_can_bridge.cycle0_crc_or_seq_fault_detected,
+    true,
+  );
+  assert.equal(
+    packet.frontier_q_verification.zero_copy_ipc_can_bridge.cycle1_crc32_verified,
+    true,
+  );
+  assert.equal(packet.frontier_q_verification.eligibility_interlock.authorized_claimed, false);
+  assert.equal(
+    packet.frontier_q_verification.eligibility_interlock.cycle0_safe_state_triggered,
+    true,
+  );
+  assert.equal(
+    packet.frontier_q_verification.eligibility_interlock.cycle1_safe_state_triggered,
+    false,
+  );
+  assert.equal(
+    packet.frontier_q_verification.eligibility_interlock.cycle1_staged_frames_count,
+    4,
+  );
+  assert.equal(packet.frontier_q_verification.cycle1_audit.is_quarantined, false);
+  assert.equal(packet.frontier_q_verification.cycle1_audit.policy_status, "ELIGIBLE");
+  assert.equal(packet.frontier_q_verification.sol_change_handoff.review_status, "awaiting_review");
+
+  const exported = createProofPacket(packet, "2026-10-22T17:00:00.000Z");
+  assert.deepEqual(exported.frontier_q_verification, packet.frontier_q_verification);
+
+  // Tamper checks for frontier_q_verification
+  const nonObjFrontierQ = structuredClone(exported);
+  nonObjFrontierQ.frontier_q_verification = "tampered";
+  const resNonObjQ = normalizePacket(nonObjFrontierQ);
+  assert.equal(resNonObjQ.ok, false);
+  assert.match(resNonObjQ.errors.join(" "), /frontier_q_verification must be an object/);
+
+  const slowKernelQ = structuredClone(exported);
+  slowKernelQ.frontier_q_verification.geodesic_verlet_kernel.cycle1_mean_step_latency_us = 1.45;
+  const resSlowKernelQ = normalizePacket(slowKernelQ);
+  assert.equal(resSlowKernelQ.ok, false);
+  assert.match(
+    resSlowKernelQ.errors.join(" "),
+    /frontier_q_verification\.geodesic_verlet_kernel\.cycle1_mean_step_latency_us must be between 0 and 1\.0 us/,
+  );
+
+  const authClaimedQ = structuredClone(exported);
+  authClaimedQ.frontier_q_verification.eligibility_interlock.authorized_claimed = true;
+  const resAuthClaimedQ = normalizePacket(authClaimedQ);
+  assert.equal(resAuthClaimedQ.ok, false);
+  assert.match(
+    resAuthClaimedQ.errors.join(" "),
+    /frontier_q_verification\.eligibility_interlock\.authorized_claimed must be false/,
+  );
+
+  const aluMismatchQ = structuredClone(exported);
+  aluMismatchQ.frontier_q_verification.riemannian_alu_verification.passed_cases = 19;
+  const resAluMismatchQ = normalizePacket(aluMismatchQ);
+  assert.equal(resAluMismatchQ.ok, false);
+  assert.match(
+    resAluMismatchQ.errors.join(" "),
+    /frontier_q_verification\.riemannian_alu_verification\.passed_cases must be an integer >= 20/,
+  );
+
+  const zeroCopyFailedQ = structuredClone(exported);
+  zeroCopyFailedQ.frontier_q_verification.zero_copy_ipc_can_bridge.zero_copy_verified = false;
+  const resZeroCopyFailedQ = normalizePacket(zeroCopyFailedQ);
+  assert.equal(resZeroCopyFailedQ.ok, false);
+  assert.match(
+    resZeroCopyFailedQ.errors.join(" "),
+    /frontier_q_verification\.zero_copy_ipc_can_bridge\.zero_copy_verified must be true/,
+  );
+
+  const cycle1QuarantinedQ = structuredClone(exported);
+  cycle1QuarantinedQ.frontier_q_verification.cycle1_audit.is_quarantined = true;
+  const resCycle1QuarantinedQ = normalizePacket(cycle1QuarantinedQ);
+  assert.equal(resCycle1QuarantinedQ.ok, false);
+  assert.match(
+    resCycle1QuarantinedQ.errors.join(" "),
+    /frontier_q_verification\.cycle1_audit\.is_quarantined must be false/,
+  );
+});
+
+test("validates and round-trips Frontier R Mitotic 2D Surface Foliation & Toroidal Surgery packet (live_gemini4_mitotic_foliation_packet.json)", async () => {
+  const fs = await import("node:fs/promises");
+  const path = await import("node:path");
+  const samplePath = path.resolve(
+    import.meta.dirname,
+    "../samples/live_gemini4_mitotic_foliation_packet.json",
+  );
+  const rawJson = await fs.readFile(samplePath, "utf8");
+  const packet = requirePacket(parsePacketJson(rawJson));
+
+  assert.equal(packet.schema, PACKET_SCHEMA_V02);
+  assert.equal(packet.evaluation.verdict, "PROMOTE");
+  assert.equal(packet.baseline_evaluation.verdict, "QUARANTINE");
+  assert.ok(packet.frontier_r_verification);
+  assert.equal(packet.frontier_r_verification.mitotic_foliation_verified, true);
+  assert.equal(packet.frontier_r_verification.mitotic_surface_fission.cycle1_alpha, 0.5);
+  assert.equal(packet.frontier_r_verification.toroidal_surgery_homology.toroidal_genus_g, 1);
+  assert.equal(packet.frontier_r_verification.toroidal_surgery_homology.euler_characteristic_chi, 0);
+  assert.equal(
+    packet.frontier_r_verification.hawking_radiation_memory_sink.sacred_core_immutable,
+    true,
+  );
+  assert.equal(packet.frontier_r_verification.cycle1_audit.policy_status, "ELIGIBLE");
+
+  const exported = createProofPacket(packet, "2026-10-23T12:00:05.000Z");
+  assert.deepEqual(exported.frontier_r_verification, packet.frontier_r_verification);
+
+  const unbalancedAlphaR = structuredClone(exported);
+  unbalancedAlphaR.frontier_r_verification.mitotic_surface_fission.cycle1_alpha = 0.88;
+  const resUnbalancedR = normalizePacket(unbalancedAlphaR);
+  assert.equal(resUnbalancedR.ok, false);
+  assert.match(
+    resUnbalancedR.errors.join(" "),
+    /frontier_r_verification\.mitotic_surface_fission\.cycle1_alpha must be balanced in \[0\.45, 0\.55\]/,
+  );
+
+  const boundaryAlphaHighR = structuredClone(exported);
+  boundaryAlphaHighR.frontier_r_verification.mitotic_surface_fission.cycle1_alpha = 0.55;
+  assert.equal(normalizePacket(boundaryAlphaHighR).ok, true);
+
+  const boundaryAlphaLowR = structuredClone(exported);
+  boundaryAlphaLowR.frontier_r_verification.mitotic_surface_fission.cycle1_alpha = 0.45;
+  assert.equal(normalizePacket(boundaryAlphaLowR).ok, true);
+
+  const badGenusR = structuredClone(exported);
+  badGenusR.frontier_r_verification.toroidal_surgery_homology.toroidal_genus_g = 0;
+  const resBadGenusR = normalizePacket(badGenusR);
+  assert.equal(resBadGenusR.ok, false);
+  assert.match(
+    resBadGenusR.errors.join(" "),
+    /frontier_r_verification\.toroidal_surgery_homology\.toroidal_genus_g must be 1/,
+  );
+});
+
+test("validates and round-trips Frontier S Coprime STWM Waveguide & MHD-GRU Bus packet (live_gemini4_stwm_wavefront_packet.json)", async () => {
+  const fs = await import("node:fs/promises");
+  const path = await import("node:path");
+  const samplePath = path.resolve(
+    import.meta.dirname,
+    "../samples/live_gemini4_stwm_wavefront_packet.json",
+  );
+  const rawJson = await fs.readFile(samplePath, "utf8");
+  const packet = requirePacket(parsePacketJson(rawJson));
+
+  assert.equal(packet.schema, PACKET_SCHEMA_V02);
+  assert.equal(packet.evaluation.verdict, "PROMOTE");
+  assert.equal(packet.baseline_evaluation.verdict, "QUARANTINE");
+  assert.ok(packet.frontier_s_verification);
+  assert.equal(packet.frontier_s_verification.stwm_wavefront_verified, true);
+  assert.equal(packet.frontier_s_verification.coprime_quadrature_pdm.passed_cases, 6);
+  assert.equal(packet.frontier_s_verification.interlane_prefix_carry.passed_cases, 8);
+  assert.equal(packet.frontier_s_verification.hierarchical_waveguide_fabric.passed_32b, 5);
+  assert.equal(packet.frontier_s_verification.hierarchical_waveguide_fabric.passed_64b, 5);
+  assert.equal(packet.frontier_s_verification.quantum_wavefront_calibration.passed_regimes, 12);
+  assert.equal(packet.frontier_s_verification.cycle1_audit.policy_status, "ELIGIBLE");
+
+  const exported = createProofPacket(packet, "2026-10-23T13:00:05.000Z");
+  assert.deepEqual(exported.frontier_s_verification, packet.frontier_s_verification);
+
+  const badPdmS = structuredClone(exported);
+  badPdmS.frontier_s_verification.coprime_quadrature_pdm.passed_cases = 4;
+  const resBadPdmS = normalizePacket(badPdmS);
+  assert.equal(resBadPdmS.ok, false);
+  assert.match(
+    resBadPdmS.errors.join(" "),
+    /frontier_s_verification\.coprime_quadrature_pdm\.passed_cases must be an integer >= 6/,
+  );
+
+  const badQcalS = structuredClone(exported);
+  badQcalS.frontier_s_verification.quantum_wavefront_calibration.passed_regimes = 9;
+  const resBadQcalS = normalizePacket(badQcalS);
+  assert.equal(resBadQcalS.ok, false);
+  assert.match(
+    resBadQcalS.errors.join(" "),
+    /frontier_s_verification\.quantum_wavefront_calibration\.passed_regimes must be an integer >= 12/,
+  );
+});
+
+test("validates and round-trips Frontier T Governed RSI & Waveguide Compiler Pass Admission/Replay packet (live_gemini4_rsi_compiler_packet.json)", async () => {
+  const fs = await import("node:fs/promises");
+  const path = await import("node:path");
+  const samplePath = path.resolve(
+    import.meta.dirname,
+    "../samples/live_gemini4_rsi_compiler_packet.json",
+  );
+  const rawJson = await fs.readFile(samplePath, "utf8");
+  const packet = requirePacket(parsePacketJson(rawJson));
+
+  assert.equal(packet.schema, PACKET_SCHEMA_V02);
+  assert.equal(packet.evaluation.verdict, "PROMOTE");
+  assert.equal(packet.baseline_evaluation.verdict, "QUARANTINE");
+  assert.ok(packet.frontier_t_verification);
+  assert.equal(packet.frontier_t_verification.rsi_compiler_verified, true);
+  assert.equal(
+    packet.frontier_t_verification.governed_compiler_invocation.production_mutation_allowed,
+    false,
+  );
+  assert.equal(packet.frontier_t_verification.governed_pass_replay.replay_failed_count, 0);
+  assert.equal(packet.frontier_t_verification.eligibility_interlock.authorized_claimed, false);
+  assert.equal(packet.frontier_t_verification.cycle1_audit.policy_status, "ELIGIBLE");
+
+  const exported = createProofPacket(packet, "2026-10-23T14:00:05.000Z");
+  assert.deepEqual(exported.frontier_t_verification, packet.frontier_t_verification);
+
+  const badMutT = structuredClone(exported);
+  badMutT.frontier_t_verification.governed_compiler_invocation.production_mutation_allowed = true;
+  const resBadMutT = normalizePacket(badMutT);
+  assert.equal(resBadMutT.ok, false);
+  assert.match(
+    resBadMutT.errors.join(" "),
+    /frontier_t_verification\.governed_compiler_invocation\.production_mutation_allowed must be false/,
+  );
+
+  const badReplayT = structuredClone(exported);
+  badReplayT.frontier_t_verification.governed_pass_replay.replay_failed_count = 1;
+  const resBadReplayT = normalizePacket(badReplayT);
+  assert.equal(resBadReplayT.ok, false);
+  assert.match(
+    resBadReplayT.errors.join(" "),
+    /frontier_t_verification\.governed_pass_replay\.replay_failed_count must be 0/,
+  );
+});
+
+
+
+
+

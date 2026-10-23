@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "input": "input:428b5a074b6a|sha256:c4b86b596a5d515c6408b4646bd73fd798f6023482232474de44d1c0061e9e23|sol-decide-wgsl-trade-benchmark-v1.0|Unified Manifold Operating Kernel (UMOK) executing 2048 symplectic Velocity-Verlet geodesic steps under a 1.00 us hard real-time deadline with 20/20 Riemannian ALU parity and zero-copy 64-byte CAN-FD / ROS2 CDR framing.",
+  "conditions": {
+    "study_name": "Frontier_Q_UMOK_Sub_Microsecond_Edge_Kernel",
+    "input_id": "input:428b5a074b6a",
+    "input_digest": "sha256:c4b86b596a5d515c6408b4646bd73fd798f6023482232474de44d1c0061e9e23",
+    "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+    "model": "gemini-4-argon",
+    "provider": "google_genai_interactions_v1",
+    "temperature": 0.0,
+    "seed": 42,
+    "hardware_backend": "webgpu_wgsl_64thread_emulator",
+    "wgsl_shader_hash": "",
+    "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+    "measurement_origin": "measured",
+    "steps_executed": 2048,
+    "deadline_us": 1.0,
+    "frontier_q_summary_digest": "sha256:1b42cdfa74d46f31797cefaa608755354f22e4c429c9cbd76e042b5be80ada19"
+  },
+  "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+  "workflow_version": "v2.0-gemini4-umok-c-buffer-and-zero-copy-can-fd",
+  "executed_at": "2026-10-22T15:30:05Z",
+  "data_type": "imported"
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "input": "input:0ebcc91a8ff6|sha256:5ae9511024c004ac887c32d72692b0400c89311daa88cbbe5150d12f01fc4e19|sol-decide-wgsl-trade-benchmark-v1.0|Cooperative 2-robot 12-DOF closed-chain manipulation of a 25.0 kg shared rigid payload across a 3D obstacle workspace with decentralized SE(3) Wilson loop calibration and <200us E-stop safety arbitration.",
+  "conditions": {
+    "study_name": "Frontier_P_Bimanual_25kg_Swarm_Cohomology",
+    "input_id": "input:0ebcc91a8ff6",
+    "input_digest": "sha256:5ae9511024c004ac887c32d72692b0400c89311daa88cbbe5150d12f01fc4e19",
+    "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+    "model": "gemini-4-argon",
+    "provider": "google_genai_interactions_v1",
+    "temperature": 0.0,
+    "seed": 42,
+    "hardware_backend": "webgpu_wgsl_64thread_emulator",
+    "wgsl_shader_hash": "",
+    "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+    "measurement_origin": "measured",
+    "num_robots": 2,
+    "payload_mass_kg": 25.0,
+    "frontier_p_summary_digest": "sha256:eebeba0e0a275d33305d45de6ad4af6077255943e49cb3897d700b5077a498e8"
+  },
+  "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+  "workflow_version": "v2.0-gemini4-swarm-cohomology-se3-wilson",
+  "executed_at": "2026-10-22T14:30:05Z",
+  "data_type": "imported"
+}
