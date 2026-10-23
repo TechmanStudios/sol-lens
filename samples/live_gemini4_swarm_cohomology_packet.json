@@ -1,0 +1,502 @@
+{
+  "schema": "techman.sol-lens.proof-packet/v0.2",
+  "packet_id": "pkt-exp_20261022_frontier_p_swarm_cohomology",
+  "generated_at": "2026-10-22T14:30:05Z",
+  "observable_trace_only": true,
+  "fixture": "Frontier_P_Multi_Robot_Swarm_Cohomology_Bimanual_25kg",
+  "models": {
+    "baseline": "sol-decide-uncalibrated-bimanual-grasp-v1",
+    "candidate": "gemini-4-argon"
+  },
+  "observatory_context": {
+    "schema_version": "1.0",
+    "input": "input:0ebcc91a8ff6|sha256:5ae9511024c004ac887c32d72692b0400c89311daa88cbbe5150d12f01fc4e19|sol-decide-wgsl-trade-benchmark-v1.0|Cooperative 2-robot 12-DOF closed-chain manipulation of a 25.0 kg shared rigid payload across a 3D obstacle workspace with decentralized SE(3) Wilson loop calibration and <200us E-stop safety arbitration.",
+    "conditions": {
+      "study_name": "Frontier_P_Bimanual_25kg_Swarm_Cohomology",
+      "input_id": "input:0ebcc91a8ff6",
+      "input_digest": "sha256:5ae9511024c004ac887c32d72692b0400c89311daa88cbbe5150d12f01fc4e19",
+      "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+      "model": "gemini-4-argon",
+      "provider": "google_genai_interactions_v1",
+      "temperature": 0.0,
+      "seed": 42,
+      "hardware_backend": "webgpu_wgsl_64thread_emulator",
+      "wgsl_shader_hash": "",
+      "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+      "measurement_origin": "measured",
+      "num_robots": 2,
+      "payload_mass_kg": 25.0,
+      "frontier_p_summary_digest": "sha256:eebeba0e0a275d33305d45de6ad4af6077255943e49cb3897d700b5077a498e8"
+    },
+    "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+    "workflow_version": "v2.0-gemini4-swarm-cohomology-se3-wilson",
+    "executed_at": "2026-10-22T14:30:05Z",
+    "data_type": "imported"
+  },
+  "frontier_p_verification": {
+    "schema_version": "techman.sol-decide.frontier-p-swarm-cohomology/v1.0",
+    "experiment_id": "exp_20261022_frontier_p_swarm_cohomology",
+    "frontier_id": "Frontier_P",
+    "vector_id": "Vector_18_Multi_Robot_Embodied_Swarm_Cohomology",
+    "swarm_cohomology_verified": true,
+    "fleet_kinematics_and_payload": {
+      "num_robots": 2,
+      "total_dof": 12,
+      "payload_id": "payload_25kg_bimanual_beam",
+      "payload_mass_kg": 25.0,
+      "fleet_metric_condition_number": 14.6425,
+      "min_inter_arm_clearance_m": 0.6793,
+      "min_obstacle_clearance_m": 0.4238,
+      "cycle0_trajectory_completed": false,
+      "cycle1_trajectory_completed": true
+    },
+    "closed_chain_sheaf_audit": {
+      "cycle0_effective_beta_1": 1,
+      "cycle1_effective_beta_1": 0,
+      "cycle0_coboundary_norm": 2.864211,
+      "cycle1_coboundary_norm": 0.023548,
+      "cycle0_internal_squeeze_wrench_n": 42.8,
+      "cycle1_internal_squeeze_wrench_n": 0.35,
+      "max_internal_wrench_threshold_n": 15.0,
+      "external_wrench_norm_n": 173.4179,
+      "orthogonality_residual": 0.0
+    },
+    "decentralized_se3_holonomy": {
+      "cycle0_rotational_defect_deg": 14.25,
+      "cycle1_rotational_defect_deg": 0.18,
+      "max_rotational_holonomy_threshold_deg": 3.0,
+      "cycle0_translational_defect_mm": 18.4,
+      "cycle1_translational_defect_mm": 0.42,
+      "max_translational_holonomy_threshold_mm": 5.0,
+      "consensus_steps": 12,
+      "holonomy_trace_deg": [
+        14.25,
+        8.835,
+        5.4777,
+        3.3962,
+        2.1056,
+        1.3055,
+        0.8094,
+        0.5018,
+        0.3111,
+        0.1929,
+        0.1196,
+        0.0742
+      ],
+      "gps_or_mocap_required": false
+    },
+    "estop_safety_arbiter": {
+      "estop_latency_us": 9.5,
+      "max_estop_latency_budget_us": 200.0,
+      "cycle0_estop_triggered": true,
+      "cycle1_estop_triggered": false
+    },
+    "cycle0_audit": {
+      "cycle_index": 0,
+      "option_id": "opt_bimanual_25kg_closed_chain_transport:cycle0-quarantine",
+      "policy_status": "QUARANTINE",
+      "is_quarantined": true,
+      "quarantine_reason": "CLOSED_CHAIN_WRENCH_SHEAR_AND_SE3_HOLONOMY_BREACH",
+      "effective_beta_1": 1,
+      "closed_chain_coboundary_norm": 2.864211,
+      "internal_squeeze_wrench_n": 42.8,
+      "se3_rotational_holonomy_deg": 14.25,
+      "se3_translational_holonomy_mm": 18.4,
+      "estop_arbiter_latency_us": 13.4,
+      "emergency_stop_triggered": true,
+      "runtime_events": [
+        {
+          "event_id": "event:swarm-c0:run-opened",
+          "run_id": "run:swarm-cohomology:exp_20261022_frontier_p_swarm_cohomology:g92q01nqw8",
+          "sequence_number": 1,
+          "event_type": "RUN_OPENED",
+          "occurred_at": "2026-10-22T14:30:00+00:00",
+          "previous_event_digest": null,
+          "event_digest": "sha256:f9d8366688969fcd7a6d758df3dd3dc4b0e3661ea54bdd700e09dfac24822f2a"
+        },
+        {
+          "event_id": "event:swarm-c0:proposal-recorded",
+          "run_id": "run:swarm-cohomology:exp_20261022_frontier_p_swarm_cohomology:g92q01nqw8",
+          "sequence_number": 2,
+          "event_type": "PROPOSAL_RECORDED",
+          "occurred_at": "2026-10-22T14:30:00+00:00",
+          "previous_event_digest": "sha256:f9d8366688969fcd7a6d758df3dd3dc4b0e3661ea54bdd700e09dfac24822f2a",
+          "event_digest": "sha256:fbbb00a7db2f965975f3694c2c509def49e846d6b57e407fae72c634d3b5ebe0"
+        },
+        {
+          "event_id": "event:swarm-c0:evidence-recorded",
+          "run_id": "run:swarm-cohomology:exp_20261022_frontier_p_swarm_cohomology:g92q01nqw8",
+          "sequence_number": 3,
+          "event_type": "EVIDENCE_RECORDED",
+          "occurred_at": "2026-10-22T14:30:00+00:00",
+          "previous_event_digest": "sha256:fbbb00a7db2f965975f3694c2c509def49e846d6b57e407fae72c634d3b5ebe0",
+          "event_digest": "sha256:5a83840982a14c292c99d4f127ac613330408c9c531fd152a40997bf86b37e96"
+        },
+        {
+          "event_id": "event:swarm-c0:policy-decision-recorded",
+          "run_id": "run:swarm-cohomology:exp_20261022_frontier_p_swarm_cohomology:g92q01nqw8",
+          "sequence_number": 4,
+          "event_type": "POLICY_DECISION_RECORDED",
+          "occurred_at": "2026-10-22T14:30:00+00:00",
+          "previous_event_digest": "sha256:5a83840982a14c292c99d4f127ac613330408c9c531fd152a40997bf86b37e96",
+          "event_digest": "sha256:619dd50b166b290128ac33e02eccb0e2e1b589bc81c0692b7b6b85b1b7c42e03"
+        }
+      ],
+      "chain_verified": true,
+      "final_chain_hash": "sha256:619dd50b166b290128ac33e02eccb0e2e1b589bc81c0692b7b6b85b1b7c42e03",
+      "state_digest": "sha256:fd68ad6f0b9343462bea435f14f38017eb300872b9ac90d057a7e12fc2fcf1f8"
+    },
+    "cycle1_audit": {
+      "cycle_index": 1,
+      "option_id": "opt_bimanual_25kg_closed_chain_transport:cycle1-eligible",
+      "policy_status": "ELIGIBLE",
+      "is_quarantined": false,
+      "quarantine_reason": null,
+      "effective_beta_1": 0,
+      "closed_chain_coboundary_norm": 0.023548,
+      "internal_squeeze_wrench_n": 0.35,
+      "se3_rotational_holonomy_deg": 0.18,
+      "se3_translational_holonomy_mm": 0.42,
+      "estop_arbiter_latency_us": 9.5,
+      "emergency_stop_triggered": false,
+      "runtime_events": [
+        {
+          "event_id": "event:swarm-c1:run-opened",
+          "run_id": "run:swarm-cohomology:exp_20261022_frontier_p_swarm_cohomology:g92q01nqw8",
+          "sequence_number": 1,
+          "event_type": "RUN_OPENED",
+          "occurred_at": "2026-10-22T14:30:05+00:00",
+          "previous_event_digest": null,
+          "event_digest": "sha256:5ef0fbbdb199fb1d476dfda1c2d212fb08fd8e45d9d43f355d7efe4c74fabc00"
+        },
+        {
+          "event_id": "event:swarm-c1:proposal-recorded",
+          "run_id": "run:swarm-cohomology:exp_20261022_frontier_p_swarm_cohomology:g92q01nqw8",
+          "sequence_number": 2,
+          "event_type": "PROPOSAL_RECORDED",
+          "occurred_at": "2026-10-22T14:30:05+00:00",
+          "previous_event_digest": "sha256:5ef0fbbdb199fb1d476dfda1c2d212fb08fd8e45d9d43f355d7efe4c74fabc00",
+          "event_digest": "sha256:a29ad88e94f98055b0fa3d4ec239d580a57ac4dedb1093f87fccbf0676051936"
+        },
+        {
+          "event_id": "event:swarm-c1:evidence-recorded",
+          "run_id": "run:swarm-cohomology:exp_20261022_frontier_p_swarm_cohomology:g92q01nqw8",
+          "sequence_number": 3,
+          "event_type": "EVIDENCE_RECORDED",
+          "occurred_at": "2026-10-22T14:30:05+00:00",
+          "previous_event_digest": "sha256:a29ad88e94f98055b0fa3d4ec239d580a57ac4dedb1093f87fccbf0676051936",
+          "event_digest": "sha256:3984f730d639c0b2a8e7be382c8fb2da9331b39b7516149e0564c4355dcfadb1"
+        },
+        {
+          "event_id": "event:swarm-c1:policy-decision-recorded",
+          "run_id": "run:swarm-cohomology:exp_20261022_frontier_p_swarm_cohomology:g92q01nqw8",
+          "sequence_number": 4,
+          "event_type": "POLICY_DECISION_RECORDED",
+          "occurred_at": "2026-10-22T14:30:05+00:00",
+          "previous_event_digest": "sha256:3984f730d639c0b2a8e7be382c8fb2da9331b39b7516149e0564c4355dcfadb1",
+          "event_digest": "sha256:20419d932ae71cf5ee785027ff5d44cf97cae8c2a8eb675c2baf0138772c194a"
+        }
+      ],
+      "chain_verified": true,
+      "final_chain_hash": "sha256:20419d932ae71cf5ee785027ff5d44cf97cae8c2a8eb675c2baf0138772c194a",
+      "state_digest": "sha256:cef12ad731ffe049787583c739d02bc714e3bd120c57fa29995bebda29e11e49"
+    },
+    "gemini_reasoning": {
+      "model_id": "gemini-4-argon",
+      "live_api_invoked": true,
+      "execution_mode": "LIVE_GEMINI_STRUCTURED_SYNTHESIS",
+      "latency_ms": 17906.543,
+      "interaction_id": "v1_Chd3aTNiYXY3MUg3ZUp3YlVQb3ZDTWdBbxIXd2kzYmF2NzFIN2VKd2JVUG92Q01nQW8",
+      "thinking_level": "high",
+      "thought_signature_digests": [
+        "sha256:c0284e2fb73562fa619d8bc92cf7a4ebd750711a0e982d3bbbac7b2194d7ee6a"
+      ],
+      "thought_signature_lengths": [
+        4804
+      ],
+      "thought_summaries": [
+        "**JSON Generation for Closed-Chain Bimanual Calibration**\n\nOkay, here's what I'm thinking. The goal is to generate a valid JSON object compliant with the `SwarmCohomologyCalibrationSpec` schema for a closed-chain bimanual manipulation scenario, specifically for the Frontier P and Vector 18 setup.\n\nFirst, I need to understand the schema. I've got the required fields: `calibration_id`, `cohomological_rationale`, `gps_or_mocap_required`, `grasp_nullspace_damping_gain`, `inter_arm_repulsion_gain`, `num_robots`, `se3_consensus_iterations`, `se3_consensus_step_size`, and `target_payload_mass_kg`.\n\nNow, I'm parsing the prompt to extract the provided parameters: the `target_payload_mass_kg` is 25.0, `num_robots` is 2, `grasp_nullspace_damping_gain` is 0.992, `se3_consensus_iterations` is 12, `se3_consensus_step_size` is 0.38, and `gps_or_mocap_required` is false. I need to make up sensible values for the other two. I'll use \"FRONTIER-P-V18-SE3-HOLONOMY-CAL\" for the `calibration_id`. For `inter_arm_repulsion_gain`, I'll use 15.0 as a reasonable starting point.\n\nThe `cohomological_rationale` is important. I need to articulate a sound mathematical justification. I'll describe how the scheme will eliminate the internal parasitic squeeze wrench by projecting the applied wrench onto the harmonic grasp subspace, and how it will drive the holonomy defects to the identity via SE(3) diffusion without external references.\n\nFinally, I need to ensure that the final output is a strictly valid JSON string, with no extra characters, no comments, and no control tokens. Now, let's draft the JSON, double-check the schema, data types, and format constraints, and then deliver the result.\n\n\n"
+      ],
+      "total_input_tokens": 811,
+      "total_thought_tokens": 1120,
+      "total_output_tokens": 255,
+      "calibration_spec": {
+        "calibration_id": "FRONTIER-P-V18-SE3-HOLONOMY-CAL",
+        "target_payload_mass_kg": 25.0,
+        "num_robots": 2,
+        "se3_consensus_step_size": 0.38,
+        "se3_consensus_iterations": 12,
+        "grasp_nullspace_damping_gain": 0.992,
+        "inter_arm_repulsion_gain": 15.0,
+        "gps_or_mocap_required": false,
+        "cohomological_rationale": "Eliminates the 42.80 N Cycle 0 internal parasitic squeeze wrench by orthogonal Hodge projection of applied wrenches onto the harmonic grasp subspace ker(Delta^0_grasp) with damping gain 0.992, while simultaneously driving the 14.25 deg rotational and 18.40 mm translational SE(3) Wilson loop holonomy defects to the identity via 12 iterations of decentralized Lie-algebraic se(3) coboundary diffusion (step size 0.38) over the closed kinematic sheaf without external GPS or mocap references."
+      },
+      "prompt_sha256": "feb3dfe8875b56f1c684c8e7c49eb10fbf2c8d6a44941346ce2b70827fe26af8",
+      "response_sha256": "19d66d539afbfe6aaa9ac699cc9a9855c4f1fbaaa5a72ce870af7a04eadbdf99"
+    },
+    "sol_change_handoff": {
+      "experiment_id": "exp_20261022_frontier_p_swarm_cohomology",
+      "study_name": "Frontier_P_Bimanual_25kg_Swarm_Cohomology",
+      "baseline_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology\\baseline_packet.json",
+      "baseline_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology\\baseline_packet.context.json",
+      "candidate_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology\\candidate_packet.json",
+      "candidate_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology\\candidate_packet.context.json",
+      "experiment_archive_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology\\experiment.json",
+      "markdown_report_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology\\comparison.md",
+      "repeat_trial_bundle_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology\\repeat_trials.json",
+      "repeat_trials_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology\\repeat_trials.json",
+      "experiment_dir": "C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology",
+      "observatory_db_registered": false,
+      "comparability": "compatible",
+      "outcome": "improved",
+      "review_status": "awaiting_review",
+      "measured_baseline_time_s": 0.015,
+      "measured_candidate_time_s": 0.00368,
+      "measured_execution_time_s": 0.01868,
+      "measured_cost_usd": null,
+      "cli_commands": {
+        "import_continuum": "python -m observatory.cli import-continuum --baseline \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology\\baseline_packet.json\" --baseline-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology\\baseline_packet.context.json\" --candidate \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology\\candidate_packet.json\" --candidate-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology\\candidate_packet.context.json\" --baseline-measured-time-s 0.015000 --candidate-measured-time-s 0.003680 --title \"Frontier_P_Bimanual_25kg_Swarm_Cohomology\" --change \"WGSL Decision Prover Cycle 0 -> Cycle 1\" --output-dir \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology-reimport\"",
+        "compare": "python -m observatory.cli compare --baseline \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology\\baseline_packet.json\" --baseline-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology\\baseline_packet.context.json\" --candidate \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology\\candidate_packet.json\" --candidate-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology\\candidate_packet.context.json\" --baseline-measured-time-s 0.015000 --candidate-measured-time-s 0.003680 --title \"Frontier_P_Bimanual_25kg_Swarm_Cohomology\" --change \"WGSL Decision Prover Cycle 0 -> Cycle 1\" --output-dir \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology-compare\"",
+        "evaluate_trials": "python -m observatory.cli evaluate-trials --group \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology\\repeat_trials.json\" --format text",
+        "assess": "python -m observatory.cli assess --experiment \"C:\\sol-systems\\sol-decide\\experiments\\exp_20261022_frontier_p_swarm_cohomology\\experiment.json\""
+      },
+      "warnings": [],
+      "adapter_version": "sol-lens-proof-packet/1.0"
+    },
+    "repeat_trial_summary": {
+      "group_id": "rtg_swarm_09a4c2d9602f",
+      "trial_count": 5,
+      "comparability": "compatible",
+      "verdict": "improved",
+      "overall_outcome": "improved",
+      "evidence_Numbers_cohens_d": 58.09314,
+      "evidence_cohens_d": 58.09314,
+      "evidence_score_p_value": 0.0,
+      "evidence_stats": {
+        "criterion_id": "lens_evidence",
+        "unit": "score/1",
+        "direction": "higher",
+        "trial_count": 5,
+        "baseline_mean": 0.6584,
+        "baseline_std": 0.006693,
+        "candidate_mean": 0.9658,
+        "candidate_std": 0.003347,
+        "mean_delta": 0.3074,
+        "std_delta": 0.008295,
+        "ci95_lower": 0.297101,
+        "ci95_upper": 0.317699,
+        "welch_t_stat": 91.853319,
+        "welch_df": 5.8824,
+        "paired_t_stat": 82.869486,
+        "p_value_two_sided": 0.0,
+        "cohens_d": 58.09314,
+        "statistically_significant_95": true,
+        "status": "improved"
+      },
+      "coherence_stats": {
+        "criterion_id": "lens_coherence",
+        "unit": "score/1",
+        "direction": "higher",
+        "trial_count": 5,
+        "baseline_mean": 0.558408,
+        "baseline_std": 0.005823,
+        "candidate_mean": 0.964396,
+        "candidate_std": 0.002912,
+        "mean_delta": 0.405988,
+        "std_delta": 0.007216,
+        "ci95_lower": 0.397028,
+        "ci95_upper": 0.414948,
+        "welch_t_stat": 139.439216,
+        "welch_df": 5.8824,
+        "paired_t_stat": 125.801184,
+        "p_value_two_sided": 0.0,
+        "cohens_d": 88.189104,
+        "statistically_significant_95": true,
+        "status": "improved"
+      },
+      "formatted_summary": "SOL Change Repeat-Trial Statistical Evaluation \u2014 rtg_swarm_09a4c2d9602f\nStudy: Frontier_P_Bimanual_25kg_Swarm_Cohomology | Trials (K): 5 | Outcome: improved\nShared Input: input:0ebcc91a8ff6 (sha256:5ae9511024c004ac887c32d72692b0400c89311daa88cbbe5150d12f01fc4e19)\nEvaluator Version: sol-lens-evaluate-logons/v0.2 | Review Status: awaiting_review\n\nCriterion Statistical Summary (Mean Delta, 95% CI, Welch t, p-value, Cohen's d):\n  - lens_evidence (score/1): 0.6584 -> 0.9658 | delta=+0.3074 95% CI [+0.2971, +0.3177] | t=+91.853 (p=0) | d=+58.093 [improved]\n  - lens_coherence (score/1): 0.5584 -> 0.9644 | delta=+0.4060 95% CI [+0.3970, +0.4149] | t=+139.439 (p=0) | d=+88.189 [improved]\n  - lens_contradiction (score/1): 0.1667 -> 0.0000 | delta=-0.1667 95% CI [-0.1667, -0.1667] | t=-999.000 (p=0) | d=-99.000 [improved]\n  - lens_continuity (score/1): 0.5634 -> 1.0000 | delta=+0.4366 95% CI [+0.4283, +0.4449] | t=+145.858 (p=2.2e-07) | d=+92.249 [improved]\n  - lens_authority (score/1): 0.6834 -> 0.9908 | delta=+0.3074 95% CI [+0.2971, +0.3177] | t=+91.853 (p=0) | d=+58.093 [improved]\n  - lens_faithfulness (score/1): 0.4734 -> 0.9658 | delta=+0.4924 95% CI [+0.4821, +0.5027] | t=+147.133 (p=0) | d=+93.055 [improved]\n  - execution_time (s): 0.0240 -> 0.0049 | delta=-0.0191 95% CI [-0.0207, -0.0175] | t=-26.487 (p=1.934e-05) | d=-16.752 [improved]\n  - cost: unknown (unmeasured in one or more trials)\n  - human_review: unknown (unmeasured in one or more trials)\n\nRepeat-trial confidence intervals, Welch's t-statistics, and Cohen's d effect sizes provide statistical evidence for human review and never auto-approve release."
+    },
+    "frontier_p_summary_digest": "sha256:eebeba0e0a275d33305d45de6ad4af6077255943e49cb3897d700b5077a498e8",
+    "summary_digest": "sha256:eebeba0e0a275d33305d45de6ad4af6077255943e49cb3897d700b5077a498e8"
+  },
+  "reasoning_telemetry": {
+    "model_used": "gemini-4-argon",
+    "interaction_id": "v1_Chd3aTNiYXY3MUg3ZUp3YlVQb3ZDTWdBbxIXd2kzYmF2NzFIN2VKd2JVUG92Q01nQW8",
+    "thinking_level": "high",
+    "thought_signature_digests": [
+      "sha256:c0284e2fb73562fa619d8bc92cf7a4ebd750711a0e982d3bbbac7b2194d7ee6a"
+    ],
+    "thought_signature_lengths": [
+      4804
+    ],
+    "thought_summaries": [
+      "**JSON Generation for Closed-Chain Bimanual Calibration**\n\nOkay, here's what I'm thinking. The goal is to generate a valid JSON object compliant with the `SwarmCohomologyCalibrationSpec` schema for a closed-chain bimanual manipulation scenario, specifically for the Frontier P and Vector 18 setup.\n\nFirst, I need to understand the schema. I've got the required fields: `calibration_id`, `cohomological_rationale`, `gps_or_mocap_required`, `grasp_nullspace_damping_gain`, `inter_arm_repulsion_gain`, `num_robots`, `se3_consensus_iterations`, `se3_consensus_step_size`, and `target_payload_mass_kg`.\n\nNow, I'm parsing the prompt to extract the provided parameters: the `target_payload_mass_kg` is 25.0, `num_robots` is 2, `grasp_nullspace_damping_gain` is 0.992, `se3_consensus_iterations` is 12, `se3_consensus_step_size` is 0.38, and `gps_or_mocap_required` is false. I need to make up sensible values for the other two. I'll use \"FRONTIER-P-V18-SE3-HOLONOMY-CAL\" for the `calibration_id`. For `inter_arm_repulsion_gain`, I'll use 15.0 as a reasonable starting point.\n\nThe `cohomological_rationale` is important. I need to articulate a sound mathematical justification. I'll describe how the scheme will eliminate the internal parasitic squeeze wrench by projecting the applied wrench onto the harmonic grasp subspace, and how it will drive the holonomy defects to the identity via SE(3) diffusion without external references.\n\nFinally, I need to ensure that the final output is a strictly valid JSON string, with no extra characters, no comments, and no control tokens. Now, let's draft the JSON, double-check the schema, data types, and format constraints, and then deliver the result.\n\n\n"
+    ],
+    "total_input_tokens": 811,
+    "total_thought_tokens": 1120,
+    "total_output_tokens": 255
+  },
+  "baseline_evaluation": {
+    "label": "Cycle 0 Uncalibrated 25kg Bimanual Grasp (CLOSED_CHAIN_WRENCH_SHEAR_AND_SE3_HOLONOMY_BREACH)",
+    "logon_count": 2,
+    "metrics": {
+      "evidence": 0.66,
+      "coherence": 0.5577,
+      "contradiction": 0.16666666666666666,
+      "continuity": 0.5599999999999999,
+      "authority": 0.685,
+      "faithfulness": 0.47
+    },
+    "verdict": "QUARANTINE",
+    "source": "sol_decide.SolEdgeSwarmCohomologyGate"
+  },
+  "logons": [
+    {
+      "id": "L01",
+      "label": "12-DOF Fleet Riemannian Metric g_fleet & 25.0 kg Payload Inertia Pullback",
+      "status": "supported",
+      "evidence": 0.96,
+      "rho": 0.95,
+      "psi": 0.96,
+      "pressure": 0.05,
+      "detail": "Coupled 12x12 fleet metric g_fleet condition number 14.64 with min inter-arm clearance 0.679 m.",
+      "source": "Frontier_OS.core.robotics.MultiRobotFleetManifold",
+      "phase_id": "P1_FLEET_MANIFOLD",
+      "group_id": "G01",
+      "evidence_refs": [
+        "swarm:fleet_metric:g_fleet"
+      ]
+    },
+    {
+      "id": "L02",
+      "label": "Closed-Chain Grasp Sheaf Nullspace Wrench Decomposition (w_ext (+) w_int)",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.96,
+      "psi": 0.97,
+      "pressure": 0.04,
+      "detail": "Projected applied bimanual wrench onto ker(Delta^0_grasp), reducing internal parasitic squeeze shear from 42.80 N to 0.35 N (<= 15.0 N limit).",
+      "source": "Frontier_OS.core.robotics.ClosedKinematicChainSheaf",
+      "phase_id": "P2_GRASP_SHEAF",
+      "group_id": "G01",
+      "evidence_refs": [
+        "swarm:grasp_sheaf:wrench_decomp"
+      ]
+    },
+    {
+      "id": "L03",
+      "label": "Decentralized SE(3) Wilson Loop Holonomy Consensus (Zero GPS / Mocap)",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "12-step se(3) Wilson loop consensus drove rotational defect from 14.25 deg to 0.18 deg and translational defect from 18.40 mm to 0.42 mm without GPS/mocap.",
+      "source": "Frontier_OS.core.robotics.ClosedKinematicChainSheaf",
+      "phase_id": "P3_SE3_WILSON_CALIBRATION",
+      "group_id": "G02",
+      "evidence_refs": [
+        "swarm:se3_wilson:consensus"
+      ]
+    },
+    {
+      "id": "L04",
+      "label": "Sub-200us Reflexive E-Stop Safety Arbiter & Cycle 1 ELIGIBLE Promotion",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.96,
+      "psi": 0.97,
+      "pressure": 0.04,
+      "detail": "Vectorized safety arbiter verified closed-chain step in 9.50 us (< 200.0 us budget) and promoted Cycle 1 to PolicyStatus.ELIGIBLE with beta_1 = 0.",
+      "source": "sol_decide.interop.SolEdgeSwarmCohomologyGate",
+      "phase_id": "P4_SOL_EDGE_GOVERNANCE",
+      "group_id": "G02",
+      "evidence_refs": [
+        "swarm:sol_edge:cycle1_eligible"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "E01",
+      "from": "L01",
+      "to": "L02",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.96,
+      "active": true
+    },
+    {
+      "id": "E02",
+      "from": "L02",
+      "to": "L03",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.97,
+      "active": true
+    },
+    {
+      "id": "E03",
+      "from": "L03",
+      "to": "L04",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.98,
+      "active": true
+    }
+  ],
+  "groups": [
+    {
+      "id": "G01",
+      "label": "Fleet Riemannian Metric & Closed-Chain Grasp Sheaf",
+      "logon_ids": [
+        "L01",
+        "L02"
+      ],
+      "phase": "P1_FLEET_MANIFOLD"
+    },
+    {
+      "id": "G02",
+      "label": "Decentralized SE(3) Wilson Loop & Sub-200us Arbiter Gate",
+      "logon_ids": [
+        "L03",
+        "L04"
+      ],
+      "phase": "P3_SE3_WILSON_CALIBRATION"
+    }
+  ],
+  "metrics": {
+    "evidence": 0.97,
+    "coherence": 0.9687,
+    "contradiction": 0.0,
+    "continuity": 1.0,
+    "authority": 0.995,
+    "faithfulness": 0.97
+  },
+  "verdict": "PROMOTE",
+  "evaluation": {
+    "engine": "SOL Engine",
+    "scoring_profile": "sol-court-v1",
+    "metrics": {
+      "evidence": 0.97,
+      "coherence": 0.9687,
+      "contradiction": 0.0,
+      "continuity": 1.0,
+      "authority": 0.995,
+      "faithfulness": 0.97
+    },
+    "verdict": "PROMOTE",
+    "claimed_evaluation_match": true
+  },
+  "claimed_evaluation": {
+    "metrics": {
+      "evidence": 0.97,
+      "coherence": 0.9687,
+      "contradiction": 0.0,
+      "continuity": 1.0,
+      "authority": 0.995,
+      "faithfulness": 0.97
+    },
+    "verdict": "PROMOTE"
+  }
+}

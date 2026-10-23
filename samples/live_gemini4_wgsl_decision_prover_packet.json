@@ -1,0 +1,658 @@
+{
+  "schema": "techman.sol-lens.proof-packet/v0.2",
+  "packet_id": "pkt-wgsl-prover-candidate-1c9aeae2b4",
+  "generated_at": "2026-10-22T12:01:00Z",
+  "observable_trace_only": true,
+  "fixture": "NGCV_WGSL_Pareto_MSCK_Inflection_Study_v1",
+  "models": {
+    "baseline": "sol-decide-cpu-single-point-v1",
+    "candidate": "gemini-4-argon"
+  },
+  "observatory_context": {
+    "schema_version": "1.0",
+    "input": "input:5573f20ee159|sha256:ce7bf6874002dfc52dfec8ccc1f611c40f30a9032d2663cc151316681dffb269|sol-decide-wgsl-trade-benchmark-v1.0|SOL-Decide Frontier O WebGPU WGSL Trade-Space & MSCK Inflection Benchmark: study=NGCV_WGSL_Pareto_MSCK_Inflection_Study_v1; options=3; grid_cells=4096",
+    "conditions": {
+      "study_name": "NGCV_WGSL_Pareto_MSCK_Inflection_Study_v1",
+      "input_id": "input:5573f20ee159",
+      "input_digest": "sha256:ce7bf6874002dfc52dfec8ccc1f611c40f30a9032d2663cc151316681dffb269",
+      "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+      "model": "gemini-4-argon",
+      "provider": "google_genai_interactions_v1",
+      "temperature": 0.0,
+      "seed": 42,
+      "hardware_backend": "webgpu_wgsl_64thread_emulator",
+      "wgsl_shader_hash": "sha256:e6186c311763c05988f7700241de6d528a6f620763fbdbcb90307e1d68543c7a",
+      "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+      "measurement_origin": "measured",
+      "wgsl_shader_name": "decision_prover.wgsl",
+      "wgsl_grid_cells": 4096,
+      "msck_grid_resolution": [
+        64,
+        64
+      ],
+      "selected_option_id": "opt_diesel",
+      "frontier_o_summary_digest": "sha256:002036946eb41d7618fa0d29fe8ba3def4491036a16f0f8f15b4bb6319f14cd3"
+    },
+    "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+    "workflow_version": "v2.0-gemini4-wgsl-decision-prover",
+    "executed_at": "2026-10-22T12:01:00Z",
+    "data_type": "imported"
+  },
+  "frontier_o_verification": {
+    "wgsl_decision_prover_verified": true,
+    "shader_validation": {
+      "shader_name": "decision_prover.wgsl",
+      "wgsl_shader_hash": "sha256:e6186c311763c05988f7700241de6d528a6f620763fbdbcb90307e1d68543c7a",
+      "is_valid": true,
+      "workgroup_size": [
+        64,
+        1,
+        1
+      ],
+      "bindings_count": 6,
+      "uniform_structs": [
+        "DecisionProverParams",
+        "TradeSpacePermutationState",
+        "MSCKInflectionPoint"
+      ],
+      "storage_buffers": [
+        "option_stalks",
+        "assumption_perturbations",
+        "permutation_states",
+        "msck_inflection_points",
+        "carnot_dissipation"
+      ],
+      "has_positive_definite_retraction": true,
+      "has_symplectic_integration": true,
+      "has_carnot_atomic_dissipation": true,
+      "validation_errors": []
+    },
+    "trade_space_sweep": {
+      "shader_name": "decision_prover.wgsl",
+      "wgsl_shader_hash": "sha256:e6186c311763c05988f7700241de6d528a6f620763fbdbcb90307e1d68543c7a",
+      "shader_digest": "sha256:e6186c311763c05988f7700241de6d528a6f620763fbdbcb90307e1d68543c7a",
+      "shader_valid": true,
+      "workgroup_size": [
+        64,
+        1,
+        1
+      ],
+      "shader_invocations_per_workgroup": 64,
+      "total_grid_cells": 4096,
+      "num_permutations": 10000,
+      "num_options": 3,
+      "num_assumptions": 2,
+      "workgroups_dispatched": 64,
+      "feasible_cells_count": 4096,
+      "pareto_frontier_count": 4096,
+      "best_option_id": "opt_diesel",
+      "best_option_name": "Advanced Diesel-Mechanical",
+      "min_dirichlet_energy": 0.006736,
+      "mean_coboundary_norm": 0.090745,
+      "max_coboundary_norm": 0.107977,
+      "optimal_flip_margin_l2": 0.187022,
+      "decision_flip_boundary_cells": 0,
+      "gpu_dispatch_time_us": 521.8,
+      "wgsl_simd_latency_ms": 0.5218,
+      "cpu_serial_baseline_time_ms": 36.384,
+      "serial_cpu_latency_ms": 36.384,
+      "speedup_ratio": 69.73,
+      "speedup_factor": 69.73,
+      "carnot_dissipation_energy": 0.005298,
+      "carnot_dissipation_total": 0.005298,
+      "winner_stability_fraction": 1.0,
+      "permutation_digest": "sha256:6610df679916d938148a29eeb242ca8a2b3430890e75135a353be33f45542e7a",
+      "option_win_fractions": {
+        "opt_diesel": 1.0,
+        "opt_hed": 0.0,
+        "opt_fch": 0.0
+      },
+      "flip_boundary_samples": [
+        {
+          "grid_index": 4031,
+          "weights": [
+            0.9091,
+            0.0455,
+            0.0455
+          ],
+          "winning_option_id": "opt_diesel",
+          "dirichlet_energy": 0.006736,
+          "flip_margin_l2": 0.142159
+        },
+        {
+          "grid_index": 3967,
+          "weights": [
+            0.9091,
+            0.0455,
+            0.0455
+          ],
+          "winning_option_id": "opt_diesel",
+          "dirichlet_energy": 0.006736,
+          "flip_margin_l2": 0.142159
+        },
+        {
+          "grid_index": 3839,
+          "weights": [
+            0.9091,
+            0.0455,
+            0.0455
+          ],
+          "winning_option_id": "opt_diesel",
+          "dirichlet_energy": 0.006736,
+          "flip_margin_l2": 0.142159
+        },
+        {
+          "grid_index": 3903,
+          "weights": [
+            0.9091,
+            0.0455,
+            0.0455
+          ],
+          "winning_option_id": "opt_diesel",
+          "dirichlet_energy": 0.006736,
+          "flip_margin_l2": 0.142159
+        },
+        {
+          "grid_index": 3647,
+          "weights": [
+            0.9091,
+            0.0455,
+            0.0455
+          ],
+          "winning_option_id": "opt_diesel",
+          "dirichlet_energy": 0.006736,
+          "flip_margin_l2": 0.142159
+        }
+      ]
+    },
+    "msck_inflection_prover": {
+      "grid_resolution": [
+        64,
+        64
+      ],
+      "total_surface_points": 4096,
+      "cycle0_frustrated_point": {
+        "grid_index": 1040,
+        "alpha_coupling": 0.72,
+        "beta_holonomy_flux": 0.88,
+        "coboundary_energy": 0.336593,
+        "holonomy_residual": 0.806019,
+        "effective_beta_1": 1,
+        "spectral_gap_lambda1": 0.02,
+        "is_cohomological_inflection_locus": false
+      },
+      "cycle1_harmonic_point": {
+        "grid_index": 2080,
+        "alpha_coupling": 1.0,
+        "beta_holonomy_flux": 0.0,
+        "coboundary_energy": 0.0,
+        "holonomy_residual": 0.0,
+        "effective_beta_1": 0,
+        "spectral_gap_lambda1": 1.25,
+        "is_cohomological_inflection_locus": false
+      },
+      "inflection_boundary_locus_count": 238,
+      "critical_holonomy_threshold": 0.18,
+      "min_spectral_gap_on_inflection": 0.135337,
+      "max_harmonic_spectral_gap": 1.912852,
+      "min_inflection_delta_pct": 98.6,
+      "fragile_assumption_count": 0,
+      "msck_surface_solve_latency_ms": 0.4392,
+      "joint_2d_saddle_delta_pct": 64.2,
+      "inflection_digest": "sha256:756aea2c08ce34fe33a33c78ee04e593737347128d49bfbbf2d01cd140517dfe",
+      "assumption_inflection_points": [
+        {
+          "assumption_id": "asm_battery_specific_energy",
+          "name": "Solid-State Battery Specific Energy Density",
+          "inflection_delta_pct": 98.6,
+          "is_fragile": false
+        },
+        {
+          "assumption_id": "asm_thermal_rejection_flux",
+          "name": "Pulsed-Load Thermal Rejection Capacity",
+          "inflection_delta_pct": 104.2,
+          "is_fragile": false
+        }
+      ],
+      "sample_inflection_locus": [
+        {
+          "grid_index": 1696,
+          "alpha_coupling": 0.88095,
+          "beta_holonomy_flux": -0.20952,
+          "coboundary_energy": 0.025103,
+          "holonomy_residual": 0.214372,
+          "effective_beta_1": 1,
+          "spectral_gap_lambda1": 0.777272,
+          "is_cohomological_inflection_locus": true
+        },
+        {
+          "grid_index": 1697,
+          "alpha_coupling": 0.89286,
+          "beta_holonomy_flux": -0.20952,
+          "coboundary_energy": 0.024441,
+          "holonomy_residual": 0.21316,
+          "effective_beta_1": 1,
+          "spectral_gap_lambda1": 0.80441,
+          "is_cohomological_inflection_locus": true
+        },
+        {
+          "grid_index": 1698,
+          "alpha_coupling": 0.90476,
+          "beta_holonomy_flux": -0.20952,
+          "coboundary_energy": 0.023849,
+          "holonomy_residual": 0.212076,
+          "effective_beta_1": 1,
+          "spectral_gap_lambda1": 0.831789,
+          "is_cohomological_inflection_locus": true
+        },
+        {
+          "grid_index": 1699,
+          "alpha_coupling": 0.91667,
+          "beta_holonomy_flux": -0.20952,
+          "coboundary_energy": 0.023327,
+          "holonomy_residual": 0.211119,
+          "effective_beta_1": 1,
+          "spectral_gap_lambda1": 0.85941,
+          "is_cohomological_inflection_locus": true
+        },
+        {
+          "grid_index": 1700,
+          "alpha_coupling": 0.92857,
+          "beta_holonomy_flux": -0.20952,
+          "coboundary_energy": 0.022876,
+          "holonomy_residual": 0.21029,
+          "effective_beta_1": 1,
+          "spectral_gap_lambda1": 0.887274,
+          "is_cohomological_inflection_locus": true
+        },
+        {
+          "grid_index": 1701,
+          "alpha_coupling": 0.94048,
+          "beta_holonomy_flux": -0.20952,
+          "coboundary_energy": 0.022495,
+          "holonomy_residual": 0.209589,
+          "effective_beta_1": 1,
+          "spectral_gap_lambda1": 0.915379,
+          "is_cohomological_inflection_locus": true
+        }
+      ]
+    },
+    "cycle0_audit": {
+      "cycle_index": 0,
+      "designation": "baseline",
+      "workflow_version": "v1.0-uncalibrated-wgsl-trade-sweep",
+      "shader_valid": true,
+      "effective_beta_1": 1,
+      "dirichlet_energy": 0.336593,
+      "coboundary_defect": 0.806019,
+      "pareto_dominance_verified": false,
+      "observatory_comparability": "compatible",
+      "policy_status": "QUARANTINE",
+      "governance_reason": "WGSL_HOLONOMY_OBSTRUCTION_OR_PARETO_BREACH",
+      "cohomological_event": "COHOMOLOGICAL_QUARANTINE_TRIGGERED",
+      "is_quarantined": true,
+      "state_digest": "sha256:d49396b8ed5343a76d4c2b4eacb859e774bda50f329552d8c6f5e3d2d34ba28a",
+      "event_count": 4,
+      "event_digests": [
+        "sha256:4f1e0929ac53f5ebd6a42cc3c705ecb1c0425713229e816c5e5380e6420282d1",
+        "sha256:b5bcc66a02fd4e2db348ca7b70ffe326a54e58e24448d94adf8ebf975495f722",
+        "sha256:da5a86747a781d19c347ff9ee60dbc3070e26c2d1bc7b666a46f032ae98cfd5c",
+        "sha256:f7ac0ee370b46542fcc315ce6e0d3385112d590c26cec0c27a273a0ba2b6345d"
+      ]
+    },
+    "cycle1_audit": {
+      "cycle_index": 1,
+      "designation": "candidate",
+      "workflow_version": "v2.0-gemini4-wgsl-decision-prover",
+      "shader_valid": true,
+      "effective_beta_1": 0,
+      "dirichlet_energy": 0.0,
+      "coboundary_defect": 0.0,
+      "pareto_dominance_verified": true,
+      "observatory_comparability": "compatible",
+      "policy_status": "ELIGIBLE",
+      "governance_reason": "WGSL_PARETO_HARMONIC_PROVED_AND_VERIFIED",
+      "cohomological_event": "COHOMOLOGICAL_QUARANTINE_CLEARED",
+      "is_quarantined": false,
+      "state_digest": "sha256:1f5b82b3fa6a32fc297ec52c077dab761786dbec144a1a3c910a5a74069458ae",
+      "event_count": 4,
+      "event_digests": [
+        "sha256:754b96abd2c0f964aebeb803dc66a3209225434fe0951e53cafc86dad21ed4ab",
+        "sha256:507b8ab14f81e5ee8571d24c8e38c1297941fcaca8a5d24cb17bba3307af9323",
+        "sha256:5fd2466257f409f2c776cc4872a237d885d91d0a6da1e0cc6b0e787bf6a6e517",
+        "sha256:f46184d7cac1a75f2920f2ff786dea0d449e0665753f7ef40b89ed6c6f3e34ee"
+      ]
+    },
+    "calibration_spec": {
+      "selected_option_id": "opt_diesel",
+      "selected_option_name": "Advanced Diesel-Mechanical",
+      "calibrated_weight_vector": [
+        0.38,
+        0.34,
+        0.28
+      ],
+      "calibrated_holonomy_flux_compensation": -0.88,
+      "calibrated_alpha_coupling": 1.0,
+      "decision_prover_theorem_title": "WGSL 4096-Simplex Pareto Exhaustion and MSCK Holonomy Annihilation Theorem",
+      "decision_prover_rationale": "Exhaustive 64-thread WebGPU compute evaluation across the 4096-cell objective weight simplex identifies opt_diesel (Advanced Diesel-Mechanical) as the global harmonic attractor with minimal Dirichlet energy (0.006736) and a robust L2 decision boundary flip margin of 0.1870. In Cycle 0, sub-unity restriction coupling (alpha=0.72) and uncompensated gauge flux (beta_flux=0.88) induced a non-trivial first Betti number obstruction (beta_1=1, holonomy_residual=0.8060), triggering PolicyStatus.QUARANTINE. Applying MSCK cohomological inflection surgery via an exact counter-flux gauge transformation (delta_beta=-0.88) and restoring canonical sheaf restriction coupling (alpha=1.0) annihilates loop frustration (beta_holonomy -> 0.0), collapses the cohomological obstruction class, maximizes the harmonic spectral gap lambda_1, and certifies unconditional Pareto dominance.",
+      "observatory_hypothesis": "Applying a compensating holonomy flux of delta_beta = -0.88 and calibrating MSCK restriction coupling to alpha = 1.0 across the 4096-cell WebGPU trade-space simplex will reduce the holonomy residual from 0.8060 to 0.0, resolve the beta_1 = 1 PolicyStatus.QUARANTINE state, and lock in opt_diesel as the Pareto-dominant harmonic equilibrium with Dirichlet energy <= 0.006736 and L2 flip margin >= 0.1870."
+    },
+    "repeat_trial_governance": {
+      "group_id": "rtg_wgsl_36ac41433efe",
+      "trial_count": 5,
+      "comparability": "compatible",
+      "overall_outcome": "improved",
+      "evidence_stats": {
+        "criterion_id": "lens_evidence",
+        "unit": "score/1",
+        "direction": "higher",
+        "trial_count": 5,
+        "baseline_mean": 0.6784,
+        "baseline_std": 0.006693,
+        "candidate_mean": 0.9658,
+        "candidate_std": 0.003347,
+        "mean_delta": 0.2874,
+        "std_delta": 0.008295,
+        "ci95_lower": 0.277101,
+        "ci95_upper": 0.297699,
+        "welch_t_stat": 85.877176,
+        "welch_df": 5.8824,
+        "paired_t_stat": 77.477848,
+        "p_value_two_sided": 0.0,
+        "cohens_d": 54.313495,
+        "statistically_significant_95": true,
+        "status": "improved"
+      },
+      "coherence_stats": {
+        "criterion_id": "lens_coherence",
+        "unit": "score/1",
+        "direction": "higher",
+        "trial_count": 5,
+        "baseline_mean": 0.581158,
+        "baseline_std": 0.005823,
+        "candidate_mean": 0.963096,
+        "candidate_std": 0.002912,
+        "mean_delta": 0.381938,
+        "std_delta": 0.007216,
+        "ci95_lower": 0.372978,
+        "ci95_upper": 0.390898,
+        "welch_t_stat": 131.179088,
+        "welch_df": 5.8824,
+        "paired_t_stat": 118.348948,
+        "p_value_two_sided": 0.0,
+        "cohens_d": 82.96494,
+        "statistically_significant_95": true,
+        "status": "improved"
+      }
+    },
+    "summary_digest": "sha256:002036946eb41d7618fa0d29fe8ba3def4491036a16f0f8f15b4bb6319f14cd3",
+    "sol_change_handoff": {
+      "experiment_id": "exp_wgsl_prover_1c9aeae2b4e0",
+      "study_name": "NGCV_WGSL_Pareto_MSCK_Inflection_Study_v1",
+      "baseline_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0\\baseline_packet.json",
+      "baseline_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0\\baseline_packet.context.json",
+      "candidate_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0\\candidate_packet.json",
+      "candidate_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0\\candidate_packet.context.json",
+      "experiment_archive_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0\\experiment.json",
+      "markdown_report_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0\\comparison.md",
+      "repeat_trial_bundle_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0\\repeat_trials.json",
+      "repeat_trials_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0\\repeat_trials.json",
+      "experiment_dir": "C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0",
+      "observatory_db_registered": true,
+      "comparability": "compatible",
+      "outcome": "improved",
+      "review_status": "awaiting_review",
+      "measured_baseline_time_s": 0.042805,
+      "measured_candidate_time_s": 0.010701,
+      "measured_execution_time_s": 0.053507,
+      "measured_cost_usd": null,
+      "cli_commands": {
+        "import_continuum": "python -m observatory.cli import-continuum --baseline \"C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0\\baseline_packet.json\" --baseline-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0\\baseline_packet.context.json\" --candidate \"C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0\\candidate_packet.json\" --candidate-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0\\candidate_packet.context.json\" --baseline-measured-time-s 0.042805 --candidate-measured-time-s 0.010701 --title \"NGCV_WGSL_Pareto_MSCK_Inflection_Study_v1\" --change \"WGSL Decision Prover Cycle 0 -> Cycle 1\" --output-dir \"C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0-reimport\"",
+        "compare": "python -m observatory.cli compare --baseline \"C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0\\baseline_packet.json\" --baseline-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0\\baseline_packet.context.json\" --candidate \"C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0\\candidate_packet.json\" --candidate-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0\\candidate_packet.context.json\" --baseline-measured-time-s 0.042805 --candidate-measured-time-s 0.010701 --title \"NGCV_WGSL_Pareto_MSCK_Inflection_Study_v1\" --change \"WGSL Decision Prover Cycle 0 -> Cycle 1\" --output-dir \"C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0-compare\"",
+        "evaluate_trials": "python -m observatory.cli evaluate-trials --group \"C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0\\repeat_trials.json\" --format text",
+        "assess": "python -m observatory.cli assess --experiment \"C:\\sol-systems\\sol-decide\\experiments\\exp_wgsl_prover_1c9aeae2b4e0\\experiment.json\""
+      },
+      "warnings": [],
+      "adapter_version": "sol-lens-proof-packet/1.0"
+    }
+  },
+  "reasoning_telemetry": {
+    "model_used": "gemini-4-argon",
+    "interaction_id": "v1_ChdwaTNiYXRiZ0FlaWo1Tm9QdEpMR2tRYxIXcGkzYmF0YmdBZWlqNU5vUHRKTEdrUWM",
+    "thinking_level": "high",
+    "thought_signature_digests": [
+      "sha256:a01ad6e9288c447e6d83c6a96180842707233dd87e0a264b371bdb9a2d1df83f"
+    ],
+    "thought_signature_lengths": [
+      5796
+    ],
+    "thought_summaries": [
+      "**WGSL Trade-Space Calibration Summary**\n\nOkay, so I need to generate a JSON payload conforming to the `WGSLTradeSpaceCalibrationSpec` schema for the `NGCV_WGSL_Pareto_MSCK_Inflection_Study_v1` study. I'm the Principal WebGPU Decision Topology Prover for SOL-Decide, so this is right up my alley. The key is to leverage the information provided and map it to the schema properties accurately.\n\nI've got the winner of the 64-Thread WGSL Trade Sweep: `opt_diesel`, or \"Advanced Diesel-Mechanical,\" with specific Dirichlet energy and flip margin metrics, plus the Cycle 0 state, including `alpha`, `beta_flux`, and `holonomy_residual`. The targets for Cycle 1 are explicit: `calibrated_holonomy_flux_compensation = -0.88` and `calibrated_alpha_coupling = 1.0`, aiming for Pareto dominance across the 4096-cell simplex.\n\nNow, let's break it down:\n\n*   `selected_option_id`: That's straightforward: `\"opt_diesel\"`.\n*   `selected_option_name`: Also direct: `\"Advanced Diesel-Mechanical\"`.\n*   `calibrated_weight_vector`: This needs to sum to 1.0, so I'll go with a balanced vector, something like `[0.38, 0.34, 0.28]`.\n*   `calibrated_holonomy_flux_compensation`:  `-0.88`. Got it.\n*   `calibrated_alpha_coupling`: `1.0`. Simple.\n*   `decision_prover_theorem_title`:  I'll give it a concise title: `\"WGSL 4096-Simplex Pareto Exhaustion and MSCK Holonomy Annihilation Theorem\"`.\n*   `decision_prover_rationale`: This is where I explain the *why*. We're talking about the 64-thread WebGPU trade-space, the MSCK inflection, the Cycle 0 quarantine, and how we're resolving it. So, I need a detailed rationale: `\"Exhaustive 64-thread WebGPU compute evaluation across the 4096-cell objective weight simplex identifies opt_diesel (Advanced Diesel-Mechanical) as the global harmonic attractor with minimal Dirichlet energy (E_D = 0.006736) and a robust L2 decision boundary flip margin of 0.1870. In Cycle 0, sub-unity restriction coupling (alpha = 0.72) and uncompensated gauge flux (beta_flux = 0.88) induced a non-trivial first Betti number obstruction (beta_1 = 1, holonomy residual = 0.8060), triggering PolicyStatus.QUARANTINE. Applying MSCK cohomological inflection surgery via an exact counter-flux gauge transformation (delta_beta = -0.88) and restoring canonical sheaf restriction coupling (alpha = 1.0) annihilates loop frustration (beta_holonomy -> 0.0), collapses the H^1 obstruction class, maximizes the harmonic spectral gap lambda_1, and certifies unconditional Pareto dominance.\"`\n*   `observatory_hypothesis`: Now the falsifiable scientific hypothesis: `\"Injecting a compensating holonomy flux of delta_beta = -0.88 and calibrating MSCK coupling to alpha = 1.0 across the 4096-cell WebGPU trade-space simplex will reduce the holonomy residual from 0.8060 to 0.0, eliminate the beta_1 = 1 topological quarantine, and stabilize opt_diesel with a Dirichlet energy <= 0.006736 and L2 flip margin >= 0.1870.\"`\n\nOkay, finally I'm going to double check everything. Then, it's just raw JSON, no comments, no newlines, no markdown. That's the format. Let's make sure all the types are right, and then I'll generate the output.\n\n\n"
+    ],
+    "total_input_tokens": 877,
+    "total_thought_tokens": 1364,
+    "total_output_tokens": 482
+  },
+  "baseline_evaluation": {
+    "label": "Cycle 0 Uncalibrated Trade Sweep (WGSL_HOLONOMY_OBSTRUCTION_OR_PARETO_BREACH)",
+    "logon_count": 3,
+    "metrics": {
+      "evidence": 0.605,
+      "coherence": 0.5449166666666666,
+      "contradiction": 0.14285714285714285,
+      "continuity": 0.5833333333333333,
+      "authority": 0.63,
+      "faithfulness": 0.4976190476190476
+    },
+    "verdict": "QUARANTINE",
+    "source": "sol_decide.SolEdgeWGSLDecisionGate"
+  },
+  "logons": [
+    {
+      "id": "L01",
+      "label": "WebGPU WGSL Compiler Verification (decision_prover.wgsl, workgroup=64x1x1)",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.95,
+      "psi": 0.96,
+      "pressure": 0.06,
+      "detail": "WebGPUComputeCompiler validated decision_prover.wgsl (sha256:e6186c311763c05...) with SPD matrix_exp_2x2 retraction, symplectic drift integration, and atomic Carnot dissipation.",
+      "source": "sol.kernel.photonic.WebGPUComputeCompiler",
+      "phase_id": "P1_WGSL_COMPILE",
+      "group_id": "G01",
+      "evidence_refs": [
+        "sha256:e6186c311763c05988f7700241de6d528a6f620763fbdbcb90307e1d68543c7a"
+      ]
+    },
+    {
+      "id": "L02",
+      "label": "Cycle 0 MSCK Holonomy Frustration Quarantined (\u03b2\u2081=1, ||\u03b4\u03c8||=0.806)",
+      "status": "supported",
+      "evidence": 0.94,
+      "rho": 0.92,
+      "psi": 0.93,
+      "pressure": 0.11,
+      "detail": "SolEdgeWGSLDecisionGate intercepted Cycle 0 frustrated holonomy (WGSL_HOLONOMY_OBSTRUCTION_OR_PARETO_BREACH) and recorded 4-event quarantine stream.",
+      "source": "sol_decide.SolEdgeWGSLDecisionGate",
+      "phase_id": "P1_WGSL_COMPILE",
+      "group_id": "G01",
+      "evidence_refs": [
+        "sha256:d49396b8ed5343a76d4c2b4eacb859e774bda50f329552d8c6f5e3d2d34ba28a"
+      ]
+    },
+    {
+      "id": "L03",
+      "label": "64-Thread WGSL 4096-Cell Pareto Sweep (Advanced Diesel-Mechanical, 69.7x Speedup)",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.97,
+      "pressure": 0.05,
+      "detail": "Exhausted 4096 objective-weight simplex cells across 64 workgroups in 521.8 us, proving Pareto dominance of opt_diesel (E_min=0.00674).",
+      "source": "sol_decide.WGSLDecisionProverOrchestrator",
+      "phase_id": "P2_PARETO_MSCK_PROOF",
+      "group_id": "G02",
+      "evidence_refs": [
+        "wgsl:pareto:opt_diesel"
+      ]
+    },
+    {
+      "id": "L04",
+      "label": "MSCK 64x64 Cohomological Inflection Surgery (\u03b2\u2081: 1\u21920, \u03bb\u2081=1.250)",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.96,
+      "psi": 0.97,
+      "pressure": 0.06,
+      "detail": "Mapped 238 cohomological inflection locus points and applied \u0394\u03b2=-0.88 rad gauge compensation to restore exact harmonicity (holonomy_residual=0.0000).",
+      "source": "sol_decide.WGSLDecisionProverOrchestrator",
+      "phase_id": "P2_PARETO_MSCK_PROOF",
+      "group_id": "G02",
+      "evidence_refs": [
+        "msck:harmonic:sha256:002036946eb41"
+      ]
+    },
+    {
+      "id": "L05",
+      "label": "SOL Change Producer Telemetry & K=5 Repeat-Trial Governance (compatible, improved)",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.95,
+      "psi": 0.96,
+      "pressure": 0.07,
+      "detail": "Exported schema-1.0 .context.json sidecars, measured wall-clock execution_time (0.0107s), and verified K=5 repeat-trial Welch t-test significance.",
+      "source": "sol_decide.interop.sol_change_producer",
+      "phase_id": "P3_OBSERVATORY_HANDOFF",
+      "group_id": "G03",
+      "evidence_refs": [
+        "rtg:rtg_wgsl_36ac41433efe"
+      ]
+    },
+    {
+      "id": "L06",
+      "label": "Cycle 1 Zero-Trust WGSL Decision Gate ELIGIBLE (COHOMOLOGICAL_QUARANTINE_CLEARED)",
+      "status": "supported",
+      "evidence": 0.99,
+      "rho": 0.98,
+      "psi": 0.98,
+      "pressure": 0.04,
+      "detail": "SolEdgeWGSLDecisionGate cleared Cycle 1 (ELIGIBLE) with state_digest sha256:1f5b82b3fa6a32fc2... and review_status='awaiting_review'.",
+      "source": "sol_decide.SolEdgeWGSLDecisionGate",
+      "phase_id": "P3_OBSERVATORY_HANDOFF",
+      "group_id": "G03",
+      "evidence_refs": [
+        "sha256:1f5b82b3fa6a32fc297ec52c077dab761786dbec144a1a3c910a5a74069458ae"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "E01",
+      "from": "L01",
+      "to": "L02",
+      "status": "supported",
+      "kind": "constraint",
+      "weight": 0.95,
+      "active": true
+    },
+    {
+      "id": "E02",
+      "from": "L02",
+      "to": "L03",
+      "status": "supported",
+      "kind": "feedback",
+      "weight": 0.98,
+      "active": true
+    },
+    {
+      "id": "E03",
+      "from": "L03",
+      "to": "L04",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.97,
+      "active": true
+    },
+    {
+      "id": "E04",
+      "from": "L04",
+      "to": "L05",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.96,
+      "active": true
+    },
+    {
+      "id": "E05",
+      "from": "L05",
+      "to": "L06",
+      "status": "supported",
+      "kind": "dependency",
+      "weight": 0.98,
+      "active": true
+    }
+  ],
+  "groups": [
+    {
+      "id": "G01",
+      "label": "WebGPU Shader Validation & Cycle 0 Quarantine",
+      "logon_ids": [
+        "L01",
+        "L02"
+      ],
+      "phase": "P1_WGSL_COMPILE"
+    },
+    {
+      "id": "G02",
+      "label": "64-Thread Pareto Sweep & MSCK Inflection Surgery",
+      "logon_ids": [
+        "L03",
+        "L04"
+      ],
+      "phase": "P2_PARETO_MSCK_PROOF"
+    },
+    {
+      "id": "G03",
+      "label": "SOL Change Producer Handoff & Gate Promotion",
+      "logon_ids": [
+        "L05",
+        "L06"
+      ],
+      "phase": "P3_OBSERVATORY_HANDOFF"
+    }
+  ],
+  "metrics": {
+    "evidence": 0.9716666666666667,
+    "coherence": 0.9627,
+    "contradiction": 0.0,
+    "continuity": 1.0,
+    "authority": 0.9966666666666667,
+    "faithfulness": 0.9616666666666666
+  },
+  "verdict": "PROMOTE",
+  "evaluation": {
+    "engine": "SOL Engine",
+    "scoring_profile": "sol-court-v1",
+    "metrics": {
+      "evidence": 0.9716666666666667,
+      "coherence": 0.9627,
+      "contradiction": 0.0,
+      "continuity": 1.0,
+      "authority": 0.9966666666666667,
+      "faithfulness": 0.9616666666666666
+    },
+    "verdict": "PROMOTE",
+    "claimed_evaluation_match": true
+  },
+  "claimed_evaluation": {
+    "metrics": {
+      "evidence": 0.9716666666666667,
+      "coherence": 0.9627,
+      "contradiction": 0.0,
+      "continuity": 1.0,
+      "authority": 0.9966666666666667,
+      "faithfulness": 0.9616666666666666
+    },
+    "verdict": "PROMOTE"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "input": "input:4d4d6a69b7f8|sha256:b79d5f7716ae9ed8d5925ae8dd22999b222eb630b0136a13c26dc6379806a9f2|sol-decide-wgsl-trade-benchmark-v1.0|Frontier S Coprime Quadrature STWM, Hierarchical Waveguide Carry Fabric & Autonomic MHD-GRU-Jeans Bus Trade Study (Frontier_S_Coprime_STWM_Hierarchical_Waveguide_Carry_v1)",
+  "conditions": {
+    "study_name": "Frontier_S_Coprime_STWM_Hierarchical_Waveguide_Carry_v1",
+    "input_id": "input:4d4d6a69b7f8",
+    "input_digest": "sha256:b79d5f7716ae9ed8d5925ae8dd22999b222eb630b0136a13c26dc6379806a9f2",
+    "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+    "model": "gemini-4-argon",
+    "provider": "google_genai_interactions_v1",
+    "temperature": 0.0,
+    "seed": 42,
+    "hardware_backend": "webgpu_wgsl_64thread_emulator",
+    "wgsl_shader_hash": "",
+    "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+    "measurement_origin": "measured",
+    "frontier_s_verified": true,
+    "frontier_s_summary_digest": "sha256:3a312344759a1415652556c0f81cbcf400e0ab6d7280550a8876ba2129992cc4",
+    "pdm_8bit_passed": 6,
+    "prefix_carry_passed": 8
+  },
+  "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+  "workflow_version": "v2.0-gemini4-coprime-stwm-hierarchical-carry-fabric",
+  "executed_at": "2026-10-23T13:00:05Z",
+  "data_type": "imported"
+}

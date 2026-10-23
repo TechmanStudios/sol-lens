@@ -1,0 +1,358 @@
+{
+  "schema": "techman.sol-lens.proof-packet/v0.2",
+  "packet_id": "pkt-stwm-cand-91aa60fd05ba",
+  "generated_at": "2026-10-23T13:00:05Z",
+  "observable_trace_only": true,
+  "fixture": "Frontier_S_Coprime_STWM_Hierarchical_Waveguide_Carry_v1_Cycle1_Candidate",
+  "models": {
+    "baseline": "v1.0-resonant-wall-harmonic-crowded-waveguide",
+    "candidate": "gemini-4-argon"
+  },
+  "baseline_evaluation": {
+    "label": "Cycle 0 Resonant Wall & Harmonic Crowded Waveguide (QUARANTINE)",
+    "logon_count": 2,
+    "metrics": {
+      "evidence": 0.63,
+      "coherence": 0.5297999999999999,
+      "contradiction": 0.16666666666666666,
+      "continuity": 0.5349999999999999,
+      "authority": 0.655,
+      "faithfulness": 0.44499999999999995
+    },
+    "verdict": "QUARANTINE",
+    "source": "sol_decide.stwm_wavefront_bridge"
+  },
+  "frontier_s_verification": {
+    "stwm_wavefront_verified": true,
+    "experiment_id": "exp_frontier_s_stwm_91aa60fd05ba",
+    "frontier_id": "Frontier_S",
+    "coprime_quadrature_pdm": {
+      "passed_cases": 6,
+      "total_cases": 6,
+      "min_signal_margin": 0.245,
+      "periods": [
+        11.0,
+        13.0,
+        17.0,
+        19.0
+      ],
+      "quadratures": [
+        "sin",
+        "cos"
+      ]
+    },
+    "interlane_prefix_carry": {
+      "passed_cases": 8,
+      "total_cases": 8,
+      "mean_brent_kung_latency": 5.0,
+      "mean_kogge_stone_latency": 3.0
+    },
+    "hierarchical_waveguide_fabric": {
+      "passed_32b": 5,
+      "passed_64b": 5,
+      "passed_32bit": 5,
+      "passed_64bit": 5,
+      "total_cases": 10,
+      "all_passed": true
+    },
+    "quantum_wavefront_calibration": {
+      "total_regimes": 12,
+      "passed_regimes": 12,
+      "cycle0_resonant_wall_collapsed": true
+    },
+    "autonomic_mhd_gru_jeans_bus": {
+      "coprime_periods": [
+        11.0,
+        13.0,
+        17.0,
+        19.0,
+        23.0,
+        29.0,
+        31.0,
+        37.0
+      ],
+      "cycle0_alfven_mach_number": 1.34,
+      "cycle1_alfven_mach_number": 0.64,
+      "cycle0_jeans_wavelength_ratio": 1.28,
+      "cycle1_jeans_wavelength_ratio": 0.72,
+      "gru_gate_retention": 0.965,
+      "cycle0_interlane_crosstalk_db": -8.4,
+      "cycle1_interlane_crosstalk_db": -42.6
+    },
+    "formal_theorem_proof": {
+      "theorem_id": "THM_CONJ_COPRIME_STWM_PREFIX_CARRY",
+      "conjecture_id": "conj_coprime_stwm_prefix_carry",
+      "verdict": "PROVED_THEOREM",
+      "refuted_conjecture_id": "conj_false_resonant_wall_linear_pdm",
+      "refuted_verdict": "DISPROVED_COUNTEREXAMPLE"
+    },
+    "eligibility_interlock": {
+      "cycle0_safe_state_triggered": true,
+      "cycle1_safe_state_triggered": false,
+      "cycle0_safe_state_action": "CLAMP_RESONANT_WALL_WAVEGUIDE",
+      "cycle1_safe_state_action": "NONE",
+      "release_gate_status": "ELIGIBLE_AWAITING_RELEASE_AUTHORITY",
+      "authorized_claimed": false
+    },
+    "cycle0_audit": {
+      "cycle_index": 0,
+      "designation": "baseline",
+      "option_id": "OPT_COPRIME_QUAD_STWM_BK_KS_MHD_V1:cycle0-quarantine",
+      "policy_status": "QUARANTINE",
+      "is_quarantined": true,
+      "pdm_8bit_passed_cases": 2,
+      "prefix_carry_passed_cases": 3,
+      "hierarchical_32b_passed": 2,
+      "hierarchical_64b_passed": 1,
+      "quantum_calibration_passed_regimes": 4,
+      "interlane_crosstalk_db": -8.4,
+      "mhd_alfven_mach_number": 1.34,
+      "jeans_wavelength_ratio": 1.28,
+      "effective_beta_1": 1,
+      "safe_state_triggered": true,
+      "safe_state_action": "CLAMP_RESONANT_WALL_WAVEGUIDE",
+      "release_gate_status": "QUARANTINED_WAVEFRONT_COLLAPSE",
+      "authorized_claimed": false,
+      "reasons": [
+        "RESONANT_WALL_ATTENUATION_COLLAPSE: 10x cavity wall attenuation collapsed wavefront",
+        "PDM_BYTE_SLICE_FAILURE: 2/6 passed",
+        "INTERLANE_PREFIX_CARRY_FAILURE: 3/8 passed",
+        "HIERARCHICAL_WAVEGUIDE_FABRIC_MISMATCH: 32b/64b ALU verification failed",
+        "QUANTUM_WAVEFRONT_CALIBRATION_INCOMPLETE: 4/12",
+        "MHD_JEANS_BUS_INSTABILITY: Mach=1.340, lambda/lambda_J=1.280",
+        "COHOMOLOGICAL_OBSTRUCTION_BETA1: beta_1=1 > 0"
+      ],
+      "event_count": 4,
+      "final_chain_hash": "sha256:89a16da846da4e0dee4f4dbd535023e6dac1afa49d2fe733a019d4fa186ae774"
+    },
+    "cycle1_audit": {
+      "cycle_index": 1,
+      "designation": "candidate",
+      "option_id": "OPT_COPRIME_QUAD_STWM_BK_KS_MHD_V1:cycle1-eligible",
+      "policy_status": "ELIGIBLE",
+      "is_quarantined": false,
+      "pdm_8bit_passed_cases": 6,
+      "prefix_carry_passed_cases": 8,
+      "hierarchical_32b_passed": 5,
+      "hierarchical_64b_passed": 5,
+      "quantum_calibration_passed_regimes": 12,
+      "interlane_crosstalk_db": -42.6,
+      "mhd_alfven_mach_number": 0.64,
+      "jeans_wavelength_ratio": 0.72,
+      "effective_beta_1": 0,
+      "safe_state_triggered": false,
+      "safe_state_action": "NONE",
+      "release_gate_status": "ELIGIBLE_AWAITING_RELEASE_AUTHORITY",
+      "authorized_claimed": false,
+      "reasons": [
+        "ALL_COPRIME_STWM_WAVEGUIDE_GATES_PASSED: 6/6 PDM, 8/8 Prefix, 10/10 32b+64b, 12/12 Quantum Regimes"
+      ],
+      "event_count": 4,
+      "final_chain_hash": "sha256:3528adccbc0de0549fd811aca11a783bf76ad8754d5ecc4a71341f1b4c811375"
+    },
+    "gemini_reasoning": {
+      "model_used": "gemini-4-argon",
+      "interaction_id": "v1_Chd4RlRiYXBuX0VmNjh4ZElQNmQyZjRBMBIXeEZUYmFwbl9FZjY4eGRJUDZkMmY0QTA",
+      "thinking_level": "high",
+      "thought_signature_digests": [
+        "sha256:03c04de3f970a42514fa140eb7e414de55873cefe713260839abfdeb51455f6b"
+      ],
+      "thought_signature_lengths": [
+        1810
+      ],
+      "thought_summaries": [
+        "Assigning strictly coprime prime periods {11, 13, 17, 19, 23, 29, 31, 37} across orthogonal I/Q quadrature phases guarantees zero spectral overlap of fundamental and low-order harmonic modes, diagonalizing the inter-lane cross-correlation matrix. Within the hierarchical waveguide fabric, the associative prefix carry semiring operator is realized as a path-independent cohomological 1-cocycle across Brent-Kung/Kogge-Stone routing nodes; balancing the inter-lane evanescent coupling (kappa = 0.045) against low core propagation damping (gamma = 0.0032) preserves wave packet energy across log2(8) prefix stages without triggering parametric amplification. Finally, enforcing a sub-Alfvenic Mach limit (M_A = 0.68 < 1.0) in the autonomic MHD-GRU-Jeans bus stiffens the effective magnetosonic restoring force, increasing the Jeans critical wavelength lambda_J to push lambda/lambda_J well below the 1.0 instability threshold, while matched PML boundary damping (0.185) prevents standing-wave resonant walls."
+      ],
+      "total_input_tokens": 717,
+      "total_thought_tokens": 2140,
+      "total_output_tokens": 576,
+      "live_api_invoked": true
+    },
+    "repeat_trial_summary": {
+      "group_id": "rtg_stwm_19bb511f1038",
+      "trial_count": 5,
+      "comparability": "compatible",
+      "verdict": "improved"
+    },
+    "frontier_s_summary_digest": "sha256:3a312344759a1415652556c0f81cbcf400e0ab6d7280550a8876ba2129992cc4",
+    "summary_digest": "sha256:3a312344759a1415652556c0f81cbcf400e0ab6d7280550a8876ba2129992cc4",
+    "sol_change_handoff": {
+      "experiment_id": "exp_frontier_s_stwm_91aa60fd05ba",
+      "study_name": "Frontier_S_Coprime_STWM_Hierarchical_Waveguide_Carry_v1",
+      "baseline_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba\\baseline_packet.json",
+      "baseline_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba\\baseline_packet.context.json",
+      "candidate_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba\\candidate_packet.json",
+      "candidate_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba\\candidate_packet.context.json",
+      "experiment_archive_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba\\experiment.json",
+      "markdown_report_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba\\comparison.md",
+      "repeat_trial_bundle_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba\\repeat_trials.json",
+      "repeat_trials_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba\\repeat_trials.json",
+      "experiment_dir": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba",
+      "observatory_db_registered": true,
+      "comparability": "compatible",
+      "outcome": "improved",
+      "review_status": "awaiting_review",
+      "measured_baseline_time_s": 0.027392,
+      "measured_candidate_time_s": 0.009587,
+      "measured_execution_time_s": 0.036979,
+      "measured_cost_usd": null,
+      "cli_commands": {
+        "import_continuum": "python -m observatory.cli import-continuum --baseline \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba\\baseline_packet.json\" --baseline-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba\\baseline_packet.context.json\" --candidate \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba\\candidate_packet.json\" --candidate-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba\\candidate_packet.context.json\" --baseline-measured-time-s 0.027392 --candidate-measured-time-s 0.009587 --title \"Frontier_S_Coprime_STWM_Hierarchical_Waveguide_Carry_v1\" --change \"WGSL Decision Prover Cycle 0 -> Cycle 1\" --output-dir \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba-reimport\"",
+        "compare": "python -m observatory.cli compare --baseline \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba\\baseline_packet.json\" --baseline-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba\\baseline_packet.context.json\" --candidate \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba\\candidate_packet.json\" --candidate-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba\\candidate_packet.context.json\" --baseline-measured-time-s 0.027392 --candidate-measured-time-s 0.009587 --title \"Frontier_S_Coprime_STWM_Hierarchical_Waveguide_Carry_v1\" --change \"WGSL Decision Prover Cycle 0 -> Cycle 1\" --output-dir \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba-compare\"",
+        "evaluate_trials": "python -m observatory.cli evaluate-trials --group \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba\\repeat_trials.json\" --format text",
+        "assess": "python -m observatory.cli assess --experiment \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_s_stwm_91aa60fd05ba\\experiment.json\""
+      },
+      "warnings": [],
+      "adapter_version": "sol-lens-proof-packet/1.0"
+    }
+  },
+  "reasoning_telemetry": {
+    "model_used": "gemini-4-argon",
+    "interaction_id": "v1_Chd4RlRiYXBuX0VmNjh4ZElQNmQyZjRBMBIXeEZUYmFwbl9FZjY4eGRJUDZkMmY0QTA",
+    "thinking_level": "high",
+    "thought_signature_digests": [
+      "sha256:03c04de3f970a42514fa140eb7e414de55873cefe713260839abfdeb51455f6b"
+    ],
+    "thought_signature_lengths": [
+      1810
+    ],
+    "thought_summaries": [
+      "Assigning strictly coprime prime periods {11, 13, 17, 19, 23, 29, 31, 37} across orthogonal I/Q quadrature phases guarantees zero spectral overlap of fundamental and low-order harmonic modes, diagonalizing the inter-lane cross-correlation matrix. Within the hierarchical waveguide fabric, the associative prefix carry semiring operator is realized as a path-independent cohomological 1-cocycle across Brent-Kung/Kogge-Stone routing nodes; balancing the inter-lane evanescent coupling (kappa = 0.045) against low core propagation damping (gamma = 0.0032) preserves wave packet energy across log2(8) prefix stages without triggering parametric amplification. Finally, enforcing a sub-Alfvenic Mach limit (M_A = 0.68 < 1.0) in the autonomic MHD-GRU-Jeans bus stiffens the effective magnetosonic restoring force, increasing the Jeans critical wavelength lambda_J to push lambda/lambda_J well below the 1.0 instability threshold, while matched PML boundary damping (0.185) prevents standing-wave resonant walls."
+    ],
+    "total_input_tokens": 717,
+    "total_thought_tokens": 2140,
+    "total_output_tokens": 576,
+    "live_api_invoked": true
+  },
+  "logons": [
+    {
+      "id": "L01",
+      "label": "Coprime Quadrature STWM 8-Bit Byte Slice (6/6 Cases) & Brent-Kung/Kogge-Stone Carry (8/8)",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.96,
+      "psi": 0.97,
+      "pressure": 0.04,
+      "detail": "Coprime I/Q frequencies achieved 6/6 8-bit PDM accuracy (margin=0.2450) and 8/8 prefix carry parity.",
+      "source": "sol_decide.STWMWavefrontOrchestrator",
+      "phase_id": "P1_COPRIME_STWM",
+      "group_id": "G01",
+      "evidence_refs": [
+        "stwm:cycle1:pdm_prefix"
+      ]
+    },
+    {
+      "id": "L02",
+      "label": "Hierarchical 32b/64b Waveguide Carry Fabric (10/10) & 12/12 Quantum Wavefront Calibration",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "Verified 5/5 32b and 5/5 64b ALU ops plus 12/12 quantum wavefront calibration regimes.",
+      "source": "sol_decide.SolEdgeSTWMWavefrontGate",
+      "phase_id": "P2_HIERARCHICAL_FABRIC",
+      "group_id": "G01",
+      "evidence_refs": [
+        "stwm:cycle1:fabric_quantum"
+      ]
+    },
+    {
+      "id": "L03",
+      "label": "Autonomic MHD-GRU-Jeans Bus Stability & Proved Theorem THM_CONJ_COPRIME_STWM_PREFIX_CARRY",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.96,
+      "psi": 0.97,
+      "pressure": 0.04,
+      "detail": "Sub-Alfvenic Mach=0.64, Jeans ratio=0.72, proved PROVED_THEOREM, and refuted conj_false_resonant_wall_linear_pdm.",
+      "source": "Frontier_OS.AutomatedProofEngine",
+      "phase_id": "P3_ELIGIBLE",
+      "group_id": "G01",
+      "evidence_refs": [
+        "stwm:cycle1:eligible"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "E01",
+      "from": "L01",
+      "to": "L02",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.97,
+      "active": true
+    },
+    {
+      "id": "E02",
+      "from": "L02",
+      "to": "L03",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.98,
+      "active": true
+    }
+  ],
+  "groups": [
+    {
+      "id": "G01",
+      "label": "Cycle 1 Coprime STWM & Hierarchical Carry Fabric",
+      "logon_ids": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "phase": "P1_COPRIME_STWM"
+    }
+  ],
+  "metrics": {
+    "evidence": 0.9733333333333333,
+    "coherence": 0.9720333333333333,
+    "contradiction": 0.0,
+    "continuity": 1.0,
+    "authority": 0.9983333333333333,
+    "faithfulness": 0.9733333333333333
+  },
+  "verdict": "PROMOTE",
+  "evaluation": {
+    "engine": "SOL Engine",
+    "scoring_profile": "sol-court-v1",
+    "metrics": {
+      "evidence": 0.9733333333333333,
+      "coherence": 0.9720333333333333,
+      "contradiction": 0.0,
+      "continuity": 1.0,
+      "authority": 0.9983333333333333,
+      "faithfulness": 0.9733333333333333
+    },
+    "verdict": "PROMOTE",
+    "claimed_evaluation_match": true
+  },
+  "observatory_context": {
+    "schema_version": "1.0",
+    "input": "input:4d4d6a69b7f8|sha256:b79d5f7716ae9ed8d5925ae8dd22999b222eb630b0136a13c26dc6379806a9f2|sol-decide-wgsl-trade-benchmark-v1.0|Frontier S Coprime Quadrature STWM, Hierarchical Waveguide Carry Fabric & Autonomic MHD-GRU-Jeans Bus Trade Study (Frontier_S_Coprime_STWM_Hierarchical_Waveguide_Carry_v1)",
+    "conditions": {
+      "study_name": "Frontier_S_Coprime_STWM_Hierarchical_Waveguide_Carry_v1",
+      "input_id": "input:4d4d6a69b7f8",
+      "input_digest": "sha256:b79d5f7716ae9ed8d5925ae8dd22999b222eb630b0136a13c26dc6379806a9f2",
+      "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+      "model": "gemini-4-argon",
+      "provider": "google_genai_interactions_v1",
+      "temperature": 0.0,
+      "seed": 42,
+      "hardware_backend": "webgpu_wgsl_64thread_emulator",
+      "wgsl_shader_hash": "",
+      "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+      "measurement_origin": "measured",
+      "frontier_s_verified": true,
+      "frontier_s_summary_digest": "sha256:3a312344759a1415652556c0f81cbcf400e0ab6d7280550a8876ba2129992cc4",
+      "pdm_8bit_passed": 6,
+      "prefix_carry_passed": 8
+    },
+    "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+    "workflow_version": "v2.0-gemini4-coprime-stwm-hierarchical-carry-fabric",
+    "executed_at": "2026-10-23T13:00:05Z",
+    "data_type": "imported"
+  }
+}

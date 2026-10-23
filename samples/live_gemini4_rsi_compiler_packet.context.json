@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "input": "input:f5c61dcf26c9|sha256:52a2f79adcf1abd6aa4b4f2ed1c8ebca2473ed793648e5d94848757784f7fdc1|sol-decide-wgsl-trade-benchmark-v1.0|Frontier T Governed Recursive Self-Improvement (RSI), Claim-to-Test Compiler & Waveguide Pass Admission/Replay Trade Study (Frontier_T_Governed_RSI_Waveguide_Compiler_Admission_Replay_v1)",
+  "conditions": {
+    "study_name": "Frontier_T_Governed_RSI_Waveguide_Compiler_Admission_Replay_v1",
+    "input_id": "input:f5c61dcf26c9",
+    "input_digest": "sha256:52a2f79adcf1abd6aa4b4f2ed1c8ebca2473ed793648e5d94848757784f7fdc1",
+    "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+    "model": "gemini-4-argon",
+    "provider": "google_genai_interactions_v1",
+    "temperature": 0.0,
+    "seed": 42,
+    "hardware_backend": "webgpu_wgsl_64thread_emulator",
+    "wgsl_shader_hash": "",
+    "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+    "measurement_origin": "measured",
+    "frontier_t_verified": true,
+    "frontier_t_summary_digest": "sha256:91ac3c39fb04b63a926051cfe410187ac910ed8abccae4623358bb974b364ca6",
+    "rc_id": "SOL-WAVEGUIDE-RC2",
+    "admitted_passes_count": 3,
+    "replay_verified_cases": 2
+  },
+  "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+  "workflow_version": "v2.0-gemini4-governed-rc2-compiler-admission-replay",
+  "executed_at": "2026-10-23T14:00:05Z",
+  "data_type": "imported"
+}

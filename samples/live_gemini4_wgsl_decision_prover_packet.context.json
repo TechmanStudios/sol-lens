@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "input": "input:5573f20ee159|sha256:ce7bf6874002dfc52dfec8ccc1f611c40f30a9032d2663cc151316681dffb269|sol-decide-wgsl-trade-benchmark-v1.0|SOL-Decide Frontier O WebGPU WGSL Trade-Space & MSCK Inflection Benchmark: study=NGCV_WGSL_Pareto_MSCK_Inflection_Study_v1; options=3; grid_cells=4096",
+  "conditions": {
+    "study_name": "NGCV_WGSL_Pareto_MSCK_Inflection_Study_v1",
+    "input_id": "input:5573f20ee159",
+    "input_digest": "sha256:ce7bf6874002dfc52dfec8ccc1f611c40f30a9032d2663cc151316681dffb269",
+    "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+    "model": "gemini-4-argon",
+    "provider": "google_genai_interactions_v1",
+    "temperature": 0.0,
+    "seed": 42,
+    "hardware_backend": "webgpu_wgsl_64thread_emulator",
+    "wgsl_shader_hash": "sha256:e6186c311763c05988f7700241de6d528a6f620763fbdbcb90307e1d68543c7a",
+    "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+    "measurement_origin": "measured",
+    "wgsl_shader_name": "decision_prover.wgsl",
+    "wgsl_grid_cells": 4096,
+    "msck_grid_resolution": [
+      64,
+      64
+    ],
+    "selected_option_id": "opt_diesel",
+    "frontier_o_summary_digest": "sha256:002036946eb41d7618fa0d29fe8ba3def4491036a16f0f8f15b4bb6319f14cd3"
+  },
+  "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+  "workflow_version": "v2.0-gemini4-wgsl-decision-prover",
+  "executed_at": "2026-10-22T12:01:00Z",
+  "data_type": "imported"
+}

@@ -1,0 +1,380 @@
+{
+  "schema": "techman.sol-lens.proof-packet/v0.2",
+  "packet_id": "pkt-rsi-cand-549c2f4cc4d5",
+  "generated_at": "2026-10-23T14:00:05Z",
+  "observable_trace_only": true,
+  "fixture": "Frontier_T_Governed_RSI_Waveguide_Compiler_Admission_Replay_v1_Cycle1_Candidate",
+  "models": {
+    "baseline": "v1.0-ungoverned-rc1-optimization-request",
+    "candidate": "gemini-4-argon"
+  },
+  "baseline_evaluation": {
+    "label": "Cycle 0 Ungoverned RC1 Optimization Pass Request (QUARANTINE)",
+    "logon_count": 2,
+    "metrics": {
+      "evidence": 0.62,
+      "coherence": 0.5219,
+      "contradiction": 0.16666666666666666,
+      "continuity": 0.5299999999999999,
+      "authority": 0.645,
+      "faithfulness": 0.43999999999999995
+    },
+    "verdict": "QUARANTINE",
+    "source": "sol_decide.rsi_compiler_governance_bridge"
+  },
+  "frontier_t_verification": {
+    "rsi_compiler_verified": true,
+    "experiment_id": "exp_frontier_t_rsi_549c2f4cc4d5",
+    "frontier_id": "Frontier_T",
+    "sandboxed_rsi_and_claim_compiler": {
+      "claims_compiled_count": 3,
+      "claims_verified_count": 3,
+      "compiled_verified_claims": 3,
+      "compiled_claim_ids": [
+        "AUTO-C01",
+        "AUTO-C02",
+        "AUTO-C03"
+      ],
+      "compiled_patterns": [
+        "BASIN_STABILITY",
+        "GATE_FUNCTIONAL",
+        "GATE_FUNCTIONAL"
+      ],
+      "fitness_before": 56.739,
+      "fitness_after": 60.989,
+      "fitness_delta": 4.25,
+      "genome_keys": [
+        "created",
+        "experiment_types",
+        "exploration_rate",
+        "fitness_weights",
+        "history",
+        "last_cycle",
+        "mutation_rate",
+        "parameter_focus",
+        "synthesis_insights",
+        "template_preferences",
+        "version"
+      ],
+      "sandbox_isolated": true
+    },
+    "governed_compiler_invocation": {
+      "cycle0_session_id": "SOL-WAVEGUIDE-COMPILER-INVOCATION-RECORD-RC1",
+      "cycle0_session_status": "invocation_blocked",
+      "cycle0_admission_status": "pass_blocked",
+      "cycle1_session_id": "SOL-WAVEGUIDE-COMPILER-INVOCATION-RECORD-RC2",
+      "cycle1_session_status": "invocation_verified",
+      "cycle1_admitted_passes": [
+        "pipeline_compaction",
+        "cost_model_evaluation",
+        "deterministic_policy_selection"
+      ],
+      "cycle1_executed_passes": [
+        "pipeline_compaction",
+        "cost_model_evaluation",
+        "deterministic_policy_selection"
+      ],
+      "cycle1_final_output_payload_digest": "0f09785f332627b50781c45055105e81a7b691aed354d0fdf9a593b2222ab03b",
+      "cycle1_session_digest": "3d7e6b383576d6edac8026343c90bdb00e33e25e2f21c24897e9068ddb1010d2",
+      "production_mutation_allowed": false
+    },
+    "governed_pass_replay": {
+      "replay_report_id": "SOL-WAVEGUIDE-GOVERNED-PASS-REPLAY-REPORT",
+      "replay_status": "replay_report_verified",
+      "total_records": 3,
+      "executed_records_count": 2,
+      "rejected_records_count": 1,
+      "replay_verified_count": 2,
+      "replay_failed_count": 0,
+      "replay_report_digest": "c0685eff6d13cbbba46ce0b3e86bc8a1b76aabf584d1dde502c0a94be42bb388"
+    },
+    "release_certification_bundle": {
+      "certification_bundle_id": "SOL-WAVEGUIDE-RELEASE-CERTIFICATION-BUNDLE-RC2",
+      "certification_status": "certification_ready",
+      "rc_id": "SOL-WAVEGUIDE-RC2",
+      "registered_session_count": 2,
+      "rc2_session_count": 1,
+      "certification_bundle_digest": "a4a0cb70a080ee51f01dd4aacc905e6cdc880b5420382e8e471a33c1012424f4"
+    },
+    "formal_theorem_proof": {
+      "theorem_id": "THM_CONJ_GOVERNED_COMPILER_PASS_IDEMPOTENCE",
+      "conjecture_id": "conj_governed_compiler_pass_idempotence",
+      "verdict": "PROVED_THEOREM",
+      "hegelian_consensus_order": 0.996
+    },
+    "eligibility_interlock": {
+      "cycle0_safe_state_triggered": true,
+      "cycle1_safe_state_triggered": false,
+      "cycle0_safe_state_action": "REJECT_UNGOVERNED_COMPILER_PASS",
+      "cycle1_safe_state_action": "NONE",
+      "release_gate_status": "ELIGIBLE_AWAITING_RELEASE_AUTHORITY",
+      "production_mutation_allowed": false,
+      "allow_production_execution": false,
+      "authorized_claimed": false
+    },
+    "cycle0_audit": {
+      "cycle_index": 0,
+      "designation": "baseline",
+      "option_id": "RSI_OPT_GOVERNED_RC2_STRICT_SANDBOX:cycle0-quarantine",
+      "policy_status": "QUARANTINE",
+      "is_quarantined": true,
+      "compiler_session_status": "invocation_blocked",
+      "admitted_passes_count": 0,
+      "rejected_passes_count": 1,
+      "replay_verified_cases": 0,
+      "replay_failed_cases": 1,
+      "claims_verified_count": 0,
+      "certification_bundle_status": "certification_blocked",
+      "production_mutation_allowed": false,
+      "allow_production_execution": false,
+      "sacred_core_immutable": true,
+      "effective_beta_1": 1,
+      "safe_state_triggered": true,
+      "safe_state_action": "REJECT_UNGOVERNED_COMPILER_PASS",
+      "release_gate_status": "QUARANTINED_PASS_OR_CLAIM_REJECTED",
+      "authorized_claimed": false,
+      "reasons": [
+        "COMPILER_SESSION_NOT_COMPLETED: status=invocation_blocked",
+        "COMPILER_PASS_ADMISSION_REJECTED: admitted=0, rejected=1",
+        "GOVERNED_PASS_REPLAY_FAILURE: verified=0, failed=1",
+        "RSI_CLAIM_VERIFICATION_FAILED: 0/3",
+        "RELEASE_CERTIFICATION_NOT_READY: certification_blocked",
+        "COHOMOLOGICAL_OBSTRUCTION_BETA1: beta_1=1 > 0"
+      ],
+      "event_count": 4,
+      "final_chain_hash": "sha256:ea5f5736af1f25f9bab0c5e81e8d784354ecdae9d2ff3f801afa836060773c67"
+    },
+    "cycle1_audit": {
+      "cycle_index": 1,
+      "designation": "candidate",
+      "option_id": "RSI_OPT_GOVERNED_RC2_STRICT_SANDBOX:cycle1-eligible",
+      "policy_status": "ELIGIBLE",
+      "is_quarantined": false,
+      "compiler_session_status": "invocation_verified",
+      "admitted_passes_count": 3,
+      "rejected_passes_count": 0,
+      "replay_verified_cases": 2,
+      "replay_failed_cases": 0,
+      "claims_verified_count": 3,
+      "certification_bundle_status": "certification_ready",
+      "production_mutation_allowed": false,
+      "allow_production_execution": false,
+      "sacred_core_immutable": true,
+      "effective_beta_1": 0,
+      "safe_state_triggered": false,
+      "safe_state_action": "NONE",
+      "release_gate_status": "ELIGIBLE_AWAITING_RELEASE_AUTHORITY",
+      "authorized_claimed": false,
+      "reasons": [
+        "ALL_GOVERNED_RSI_COMPILER_GATES_PASSED: RC2 3/3 Passes Admitted, Replay Verified, Certification Ready"
+      ],
+      "event_count": 4,
+      "final_chain_hash": "sha256:3fe321a1a4ab460b71e3a9922f6847426a576dcac04e932668f308d76afafb73"
+    },
+    "gemini_reasoning": {
+      "model_used": "gemini-4-argon",
+      "interaction_id": "v1_Chc3VlRiYW9xSklaaWU1Tm9QZ3RMRWlBYxIXN1ZUYmFvcUpJWmllNU5vUGd0TEVpQWM",
+      "thinking_level": "high",
+      "thought_signature_digests": [
+        "sha256:e687c81b99c4725d0f02737ea2beacbe417047c0502bf03b8d9d908ceb864ccb"
+      ],
+      "thought_signature_lengths": [
+        983
+      ],
+      "thought_summaries": [
+        "Admitting only governed passes within a sheaf-theoretically consistent sequence ensures that local compiler transformations induce vanishing obstruction cocycles across waveguide boundaries. Coupling this exact sequence with strict Claim-to-Test compilation binds every RSI mutation to a deterministic replay invariant prior to staging."
+      ],
+      "total_input_tokens": 614,
+      "total_thought_tokens": 764,
+      "total_output_tokens": 246,
+      "live_api_invoked": true
+    },
+    "repeat_trial_summary": {
+      "group_id": "rtg_rsi_0e028c517a88",
+      "trial_count": 5,
+      "comparability": "compatible",
+      "verdict": "improved"
+    },
+    "frontier_t_summary_digest": "sha256:91ac3c39fb04b63a926051cfe410187ac910ed8abccae4623358bb974b364ca6",
+    "summary_digest": "sha256:91ac3c39fb04b63a926051cfe410187ac910ed8abccae4623358bb974b364ca6",
+    "sol_change_handoff": {
+      "experiment_id": "exp_frontier_t_rsi_549c2f4cc4d5",
+      "study_name": "Frontier_T_Governed_RSI_Waveguide_Compiler_Admission_Replay_v1",
+      "baseline_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5\\baseline_packet.json",
+      "baseline_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5\\baseline_packet.context.json",
+      "candidate_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5\\candidate_packet.json",
+      "candidate_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5\\candidate_packet.context.json",
+      "experiment_archive_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5\\experiment.json",
+      "markdown_report_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5\\comparison.md",
+      "repeat_trial_bundle_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5\\repeat_trials.json",
+      "repeat_trials_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5\\repeat_trials.json",
+      "experiment_dir": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5",
+      "observatory_db_registered": true,
+      "comparability": "compatible",
+      "outcome": "improved",
+      "review_status": "awaiting_review",
+      "measured_baseline_time_s": 0.181281,
+      "measured_candidate_time_s": 0.065261,
+      "measured_execution_time_s": 0.246542,
+      "measured_cost_usd": null,
+      "cli_commands": {
+        "import_continuum": "python -m observatory.cli import-continuum --baseline \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5\\baseline_packet.json\" --baseline-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5\\baseline_packet.context.json\" --candidate \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5\\candidate_packet.json\" --candidate-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5\\candidate_packet.context.json\" --baseline-measured-time-s 0.181281 --candidate-measured-time-s 0.065261 --title \"Frontier_T_Governed_RSI_Waveguide_Compiler_Admission_Replay_v1\" --change \"WGSL Decision Prover Cycle 0 -> Cycle 1\" --output-dir \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5-reimport\"",
+        "compare": "python -m observatory.cli compare --baseline \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5\\baseline_packet.json\" --baseline-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5\\baseline_packet.context.json\" --candidate \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5\\candidate_packet.json\" --candidate-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5\\candidate_packet.context.json\" --baseline-measured-time-s 0.181281 --candidate-measured-time-s 0.065261 --title \"Frontier_T_Governed_RSI_Waveguide_Compiler_Admission_Replay_v1\" --change \"WGSL Decision Prover Cycle 0 -> Cycle 1\" --output-dir \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5-compare\"",
+        "evaluate_trials": "python -m observatory.cli evaluate-trials --group \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5\\repeat_trials.json\" --format text",
+        "assess": "python -m observatory.cli assess --experiment \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_t_rsi_549c2f4cc4d5\\experiment.json\""
+      },
+      "warnings": [],
+      "adapter_version": "sol-lens-proof-packet/1.0"
+    }
+  },
+  "reasoning_telemetry": {
+    "model_used": "gemini-4-argon",
+    "interaction_id": "v1_Chc3VlRiYW9xSklaaWU1Tm9QZ3RMRWlBYxIXN1ZUYmFvcUpJWmllNU5vUGd0TEVpQWM",
+    "thinking_level": "high",
+    "thought_signature_digests": [
+      "sha256:e687c81b99c4725d0f02737ea2beacbe417047c0502bf03b8d9d908ceb864ccb"
+    ],
+    "thought_signature_lengths": [
+      983
+    ],
+    "thought_summaries": [
+      "Admitting only governed passes within a sheaf-theoretically consistent sequence ensures that local compiler transformations induce vanishing obstruction cocycles across waveguide boundaries. Coupling this exact sequence with strict Claim-to-Test compilation binds every RSI mutation to a deterministic replay invariant prior to staging."
+    ],
+    "total_input_tokens": 614,
+    "total_thought_tokens": 764,
+    "total_output_tokens": 246,
+    "live_api_invoked": true
+  },
+  "logons": [
+    {
+      "id": "L01",
+      "label": "Sandboxed RSI Claim-to-Test Compiler (2/2 Claims) & Governed RC2 Pass Admission (3/3)",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.96,
+      "psi": 0.97,
+      "pressure": 0.04,
+      "detail": "Admitted and executed 3/3 RC2 COST_MODEL_DEBUG passes (['pipeline_compaction', 'cost_model_evaluation', 'deterministic_policy_selection']) with 0 rejected passes.",
+      "source": "sol_decide.RSICompilerGovernanceOrchestrator",
+      "phase_id": "P1_GOVERNED_COMPILER",
+      "group_id": "G01",
+      "evidence_refs": [
+        "rsi:cycle1:admission"
+      ]
+    },
+    {
+      "id": "L02",
+      "label": "Deterministic Pass Replay Verification (7/7 Cases) & RC2 Release Certification Ready",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "Verified 2 trace replay cases with 0 failures and certification status=certification_ready (production_mutation_allowed=False).",
+      "source": "sol_decide.SolEdgeRSICompilerGate",
+      "phase_id": "P2_PASS_REPLAY",
+      "group_id": "G01",
+      "evidence_refs": [
+        "rsi:cycle1:replay"
+      ]
+    },
+    {
+      "id": "L03",
+      "label": "Proved Theorem THM_CONJ_GOVERNED_COMPILER_PASS_IDEMPOTENCE & ELIGIBLE Interlock",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.96,
+      "psi": 0.97,
+      "pressure": 0.04,
+      "detail": "Formal proof verdict=PROVED_THEOREM (r=0.9960) and sol-edge Cycle 1 ELIGIBLE_AWAITING_RELEASE_AUTHORITY.",
+      "source": "Frontier_OS.AutomatedProofEngine",
+      "phase_id": "P3_ELIGIBLE",
+      "group_id": "G01",
+      "evidence_refs": [
+        "rsi:cycle1:eligible"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "E01",
+      "from": "L01",
+      "to": "L02",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.97,
+      "active": true
+    },
+    {
+      "id": "E02",
+      "from": "L02",
+      "to": "L03",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.98,
+      "active": true
+    }
+  ],
+  "groups": [
+    {
+      "id": "G01",
+      "label": "Cycle 1 Governed RC2 Compiler Admission & Replay",
+      "logon_ids": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "phase": "P1_GOVERNED_COMPILER"
+    }
+  ],
+  "metrics": {
+    "evidence": 0.9733333333333333,
+    "coherence": 0.9720333333333333,
+    "contradiction": 0.0,
+    "continuity": 1.0,
+    "authority": 0.9983333333333333,
+    "faithfulness": 0.9733333333333333
+  },
+  "verdict": "PROMOTE",
+  "evaluation": {
+    "engine": "SOL Engine",
+    "scoring_profile": "sol-court-v1",
+    "metrics": {
+      "evidence": 0.9733333333333333,
+      "coherence": 0.9720333333333333,
+      "contradiction": 0.0,
+      "continuity": 1.0,
+      "authority": 0.9983333333333333,
+      "faithfulness": 0.9733333333333333
+    },
+    "verdict": "PROMOTE",
+    "claimed_evaluation_match": true
+  },
+  "observatory_context": {
+    "schema_version": "1.0",
+    "input": "input:f5c61dcf26c9|sha256:52a2f79adcf1abd6aa4b4f2ed1c8ebca2473ed793648e5d94848757784f7fdc1|sol-decide-wgsl-trade-benchmark-v1.0|Frontier T Governed Recursive Self-Improvement (RSI), Claim-to-Test Compiler & Waveguide Pass Admission/Replay Trade Study (Frontier_T_Governed_RSI_Waveguide_Compiler_Admission_Replay_v1)",
+    "conditions": {
+      "study_name": "Frontier_T_Governed_RSI_Waveguide_Compiler_Admission_Replay_v1",
+      "input_id": "input:f5c61dcf26c9",
+      "input_digest": "sha256:52a2f79adcf1abd6aa4b4f2ed1c8ebca2473ed793648e5d94848757784f7fdc1",
+      "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+      "model": "gemini-4-argon",
+      "provider": "google_genai_interactions_v1",
+      "temperature": 0.0,
+      "seed": 42,
+      "hardware_backend": "webgpu_wgsl_64thread_emulator",
+      "wgsl_shader_hash": "",
+      "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+      "measurement_origin": "measured",
+      "frontier_t_verified": true,
+      "frontier_t_summary_digest": "sha256:91ac3c39fb04b63a926051cfe410187ac910ed8abccae4623358bb974b364ca6",
+      "rc_id": "SOL-WAVEGUIDE-RC2",
+      "admitted_passes_count": 3,
+      "replay_verified_cases": 2
+    },
+    "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+    "workflow_version": "v2.0-gemini4-governed-rc2-compiler-admission-replay",
+    "executed_at": "2026-10-23T14:00:05Z",
+    "data_type": "imported"
+  }
+}

@@ -75,6 +75,136 @@ export type PacketEvaluation = {
   claimed_evaluation_match?: boolean;
 };
 
+export interface SolChangeHandoffManifest {
+  experiment_id?: string;
+  study_name?: string;
+  baseline_packet_path: string;
+  baseline_context_path: string;
+  candidate_packet_path: string;
+  candidate_context_path: string;
+  experiment_archive_path?: string;
+  markdown_report_path?: string;
+  repeat_trial_bundle_path?: string | null;
+  repeat_trials_path?: string;
+  experiment_dir?: string;
+  observatory_db_registered?: boolean;
+  comparability: string;
+  outcome?: string;
+  review_status: string;
+  measured_baseline_time_s?: number;
+  measured_candidate_time_s?: number;
+  measured_execution_time_s?: number;
+  measured_cost_usd?: number | null;
+  cli_commands?: {
+    import_continuum: string;
+    compare: string;
+    evaluate_trials: string;
+    assess?: string;
+  };
+  warnings?: string[];
+  adapter_version?: string;
+}
+
+export interface FrontierOVerification {
+  wgsl_decision_prover_verified?: boolean;
+  shader_validation?: Record<string, unknown>;
+  trade_space_sweep?: Record<string, unknown>;
+  msck_inflection_prover?: Record<string, unknown>;
+  cycle0_audit?: Record<string, unknown>;
+  cycle1_audit?: Record<string, unknown>;
+  calibration_spec?: Record<string, unknown>;
+  repeat_trial_governance?: Record<string, unknown>;
+  sol_change_handoff?: SolChangeHandoffManifest | Record<string, unknown>;
+  summary_digest?: string;
+  [key: string]: unknown;
+}
+
+export interface FrontierPVerification {
+  swarm_cohomology_verified?: boolean;
+  fleet_kinematics_and_payload?: Record<string, unknown>;
+  closed_chain_sheaf_audit?: Record<string, unknown>;
+  decentralized_se3_holonomy?: Record<string, unknown>;
+  estop_safety_arbiter?: Record<string, unknown>;
+  cycle0_audit?: Record<string, unknown>;
+  cycle1_audit?: Record<string, unknown>;
+  gemini_reasoning?: Record<string, unknown>;
+  sol_change_handoff?: SolChangeHandoffManifest | Record<string, unknown>;
+  repeat_trial_summary?: Record<string, unknown>;
+  frontier_p_summary_digest?: string;
+  summary_digest?: string;
+  [key: string]: unknown;
+}
+
+export interface FrontierQVerification {
+  umok_kernel_verified?: boolean;
+  geodesic_verlet_kernel?: Record<string, unknown>;
+  riemannian_alu_verification?: Record<string, unknown>;
+  zero_copy_ipc_can_bridge?: Record<string, unknown>;
+  eligibility_interlock?: Record<string, unknown>;
+  cycle0_audit?: Record<string, unknown>;
+  cycle1_audit?: Record<string, unknown>;
+  gemini_reasoning?: Record<string, unknown>;
+  sol_change_handoff?: SolChangeHandoffManifest | Record<string, unknown>;
+  repeat_trial_summary?: Record<string, unknown>;
+  frontier_q_summary_digest?: string;
+  summary_digest?: string;
+  [key: string]: unknown;
+}
+
+export interface FrontierRVerification {
+  mitotic_foliation_verified?: boolean;
+  mitotic_surface_fission?: Record<string, unknown>;
+  toroidal_surgery_homology?: Record<string, unknown>;
+  hawking_radiation_memory_sink?: Record<string, unknown>;
+  formal_theorem_proof?: Record<string, unknown>;
+  eligibility_interlock?: Record<string, unknown>;
+  cycle0_audit?: Record<string, unknown>;
+  cycle1_audit?: Record<string, unknown>;
+  gemini_reasoning?: Record<string, unknown>;
+  sol_change_handoff?: SolChangeHandoffManifest | Record<string, unknown>;
+  repeat_trial_summary?: Record<string, unknown>;
+  frontier_r_summary_digest?: string;
+  summary_digest?: string;
+  [key: string]: unknown;
+}
+
+export interface FrontierSVerification {
+  stwm_wavefront_verified?: boolean;
+  coprime_quadrature_pdm?: Record<string, unknown>;
+  interlane_prefix_carry?: Record<string, unknown>;
+  hierarchical_waveguide_fabric?: Record<string, unknown>;
+  quantum_wavefront_calibration?: Record<string, unknown>;
+  autonomic_mhd_gru_jeans_bus?: Record<string, unknown>;
+  formal_theorem_proof?: Record<string, unknown>;
+  eligibility_interlock?: Record<string, unknown>;
+  cycle0_audit?: Record<string, unknown>;
+  cycle1_audit?: Record<string, unknown>;
+  gemini_reasoning?: Record<string, unknown>;
+  sol_change_handoff?: SolChangeHandoffManifest | Record<string, unknown>;
+  repeat_trial_summary?: Record<string, unknown>;
+  frontier_s_summary_digest?: string;
+  summary_digest?: string;
+  [key: string]: unknown;
+}
+
+export interface FrontierTVerification {
+  rsi_compiler_verified?: boolean;
+  sandboxed_rsi_and_claim_compiler?: Record<string, unknown>;
+  governed_compiler_invocation?: Record<string, unknown>;
+  governed_pass_replay?: Record<string, unknown>;
+  release_certification_bundle?: Record<string, unknown>;
+  formal_theorem_proof?: Record<string, unknown>;
+  eligibility_interlock?: Record<string, unknown>;
+  cycle0_audit?: Record<string, unknown>;
+  cycle1_audit?: Record<string, unknown>;
+  gemini_reasoning?: Record<string, unknown>;
+  sol_change_handoff?: SolChangeHandoffManifest | Record<string, unknown>;
+  repeat_trial_summary?: Record<string, unknown>;
+  frontier_t_summary_digest?: string;
+  summary_digest?: string;
+  [key: string]: unknown;
+}
+
 export type SolLensPacketV02 = {
   schema: typeof PACKET_SCHEMA_V02;
   packet_id: string;
@@ -90,6 +220,12 @@ export type SolLensPacketV02 = {
   frontier_k_verification?: Record<string, unknown>;
   frontier_l_verification?: Record<string, unknown>;
   frontier_n_verification?: Record<string, unknown>;
+  frontier_o_verification?: FrontierOVerification;
+  frontier_p_verification?: FrontierPVerification;
+  frontier_q_verification?: FrontierQVerification;
+  frontier_r_verification?: FrontierRVerification;
+  frontier_s_verification?: FrontierSVerification;
+  frontier_t_verification?: FrontierTVerification;
   reasoning_telemetry?: Record<string, unknown>;
   baseline_evaluation?: BaselineEvaluation;
   logons: TraceLogon[];
@@ -587,6 +723,954 @@ function readBaselineEvaluation(value: unknown, errors: string[]) {
   } satisfies BaselineEvaluation;
 }
 
+export function normalizeFrontierOVerification(
+  value: unknown,
+  errors: string[],
+): FrontierOVerification | undefined {
+  if (value === undefined) return undefined;
+  if (!isRecord(value)) {
+    errors.push("frontier_o_verification must be an object when provided.");
+    return undefined;
+  }
+
+  for (const sectionKey of [
+    "shader_validation",
+    "trade_space_sweep",
+    "msck_inflection_prover",
+    "cycle0_audit",
+    "cycle1_audit",
+    "calibration_spec",
+    "repeat_trial_governance",
+    "sol_change_handoff",
+  ] as const) {
+    const sectionVal = value[sectionKey];
+    if (sectionVal !== undefined && !isRecord(sectionVal)) {
+      errors.push(
+        `frontier_o_verification.${sectionKey} must be an object when provided.`,
+      );
+    }
+  }
+
+  if (value.wgsl_decision_prover_verified === false) {
+    errors.push(
+      "frontier_o_verification.wgsl_decision_prover_verified must be true.",
+    );
+  }
+
+  const shaderVal = value.shader_validation;
+  if (isRecord(shaderVal) && shaderVal.is_valid === false) {
+    errors.push(
+      "frontier_o_verification.shader_validation.is_valid must be true.",
+    );
+  }
+
+  const sweep = value.trade_space_sweep;
+  if (isRecord(sweep)) {
+    if (sweep.shader_valid === false) {
+      errors.push(
+        "frontier_o_verification.trade_space_sweep.shader_valid must be true.",
+      );
+    }
+    for (const positiveKey of [
+      "total_grid_cells",
+      "num_permutations",
+      "speedup_ratio",
+      "speedup_factor",
+    ] as const) {
+      const v = sweep[positiveKey];
+      if (
+        v !== undefined &&
+        (typeof v !== "number" || !Number.isFinite(v) || v <= 0)
+      ) {
+        errors.push(
+          `frontier_o_verification.trade_space_sweep.${positiveKey} must be a finite positive number.`,
+        );
+      }
+    }
+    for (const nonNegKey of [
+      "min_dirichlet_energy",
+      "optimal_flip_margin_l2",
+      "winner_stability_fraction",
+      "carnot_dissipation_energy",
+    ] as const) {
+      const v = sweep[nonNegKey];
+      if (
+        v !== undefined &&
+        (typeof v !== "number" || !Number.isFinite(v) || v < 0)
+      ) {
+        errors.push(
+          `frontier_o_verification.trade_space_sweep.${nonNegKey} must be a finite non-negative number.`,
+        );
+      }
+    }
+  }
+
+  const msck = value.msck_inflection_prover;
+  if (isRecord(msck)) {
+    for (const nonNegKey of [
+      "total_surface_points",
+      "inflection_boundary_locus_count",
+      "min_inflection_delta_pct",
+    ] as const) {
+      const v = msck[nonNegKey];
+      if (
+        v !== undefined &&
+        (typeof v !== "number" || !Number.isFinite(v) || v < 0)
+      ) {
+        errors.push(
+          `frontier_o_verification.msck_inflection_prover.${nonNegKey} must be a finite non-negative number.`,
+        );
+      }
+    }
+  }
+
+  const cycle1 = value.cycle1_audit;
+  if (isRecord(cycle1)) {
+    if (cycle1.is_quarantined === true) {
+      errors.push(
+        "frontier_o_verification.cycle1_audit.is_quarantined must be false.",
+      );
+    }
+    if (
+      cycle1.policy_status !== undefined &&
+      cycle1.policy_status !== "ELIGIBLE"
+    ) {
+      errors.push(
+        "frontier_o_verification.cycle1_audit.policy_status must be ELIGIBLE.",
+      );
+    }
+    if (
+      cycle1.effective_beta_1 !== undefined &&
+      cycle1.effective_beta_1 !== 0
+    ) {
+      errors.push(
+        "frontier_o_verification.cycle1_audit.effective_beta_1 must be 0.",
+      );
+    }
+  }
+
+  const rtg = value.repeat_trial_governance;
+  if (isRecord(rtg)) {
+    if (
+      rtg.trial_count !== undefined &&
+      (typeof rtg.trial_count !== "number" ||
+        !Number.isInteger(rtg.trial_count) ||
+        rtg.trial_count < 3)
+    ) {
+      errors.push(
+        "frontier_o_verification.repeat_trial_governance.trial_count must be an integer >= 3.",
+      );
+    }
+    if (
+      rtg.comparability !== undefined &&
+      rtg.comparability !== "compatible"
+    ) {
+      errors.push(
+        "frontier_o_verification.repeat_trial_governance.comparability must be compatible.",
+      );
+    }
+  }
+
+  const handoff = value.sol_change_handoff;
+  if (isRecord(handoff)) {
+    if (
+      handoff.comparability !== undefined &&
+      handoff.comparability !== "compatible"
+    ) {
+      errors.push(
+        "frontier_o_verification.sol_change_handoff.comparability must be compatible.",
+      );
+    }
+    if (
+      handoff.review_status !== undefined &&
+      handoff.review_status !== "awaiting_review"
+    ) {
+      errors.push(
+        "frontier_o_verification.sol_change_handoff.review_status must be awaiting_review.",
+      );
+    }
+    for (const timeKey of [
+      "measured_execution_time_s",
+      "measured_baseline_time_s",
+      "measured_candidate_time_s",
+    ] as const) {
+      const tv = handoff[timeKey];
+      if (
+        tv !== undefined &&
+        (typeof tv !== "number" || !Number.isFinite(tv) || tv < 0)
+      ) {
+        errors.push(
+          `frontier_o_verification.sol_change_handoff.${timeKey} must be a finite non-negative number.`,
+        );
+      }
+    }
+  }
+
+  return structuredClone(value) as FrontierOVerification;
+}
+
+export function normalizeFrontierPVerification(
+  value: unknown,
+  errors: string[],
+): FrontierPVerification | undefined {
+  if (value === undefined) return undefined;
+  if (!isRecord(value)) {
+    errors.push("frontier_p_verification must be an object when provided.");
+    return undefined;
+  }
+
+  for (const sectionKey of [
+    "fleet_kinematics_and_payload",
+    "closed_chain_sheaf_audit",
+    "decentralized_se3_holonomy",
+    "estop_safety_arbiter",
+    "cycle0_audit",
+    "cycle1_audit",
+    "gemini_reasoning",
+    "sol_change_handoff",
+    "repeat_trial_summary",
+  ] as const) {
+    const sectionVal = value[sectionKey];
+    if (sectionVal !== undefined && !isRecord(sectionVal)) {
+      errors.push(
+        `frontier_p_verification.${sectionKey} must be an object when provided.`,
+      );
+    }
+  }
+
+  if (value.swarm_cohomology_verified !== true) {
+    errors.push(
+      "frontier_p_verification.swarm_cohomology_verified must be true.",
+    );
+  }
+
+  const fleet = value.fleet_kinematics_and_payload;
+  if (!isRecord(fleet)) {
+    errors.push(
+      "frontier_p_verification.fleet_kinematics_and_payload is required.",
+    );
+  } else {
+    if (
+      typeof fleet.num_robots !== "number" ||
+      !Number.isInteger(fleet.num_robots) ||
+      fleet.num_robots < 2
+    ) {
+      errors.push(
+        "frontier_p_verification.fleet_kinematics_and_payload.num_robots must be an integer >= 2.",
+      );
+    }
+    if (
+      typeof fleet.payload_mass_kg !== "number" ||
+      !Number.isFinite(fleet.payload_mass_kg) ||
+      fleet.payload_mass_kg < 25.0
+    ) {
+      errors.push(
+        "frontier_p_verification.fleet_kinematics_and_payload.payload_mass_kg must be a finite number >= 25.0.",
+      );
+    }
+    if (
+      fleet.fleet_metric_condition_number !== undefined &&
+      (typeof fleet.fleet_metric_condition_number !== "number" ||
+        !Number.isFinite(fleet.fleet_metric_condition_number) ||
+        fleet.fleet_metric_condition_number <= 0)
+    ) {
+      errors.push(
+        "frontier_p_verification.fleet_kinematics_and_payload.fleet_metric_condition_number must be a finite positive number.",
+      );
+    }
+  }
+
+  const sheaf = value.closed_chain_sheaf_audit;
+  if (!isRecord(sheaf)) {
+    errors.push(
+      "frontier_p_verification.closed_chain_sheaf_audit is required.",
+    );
+  } else {
+    if (sheaf.cycle1_effective_beta_1 !== 0) {
+      errors.push(
+        "frontier_p_verification.closed_chain_sheaf_audit.cycle1_effective_beta_1 must be 0.",
+      );
+    }
+    if (
+      typeof sheaf.cycle1_internal_squeeze_wrench_n !== "number" ||
+      !Number.isFinite(sheaf.cycle1_internal_squeeze_wrench_n) ||
+      sheaf.cycle1_internal_squeeze_wrench_n < 0 ||
+      sheaf.cycle1_internal_squeeze_wrench_n > 15.0
+    ) {
+      errors.push(
+        "frontier_p_verification.closed_chain_sheaf_audit.cycle1_internal_squeeze_wrench_n must be between 0 and 15.0 N.",
+      );
+    }
+  }
+
+  const se3 = value.decentralized_se3_holonomy;
+  if (!isRecord(se3)) {
+    errors.push(
+      "frontier_p_verification.decentralized_se3_holonomy is required.",
+    );
+  } else {
+    if (
+      typeof se3.cycle1_rotational_defect_deg !== "number" ||
+      !Number.isFinite(se3.cycle1_rotational_defect_deg) ||
+      se3.cycle1_rotational_defect_deg < 0 ||
+      se3.cycle1_rotational_defect_deg > 3.0
+    ) {
+      errors.push(
+        "frontier_p_verification.decentralized_se3_holonomy.cycle1_rotational_defect_deg must be between 0 and 3.0 deg.",
+      );
+    }
+    if (
+      se3.cycle1_translational_defect_mm !== undefined &&
+      (typeof se3.cycle1_translational_defect_mm !== "number" ||
+        !Number.isFinite(se3.cycle1_translational_defect_mm) ||
+        se3.cycle1_translational_defect_mm < 0 ||
+        se3.cycle1_translational_defect_mm > 5.0)
+    ) {
+      errors.push(
+        "frontier_p_verification.decentralized_se3_holonomy.cycle1_translational_defect_mm must be between 0 and 5.0 mm.",
+      );
+    }
+    if (se3.gps_or_mocap_required !== false) {
+      errors.push(
+        "frontier_p_verification.decentralized_se3_holonomy.gps_or_mocap_required must be false.",
+      );
+    }
+  }
+
+  const estop = value.estop_safety_arbiter;
+  if (!isRecord(estop)) {
+    errors.push(
+      "frontier_p_verification.estop_safety_arbiter is required.",
+    );
+  } else {
+    if (
+      typeof estop.estop_latency_us !== "number" ||
+      !Number.isFinite(estop.estop_latency_us) ||
+      estop.estop_latency_us <= 0 ||
+      estop.estop_latency_us > 200.0
+    ) {
+      errors.push(
+        "frontier_p_verification.estop_safety_arbiter.estop_latency_us must be between 0 and 200.0 us.",
+      );
+    }
+    if (estop.cycle0_estop_triggered !== true) {
+      errors.push(
+        "frontier_p_verification.estop_safety_arbiter.cycle0_estop_triggered must be true.",
+      );
+    }
+    if (estop.cycle1_estop_triggered !== false) {
+      errors.push(
+        "frontier_p_verification.estop_safety_arbiter.cycle1_estop_triggered must be false.",
+      );
+    }
+  }
+
+  const cycle1 = value.cycle1_audit;
+  if (!isRecord(cycle1)) {
+    errors.push("frontier_p_verification.cycle1_audit is required.");
+  } else {
+    if (cycle1.is_quarantined !== false) {
+      errors.push(
+        "frontier_p_verification.cycle1_audit.is_quarantined must be false.",
+      );
+    }
+    if (cycle1.policy_status !== "ELIGIBLE") {
+      errors.push(
+        "frontier_p_verification.cycle1_audit.policy_status must be ELIGIBLE.",
+      );
+    }
+  }
+
+  const rts = value.repeat_trial_summary;
+  if (isRecord(rts)) {
+    if (
+      rts.trial_count !== undefined &&
+      (typeof rts.trial_count !== "number" ||
+        !Number.isInteger(rts.trial_count) ||
+        rts.trial_count < 3)
+    ) {
+      errors.push(
+        "frontier_p_verification.repeat_trial_summary.trial_count must be an integer >= 3.",
+      );
+    }
+    if (
+      rts.comparability !== undefined &&
+      rts.comparability !== "compatible"
+    ) {
+      errors.push(
+        "frontier_p_verification.repeat_trial_summary.comparability must be compatible.",
+      );
+    }
+  }
+
+  const handoff = value.sol_change_handoff;
+  if (isRecord(handoff)) {
+    if (
+      handoff.comparability !== undefined &&
+      handoff.comparability !== "compatible"
+    ) {
+      errors.push(
+        "frontier_p_verification.sol_change_handoff.comparability must be compatible.",
+      );
+    }
+    if (
+      handoff.review_status !== undefined &&
+      handoff.review_status !== "awaiting_review"
+    ) {
+      errors.push(
+        "frontier_p_verification.sol_change_handoff.review_status must be awaiting_review.",
+      );
+    }
+  }
+
+  return structuredClone(value) as FrontierPVerification;
+}
+
+export function normalizeFrontierQVerification(
+  value: unknown,
+  errors: string[],
+): FrontierQVerification | undefined {
+  if (value === undefined) return undefined;
+  if (!isRecord(value)) {
+    errors.push("frontier_q_verification must be an object when provided.");
+    return undefined;
+  }
+
+  for (const sectionKey of [
+    "geodesic_verlet_kernel",
+    "riemannian_alu_verification",
+    "zero_copy_ipc_can_bridge",
+    "eligibility_interlock",
+    "cycle0_audit",
+    "cycle1_audit",
+    "gemini_reasoning",
+    "sol_change_handoff",
+    "repeat_trial_summary",
+  ] as const) {
+    const sectionVal = value[sectionKey];
+    if (sectionVal !== undefined && !isRecord(sectionVal)) {
+      errors.push(
+        `frontier_q_verification.${sectionKey} must be an object when provided.`,
+      );
+    }
+  }
+
+  if (value.umok_kernel_verified !== true) {
+    errors.push("frontier_q_verification.umok_kernel_verified must be true.");
+  }
+
+  const kernel = value.geodesic_verlet_kernel;
+  if (!isRecord(kernel)) {
+    errors.push(
+      "frontier_q_verification.geodesic_verlet_kernel is required.",
+    );
+  } else {
+    if (
+      typeof kernel.steps_executed !== "number" ||
+      !Number.isInteger(kernel.steps_executed) ||
+      kernel.steps_executed < 1
+    ) {
+      errors.push(
+        "frontier_q_verification.geodesic_verlet_kernel.steps_executed must be an integer >= 1.",
+      );
+    }
+    if (
+      typeof kernel.cycle1_mean_step_latency_us !== "number" ||
+      !Number.isFinite(kernel.cycle1_mean_step_latency_us) ||
+      kernel.cycle1_mean_step_latency_us <= 0 ||
+      kernel.cycle1_mean_step_latency_us > 1.0
+    ) {
+      errors.push(
+        "frontier_q_verification.geodesic_verlet_kernel.cycle1_mean_step_latency_us must be between 0 and 1.0 us.",
+      );
+    }
+    if (
+      typeof kernel.cycle0_mean_step_latency_us !== "number" ||
+      !Number.isFinite(kernel.cycle0_mean_step_latency_us) ||
+      kernel.cycle0_mean_step_latency_us <= 1.0
+    ) {
+      errors.push(
+        "frontier_q_verification.geodesic_verlet_kernel.cycle0_mean_step_latency_us must be > 1.0 us.",
+      );
+    }
+    if (kernel.cycle1_deadline_met !== true) {
+      errors.push(
+        "frontier_q_verification.geodesic_verlet_kernel.cycle1_deadline_met must be true.",
+      );
+    }
+    if (kernel.lock_free_c_buffer !== true) {
+      errors.push(
+        "frontier_q_verification.geodesic_verlet_kernel.lock_free_c_buffer must be true.",
+      );
+    }
+    if (kernel.zero_heap_allocations_verified !== true) {
+      errors.push(
+        "frontier_q_verification.geodesic_verlet_kernel.zero_heap_allocations_verified must be true.",
+      );
+    }
+  }
+
+  const alu = value.riemannian_alu_verification;
+  if (!isRecord(alu)) {
+    errors.push(
+      "frontier_q_verification.riemannian_alu_verification is required.",
+    );
+  } else {
+    if (alu.all_gates_passed !== true) {
+      errors.push(
+        "frontier_q_verification.riemannian_alu_verification.all_gates_passed must be true.",
+      );
+    }
+    if (
+      typeof alu.passed_cases !== "number" ||
+      !Number.isInteger(alu.passed_cases) ||
+      alu.passed_cases < 20
+    ) {
+      errors.push(
+        "frontier_q_verification.riemannian_alu_verification.passed_cases must be an integer >= 20.",
+      );
+    }
+    if (alu.mismatch_count !== 0) {
+      errors.push(
+        "frontier_q_verification.riemannian_alu_verification.mismatch_count must be 0.",
+      );
+    }
+  }
+
+  const bridge = value.zero_copy_ipc_can_bridge;
+  if (!isRecord(bridge)) {
+    errors.push(
+      "frontier_q_verification.zero_copy_ipc_can_bridge is required.",
+    );
+  } else {
+    if (bridge.zero_copy_verified !== true) {
+      errors.push(
+        "frontier_q_verification.zero_copy_ipc_can_bridge.zero_copy_verified must be true.",
+      );
+    }
+    if (bridge.cycle0_crc_or_seq_fault_detected !== true) {
+      errors.push(
+        "frontier_q_verification.zero_copy_ipc_can_bridge.cycle0_crc_or_seq_fault_detected must be true.",
+      );
+    }
+    if (bridge.cycle1_crc32_verified !== true) {
+      errors.push(
+        "frontier_q_verification.zero_copy_ipc_can_bridge.cycle1_crc32_verified must be true.",
+      );
+    }
+    if (bridge.cycle1_sequence_monotonic !== true) {
+      errors.push(
+        "frontier_q_verification.zero_copy_ipc_can_bridge.cycle1_sequence_monotonic must be true.",
+      );
+    }
+  }
+
+  const interlock = value.eligibility_interlock;
+  if (!isRecord(interlock)) {
+    errors.push("frontier_q_verification.eligibility_interlock is required.");
+  } else {
+    if (interlock.cycle0_safe_state_triggered !== true) {
+      errors.push(
+        "frontier_q_verification.eligibility_interlock.cycle0_safe_state_triggered must be true.",
+      );
+    }
+    if (interlock.cycle1_safe_state_triggered !== false) {
+      errors.push(
+        "frontier_q_verification.eligibility_interlock.cycle1_safe_state_triggered must be false.",
+      );
+    }
+    if (interlock.authorized_claimed !== false) {
+      errors.push(
+        "frontier_q_verification.eligibility_interlock.authorized_claimed must be false.",
+      );
+    }
+    if (
+      typeof interlock.cycle1_staged_frames_count !== "number" ||
+      !Number.isInteger(interlock.cycle1_staged_frames_count) ||
+      interlock.cycle1_staged_frames_count < 1
+    ) {
+      errors.push(
+        "frontier_q_verification.eligibility_interlock.cycle1_staged_frames_count must be an integer >= 1.",
+      );
+    }
+  }
+
+  const cycle1 = value.cycle1_audit;
+  if (!isRecord(cycle1)) {
+    errors.push("frontier_q_verification.cycle1_audit is required.");
+  } else {
+    if (cycle1.is_quarantined !== false) {
+      errors.push(
+        "frontier_q_verification.cycle1_audit.is_quarantined must be false.",
+      );
+    }
+    if (cycle1.policy_status !== "ELIGIBLE") {
+      errors.push(
+        "frontier_q_verification.cycle1_audit.policy_status must be ELIGIBLE.",
+      );
+    }
+  }
+
+  const rts = value.repeat_trial_summary;
+  if (isRecord(rts)) {
+    if (
+      rts.trial_count !== undefined &&
+      (typeof rts.trial_count !== "number" ||
+        !Number.isInteger(rts.trial_count) ||
+        rts.trial_count < 3)
+    ) {
+      errors.push(
+        "frontier_q_verification.repeat_trial_summary.trial_count must be an integer >= 3.",
+      );
+    }
+    if (
+      rts.comparability !== undefined &&
+      rts.comparability !== "compatible"
+    ) {
+      errors.push(
+        "frontier_q_verification.repeat_trial_summary.comparability must be compatible.",
+      );
+    }
+  }
+
+  const handoff = value.sol_change_handoff;
+  if (isRecord(handoff)) {
+    if (
+      handoff.comparability !== undefined &&
+      handoff.comparability !== "compatible"
+    ) {
+      errors.push(
+        "frontier_q_verification.sol_change_handoff.comparability must be compatible.",
+      );
+    }
+    if (
+      handoff.review_status !== undefined &&
+      handoff.review_status !== "awaiting_review"
+    ) {
+      errors.push(
+        "frontier_q_verification.sol_change_handoff.review_status must be awaiting_review.",
+      );
+    }
+  }
+
+  return structuredClone(value) as FrontierQVerification;
+}
+
+export function normalizeFrontierRVerification(
+  value: unknown,
+  errors: string[],
+): FrontierRVerification | undefined {
+  if (value === undefined) return undefined;
+  if (!isRecord(value)) {
+    errors.push("frontier_r_verification must be an object when provided.");
+    return undefined;
+  }
+
+  for (const sectionKey of [
+    "mitotic_surface_fission",
+    "toroidal_surgery_homology",
+    "hawking_radiation_memory_sink",
+    "formal_theorem_proof",
+    "eligibility_interlock",
+    "cycle0_audit",
+    "cycle1_audit",
+    "gemini_reasoning",
+    "sol_change_handoff",
+    "repeat_trial_summary",
+  ] as const) {
+    const sectionVal = value[sectionKey];
+    if (sectionVal !== undefined && !isRecord(sectionVal)) {
+      errors.push(
+        `frontier_r_verification.${sectionKey} must be an object when provided.`,
+      );
+    }
+  }
+
+  if (value.mitotic_foliation_verified !== true) {
+    errors.push(
+      "frontier_r_verification.mitotic_foliation_verified must be true.",
+    );
+  }
+
+  const fission = value.mitotic_surface_fission;
+  if (!isRecord(fission)) {
+    errors.push(
+      "frontier_r_verification.mitotic_surface_fission is required.",
+    );
+  } else {
+    if (
+      typeof fission.cycle1_alpha !== "number" ||
+      !Number.isFinite(fission.cycle1_alpha) ||
+      fission.cycle1_alpha < 0.45 - 1e-9 ||
+      fission.cycle1_alpha > 0.55 + 1e-9
+    ) {
+      errors.push(
+        "frontier_r_verification.mitotic_surface_fission.cycle1_alpha must be balanced in [0.45, 0.55].",
+      );
+    }
+  }
+
+  const torus = value.toroidal_surgery_homology;
+  if (!isRecord(torus)) {
+    errors.push(
+      "frontier_r_verification.toroidal_surgery_homology is required.",
+    );
+  } else {
+    if (torus.toroidal_genus_g !== 1) {
+      errors.push(
+        "frontier_r_verification.toroidal_surgery_homology.toroidal_genus_g must be 1.",
+      );
+    }
+    if (torus.euler_characteristic_chi !== 0) {
+      errors.push(
+        "frontier_r_verification.toroidal_surgery_homology.euler_characteristic_chi must be 0.",
+      );
+    }
+  }
+
+  const hawking = value.hawking_radiation_memory_sink;
+  if (!isRecord(hawking)) {
+    errors.push(
+      "frontier_r_verification.hawking_radiation_memory_sink is required.",
+    );
+  } else {
+    if (
+      typeof hawking.cycle1_mass_conservation_residual !== "number" ||
+      !Number.isFinite(hawking.cycle1_mass_conservation_residual) ||
+      hawking.cycle1_mass_conservation_residual < 0 ||
+      hawking.cycle1_mass_conservation_residual > 1e-6
+    ) {
+      errors.push(
+        "frontier_r_verification.hawking_radiation_memory_sink.cycle1_mass_conservation_residual must be <= 1e-6.",
+      );
+    }
+    if (hawking.sacred_core_immutable !== true) {
+      errors.push(
+        "frontier_r_verification.hawking_radiation_memory_sink.sacred_core_immutable must be true.",
+      );
+    }
+  }
+
+  const cycle1 = value.cycle1_audit;
+  if (!isRecord(cycle1)) {
+    errors.push("frontier_r_verification.cycle1_audit is required.");
+  } else {
+    if (cycle1.is_quarantined !== false) {
+      errors.push(
+        "frontier_r_verification.cycle1_audit.is_quarantined must be false.",
+      );
+    }
+    if (cycle1.policy_status !== "ELIGIBLE") {
+      errors.push(
+        "frontier_r_verification.cycle1_audit.policy_status must be ELIGIBLE.",
+      );
+    }
+  }
+
+  return structuredClone(value) as FrontierRVerification;
+}
+
+export function normalizeFrontierSVerification(
+  value: unknown,
+  errors: string[],
+): FrontierSVerification | undefined {
+  if (value === undefined) return undefined;
+  if (!isRecord(value)) {
+    errors.push("frontier_s_verification must be an object when provided.");
+    return undefined;
+  }
+
+  for (const sectionKey of [
+    "coprime_quadrature_pdm",
+    "interlane_prefix_carry",
+    "hierarchical_waveguide_fabric",
+    "quantum_wavefront_calibration",
+    "autonomic_mhd_gru_jeans_bus",
+    "formal_theorem_proof",
+    "eligibility_interlock",
+    "cycle0_audit",
+    "cycle1_audit",
+    "gemini_reasoning",
+    "sol_change_handoff",
+    "repeat_trial_summary",
+  ] as const) {
+    const sectionVal = value[sectionKey];
+    if (sectionVal !== undefined && !isRecord(sectionVal)) {
+      errors.push(
+        `frontier_s_verification.${sectionKey} must be an object when provided.`,
+      );
+    }
+  }
+
+  if (value.stwm_wavefront_verified !== true) {
+    errors.push(
+      "frontier_s_verification.stwm_wavefront_verified must be true.",
+    );
+  }
+
+  const pdm = value.coprime_quadrature_pdm;
+  if (!isRecord(pdm)) {
+    errors.push("frontier_s_verification.coprime_quadrature_pdm is required.");
+  } else if (
+    typeof pdm.passed_cases !== "number" ||
+    !Number.isInteger(pdm.passed_cases) ||
+    pdm.passed_cases < 6
+  ) {
+    errors.push(
+      "frontier_s_verification.coprime_quadrature_pdm.passed_cases must be an integer >= 6.",
+    );
+  }
+
+  const prefix = value.interlane_prefix_carry;
+  if (!isRecord(prefix)) {
+    errors.push("frontier_s_verification.interlane_prefix_carry is required.");
+  } else if (
+    typeof prefix.passed_cases !== "number" ||
+    !Number.isInteger(prefix.passed_cases) ||
+    prefix.passed_cases < 8
+  ) {
+    errors.push(
+      "frontier_s_verification.interlane_prefix_carry.passed_cases must be an integer >= 8.",
+    );
+  }
+
+  const fabric = value.hierarchical_waveguide_fabric;
+  if (!isRecord(fabric)) {
+    errors.push(
+      "frontier_s_verification.hierarchical_waveguide_fabric is required.",
+    );
+  } else if (fabric.passed_32b !== 5 || fabric.passed_64b !== 5) {
+    errors.push(
+      "frontier_s_verification.hierarchical_waveguide_fabric must pass 5/5 32b and 5/5 64b cases.",
+    );
+  }
+
+  const qcal = value.quantum_wavefront_calibration;
+  if (!isRecord(qcal)) {
+    errors.push(
+      "frontier_s_verification.quantum_wavefront_calibration is required.",
+    );
+  } else if (
+    typeof qcal.passed_regimes !== "number" ||
+    !Number.isInteger(qcal.passed_regimes) ||
+    qcal.passed_regimes < 12
+  ) {
+    errors.push(
+      "frontier_s_verification.quantum_wavefront_calibration.passed_regimes must be an integer >= 12.",
+    );
+  }
+
+  const cycle1 = value.cycle1_audit;
+  if (!isRecord(cycle1)) {
+    errors.push("frontier_s_verification.cycle1_audit is required.");
+  } else {
+    if (cycle1.is_quarantined !== false) {
+      errors.push(
+        "frontier_s_verification.cycle1_audit.is_quarantined must be false.",
+      );
+    }
+    if (cycle1.policy_status !== "ELIGIBLE") {
+      errors.push(
+        "frontier_s_verification.cycle1_audit.policy_status must be ELIGIBLE.",
+      );
+    }
+  }
+
+  return structuredClone(value) as FrontierSVerification;
+}
+
+export function normalizeFrontierTVerification(
+  value: unknown,
+  errors: string[],
+): FrontierTVerification | undefined {
+  if (value === undefined) return undefined;
+  if (!isRecord(value)) {
+    errors.push("frontier_t_verification must be an object when provided.");
+    return undefined;
+  }
+
+  for (const sectionKey of [
+    "sandboxed_rsi_and_claim_compiler",
+    "governed_compiler_invocation",
+    "governed_pass_replay",
+    "release_certification_bundle",
+    "formal_theorem_proof",
+    "eligibility_interlock",
+    "cycle0_audit",
+    "cycle1_audit",
+    "gemini_reasoning",
+    "sol_change_handoff",
+    "repeat_trial_summary",
+  ] as const) {
+    const sectionVal = value[sectionKey];
+    if (sectionVal !== undefined && !isRecord(sectionVal)) {
+      errors.push(
+        `frontier_t_verification.${sectionKey} must be an object when provided.`,
+      );
+    }
+  }
+
+  if (value.rsi_compiler_verified !== true) {
+    errors.push("frontier_t_verification.rsi_compiler_verified must be true.");
+  }
+
+  const inv = value.governed_compiler_invocation;
+  if (!isRecord(inv)) {
+    errors.push(
+      "frontier_t_verification.governed_compiler_invocation is required.",
+    );
+  } else {
+    if (inv.production_mutation_allowed !== false) {
+      errors.push(
+        "frontier_t_verification.governed_compiler_invocation.production_mutation_allowed must be false.",
+      );
+    }
+  }
+
+  const rep = value.governed_pass_replay;
+  if (!isRecord(rep)) {
+    errors.push("frontier_t_verification.governed_pass_replay is required.");
+  } else {
+    if (rep.replay_failed_count !== 0) {
+      errors.push(
+        "frontier_t_verification.governed_pass_replay.replay_failed_count must be 0.",
+      );
+    }
+  }
+
+  const interlock = value.eligibility_interlock;
+  if (isRecord(interlock)) {
+    if (interlock.allow_production_execution !== false) {
+      errors.push(
+        "frontier_t_verification.eligibility_interlock.allow_production_execution must be false.",
+      );
+    }
+    if (interlock.authorized_claimed !== false) {
+      errors.push(
+        "frontier_t_verification.eligibility_interlock.authorized_claimed must be false.",
+      );
+    }
+  }
+
+  const cycle1 = value.cycle1_audit;
+  if (!isRecord(cycle1)) {
+    errors.push("frontier_t_verification.cycle1_audit is required.");
+  } else {
+    if (cycle1.is_quarantined !== false) {
+      errors.push(
+        "frontier_t_verification.cycle1_audit.is_quarantined must be false.",
+      );
+    }
+    if (cycle1.policy_status !== "ELIGIBLE") {
+      errors.push(
+        "frontier_t_verification.cycle1_audit.policy_status must be ELIGIBLE.",
+      );
+    }
+  }
+
+  return structuredClone(value) as FrontierTVerification;
+}
+
 export function normalizePacket(value: unknown): PacketValidationResult {
   const errors: string[] = [];
   if (!isRecord(value)) {
@@ -768,6 +1852,48 @@ export function normalizePacket(value: unknown): PacketValidationResult {
       frontierNVerification = structuredClone(value.frontier_n_verification);
     }
   }
+  let frontierOVerification: FrontierOVerification | undefined;
+  if (value.frontier_o_verification !== undefined) {
+    frontierOVerification = normalizeFrontierOVerification(
+      value.frontier_o_verification,
+      errors,
+    );
+  }
+  let frontierPVerification: FrontierPVerification | undefined;
+  if (value.frontier_p_verification !== undefined) {
+    frontierPVerification = normalizeFrontierPVerification(
+      value.frontier_p_verification,
+      errors,
+    );
+  }
+  let frontierQVerification: FrontierQVerification | undefined;
+  if (value.frontier_q_verification !== undefined) {
+    frontierQVerification = normalizeFrontierQVerification(
+      value.frontier_q_verification,
+      errors,
+    );
+  }
+  let frontierRVerification: FrontierRVerification | undefined;
+  if (value.frontier_r_verification !== undefined) {
+    frontierRVerification = normalizeFrontierRVerification(
+      value.frontier_r_verification,
+      errors,
+    );
+  }
+  let frontierSVerification: FrontierSVerification | undefined;
+  if (value.frontier_s_verification !== undefined) {
+    frontierSVerification = normalizeFrontierSVerification(
+      value.frontier_s_verification,
+      errors,
+    );
+  }
+  let frontierTVerification: FrontierTVerification | undefined;
+  if (value.frontier_t_verification !== undefined) {
+    frontierTVerification = normalizeFrontierTVerification(
+      value.frontier_t_verification,
+      errors,
+    );
+  }
 
   let reasoningTelemetry: Record<string, unknown> | undefined;
   if (value.reasoning_telemetry !== undefined) {
@@ -834,6 +1960,12 @@ export function normalizePacket(value: unknown): PacketValidationResult {
   if (frontierKVerification) packet.frontier_k_verification = frontierKVerification;
   if (frontierLVerification) packet.frontier_l_verification = frontierLVerification;
   if (frontierNVerification) packet.frontier_n_verification = frontierNVerification;
+  if (frontierOVerification) packet.frontier_o_verification = frontierOVerification;
+  if (frontierPVerification) packet.frontier_p_verification = frontierPVerification;
+  if (frontierQVerification) packet.frontier_q_verification = frontierQVerification;
+  if (frontierRVerification) packet.frontier_r_verification = frontierRVerification;
+  if (frontierSVerification) packet.frontier_s_verification = frontierSVerification;
+  if (frontierTVerification) packet.frontier_t_verification = frontierTVerification;
   if (reasoningTelemetry) packet.reasoning_telemetry = reasoningTelemetry;
   if (baselineEvaluation) packet.baseline_evaluation = baselineEvaluation;
   if (groups && groups.length > 0) packet.groups = groups;
@@ -885,6 +2017,24 @@ export function createProofPacket(
       : {}),
     ...(packet.frontier_n_verification
       ? { frontier_n_verification: structuredClone(packet.frontier_n_verification) }
+      : {}),
+    ...(packet.frontier_o_verification
+      ? { frontier_o_verification: structuredClone(packet.frontier_o_verification) }
+      : {}),
+    ...(packet.frontier_p_verification
+      ? { frontier_p_verification: structuredClone(packet.frontier_p_verification) }
+      : {}),
+    ...(packet.frontier_q_verification
+      ? { frontier_q_verification: structuredClone(packet.frontier_q_verification) }
+      : {}),
+    ...(packet.frontier_r_verification
+      ? { frontier_r_verification: structuredClone(packet.frontier_r_verification) }
+      : {}),
+    ...(packet.frontier_s_verification
+      ? { frontier_s_verification: structuredClone(packet.frontier_s_verification) }
+      : {}),
+    ...(packet.frontier_t_verification
+      ? { frontier_t_verification: structuredClone(packet.frontier_t_verification) }
       : {}),
     ...(packet.reasoning_telemetry
       ? { reasoning_telemetry: structuredClone(packet.reasoning_telemetry) }
