@@ -205,6 +205,125 @@ export interface FrontierTVerification {
   [key: string]: unknown;
 }
 
+export interface FrontierUVerification {
+  hcam_shard_verified?: boolean;
+  hcam_associative_recall?: Record<string, unknown>;
+  cross_shard_consensus?: Record<string, unknown>;
+  transactional_geodesic_and_migration?: Record<string, unknown>;
+  topology_migration?: Record<string, unknown>;
+  manifold_garbage_collection?: Record<string, unknown>;
+  ranger_evidence?: Record<string, unknown>;
+  ranger_squadron_evidence?: Record<string, unknown>;
+  formal_theorem_proof?: Record<string, unknown>;
+  eligibility_interlock?: Record<string, unknown>;
+  cycle0_audit?: Record<string, unknown>;
+  cycle1_audit?: Record<string, unknown>;
+  gemini_reasoning?: Record<string, unknown>;
+  sol_change_handoff?: SolChangeHandoffManifest | Record<string, unknown>;
+  repeat_trial_summary?: Record<string, unknown>;
+  frontier_u_summary_digest?: string;
+  summary_digest?: string;
+  [key: string]: unknown;
+}
+
+export interface FrontierVVerification {
+  waveguide_simd_verified?: boolean;
+  waveguide_arithmetic_and_predication?: Record<string, unknown>;
+  scoreboard_and_memory_alias?: Record<string, unknown>;
+  scoreboard_and_alias_hazard?: Record<string, unknown>;
+  simd_multicore_and_route_rebalance?: Record<string, unknown>;
+  ranger_evidence?: Record<string, unknown>;
+  ranger_squadron_evidence?: Record<string, unknown>;
+  formal_theorem_proof?: Record<string, unknown>;
+  eligibility_interlock?: Record<string, unknown>;
+  cycle0_audit?: Record<string, unknown>;
+  cycle1_audit?: Record<string, unknown>;
+  gemini_reasoning?: Record<string, unknown>;
+  sol_change_handoff?: SolChangeHandoffManifest | Record<string, unknown>;
+  repeat_trial_summary?: Record<string, unknown>;
+  frontier_v_summary_digest?: string;
+  summary_digest?: string;
+  [key: string]: unknown;
+}
+
+export interface FrontierWVerification {
+  burnin_attestation_verified?: boolean;
+  sovereign_burnin_and_stability_ledger?: Record<string, unknown>;
+  package_archive_digest_attestation?: Record<string, unknown>;
+  archive_digest_attestation?: Record<string, unknown>;
+  offline_consumer_verification_and_final_manifest?: Record<string, unknown>;
+  ranger_evidence?: Record<string, unknown>;
+  ranger_squadron_evidence?: Record<string, unknown>;
+  formal_theorem_proof?: Record<string, unknown>;
+  eligibility_interlock?: Record<string, unknown>;
+  cycle0_audit?: Record<string, unknown>;
+  cycle1_audit?: Record<string, unknown>;
+  gemini_reasoning?: Record<string, unknown>;
+  sol_change_handoff?: SolChangeHandoffManifest | Record<string, unknown>;
+  repeat_trial_summary?: Record<string, unknown>;
+  frontier_w_summary_digest?: string;
+  summary_digest?: string;
+  [key: string]: unknown;
+}
+
+export interface FrontierXVerification {
+  entangled_cadence_verified?: boolean;
+  entangled_sequencer_and_atomic_epoch?: Record<string, unknown>;
+  multimanifold_cadence_and_autonomy_guard?: Record<string, unknown>;
+  wavefront_alignment_and_uncertainty_bounds?: Record<string, unknown>;
+  ranger_evidence?: Record<string, unknown>;
+  ranger_squadron_evidence?: Record<string, unknown>;
+  formal_theorem_proof?: Record<string, unknown>;
+  eligibility_interlock?: Record<string, unknown>;
+  cycle0_audit?: Record<string, unknown>;
+  cycle1_audit?: Record<string, unknown>;
+  gemini_reasoning?: Record<string, unknown>;
+  sol_change_handoff?: SolChangeHandoffManifest | Record<string, unknown>;
+  repeat_trial_summary?: Record<string, unknown>;
+  frontier_x_summary_digest?: string;
+  summary_digest?: string;
+  [key: string]: unknown;
+}
+
+export interface FrontierYVerification {
+  waveguide_channel_staging_verified?: boolean;
+  waveguide_channel_kernels_and_dependency?: Record<string, unknown>;
+  layout_optimization_and_pipeline_compaction?: Record<string, unknown>;
+  package_assembly_dry_run_and_local_staging?: Record<string, unknown>;
+  ranger_evidence?: Record<string, unknown>;
+  ranger_squadron_evidence?: Record<string, unknown>;
+  formal_theorem_proof?: Record<string, unknown>;
+  eligibility_interlock?: Record<string, unknown>;
+  cycle0_audit?: Record<string, unknown>;
+  cycle1_audit?: Record<string, unknown>;
+  gemini_reasoning?: Record<string, unknown>;
+  sol_change_handoff?: SolChangeHandoffManifest | Record<string, unknown>;
+  repeat_trial_summary?: Record<string, unknown>;
+  frontier_y_summary_digest?: string;
+  summary_digest?: string;
+  [key: string]: unknown;
+}
+
+export interface FrontierZVerification {
+  sovereign_court_lockdown_verified?: boolean;
+  court_supervised_promotion_and_docket?: Record<string, unknown>;
+  final_gate_registry_and_finalization_docket?: Record<string, unknown>;
+  governance_freeze_and_system_lockdown?: Record<string, unknown>;
+  ranger_evidence?: Record<string, unknown>;
+  ranger_squadron_evidence?: Record<string, unknown>;
+  formal_theorem_proof?: Record<string, unknown>;
+  eligibility_interlock?: Record<string, unknown>;
+  cycle0_audit?: Record<string, unknown>;
+  cycle1_audit?: Record<string, unknown>;
+  gemini_reasoning?: Record<string, unknown>;
+  sol_change_handoff?: SolChangeHandoffManifest | Record<string, unknown>;
+  repeat_trial_summary?: Record<string, unknown>;
+  frontier_z_summary_digest?: string;
+  summary_digest?: string;
+  [key: string]: unknown;
+}
+
+
 export type SolLensPacketV02 = {
   schema: typeof PACKET_SCHEMA_V02;
   packet_id: string;
@@ -226,6 +345,12 @@ export type SolLensPacketV02 = {
   frontier_r_verification?: FrontierRVerification;
   frontier_s_verification?: FrontierSVerification;
   frontier_t_verification?: FrontierTVerification;
+  frontier_u_verification?: FrontierUVerification;
+  frontier_v_verification?: FrontierVVerification;
+  frontier_w_verification?: FrontierWVerification;
+  frontier_x_verification?: FrontierXVerification;
+  frontier_y_verification?: FrontierYVerification;
+  frontier_z_verification?: FrontierZVerification;
   reasoning_telemetry?: Record<string, unknown>;
   baseline_evaluation?: BaselineEvaluation;
   logons: TraceLogon[];
@@ -1671,6 +1796,569 @@ export function normalizeFrontierTVerification(
   return structuredClone(value) as FrontierTVerification;
 }
 
+function normalizeFrontierUVerification(
+  value: unknown,
+  errors: string[],
+): FrontierUVerification | undefined {
+  if (!isRecord(value)) {
+    errors.push("frontier_u_verification must be an object when provided.");
+    return undefined;
+  }
+
+  if (value.hcam_shard_verified !== true) {
+    errors.push("frontier_u_verification.hcam_shard_verified must be true.");
+  }
+
+  const hcam = value.hcam_associative_recall;
+  if (!isRecord(hcam)) {
+    errors.push("frontier_u_verification.hcam_associative_recall is required.");
+  } else {
+    if (hcam.word_assembly_verified !== true) {
+      errors.push(
+        "frontier_u_verification.hcam_associative_recall.word_assembly_verified must be true.",
+      );
+    }
+  }
+
+  const cons = value.cross_shard_consensus;
+  if (!isRecord(cons)) {
+    errors.push("frontier_u_verification.cross_shard_consensus is required.");
+  } else {
+    if (cons.consensus_commit_verified !== true) {
+      errors.push(
+        "frontier_u_verification.cross_shard_consensus.consensus_commit_verified must be true.",
+      );
+    }
+  }
+
+  const mig = value.transactional_geodesic_and_migration ?? value.topology_migration;
+  if (!isRecord(mig)) {
+    errors.push(
+      "frontier_u_verification.transactional_geodesic_and_migration is required.",
+    );
+  } else {
+    if (mig.route_optimization_passed !== true) {
+      errors.push(
+        "frontier_u_verification.transactional_geodesic_and_migration.route_optimization_passed must be true.",
+      );
+    }
+  }
+
+  const gc = value.manifold_garbage_collection;
+  if (!isRecord(gc)) {
+    errors.push(
+      "frontier_u_verification.manifold_garbage_collection is required.",
+    );
+  } else {
+    if (gc.live_root_reclaimed !== false) {
+      errors.push(
+        "frontier_u_verification.manifold_garbage_collection.live_root_reclaimed must be false.",
+      );
+    }
+  }
+
+  const interlock = value.eligibility_interlock;
+  if (isRecord(interlock)) {
+    if (interlock.allow_production_execution === true) {
+      errors.push(
+        "frontier_u_verification.eligibility_interlock.allow_production_execution must be false.",
+      );
+    }
+    if (interlock.authorized_claimed !== false) {
+      errors.push(
+        "frontier_u_verification.eligibility_interlock.authorized_claimed must be false.",
+      );
+    }
+  }
+
+  const cycle1 = value.cycle1_audit;
+  if (!isRecord(cycle1)) {
+    errors.push("frontier_u_verification.cycle1_audit is required.");
+  } else {
+    if (cycle1.is_quarantined !== false) {
+      errors.push(
+        "frontier_u_verification.cycle1_audit.is_quarantined must be false.",
+      );
+    }
+    if (cycle1.policy_status !== "ELIGIBLE") {
+      errors.push(
+        "frontier_u_verification.cycle1_audit.policy_status must be ELIGIBLE.",
+      );
+    }
+  }
+
+  return structuredClone(value) as FrontierUVerification;
+}
+
+function normalizeFrontierVVerification(
+  value: unknown,
+  errors: string[],
+): FrontierVVerification | undefined {
+  if (!isRecord(value)) {
+    errors.push("frontier_v_verification must be an object when provided.");
+    return undefined;
+  }
+
+  if (value.waveguide_simd_verified !== true) {
+    errors.push("frontier_v_verification.waveguide_simd_verified must be true.");
+  }
+
+  const arith = value.waveguide_arithmetic_and_predication;
+  if (!isRecord(arith)) {
+    errors.push(
+      "frontier_v_verification.waveguide_arithmetic_and_predication is required.",
+    );
+  } else {
+    if (arith.flags_externally_visible !== false) {
+      errors.push(
+        "frontier_v_verification.waveguide_arithmetic_and_predication.flags_externally_visible must be false.",
+      );
+    }
+  }
+
+  const sb = value.scoreboard_and_memory_alias ?? value.scoreboard_and_alias_hazard;
+  if (!isRecord(sb)) {
+    errors.push(
+      "frontier_v_verification.scoreboard_and_memory_alias is required.",
+    );
+  } else {
+    if (sb.cycle1_schedule_serial_equivalent !== true) {
+      errors.push(
+        "frontier_v_verification.scoreboard_and_memory_alias.cycle1_schedule_serial_equivalent must be true.",
+      );
+    }
+  }
+
+  const simd = value.simd_multicore_and_route_rebalance;
+  if (!isRecord(simd)) {
+    errors.push(
+      "frontier_v_verification.simd_multicore_and_route_rebalance is required.",
+    );
+  } else {
+    if (simd.simd_oracle_match !== true) {
+      errors.push(
+        "frontier_v_verification.simd_multicore_and_route_rebalance.simd_oracle_match must be true.",
+      );
+    }
+  }
+
+  const interlock = value.eligibility_interlock;
+  if (isRecord(interlock)) {
+    if (interlock.allow_production_execution === true) {
+      errors.push(
+        "frontier_v_verification.eligibility_interlock.allow_production_execution must be false.",
+      );
+    }
+    if (interlock.authorized_claimed !== false) {
+      errors.push(
+        "frontier_v_verification.eligibility_interlock.authorized_claimed must be false.",
+      );
+    }
+  }
+
+  const cycle1 = value.cycle1_audit;
+  if (!isRecord(cycle1)) {
+    errors.push("frontier_v_verification.cycle1_audit is required.");
+  } else {
+    if (cycle1.is_quarantined !== false) {
+      errors.push(
+        "frontier_v_verification.cycle1_audit.is_quarantined must be false.",
+      );
+    }
+    if (cycle1.policy_status !== "ELIGIBLE") {
+      errors.push(
+        "frontier_v_verification.cycle1_audit.policy_status must be ELIGIBLE.",
+      );
+    }
+  }
+
+  return structuredClone(value) as FrontierVVerification;
+}
+
+function normalizeFrontierWVerification(
+  value: unknown,
+  errors: string[],
+): FrontierWVerification | undefined {
+  if (!isRecord(value)) {
+    errors.push("frontier_w_verification must be an object when provided.");
+    return undefined;
+  }
+
+  if (value.burnin_attestation_verified !== true) {
+    errors.push(
+      "frontier_w_verification.burnin_attestation_verified must be true.",
+    );
+  }
+
+  const burnin = value.sovereign_burnin_and_stability_ledger;
+  if (!isRecord(burnin)) {
+    errors.push(
+      "frontier_w_verification.sovereign_burnin_and_stability_ledger is required.",
+    );
+  } else {
+    if (burnin.ledger_chain_valid !== true) {
+      errors.push(
+        "frontier_w_verification.sovereign_burnin_and_stability_ledger.ledger_chain_valid must be true.",
+      );
+    }
+  }
+
+  const arch =
+    value.package_archive_digest_attestation ?? value.archive_digest_attestation;
+  if (!isRecord(arch)) {
+    errors.push(
+      "frontier_w_verification.package_archive_digest_attestation is required.",
+    );
+  } else {
+    if (arch.archive_file_digest_match !== true) {
+      errors.push(
+        "frontier_w_verification.package_archive_digest_attestation.archive_file_digest_match must be true.",
+      );
+    }
+    if (arch.real_signature_claimed !== false) {
+      errors.push(
+        "frontier_w_verification.package_archive_digest_attestation.real_signature_claimed must be false.",
+      );
+    }
+  }
+
+  const off = value.offline_consumer_verification_and_final_manifest;
+  if (!isRecord(off)) {
+    errors.push(
+      "frontier_w_verification.offline_consumer_verification_and_final_manifest is required.",
+    );
+  } else {
+    if (off.final_system_manifest_valid !== true) {
+      errors.push(
+        "frontier_w_verification.offline_consumer_verification_and_final_manifest.final_system_manifest_valid must be true.",
+      );
+    }
+  }
+
+  const interlock = value.eligibility_interlock;
+  if (isRecord(interlock)) {
+    if (interlock.allow_production_execution === true) {
+      errors.push(
+        "frontier_w_verification.eligibility_interlock.allow_production_execution must be false.",
+      );
+    }
+    if (interlock.authorized_claimed !== false) {
+      errors.push(
+        "frontier_w_verification.eligibility_interlock.authorized_claimed must be false.",
+      );
+    }
+  }
+
+  const cycle1 = value.cycle1_audit;
+  if (!isRecord(cycle1)) {
+    errors.push("frontier_w_verification.cycle1_audit is required.");
+  } else {
+    if (cycle1.is_quarantined !== false) {
+      errors.push(
+        "frontier_w_verification.cycle1_audit.is_quarantined must be false.",
+      );
+    }
+    if (cycle1.policy_status !== "ELIGIBLE") {
+      errors.push(
+        "frontier_w_verification.cycle1_audit.policy_status must be ELIGIBLE.",
+      );
+    }
+  }
+
+  return structuredClone(value) as FrontierWVerification;
+}
+
+function normalizeFrontierXVerification(
+  value: unknown,
+  errors: string[],
+): FrontierXVerification | undefined {
+  if (!isRecord(value)) {
+    errors.push("frontier_x_verification must be an object when provided.");
+    return undefined;
+  }
+
+  if (value.entangled_cadence_verified !== true) {
+    errors.push(
+      "frontier_x_verification.entangled_cadence_verified must be true.",
+    );
+  }
+
+  const seq = value.entangled_sequencer_and_atomic_epoch;
+  if (!isRecord(seq)) {
+    errors.push(
+      "frontier_x_verification.entangled_sequencer_and_atomic_epoch is required.",
+    );
+  } else {
+    if (seq.abort_rollback_verified !== true) {
+      errors.push(
+        "frontier_x_verification.entangled_sequencer_and_atomic_epoch.abort_rollback_verified must be true.",
+      );
+    }
+  }
+
+  const cad = value.multimanifold_cadence_and_autonomy_guard;
+  if (!isRecord(cad)) {
+    errors.push(
+      "frontier_x_verification.multimanifold_cadence_and_autonomy_guard is required.",
+    );
+  } else {
+    if (cad.autonomy_bounded !== true) {
+      errors.push(
+        "frontier_x_verification.multimanifold_cadence_and_autonomy_guard.autonomy_bounded must be true.",
+      );
+    }
+  }
+
+  const wf = value.wavefront_alignment_and_uncertainty_bounds;
+  if (!isRecord(wf)) {
+    errors.push(
+      "frontier_x_verification.wavefront_alignment_and_uncertainty_bounds is required.",
+    );
+  } else {
+    if (wf.uncertainty_within_bounds !== true) {
+      errors.push(
+        "frontier_x_verification.wavefront_alignment_and_uncertainty_bounds.uncertainty_within_bounds must be true.",
+      );
+    }
+  }
+
+  const interlock = value.eligibility_interlock;
+  if (isRecord(interlock)) {
+    if (interlock.allow_production_execution === true) {
+      errors.push(
+        "frontier_x_verification.eligibility_interlock.allow_production_execution must be false.",
+      );
+    }
+    if (interlock.authorized_claimed !== false) {
+      errors.push(
+        "frontier_x_verification.eligibility_interlock.authorized_claimed must be false.",
+      );
+    }
+  }
+
+  const cycle1 = value.cycle1_audit;
+  if (!isRecord(cycle1)) {
+    errors.push("frontier_x_verification.cycle1_audit is required.");
+  } else {
+    if (cycle1.is_quarantined !== false) {
+      errors.push(
+        "frontier_x_verification.cycle1_audit.is_quarantined must be false.",
+      );
+    }
+    if (cycle1.policy_status !== "ELIGIBLE") {
+      errors.push(
+        "frontier_x_verification.cycle1_audit.policy_status must be ELIGIBLE.",
+      );
+    }
+  }
+
+  return structuredClone(value) as FrontierXVerification;
+}
+
+function normalizeFrontierYVerification(
+  value: unknown,
+  errors: string[],
+): FrontierYVerification | undefined {
+  if (!isRecord(value)) {
+    errors.push("frontier_y_verification must be an object when provided.");
+    return undefined;
+  }
+
+  if (value.waveguide_channel_staging_verified !== true) {
+    errors.push(
+      "frontier_y_verification.waveguide_channel_staging_verified must be true.",
+    );
+  }
+
+  const kdep = value.waveguide_channel_kernels_and_dependency;
+  if (!isRecord(kdep)) {
+    errors.push(
+      "frontier_y_verification.waveguide_channel_kernels_and_dependency is required.",
+    );
+  } else {
+    if (kdep.cycle1_batch_safe !== true) {
+      errors.push(
+        "frontier_y_verification.waveguide_channel_kernels_and_dependency.cycle1_batch_safe must be true.",
+      );
+    }
+    if (kdep.raw_hazard_detected_on_conflict !== true) {
+      errors.push(
+        "frontier_y_verification.waveguide_channel_kernels_and_dependency.raw_hazard_detected_on_conflict must be true.",
+      );
+    }
+  }
+
+  const lay = value.layout_optimization_and_pipeline_compaction;
+  if (!isRecord(lay)) {
+    errors.push(
+      "frontier_y_verification.layout_optimization_and_pipeline_compaction is required.",
+    );
+  } else {
+    if (lay.compaction_equivalence_verified !== true) {
+      errors.push(
+        "frontier_y_verification.layout_optimization_and_pipeline_compaction.compaction_equivalence_verified must be true.",
+      );
+    }
+  }
+
+  const stg = value.package_assembly_dry_run_and_local_staging;
+  if (!isRecord(stg)) {
+    errors.push(
+      "frontier_y_verification.package_assembly_dry_run_and_local_staging is required.",
+    );
+  } else {
+    if (stg.physical_execution_permitted_by_gate !== false) {
+      errors.push(
+        "frontier_y_verification.package_assembly_dry_run_and_local_staging.physical_execution_permitted_by_gate must be false.",
+      );
+    }
+    if (stg.local_staging_verified !== true) {
+      errors.push(
+        "frontier_y_verification.package_assembly_dry_run_and_local_staging.local_staging_verified must be true.",
+      );
+    }
+  }
+
+  const interlock = value.eligibility_interlock;
+  if (isRecord(interlock)) {
+    if (interlock.allow_production_execution === true) {
+      errors.push(
+        "frontier_y_verification.eligibility_interlock.allow_production_execution must be false.",
+      );
+    }
+    if (interlock.authorized_claimed !== false) {
+      errors.push(
+        "frontier_y_verification.eligibility_interlock.authorized_claimed must be false.",
+      );
+    }
+  }
+
+  const cycle1 = value.cycle1_audit;
+  if (!isRecord(cycle1)) {
+    errors.push("frontier_y_verification.cycle1_audit is required.");
+  } else {
+    if (cycle1.is_quarantined !== false) {
+      errors.push(
+        "frontier_y_verification.cycle1_audit.is_quarantined must be false.",
+      );
+    }
+    if (cycle1.policy_status !== "ELIGIBLE") {
+      errors.push(
+        "frontier_y_verification.cycle1_audit.policy_status must be ELIGIBLE.",
+      );
+    }
+  }
+
+  return structuredClone(value) as FrontierYVerification;
+}
+
+function normalizeFrontierZVerification(
+  value: unknown,
+  errors: string[],
+): FrontierZVerification | undefined {
+  if (!isRecord(value)) {
+    errors.push("frontier_z_verification must be an object when provided.");
+    return undefined;
+  }
+
+  if (value.sovereign_court_lockdown_verified !== true) {
+    errors.push(
+      "frontier_z_verification.sovereign_court_lockdown_verified must be true.",
+    );
+  }
+
+  const prm = value.court_supervised_promotion_and_docket;
+  if (!isRecord(prm)) {
+    errors.push(
+      "frontier_z_verification.court_supervised_promotion_and_docket is required.",
+    );
+  } else {
+    if (prm.auto_promote_allowed !== false) {
+      errors.push(
+        "frontier_z_verification.court_supervised_promotion_and_docket.auto_promote_allowed must be false.",
+      );
+    }
+    if (prm.production_authority_granted !== false) {
+      errors.push(
+        "frontier_z_verification.court_supervised_promotion_and_docket.production_authority_granted must be false.",
+      );
+    }
+  }
+
+  const fgr = value.final_gate_registry_and_finalization_docket;
+  if (!isRecord(fgr)) {
+    errors.push(
+      "frontier_z_verification.final_gate_registry_and_finalization_docket is required.",
+    );
+  } else {
+    if (fgr.all_gates_passed !== true) {
+      errors.push(
+        "frontier_z_verification.final_gate_registry_and_finalization_docket.all_gates_passed must be true.",
+      );
+    }
+    if (fgr.finalization_docket_valid !== true) {
+      errors.push(
+        "frontier_z_verification.final_gate_registry_and_finalization_docket.finalization_docket_valid must be true.",
+      );
+    }
+  }
+
+  const gfl = value.governance_freeze_and_system_lockdown;
+  if (!isRecord(gfl)) {
+    errors.push(
+      "frontier_z_verification.governance_freeze_and_system_lockdown is required.",
+    );
+  } else {
+    if (gfl.cycle1_frozen !== true) {
+      errors.push(
+        "frontier_z_verification.governance_freeze_and_system_lockdown.cycle1_frozen must be true.",
+      );
+    }
+    if (gfl.cycle1_locked !== true) {
+      errors.push(
+        "frontier_z_verification.governance_freeze_and_system_lockdown.cycle1_locked must be true.",
+      );
+    }
+    if (gfl.production_gateway_blocked_verified !== true) {
+      errors.push(
+        "frontier_z_verification.governance_freeze_and_system_lockdown.production_gateway_blocked_verified must be true.",
+      );
+    }
+  }
+
+  const interlock = value.eligibility_interlock;
+  if (isRecord(interlock)) {
+    if (interlock.allow_production_execution === true) {
+      errors.push(
+        "frontier_z_verification.eligibility_interlock.allow_production_execution must be false.",
+      );
+    }
+    if (interlock.authorized_claimed !== false) {
+      errors.push(
+        "frontier_z_verification.eligibility_interlock.authorized_claimed must be false.",
+      );
+    }
+  }
+
+  const cycle1 = value.cycle1_audit;
+  if (!isRecord(cycle1)) {
+    errors.push("frontier_z_verification.cycle1_audit is required.");
+  } else {
+    if (cycle1.is_quarantined !== false) {
+      errors.push(
+        "frontier_z_verification.cycle1_audit.is_quarantined must be false.",
+      );
+    }
+    if (cycle1.policy_status !== "ELIGIBLE") {
+      errors.push(
+        "frontier_z_verification.cycle1_audit.policy_status must be ELIGIBLE.",
+      );
+    }
+  }
+
+  return structuredClone(value) as FrontierZVerification;
+}
+
 export function normalizePacket(value: unknown): PacketValidationResult {
   const errors: string[] = [];
   if (!isRecord(value)) {
@@ -1894,6 +2582,48 @@ export function normalizePacket(value: unknown): PacketValidationResult {
       errors,
     );
   }
+  let frontierUVerification: FrontierUVerification | undefined;
+  if (value.frontier_u_verification !== undefined) {
+    frontierUVerification = normalizeFrontierUVerification(
+      value.frontier_u_verification,
+      errors,
+    );
+  }
+  let frontierVVerification: FrontierVVerification | undefined;
+  if (value.frontier_v_verification !== undefined) {
+    frontierVVerification = normalizeFrontierVVerification(
+      value.frontier_v_verification,
+      errors,
+    );
+  }
+  let frontierWVerification: FrontierWVerification | undefined;
+  if (value.frontier_w_verification !== undefined) {
+    frontierWVerification = normalizeFrontierWVerification(
+      value.frontier_w_verification,
+      errors,
+    );
+  }
+  let frontierXVerification: FrontierXVerification | undefined;
+  if (value.frontier_x_verification !== undefined) {
+    frontierXVerification = normalizeFrontierXVerification(
+      value.frontier_x_verification,
+      errors,
+    );
+  }
+  let frontierYVerification: FrontierYVerification | undefined;
+  if (value.frontier_y_verification !== undefined) {
+    frontierYVerification = normalizeFrontierYVerification(
+      value.frontier_y_verification,
+      errors,
+    );
+  }
+  let frontierZVerification: FrontierZVerification | undefined;
+  if (value.frontier_z_verification !== undefined) {
+    frontierZVerification = normalizeFrontierZVerification(
+      value.frontier_z_verification,
+      errors,
+    );
+  }
 
   let reasoningTelemetry: Record<string, unknown> | undefined;
   if (value.reasoning_telemetry !== undefined) {
@@ -1966,6 +2696,12 @@ export function normalizePacket(value: unknown): PacketValidationResult {
   if (frontierRVerification) packet.frontier_r_verification = frontierRVerification;
   if (frontierSVerification) packet.frontier_s_verification = frontierSVerification;
   if (frontierTVerification) packet.frontier_t_verification = frontierTVerification;
+  if (frontierUVerification) packet.frontier_u_verification = frontierUVerification;
+  if (frontierVVerification) packet.frontier_v_verification = frontierVVerification;
+  if (frontierWVerification) packet.frontier_w_verification = frontierWVerification;
+  if (frontierXVerification) packet.frontier_x_verification = frontierXVerification;
+  if (frontierYVerification) packet.frontier_y_verification = frontierYVerification;
+  if (frontierZVerification) packet.frontier_z_verification = frontierZVerification;
   if (reasoningTelemetry) packet.reasoning_telemetry = reasoningTelemetry;
   if (baselineEvaluation) packet.baseline_evaluation = baselineEvaluation;
   if (groups && groups.length > 0) packet.groups = groups;
@@ -2035,6 +2771,24 @@ export function createProofPacket(
       : {}),
     ...(packet.frontier_t_verification
       ? { frontier_t_verification: structuredClone(packet.frontier_t_verification) }
+      : {}),
+    ...(packet.frontier_u_verification
+      ? { frontier_u_verification: structuredClone(packet.frontier_u_verification) }
+      : {}),
+    ...(packet.frontier_v_verification
+      ? { frontier_v_verification: structuredClone(packet.frontier_v_verification) }
+      : {}),
+    ...(packet.frontier_w_verification
+      ? { frontier_w_verification: structuredClone(packet.frontier_w_verification) }
+      : {}),
+    ...(packet.frontier_x_verification
+      ? { frontier_x_verification: structuredClone(packet.frontier_x_verification) }
+      : {}),
+    ...(packet.frontier_y_verification
+      ? { frontier_y_verification: structuredClone(packet.frontier_y_verification) }
+      : {}),
+    ...(packet.frontier_z_verification
+      ? { frontier_z_verification: structuredClone(packet.frontier_z_verification) }
       : {}),
     ...(packet.reasoning_telemetry
       ? { reasoning_telemetry: structuredClone(packet.reasoning_telemetry) }

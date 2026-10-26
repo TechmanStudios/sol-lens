@@ -1,0 +1,434 @@
+{
+  "schema": "techman.sol-lens.proof-packet/v0.2",
+  "packet_id": "pkt-wgsimd-cand-9199b7edaad0",
+  "generated_at": "2026-10-23T14:15:05Z",
+  "observable_trace_only": true,
+  "fixture": "Frontier_V_Waveguide_Arithmetic_Predication_Scoreboard_SIMD_v1_Cycle1_Candidate",
+  "models": {
+    "baseline": "v1.0-unbarriered-alias-reorder-waveguide",
+    "candidate": "gemini-4-argon"
+  },
+  "baseline_evaluation": {
+    "label": "Cycle 0 Unbarriered Memory-Alias Reorder & Unsafe Predication (QUARANTINE)",
+    "logon_count": 2,
+    "metrics": {
+      "evidence": 0.62,
+      "coherence": 0.5198,
+      "contradiction": 0.16666666666666666,
+      "continuity": 0.5249999999999999,
+      "authority": 0.645,
+      "faithfulness": 0.43499999999999994
+    },
+    "verdict": "QUARANTINE",
+    "source": "sol_decide.waveguide_simd_pipeline_bridge"
+  },
+  "frontier_v_verification": {
+    "waveguide_simd_verified": true,
+    "experiment_id": "exp_frontier_v_wgsimd_9199b7edaad0",
+    "frontier_id": "Frontier_V",
+    "waveguide_arithmetic_and_predication": {
+      "add_32b_oracle_match": true,
+      "sub_32b_oracle_match": true,
+      "add_64b_oracle_match": true,
+      "sub_64b_oracle_match": true,
+      "add_32b_result_hex": "0x37c048c0",
+      "sub_32b_result_hex": "0xeca8641f",
+      "add_64b_result_hex": "0x12346789bcdf1234",
+      "sub_64b_result_hex": "0xfdb97530eca86421",
+      "predicated_diamonds_converted": 1,
+      "skipped_diamonds_count": 0,
+      "flags_externally_visible": false
+    },
+    "scoreboard_and_memory_alias": {
+      "cycle0_alias_hazard_detected": true,
+      "must_alias_classification": "MUST_ALIAS",
+      "disjoint_alias_classification": "NO_ALIAS",
+      "cycle1_schedule_serial_equivalent": true,
+      "superblocks_detected": 3,
+      "wavefront_batches": 6,
+      "cycle_savings": 4,
+      "hazards_detected_count": 8
+    },
+    "simd_multicore_and_route_rebalance": {
+      "assembled_core_count": 4,
+      "simd_lane_width": 64,
+      "simd_modes": [
+        "uint8x8",
+        "uint16x4",
+        "uint32x2",
+        "uint64x1"
+      ],
+      "simd_oracle_match": true,
+      "route_rebalance_prepared": true,
+      "route_rebalance_verified": true,
+      "fault_matrix_passed_cases": 33,
+      "fault_matrix_total_cases": 33
+    },
+    "ranger_evidence": {
+      "waveguide_arithmetic_ranger_packet_id": "PKT_WA_OBS_2393651460384_163608",
+      "waveguide_control_memory_ranger_packet_id": "PKT_WCMB_1D6C6A89",
+      "simd_ranger_packet_id": "PKT_SIMD_OBS_2393652277312_163608",
+      "core_assembly_ranger_packet_id": "PKT_CORE_ASM_163608",
+      "route_rebalance_ranger_packet_id": "PKT_RR_RNG_1792773368106",
+      "ranger_packets_count": 5
+    },
+    "formal_theorem_proof": {
+      "theorem_id": "THM_CONJ_WAVEGUIDE_PREDICATED_SCOREBOARD_SIMD",
+      "conjecture_id": "conj_waveguide_predicated_scoreboard_simd",
+      "verdict": "PROVED_THEOREM",
+      "refuted_conjecture_id": "conj_false_unbarriered_alias_reorder_equivalence",
+      "refuted_verdict": "DISPROVED_COUNTEREXAMPLE"
+    },
+    "eligibility_interlock": {
+      "cycle0_safe_state_triggered": true,
+      "cycle1_safe_state_triggered": false,
+      "cycle0_safe_state_action": "REJECT_UNBARRIERED_ALIAS_REORDER_AND_HOLD_PIPELINE",
+      "cycle1_safe_state_action": "NONE",
+      "release_gate_status": "ELIGIBLE",
+      "authorized_claimed": false,
+      "production_mutation_allowed": false,
+      "sacred_core_immutable": true
+    },
+    "cycle0_audit": {
+      "cycle_index": 0,
+      "designation": "baseline",
+      "option_id": "opt_waveguide_predicated_scoreboard_simd_multicore_cycle0_quarantine",
+      "policy_status": "QUARANTINE",
+      "is_quarantined": true,
+      "add_32b_oracle_match": true,
+      "sub_32b_oracle_match": true,
+      "add_64b_oracle_match": false,
+      "sub_64b_oracle_match": false,
+      "predicated_diamonds_converted": 0,
+      "flags_externally_visible": true,
+      "alias_hazard_detected": true,
+      "schedule_serial_equivalent": false,
+      "assembled_core_count": 2,
+      "simd_lane_width": 32,
+      "simd_oracle_match": false,
+      "fault_matrix_passed_cases": 19,
+      "effective_beta_1": 1,
+      "safe_state_triggered": true,
+      "safe_state_action": "REJECT_UNBARRIERED_ALIAS_REORDER_AND_HOLD_PIPELINE",
+      "release_gate_status": "BLOCKED_QUARANTINE",
+      "authorized_claimed": false,
+      "reasons": [
+        "WAVEGUIDE_ARITHMETIC_ORACLE_MISMATCH",
+        "UNSAFE_PREDICATION_FLAG_VISIBILITY_OR_ZERO_DIAMONDS",
+        "UNBARRIERED_MEMORY_ALIAS_REORDER_EQUIVALENCE_VIOLATION",
+        "SIMD_MULTICORE_ASSEMBLY_OR_ORACLE_MISMATCH",
+        "PIPELINE_WAVEFRONT_FAULT_MATRIX_SHORTFALL(19/33)",
+        "NON_ZERO_BETTI_1_OBSTRUCTION(1)"
+      ],
+      "event_count": 4,
+      "final_chain_hash": "sha256:309c65aad6591220a5ed374366d1fd9739e705eb886eec78ad284264da7ba451",
+      "events": [
+        {
+          "event_id": "ev:run:frontier_v_waveguide_arithmetic_predication_scoreboard_simd_v1:opt_waveguide_predicated_scor:c0:1",
+          "run_id": "run:frontier_v_waveguide_arithmetic_predication_scoreboard_simd_v1:opt_waveguide_predicated_scor:c0",
+          "sequence_number": 1,
+          "event_type": "RUN_OPENED",
+          "previous_event_digest": null,
+          "event_digest": "sha256:0dc2f304140576808dae0e4cab44795ed776cc9fd9d644fa48867c10ecd76bc3"
+        },
+        {
+          "event_id": "ev:run:frontier_v_waveguide_arithmetic_predication_scoreboard_simd_v1:opt_waveguide_predicated_scor:c0:2",
+          "run_id": "run:frontier_v_waveguide_arithmetic_predication_scoreboard_simd_v1:opt_waveguide_predicated_scor:c0",
+          "sequence_number": 2,
+          "event_type": "PROPOSAL_RECORDED",
+          "previous_event_digest": "sha256:0dc2f304140576808dae0e4cab44795ed776cc9fd9d644fa48867c10ecd76bc3",
+          "event_digest": "sha256:235d91bd3f3cebf08ef0009e8b5ef3be3221e1eb847b1487b4e77984ffe75db9"
+        },
+        {
+          "event_id": "ev:run:frontier_v_waveguide_arithmetic_predication_scoreboard_simd_v1:opt_waveguide_predicated_scor:c0:3",
+          "run_id": "run:frontier_v_waveguide_arithmetic_predication_scoreboard_simd_v1:opt_waveguide_predicated_scor:c0",
+          "sequence_number": 3,
+          "event_type": "EVIDENCE_RECORDED",
+          "previous_event_digest": "sha256:235d91bd3f3cebf08ef0009e8b5ef3be3221e1eb847b1487b4e77984ffe75db9",
+          "event_digest": "sha256:00f369567914c09bc23c493f04cc16ed40c7915bd211cf90c24770257fc2e2ea"
+        },
+        {
+          "event_id": "ev:run:frontier_v_waveguide_arithmetic_predication_scoreboard_simd_v1:opt_waveguide_predicated_scor:c0:4",
+          "run_id": "run:frontier_v_waveguide_arithmetic_predication_scoreboard_simd_v1:opt_waveguide_predicated_scor:c0",
+          "sequence_number": 4,
+          "event_type": "POLICY_DECISION_RECORDED",
+          "previous_event_digest": "sha256:00f369567914c09bc23c493f04cc16ed40c7915bd211cf90c24770257fc2e2ea",
+          "event_digest": "sha256:2f408447968295e76667435178519457cdabebdd5cda6a08d2b29ff9dc4f097f"
+        }
+      ]
+    },
+    "cycle1_audit": {
+      "cycle_index": 1,
+      "designation": "candidate",
+      "option_id": "opt_waveguide_predicated_scoreboard_simd_multicore",
+      "policy_status": "ELIGIBLE",
+      "is_quarantined": false,
+      "add_32b_oracle_match": true,
+      "sub_32b_oracle_match": true,
+      "add_64b_oracle_match": true,
+      "sub_64b_oracle_match": true,
+      "predicated_diamonds_converted": 1,
+      "flags_externally_visible": false,
+      "alias_hazard_detected": true,
+      "schedule_serial_equivalent": true,
+      "assembled_core_count": 4,
+      "simd_lane_width": 64,
+      "simd_oracle_match": true,
+      "fault_matrix_passed_cases": 33,
+      "effective_beta_1": 0,
+      "safe_state_triggered": false,
+      "safe_state_action": "NONE",
+      "release_gate_status": "ELIGIBLE",
+      "authorized_claimed": false,
+      "reasons": [
+        "WAVEGUIDE_ARITHMETIC_PREDICATION_SCOREBOARD_4CORE_SIMD_33_33_FAULT_MATRIX_ELIGIBLE"
+      ],
+      "event_count": 4,
+      "final_chain_hash": "sha256:0f0659b03d8c10cb90ab652e0a443dc7bacc54192221cf3d40168cc5e2d064d3",
+      "events": [
+        {
+          "event_id": "ev:run:frontier_v_waveguide_arithmetic_predication_scoreboard_simd_v1:opt_waveguide_predicated_scor:c1:1",
+          "run_id": "run:frontier_v_waveguide_arithmetic_predication_scoreboard_simd_v1:opt_waveguide_predicated_scor:c1",
+          "sequence_number": 1,
+          "event_type": "RUN_OPENED",
+          "previous_event_digest": null,
+          "event_digest": "sha256:f9485ad72bb79b85a38d3d1f9499f8f2130853aae8670b98ea74ef9a30f6ac14"
+        },
+        {
+          "event_id": "ev:run:frontier_v_waveguide_arithmetic_predication_scoreboard_simd_v1:opt_waveguide_predicated_scor:c1:2",
+          "run_id": "run:frontier_v_waveguide_arithmetic_predication_scoreboard_simd_v1:opt_waveguide_predicated_scor:c1",
+          "sequence_number": 2,
+          "event_type": "PROPOSAL_RECORDED",
+          "previous_event_digest": "sha256:f9485ad72bb79b85a38d3d1f9499f8f2130853aae8670b98ea74ef9a30f6ac14",
+          "event_digest": "sha256:d0a20ca44b39b71ffdc79191f59d9f49c24e7b34ff3ace4b8c77506fd31dfda9"
+        },
+        {
+          "event_id": "ev:run:frontier_v_waveguide_arithmetic_predication_scoreboard_simd_v1:opt_waveguide_predicated_scor:c1:3",
+          "run_id": "run:frontier_v_waveguide_arithmetic_predication_scoreboard_simd_v1:opt_waveguide_predicated_scor:c1",
+          "sequence_number": 3,
+          "event_type": "EVIDENCE_RECORDED",
+          "previous_event_digest": "sha256:d0a20ca44b39b71ffdc79191f59d9f49c24e7b34ff3ace4b8c77506fd31dfda9",
+          "event_digest": "sha256:cb4dc392dd1bb4d7b2f7bf4cfea175b42b49800ee5a412e5e781f2ed423a5234"
+        },
+        {
+          "event_id": "ev:run:frontier_v_waveguide_arithmetic_predication_scoreboard_simd_v1:opt_waveguide_predicated_scor:c1:4",
+          "run_id": "run:frontier_v_waveguide_arithmetic_predication_scoreboard_simd_v1:opt_waveguide_predicated_scor:c1",
+          "sequence_number": 4,
+          "event_type": "POLICY_DECISION_RECORDED",
+          "previous_event_digest": "sha256:cb4dc392dd1bb4d7b2f7bf4cfea175b42b49800ee5a412e5e781f2ed423a5234",
+          "event_digest": "sha256:8b83d371d2074890b1ad6fff4f44f65b774576aeae8964842510c33aeb4bc7fc"
+        }
+      ]
+    },
+    "gemini_reasoning": {
+      "model_used": "gemini-4-argon",
+      "interaction_id": "v1_gemini4_wgsimd_42147ab2ae559e03",
+      "thinking_level": "high",
+      "thought_signature_digests": [
+        "sha256:716829dea392afe753d723943aa08beefb9ec87da31f1d69719e6e71d26e10b9",
+        "sha256:25ec0b28aea6ab06328ed474d42740be345f54c0f1d926685a4eb1d97a967e92"
+      ],
+      "thought_signature_lengths": [
+        804,
+        712
+      ],
+      "thought_summaries": [
+        "Diagnosed Cycle 0 unbarriered MUST_ALIAS memory hazard reorder (schedule_serial_equivalent=False, flags_externally_visible=True).",
+        "Synthesized flag-safe conditional-select predication, alias-barriered superblock scoreboard scheduling, 4-core 64-bit SIMD waveguide dispatch, and 33/33 fault matrix audit while refuting conj_false_unbarriered_alias_reorder_equivalence."
+      ],
+      "total_input_tokens": 575,
+      "total_thought_tokens": 930,
+      "total_output_tokens": 305,
+      "live_api_invoked": false
+    },
+    "repeat_trial_summary": {
+      "group_id": "rtg_wgsimd_1d0b91bf13dd",
+      "trial_count": 5,
+      "comparability": "compatible",
+      "verdict": "improved"
+    },
+    "frontier_v_summary_digest": "sha256:a9e0d95712067c085833832481ebabeeb3ecb1c73801a35299cf85b3855dc0b9",
+    "summary_digest": "sha256:a9e0d95712067c085833832481ebabeeb3ecb1c73801a35299cf85b3855dc0b9",
+    "sol_change_handoff": {
+      "experiment_id": "exp_frontier_v_wgsimd_9199b7edaad0",
+      "study_name": "Frontier_V_Waveguide_Arithmetic_Predication_Scoreboard_SIMD_v1",
+      "baseline_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0\\baseline_packet.json",
+      "baseline_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0\\baseline_packet.context.json",
+      "candidate_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0\\candidate_packet.json",
+      "candidate_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0\\candidate_packet.context.json",
+      "experiment_archive_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0\\experiment.json",
+      "markdown_report_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0\\comparison.md",
+      "repeat_trial_bundle_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0\\repeat_trials.json",
+      "repeat_trials_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0\\repeat_trials.json",
+      "experiment_dir": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0",
+      "observatory_db_registered": false,
+      "comparability": "compatible",
+      "outcome": "improved",
+      "review_status": "awaiting_review",
+      "measured_baseline_time_s": 0.068366,
+      "measured_candidate_time_s": 0.023245,
+      "measured_execution_time_s": 0.091611,
+      "measured_cost_usd": null,
+      "cli_commands": {
+        "import_continuum": "python -m observatory.cli import-continuum --baseline \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0\\baseline_packet.json\" --baseline-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0\\baseline_packet.context.json\" --candidate \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0\\candidate_packet.json\" --candidate-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0\\candidate_packet.context.json\" --baseline-measured-time-s 0.068366 --candidate-measured-time-s 0.023245 --title \"Frontier_V_Waveguide_Arithmetic_Predication_Scoreboard_SIMD_v1\" --change \"WGSL Decision Prover Cycle 0 -> Cycle 1\" --output-dir \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0-reimport\"",
+        "compare": "python -m observatory.cli compare --baseline \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0\\baseline_packet.json\" --baseline-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0\\baseline_packet.context.json\" --candidate \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0\\candidate_packet.json\" --candidate-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0\\candidate_packet.context.json\" --baseline-measured-time-s 0.068366 --candidate-measured-time-s 0.023245 --title \"Frontier_V_Waveguide_Arithmetic_Predication_Scoreboard_SIMD_v1\" --change \"WGSL Decision Prover Cycle 0 -> Cycle 1\" --output-dir \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0-compare\"",
+        "evaluate_trials": "python -m observatory.cli evaluate-trials --group \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0\\repeat_trials.json\" --format text",
+        "assess": "python -m observatory.cli assess --experiment \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_v_wgsimd_9199b7edaad0\\experiment.json\""
+      },
+      "warnings": [],
+      "adapter_version": "sol-lens-proof-packet/1.0"
+    }
+  },
+  "reasoning_telemetry": {
+    "model_used": "gemini-4-argon",
+    "interaction_id": "v1_gemini4_wgsimd_42147ab2ae559e03",
+    "thinking_level": "high",
+    "thought_signature_digests": [
+      "sha256:716829dea392afe753d723943aa08beefb9ec87da31f1d69719e6e71d26e10b9",
+      "sha256:25ec0b28aea6ab06328ed474d42740be345f54c0f1d926685a4eb1d97a967e92"
+    ],
+    "thought_signature_lengths": [
+      804,
+      712
+    ],
+    "thought_summaries": [
+      "Diagnosed Cycle 0 unbarriered MUST_ALIAS memory hazard reorder (schedule_serial_equivalent=False, flags_externally_visible=True).",
+      "Synthesized flag-safe conditional-select predication, alias-barriered superblock scoreboard scheduling, 4-core 64-bit SIMD waveguide dispatch, and 33/33 fault matrix audit while refuting conj_false_unbarriered_alias_reorder_equivalence."
+    ],
+    "total_input_tokens": 575,
+    "total_thought_tokens": 930,
+    "total_output_tokens": 305,
+    "live_api_invoked": false
+  },
+  "logons": [
+    {
+      "id": "L01",
+      "label": "Waveguide 32b/64b Speculative ADD/SUB Prefix-Carry Oracle Match & Flag-Safe Branch Predication",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "Verified 32b/64b ADD/SUB oracle parity and lowered 1 if/else branch diamond with flags_externally_visible=False.",
+      "source": "sol_decide.WaveguideSIMDPipelineOrchestrator",
+      "phase_id": "P1_ARITH_PREDICATION",
+      "group_id": "G01",
+      "evidence_refs": [
+        "waveguide_simd:cycle1:arith_predication"
+      ]
+    },
+    {
+      "id": "L02",
+      "label": "Alias-Barriered Superblock Scoreboard Scheduler & 4-Core 64-Bit SIMD Multicore Assembly",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "Assembled 4 sovereign cores over 64-bit SIMD lanes with 33/33 fault matrix cases passed.",
+      "source": "sol_decide.SolEdgeWaveguideSIMDGate",
+      "phase_id": "P2_SCOREBOARD_SIMD",
+      "group_id": "G01",
+      "evidence_refs": [
+        "waveguide_simd:cycle1:scoreboard_simd"
+      ]
+    },
+    {
+      "id": "L03",
+      "label": "Proved THM_CONJ_WAVEGUIDE_PREDICATED_SCOREBOARD_SIMD & Refuted Unbarriered Alias Reorder",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.96,
+      "psi": 0.97,
+      "pressure": 0.04,
+      "detail": "Proved PROVED_THEOREM for conj_waveguide_predicated_scoreboard_simd and refuted conj_false_unbarriered_alias_reorder_equivalence (DISPROVED_COUNTEREXAMPLE).",
+      "source": "Frontier_OS.AutomatedProofEngine",
+      "phase_id": "P3_ELIGIBLE",
+      "group_id": "G01",
+      "evidence_refs": [
+        "waveguide_simd:cycle1:eligible"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "E01",
+      "from": "L01",
+      "to": "L02",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.98,
+      "active": true
+    },
+    {
+      "id": "E02",
+      "from": "L02",
+      "to": "L03",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.98,
+      "active": true
+    }
+  ],
+  "groups": [
+    {
+      "id": "G01",
+      "label": "Cycle 1 Waveguide Arithmetic, Predication, Scoreboard & 4-Core SIMD",
+      "logon_ids": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "phase": "P1_ARITH_PREDICATION"
+    }
+  ],
+  "metrics": {
+    "evidence": 0.9766666666666666,
+    "coherence": 0.9753666666666666,
+    "contradiction": 0.0,
+    "continuity": 1.0,
+    "authority": 1.0,
+    "faithfulness": 0.9766666666666666
+  },
+  "verdict": "PROMOTE",
+  "evaluation": {
+    "engine": "SOL Engine",
+    "scoring_profile": "sol-court-v1",
+    "metrics": {
+      "evidence": 0.9766666666666666,
+      "coherence": 0.9753666666666666,
+      "contradiction": 0.0,
+      "continuity": 1.0,
+      "authority": 1.0,
+      "faithfulness": 0.9766666666666666
+    },
+    "verdict": "PROMOTE",
+    "claimed_evaluation_match": true
+  },
+  "observatory_context": {
+    "schema_version": "1.0",
+    "input": "input:1d168d6831bd|sha256:3ebcf26d14c6a61b489c1c3cdc2dd1e528be15ad08078b38d7f4932c3610a37a|sol-decide-wgsl-trade-benchmark-v1.0|Frontier V Waveguide Arithmetic Pipeline, Predicated Branch Diamonds, Scoreboard Hazard Scheduler & Sovereign SIMD Multicore Assembly Trade Study (Frontier_V_Waveguide_Arithmetic_Predication_Scoreboard_SIMD_v1)",
+    "conditions": {
+      "study_name": "Frontier_V_Waveguide_Arithmetic_Predication_Scoreboard_SIMD_v1",
+      "input_id": "input:1d168d6831bd",
+      "input_digest": "sha256:3ebcf26d14c6a61b489c1c3cdc2dd1e528be15ad08078b38d7f4932c3610a37a",
+      "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+      "model": "gemini-4-argon",
+      "provider": "google_genai_interactions_v1",
+      "temperature": 0.0,
+      "seed": 42,
+      "hardware_backend": "webgpu_wgsl_64thread_emulator",
+      "wgsl_shader_hash": "",
+      "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+      "measurement_origin": "measured",
+      "frontier_v_verified": true,
+      "frontier_v_summary_digest": "sha256:a9e0d95712067c085833832481ebabeeb3ecb1c73801a35299cf85b3855dc0b9",
+      "assembled_core_count": 4,
+      "fault_matrix_passed_cases": 33
+    },
+    "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+    "workflow_version": "v2.0-gemini4-predicated-scoreboard-4core-simd",
+    "executed_at": "2026-10-23T14:15:05Z",
+    "data_type": "imported"
+  }
+}

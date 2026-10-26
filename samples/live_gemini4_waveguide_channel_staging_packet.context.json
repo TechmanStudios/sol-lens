@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "input": "input:b3220f3c75fd|sha256:68a3846f42b417a84039eb53a172a3c07fc3680e08e91a80c54f2e50804db469|sol-decide-wgsl-trade-benchmark-v1.0|Frontier Y Waveguide Channel Optimization, Layout Compaction & Local Staging Trade Study (Frontier_Y_Waveguide_Channel_Layout_Local_Staging_v1)",
+  "conditions": {
+    "study_name": "Frontier_Y_Waveguide_Channel_Layout_Local_Staging_v1",
+    "input_id": "input:b3220f3c75fd",
+    "input_digest": "sha256:68a3846f42b417a84039eb53a172a3c07fc3680e08e91a80c54f2e50804db469",
+    "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+    "model": "gemini-4-argon",
+    "provider": "google_genai_interactions_v1",
+    "temperature": 0.0,
+    "seed": 42,
+    "hardware_backend": "webgpu_wgsl_64thread_emulator",
+    "wgsl_shader_hash": "",
+    "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+    "measurement_origin": "measured",
+    "frontier_y_verified": true,
+    "frontier_y_summary_digest": "sha256:f4469ad67423aa81d7ecc42c61b3e2e1f6634e90a4a797bcdd3639fbeafc2752",
+    "recognized_kernels_count": 5,
+    "noop_dry_run_events_count": 182
+  },
+  "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+  "workflow_version": "v2.0-gemini4-waveguide-channel-staging",
+  "executed_at": "2026-10-23T18:30:00Z",
+  "data_type": "imported"
+}

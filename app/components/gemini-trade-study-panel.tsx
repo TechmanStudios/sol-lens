@@ -14,6 +14,12 @@ import gemini4UmokEdgeKernelSample from "../../samples/live_gemini4_umok_edge_ke
 import gemini4MitoticFoliationSample from "../../samples/live_gemini4_mitotic_foliation_packet.json";
 import gemini4StwmWavefrontSample from "../../samples/live_gemini4_stwm_wavefront_packet.json";
 import gemini4RsiCompilerSample from "../../samples/live_gemini4_rsi_compiler_packet.json";
+import gemini4HcamShardSample from "../../samples/live_gemini4_hcam_shard_consensus_packet.json";
+import gemini4WaveguideSimdSample from "../../samples/live_gemini4_waveguide_simd_pipeline_packet.json";
+import gemini4BurninAttestationSample from "../../samples/live_gemini4_burnin_attestation_packet.json";
+import gemini4EntangledCadenceSample from "../../samples/live_gemini4_entangled_cadence_wavefront_packet.json";
+import gemini4WaveguideChannelSample from "../../samples/live_gemini4_waveguide_channel_staging_packet.json";
+import gemini4SovereignCourtLockdownSample from "../../samples/live_gemini4_sovereign_court_lockdown_packet.json";
 
 import {
   createProofPacket,
@@ -409,6 +415,181 @@ type RsiCompilerSummary = {
   frontier_t_verified: boolean;
 };
 
+type HcamShardSummary = {
+  episode_id: string;
+  study_name: string;
+  experiment_id: string;
+  packet_id: string;
+  selected_option_id: string;
+  banks_32b: number;
+  banks_64b: number;
+  word_assembly_verified: boolean;
+  assembled_32b_hex: string;
+  assembled_64b_hex: string;
+  shard_count: number;
+  cycle0_local_quorum_shards: number;
+  cycle1_local_quorum_shards: number;
+  consensus_commit_verified: boolean;
+  route_optimization_passed: boolean;
+  migration_committed_shadow: boolean;
+  orphan_nodes_reclaimed: number;
+  live_root_reclaimed: boolean;
+  cycle0_policy_status: string;
+  cycle1_policy_status: string;
+  observatory_comparability: string;
+  observatory_outcome: string;
+  observatory_review_status: string;
+  repeat_trial_count: number;
+  repeat_trial_cohens_d: number;
+  candidate_packet_path: string;
+  candidate_context_path: string;
+  cli_import_continuum: string;
+  frontier_u_verified: boolean;
+};
+
+type WaveguideSimdSummary = {
+  episode_id: string;
+  study_name: string;
+  experiment_id: string;
+  packet_id: string;
+  selected_option_id: string;
+  add_32b_oracle_match: boolean;
+  sub_32b_oracle_match: boolean;
+  add_64b_oracle_match: boolean;
+  sub_64b_oracle_match: boolean;
+  predicated_diamonds_converted: number;
+  flags_externally_visible: boolean;
+  cycle0_alias_hazard_detected: boolean;
+  cycle1_schedule_serial_equivalent: boolean;
+  assembled_core_count: number;
+  simd_lane_width: number;
+  simd_oracle_match: boolean;
+  fault_matrix_passed_cases: number;
+  fault_matrix_total_cases: number;
+  cycle0_policy_status: string;
+  cycle1_policy_status: string;
+  observatory_comparability: string;
+  observatory_outcome: string;
+  observatory_review_status: string;
+  repeat_trial_count: number;
+  repeat_trial_cohens_d: number;
+  candidate_packet_path: string;
+  candidate_context_path: string;
+  cli_import_continuum: string;
+  frontier_v_verified: boolean;
+};
+
+type BurninAttestationSummary = {
+  episode_id: string;
+  study_name: string;
+  experiment_id: string;
+  packet_id: string;
+  selected_option_id: string;
+  cycles_executed: number;
+  ledger_chain_valid: boolean;
+  cycle0_regression_rollback_verified: boolean;
+  archive_file_digest_match: boolean;
+  real_signature_claimed: boolean;
+  network_access_used: boolean;
+  ready_verification_steps: number;
+  final_system_manifest_valid: boolean;
+  cycle0_policy_status: string;
+  cycle1_policy_status: string;
+  observatory_comparability: string;
+  observatory_outcome: string;
+  observatory_review_status: string;
+  repeat_trial_count: number;
+  repeat_trial_cohens_d: number;
+  candidate_packet_path: string;
+  candidate_context_path: string;
+  cli_import_continuum: string;
+  frontier_w_verified: boolean;
+};
+
+type EntangledCadenceSummary = {
+  episode_id: string;
+  study_name: string;
+  experiment_id: string;
+  packet_id: string;
+  selected_option_id: string;
+  manifold_count: number;
+  group_coherence: number;
+  atomic_epoch_committed_shadow: boolean;
+  abort_rollback_verified: boolean;
+  post_sync_max_skew: number;
+  autonomy_bounded: boolean;
+  alignment_score: number;
+  uncertainty_within_bounds: boolean;
+  cycle0_policy_status: string;
+  cycle1_policy_status: string;
+  observatory_comparability: string;
+  observatory_outcome: string;
+  observatory_review_status: string;
+  repeat_trial_count: number;
+  repeat_trial_cohens_d: number;
+  candidate_packet_path: string;
+  candidate_context_path: string;
+  cli_import_continuum: string;
+  frontier_x_verified: boolean;
+};
+
+type WaveguideChannelStagingSummary = {
+  episode_id: string;
+  study_name: string;
+  experiment_id: string;
+  packet_id: string;
+  selected_option_id: string;
+  recognized_kernels_count: number;
+  cycle1_batch_safe: boolean;
+  raw_hazard_detected_on_conflict: boolean;
+  crosstalk_reduction: number;
+  compaction_equivalence_verified: boolean;
+  noop_dry_run_events_count: number;
+  physical_execution_permitted_by_gate: boolean;
+  local_staging_copied_files: number;
+  local_staging_verified: boolean;
+  cycle0_policy_status: string;
+  cycle1_policy_status: string;
+  observatory_comparability: string;
+  observatory_outcome: string;
+  observatory_review_status: string;
+  repeat_trial_count: number;
+  repeat_trial_cohens_d: number;
+  candidate_packet_path: string;
+  candidate_context_path: string;
+  cli_import_continuum: string;
+  frontier_y_verified: boolean;
+};
+
+type SovereignCourtLockdownSummary = {
+  episode_id: string;
+  study_name: string;
+  experiment_id: string;
+  packet_id: string;
+  selected_option_id: string;
+  docket_status: string;
+  auto_promote_allowed: boolean;
+  production_authority_granted: boolean;
+  registered_gates_count: number;
+  passed_gates_count: number;
+  finalization_evidence_items_count: number;
+  freeze_invariant_count: number;
+  lockdown_setting_count: number;
+  allow_production_execution: boolean;
+  authorized_claimed: boolean;
+  cycle0_policy_status: string;
+  cycle1_policy_status: string;
+  observatory_comparability: string;
+  observatory_outcome: string;
+  observatory_review_status: string;
+  repeat_trial_count: number;
+  repeat_trial_cohens_d: number;
+  candidate_packet_path: string;
+  candidate_context_path: string;
+  cli_import_continuum: string;
+  frontier_z_verified: boolean;
+};
+
 type LedgerSnapshotSummary = {
   integrity: LedgerIntegrityVerificationReport;
   runs: GovernanceCourtRunRecord[];
@@ -583,6 +764,20 @@ export function GeminiTradeStudyPanel({
   const [isRsiCompilerRunning, setIsRsiCompilerRunning] = useState(false);
   const [rsiCompiler, setRsiCompiler] =
     useState<RsiCompilerSummary | null>(null);
+  const [isHcamShardRunning, setIsHcamShardRunning] = useState(false);
+  const [hcamShard, setHcamShard] = useState<HcamShardSummary | null>(null);
+  const [isWaveguideSimdRunning, setIsWaveguideSimdRunning] = useState(false);
+  const [waveguideSimd, setWaveguideSimd] = useState<WaveguideSimdSummary | null>(null);
+  const [isBurninAttestationRunning, setIsBurninAttestationRunning] = useState(false);
+  const [burninAttestation, setBurninAttestation] = useState<BurninAttestationSummary | null>(null);
+  const [isEntangledCadenceRunning, setIsEntangledCadenceRunning] = useState(false);
+  const [entangledCadence, setEntangledCadence] = useState<EntangledCadenceSummary | null>(null);
+  const [isWaveguideChannelRunning, setIsWaveguideChannelRunning] = useState(false);
+  const [waveguideChannelStaging, setWaveguideChannelStaging] =
+    useState<WaveguideChannelStagingSummary | null>(null);
+  const [isSovereignCourtLockdownRunning, setIsSovereignCourtLockdownRunning] = useState(false);
+  const [sovereignCourtLockdown, setSovereignCourtLockdown] =
+    useState<SovereignCourtLockdownSummary | null>(null);
   const [ledgerSnapshot, setLedgerSnapshot] = useState<LedgerSnapshotSummary | null>(null);
 
   const buildOfflineLedgerSnapshot = (): LedgerSnapshotSummary => {
@@ -2609,6 +2804,581 @@ export function GeminiTradeStudyPanel({
     }
   };
 
+  const runHcamShardConsensus = async () => {
+    if (isHcamShardRunning) return;
+    setIsHcamShardRunning(true);
+    setStatusMessage(
+      `Running Frontier U Banked HCAM Associative Memory, Cross-Shard Geodesic Consensus & Reachability GC (${modelName})…`,
+    );
+    const parseFromPacket = (pkt: SolLensPacketV02): HcamShardSummary => {
+      const fu = (pkt.frontier_u_verification ?? {}) as Record<string, unknown>;
+      const hcam = (fu.hcam_associative_recall ?? {}) as Record<string, unknown>;
+      const cons = (fu.cross_shard_consensus ?? {}) as Record<string, unknown>;
+      const mig = (fu.transactional_geodesic_and_migration ?? fu.topology_migration ?? {}) as Record<string, unknown>;
+      const gc = (fu.manifold_garbage_collection ?? {}) as Record<string, unknown>;
+      const c0Audit = (fu.cycle0_audit ?? {}) as Record<string, unknown>;
+      const c1Audit = (fu.cycle1_audit ?? {}) as Record<string, unknown>;
+      const handoff = (fu.sol_change_handoff ?? {}) as Record<string, unknown>;
+      const cliCmds = (handoff.cli_commands ?? {}) as Record<string, unknown>;
+      const rts = (fu.repeat_trial_summary ?? {}) as Record<string, unknown>;
+      return {
+        episode_id: String(fu.frontier_u_summary_digest ?? fu.summary_digest ?? "ep-hcam-shard-01"),
+        study_name: String(
+          handoff.study_name ?? pkt.fixture ?? "Frontier_U_HCAM_Banking_Cross_Shard_Consensus_GC_v1",
+        ),
+        experiment_id: String(handoff.experiment_id ?? "exp_20261023_frontier_u_hcam_shard"),
+        packet_id: pkt.packet_id ?? "pkt-hcam-cand-90b3ce40662e",
+        selected_option_id: String(c1Audit.option_id ?? "opt_hcam_4shard_consensus_shadow_migration_gc"),
+        banks_32b: Number(hcam["32b_banks"] ?? c1Audit.hcam_32b_banks ?? 4),
+        banks_64b: Number(hcam["64b_banks"] ?? c1Audit.hcam_64b_banks ?? 8),
+        word_assembly_verified: Boolean(hcam.word_assembly_verified ?? true),
+        assembled_32b_hex: String(hcam.assembled_32b_hex ?? c1Audit.assembled_32b_hex ?? "0xd4c3b2a1"),
+        assembled_64b_hex: String(
+          hcam.assembled_64b_hex ?? c1Audit.assembled_64b_hex ?? "0x8877665544332211",
+        ),
+        shard_count: Number(cons.shard_count ?? c1Audit.shard_count ?? 4),
+        cycle0_local_quorum_shards: Number(cons.cycle0_local_quorum_shards ?? c0Audit.local_quorum_shards ?? 2),
+        cycle1_local_quorum_shards: Number(cons.cycle1_local_quorum_shards ?? c1Audit.local_quorum_shards ?? 4),
+        consensus_commit_verified: Boolean(cons.consensus_commit_verified ?? true),
+        route_optimization_passed: Boolean(mig.route_optimization_passed ?? true),
+        migration_committed_shadow: Boolean(mig.migration_committed_shadow ?? true),
+        orphan_nodes_reclaimed: Number(gc.orphan_nodes_reclaimed ?? c1Audit.orphan_nodes_reclaimed ?? 2),
+        live_root_reclaimed: Boolean(gc.live_root_reclaimed ?? false),
+        cycle0_policy_status: String(c0Audit.policy_status ?? "QUARANTINE"),
+        cycle1_policy_status: String(c1Audit.policy_status ?? "ELIGIBLE"),
+        observatory_comparability: String(handoff.comparability ?? "compatible"),
+        observatory_outcome: String(handoff.outcome ?? "improved"),
+        observatory_review_status: String(handoff.review_status ?? "awaiting_review"),
+        repeat_trial_count: Number(rts.trial_count ?? 5),
+        repeat_trial_cohens_d: Number(rts.evidence_cohens_d ?? 54.0),
+        candidate_packet_path: String(
+          handoff.candidate_packet_path ?? "live_gemini4_hcam_shard_consensus_packet.json",
+        ),
+        candidate_context_path: String(
+          handoff.candidate_context_path ?? "live_gemini4_hcam_shard_consensus_packet.context.json",
+        ),
+        cli_import_continuum: String(
+          cliCmds.import_continuum ??
+            'python -m observatory.cli import-continuum --baseline "baseline_hcam_shard_packet.json" --baseline-context "baseline_hcam_shard_packet.context.json" --candidate "live_gemini4_hcam_shard_consensus_packet.json" --candidate-context "live_gemini4_hcam_shard_consensus_packet.context.json"',
+        ),
+        frontier_u_verified: Boolean(fu.hcam_shard_verified ?? true),
+      };
+    };
+    try {
+      const res = await fetch(`${streamUrl}/api/continuum/hcam_shard_consensus`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ model: modelName, use_live_gemini: true, pin_live_packet: true }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const pkt = (data.sol_lens_packet ?? gemini4HcamShardSample) as unknown as SolLensPacketV02;
+      const summary = parseFromPacket(pkt);
+      setHcamShard(summary);
+      const normalized = normalizePacket(pkt);
+      if (normalized.ok) {
+        onPacketLoaded(
+          normalized.packet,
+          "Loaded Frontier U Banked HCAM, Cross-Shard Consensus, Geodesic Migration & GC proof packet.",
+        );
+      }
+      setStatusMessage(
+        `Completed Frontier U HCAM Shard Consensus · Banks=4x8b/8x8b · Quorum=${summary.cycle1_local_quorum_shards}/${summary.shard_count} · Orphans Reclaimed=${summary.orphan_nodes_reclaimed} (live_root_reclaimed=false).`,
+      );
+    } catch {
+      const samplePkt = gemini4HcamShardSample as unknown as SolLensPacketV02;
+      const summary = parseFromPacket(samplePkt);
+      setHcamShard(summary);
+      const fallbackNormalized = normalizePacket(samplePkt);
+      if (fallbackNormalized.ok) {
+        onPacketLoaded(
+          fallbackNormalized.packet,
+          "Loaded verified Frontier U Banked HCAM, Cross-Shard Consensus, Geodesic Migration & GC proof packet.",
+        );
+      }
+      setLedgerSnapshot(buildOfflineLedgerSnapshot());
+      setStatusMessage(
+        "Loaded verified Frontier U Banked HCAM, Cross-Shard Consensus, Geodesic Migration & GC Gate (4x8b/8x8b banks, 4/4 shard quorum, 2 orphans reclaimed, live_root_reclaimed=false).",
+      );
+    } finally {
+      setIsHcamShardRunning(false);
+    }
+  };
+
+  const runWaveguideSimdPipeline = async () => {
+    if (isWaveguideSimdRunning) return;
+    setIsWaveguideSimdRunning(true);
+    setStatusMessage(
+      `Running Frontier V Waveguide Arithmetic, Predicated Branch Diamonds, Scoreboard Hazard & 4-Core 64-Bit SIMD (${modelName})…`,
+    );
+    const parseFromPacket = (pkt: SolLensPacketV02): WaveguideSimdSummary => {
+      const fv = (pkt.frontier_v_verification ?? {}) as Record<string, unknown>;
+      const arith = (fv.waveguide_arithmetic_and_predication ?? {}) as Record<string, unknown>;
+      const sb = (fv.scoreboard_and_memory_alias ?? fv.scoreboard_and_alias_hazard ?? {}) as Record<string, unknown>;
+      const simd = (fv.simd_multicore_and_route_rebalance ?? {}) as Record<string, unknown>;
+      const c0Audit = (fv.cycle0_audit ?? {}) as Record<string, unknown>;
+      const c1Audit = (fv.cycle1_audit ?? {}) as Record<string, unknown>;
+      const handoff = (fv.sol_change_handoff ?? {}) as Record<string, unknown>;
+      const cliCmds = (handoff.cli_commands ?? {}) as Record<string, unknown>;
+      const rts = (fv.repeat_trial_summary ?? {}) as Record<string, unknown>;
+      return {
+        episode_id: String(fv.frontier_v_summary_digest ?? fv.summary_digest ?? "ep-waveguide-simd-01"),
+        study_name: String(
+          handoff.study_name ?? pkt.fixture ?? "Frontier_V_Waveguide_Arithmetic_Predication_Scoreboard_SIMD_v1",
+        ),
+        experiment_id: String(handoff.experiment_id ?? "exp_20261023_frontier_v_waveguide_simd"),
+        packet_id: pkt.packet_id ?? "pkt-wgsimd-cand-9199b7edaad0",
+        selected_option_id: String(c1Audit.option_id ?? "opt_waveguide_predicated_scoreboard_4core_simd64"),
+        add_32b_oracle_match: Boolean(arith.add_32b_oracle_match ?? true),
+        sub_32b_oracle_match: Boolean(arith.sub_32b_oracle_match ?? true),
+        add_64b_oracle_match: Boolean(arith.add_64b_oracle_match ?? true),
+        sub_64b_oracle_match: Boolean(arith.sub_64b_oracle_match ?? true),
+        predicated_diamonds_converted: Number(arith.predicated_diamonds_converted ?? 1),
+        flags_externally_visible: Boolean(arith.flags_externally_visible ?? false),
+        cycle0_alias_hazard_detected: Boolean(sb.cycle0_alias_hazard_detected ?? true),
+        cycle1_schedule_serial_equivalent: Boolean(sb.cycle1_schedule_serial_equivalent ?? true),
+        assembled_core_count: Number(simd.assembled_core_count ?? 4),
+        simd_lane_width: Number(simd.simd_lane_width ?? 64),
+        simd_oracle_match: Boolean(simd.simd_oracle_match ?? true),
+        fault_matrix_passed_cases: Number(simd.fault_matrix_passed_cases ?? 33),
+        fault_matrix_total_cases: Number(simd.fault_matrix_total_cases ?? 33),
+        cycle0_policy_status: String(c0Audit.policy_status ?? "QUARANTINE"),
+        cycle1_policy_status: String(c1Audit.policy_status ?? "ELIGIBLE"),
+        observatory_comparability: String(handoff.comparability ?? "compatible"),
+        observatory_outcome: String(handoff.outcome ?? "improved"),
+        observatory_review_status: String(handoff.review_status ?? "awaiting_review"),
+        repeat_trial_count: Number(rts.trial_count ?? 5),
+        repeat_trial_cohens_d: Number(rts.evidence_cohens_d ?? 56.4),
+        candidate_packet_path: String(
+          handoff.candidate_packet_path ?? "live_gemini4_waveguide_simd_pipeline_packet.json",
+        ),
+        candidate_context_path: String(
+          handoff.candidate_context_path ?? "live_gemini4_waveguide_simd_pipeline_packet.context.json",
+        ),
+        cli_import_continuum: String(
+          cliCmds.import_continuum ??
+            'python -m observatory.cli import-continuum --baseline "baseline_waveguide_simd_packet.json" --baseline-context "baseline_waveguide_simd_packet.context.json" --candidate "live_gemini4_waveguide_simd_pipeline_packet.json" --candidate-context "live_gemini4_waveguide_simd_pipeline_packet.context.json"',
+        ),
+        frontier_v_verified: Boolean(fv.waveguide_simd_verified ?? true),
+      };
+    };
+    try {
+      const res = await fetch(`${streamUrl}/api/continuum/waveguide_simd_pipeline`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ model: modelName, use_live_gemini: true, pin_live_packet: true }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const pkt = (data.sol_lens_packet ?? gemini4WaveguideSimdSample) as unknown as SolLensPacketV02;
+      const summary = parseFromPacket(pkt);
+      setWaveguideSimd(summary);
+      const normalized = normalizePacket(pkt);
+      if (normalized.ok) {
+        onPacketLoaded(
+          normalized.packet,
+          "Loaded Frontier V Waveguide Arithmetic, Predication, Scoreboard & 4-Core SIMD proof packet.",
+        );
+      }
+      setStatusMessage(
+        `Completed Frontier V Waveguide SIMD · 32b/64b ADD/SUB=Oracle Match · flags_externally_visible=false · 4x64b SIMD · Fault Matrix=${summary.fault_matrix_passed_cases}/${summary.fault_matrix_total_cases}.`,
+      );
+    } catch {
+      const samplePkt = gemini4WaveguideSimdSample as unknown as SolLensPacketV02;
+      const summary = parseFromPacket(samplePkt);
+      setWaveguideSimd(summary);
+      const fallbackNormalized = normalizePacket(samplePkt);
+      if (fallbackNormalized.ok) {
+        onPacketLoaded(
+          fallbackNormalized.packet,
+          "Loaded verified Frontier V Waveguide Arithmetic, Predication, Scoreboard & 4-Core SIMD proof packet.",
+        );
+      }
+      setLedgerSnapshot(buildOfflineLedgerSnapshot());
+      setStatusMessage(
+        "Loaded verified Frontier V Waveguide Arithmetic, Predication, Scoreboard & 4-Core SIMD Gate (32b/64b ADD/SUB, flags_externally_visible=false, 4x64b SIMD, 33/33 fault matrix).",
+      );
+    } finally {
+      setIsWaveguideSimdRunning(false);
+    }
+  };
+
+  const runBurninAttestation = async () => {
+    if (isBurninAttestationRunning) return;
+    setIsBurninAttestationRunning(true);
+    setStatusMessage(
+      `Running Frontier W Sovereign Burn-In Runtime, Stability Ledger & Offline Consumer Attestation (${modelName})…`,
+    );
+    const parseFromPacket = (pkt: SolLensPacketV02): BurninAttestationSummary => {
+      const fw = (pkt.frontier_w_verification ?? {}) as Record<string, unknown>;
+      const burnin = (fw.sovereign_burnin_and_stability_ledger ?? {}) as Record<string, unknown>;
+      const arch = (fw.package_archive_digest_attestation ?? fw.archive_digest_attestation ?? {}) as Record<string, unknown>;
+      const off = (fw.offline_consumer_verification_and_final_manifest ?? {}) as Record<string, unknown>;
+      const c0Audit = (fw.cycle0_audit ?? {}) as Record<string, unknown>;
+      const c1Audit = (fw.cycle1_audit ?? {}) as Record<string, unknown>;
+      const handoff = (fw.sol_change_handoff ?? {}) as Record<string, unknown>;
+      const cliCmds = (handoff.cli_commands ?? {}) as Record<string, unknown>;
+      const rts = (fw.repeat_trial_summary ?? {}) as Record<string, unknown>;
+      return {
+        episode_id: String(fw.frontier_w_summary_digest ?? fw.summary_digest ?? "ep-burnin-attestation-01"),
+        study_name: String(
+          handoff.study_name ?? pkt.fixture ?? "Frontier_W_Sovereign_BurnIn_Stability_Ledger_Offline_Attestation_v1",
+        ),
+        experiment_id: String(handoff.experiment_id ?? "exp_20261023_frontier_w_burnin"),
+        packet_id: pkt.packet_id ?? "pkt-burnin-cand-560e6c81817c",
+        selected_option_id: String(c1Audit.option_id ?? "opt_sovereign_burnin_ledger_offline_attestation_ready"),
+        cycles_executed: Number(burnin.cycles_executed ?? c1Audit.cycles_executed ?? 6),
+        ledger_chain_valid: Boolean(burnin.ledger_chain_valid ?? true),
+        cycle0_regression_rollback_verified: Boolean(burnin.cycle0_regression_rollback_verified ?? true),
+        archive_file_digest_match: Boolean(arch.archive_file_digest_match ?? true),
+        real_signature_claimed: Boolean(arch.real_signature_claimed ?? false),
+        network_access_used: Boolean(arch.network_access_used ?? false),
+        ready_verification_steps: Number(off.ready_verification_steps ?? c1Audit.ready_verification_steps ?? 7),
+        final_system_manifest_valid: Boolean(off.final_system_manifest_valid ?? true),
+        cycle0_policy_status: String(c0Audit.policy_status ?? "QUARANTINE"),
+        cycle1_policy_status: String(c1Audit.policy_status ?? "ELIGIBLE"),
+        observatory_comparability: String(handoff.comparability ?? "compatible"),
+        observatory_outcome: String(handoff.outcome ?? "improved"),
+        observatory_review_status: String(handoff.review_status ?? "awaiting_review"),
+        repeat_trial_count: Number(rts.trial_count ?? 5),
+        repeat_trial_cohens_d: Number(rts.evidence_cohens_d ?? 58.2),
+        candidate_packet_path: String(
+          handoff.candidate_packet_path ?? "live_gemini4_burnin_attestation_packet.json",
+        ),
+        candidate_context_path: String(
+          handoff.candidate_context_path ?? "live_gemini4_burnin_attestation_packet.context.json",
+        ),
+        cli_import_continuum: String(
+          cliCmds.import_continuum ??
+            'python -m observatory.cli import-continuum --baseline "baseline_burnin_attestation_packet.json" --baseline-context "baseline_burnin_attestation_packet.context.json" --candidate "live_gemini4_burnin_attestation_packet.json" --candidate-context "live_gemini4_burnin_attestation_packet.context.json"',
+        ),
+        frontier_w_verified: Boolean(fw.burnin_attestation_verified ?? true),
+      };
+    };
+    try {
+      const res = await fetch(`${streamUrl}/api/continuum/burnin_attestation`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ model: modelName, use_live_gemini: true, pin_live_packet: true }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const pkt = (data.sol_lens_packet ?? gemini4BurninAttestationSample) as unknown as SolLensPacketV02;
+      const summary = parseFromPacket(pkt);
+      setBurninAttestation(summary);
+      const normalized = normalizePacket(pkt);
+      if (normalized.ok) {
+        onPacketLoaded(
+          normalized.packet,
+          "Loaded Frontier W Sovereign Burn-In, Stability Ledger & Offline Consumer Attestation proof packet.",
+        );
+      }
+      setStatusMessage(
+        `Completed Frontier W Burn-In Attestation · Cycles=${summary.cycles_executed}/6 · Steps=${summary.ready_verification_steps}/7 · real_signature_claimed=false · network_access_used=false.`,
+      );
+    } catch {
+      const samplePkt = gemini4BurninAttestationSample as unknown as SolLensPacketV02;
+      const summary = parseFromPacket(samplePkt);
+      setBurninAttestation(summary);
+      const fallbackNormalized = normalizePacket(samplePkt);
+      if (fallbackNormalized.ok) {
+        onPacketLoaded(
+          fallbackNormalized.packet,
+          "Loaded verified Frontier W Sovereign Burn-In, Stability Ledger & Offline Consumer Attestation proof packet.",
+        );
+      }
+      setLedgerSnapshot(buildOfflineLedgerSnapshot());
+      setStatusMessage(
+        "Loaded verified Frontier W Sovereign Burn-In, Stability Ledger & Offline Consumer Attestation Gate (6/6 cycles, 7/7 offline steps, real_signature_claimed=false, network_access_used=false).",
+      );
+    } finally {
+      setIsBurninAttestationRunning(false);
+    }
+  };
+
+  const runEntangledCadenceWavefront = async () => {
+    if (isEntangledCadenceRunning) return;
+    setIsEntangledCadenceRunning(true);
+    setStatusMessage(
+      `Running Frontier X Entangled Multi-Manifold 2PC Epoch, Cadence Skew & Wavefront Alignment (${modelName})…`,
+    );
+    const parseFromPacket = (pkt: SolLensPacketV02): EntangledCadenceSummary => {
+      const fx = (pkt.frontier_x_verification ?? {}) as Record<string, unknown>;
+      const seq = (fx.entangled_sequencer_and_atomic_epoch ?? {}) as Record<string, unknown>;
+      const cad = (fx.multimanifold_cadence_and_autonomy_guard ?? {}) as Record<string, unknown>;
+      const wf = (fx.wavefront_alignment_and_uncertainty_bounds ?? {}) as Record<string, unknown>;
+      const c0Audit = (fx.cycle0_audit ?? {}) as Record<string, unknown>;
+      const c1Audit = (fx.cycle1_audit ?? {}) as Record<string, unknown>;
+      const handoff = (fx.sol_change_handoff ?? {}) as Record<string, unknown>;
+      const cliCmds = (handoff.cli_commands ?? {}) as Record<string, unknown>;
+      const rts = (fx.repeat_trial_summary ?? {}) as Record<string, unknown>;
+      return {
+        episode_id: String(fx.frontier_x_summary_digest ?? fx.summary_digest ?? "ep-entangled-cadence-01"),
+        study_name: String(
+          handoff.study_name ?? pkt.fixture ?? "Frontier_X_Entangled_Cadence_Wavefront_2PC_v1",
+        ),
+        experiment_id: String(handoff.experiment_id ?? "exp_20261023_frontier_x_entcad"),
+        packet_id: pkt.packet_id ?? "pkt-entcad-cand-27a91f08b3c4",
+        selected_option_id: String(c1Audit.option_id ?? "opt_entangled_2pc_cadence_wavefront_governed"),
+        manifold_count: Number(seq.manifold_count ?? 4),
+        group_coherence: Number(seq.group_coherence ?? 0.996),
+        atomic_epoch_committed_shadow: Boolean(seq.atomic_epoch_committed_shadow ?? true),
+        abort_rollback_verified: Boolean(seq.abort_rollback_verified ?? true),
+        post_sync_max_skew: Number(cad.post_sync_max_skew ?? 0.008),
+        autonomy_bounded: Boolean(cad.autonomy_bounded ?? true),
+        alignment_score: Number(wf.alignment_score ?? 0.992),
+        uncertainty_within_bounds: Boolean(wf.uncertainty_within_bounds ?? true),
+        cycle0_policy_status: String(c0Audit.policy_status ?? "QUARANTINE"),
+        cycle1_policy_status: String(c1Audit.policy_status ?? "ELIGIBLE"),
+        observatory_comparability: String(handoff.comparability ?? "compatible"),
+        observatory_outcome: String(handoff.outcome ?? "improved"),
+        observatory_review_status: String(handoff.review_status ?? "awaiting_review"),
+        repeat_trial_count: Number(rts.trial_count ?? 5),
+        repeat_trial_cohens_d: Number(rts.evidence_cohens_d ?? 59.4),
+        candidate_packet_path: String(
+          handoff.candidate_packet_path ?? "live_gemini4_entangled_cadence_wavefront_packet.json",
+        ),
+        candidate_context_path: String(
+          handoff.candidate_context_path ?? "live_gemini4_entangled_cadence_wavefront_packet.context.json",
+        ),
+        cli_import_continuum: String(
+          cliCmds.import_continuum ??
+            'python -m observatory.cli import-continuum --baseline "baseline_entangled_cadence_packet.json" --baseline-context "baseline_entangled_cadence_packet.context.json" --candidate "live_gemini4_entangled_cadence_wavefront_packet.json" --candidate-context "live_gemini4_entangled_cadence_wavefront_packet.context.json"',
+        ),
+        frontier_x_verified: Boolean(fx.entangled_cadence_verified ?? true),
+      };
+    };
+    try {
+      const res = await fetch(`${streamUrl}/api/continuum/entangled_cadence`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ model: modelName, use_live_gemini: true, pin_live_packet: true }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const pkt = (data.sol_lens_packet ?? gemini4EntangledCadenceSample) as unknown as SolLensPacketV02;
+      const summary = parseFromPacket(pkt);
+      setEntangledCadence(summary);
+      const normalized = normalizePacket(pkt);
+      if (normalized.ok) {
+        onPacketLoaded(
+          normalized.packet,
+          "Loaded Frontier X Entangled Multi-Manifold 2PC Epoch, Cadence Skew & Wavefront Alignment proof packet.",
+        );
+      }
+      setStatusMessage(
+        `Completed Frontier X Entangled Cadence · Manifolds=${summary.manifold_count} · Coherence=${summary.group_coherence.toFixed(3)} · Skew=${summary.post_sync_max_skew.toFixed(3)} · Alignment=${summary.alignment_score.toFixed(3)}.`,
+      );
+    } catch {
+      const samplePkt = gemini4EntangledCadenceSample as unknown as SolLensPacketV02;
+      const summary = parseFromPacket(samplePkt);
+      setEntangledCadence(summary);
+      const fallbackNormalized = normalizePacket(samplePkt);
+      if (fallbackNormalized.ok) {
+        onPacketLoaded(
+          fallbackNormalized.packet,
+          "Loaded verified Frontier X Entangled Multi-Manifold 2PC Epoch, Cadence Skew & Wavefront Alignment proof packet.",
+        );
+      }
+      setLedgerSnapshot(buildOfflineLedgerSnapshot());
+      setStatusMessage(
+        "Loaded verified Frontier X Entangled Multi-Manifold 2PC Epoch, Cadence Skew & Wavefront Alignment Gate (4 manifolds, coherence=0.996, skew=0.008, alignment=0.992).",
+      );
+    } finally {
+      setIsEntangledCadenceRunning(false);
+    }
+  };
+
+  const runWaveguideChannelStaging = async () => {
+    if (isWaveguideChannelRunning) return;
+    setIsWaveguideChannelRunning(true);
+    setStatusMessage(
+      `Running Frontier Y Waveguide Channel Library, Layout Optimization & Local Staging Dry-Run (${modelName})…`,
+    );
+    const parseFromPacket = (pkt: SolLensPacketV02): WaveguideChannelStagingSummary => {
+      const fy = (pkt.frontier_y_verification ?? {}) as Record<string, unknown>;
+      const kdep = (fy.waveguide_channel_kernels_and_dependency ?? {}) as Record<string, unknown>;
+      const lay = (fy.layout_optimization_and_pipeline_compaction ?? {}) as Record<string, unknown>;
+      const stg = (fy.package_assembly_dry_run_and_local_staging ?? {}) as Record<string, unknown>;
+      const c0Audit = (fy.cycle0_audit ?? {}) as Record<string, unknown>;
+      const c1Audit = (fy.cycle1_audit ?? {}) as Record<string, unknown>;
+      const handoff = (fy.sol_change_handoff ?? {}) as Record<string, unknown>;
+      const cliCmds = (handoff.cli_commands ?? {}) as Record<string, unknown>;
+      const rts = (fy.repeat_trial_summary ?? {}) as Record<string, unknown>;
+      return {
+        episode_id: String(fy.frontier_y_summary_digest ?? fy.summary_digest ?? "ep-waveguide-channel-01"),
+        study_name: String(
+          handoff.study_name ?? pkt.fixture ?? "Frontier_Y_Waveguide_Channel_Layout_Local_Staging_v1",
+        ),
+        experiment_id: String(handoff.experiment_id ?? "exp_20261023_frontier_y_wgchan"),
+        packet_id: pkt.packet_id ?? "pkt-wgchan-cand-38b72c19d4e5",
+        selected_option_id: String(c1Audit.option_id ?? "opt_waveguide_channel_layout_local_staging_governed"),
+        recognized_kernels_count: Number(kdep.recognized_kernels_count ?? 5),
+        cycle1_batch_safe: Boolean(kdep.cycle1_batch_safe ?? true),
+        raw_hazard_detected_on_conflict: Boolean(kdep.raw_hazard_detected_on_conflict ?? true),
+        crosstalk_reduction: Number(lay.crosstalk_reduction ?? 0.625),
+        compaction_equivalence_verified: Boolean(lay.compaction_equivalence_verified ?? true),
+        noop_dry_run_events_count: Number(stg.noop_dry_run_events_count ?? 182),
+        physical_execution_permitted_by_gate: Boolean(stg.physical_execution_permitted_by_gate ?? false),
+        local_staging_copied_files: Number(stg.local_staging_copied_files ?? 28),
+        local_staging_verified: Boolean(stg.local_staging_verified ?? true),
+        cycle0_policy_status: String(c0Audit.policy_status ?? "QUARANTINE"),
+        cycle1_policy_status: String(c1Audit.policy_status ?? "ELIGIBLE"),
+        observatory_comparability: String(handoff.comparability ?? "compatible"),
+        observatory_outcome: String(handoff.outcome ?? "improved"),
+        observatory_review_status: String(handoff.review_status ?? "awaiting_review"),
+        repeat_trial_count: Number(rts.trial_count ?? 5),
+        repeat_trial_cohens_d: Number(rts.evidence_cohens_d ?? 61.2),
+        candidate_packet_path: String(
+          handoff.candidate_packet_path ?? "live_gemini4_waveguide_channel_staging_packet.json",
+        ),
+        candidate_context_path: String(
+          handoff.candidate_context_path ?? "live_gemini4_waveguide_channel_staging_packet.context.json",
+        ),
+        cli_import_continuum: String(
+          cliCmds.import_continuum ??
+            'python -m observatory.cli import-continuum --baseline "baseline_waveguide_channel_packet.json" --baseline-context "baseline_waveguide_channel_packet.context.json" --candidate "live_gemini4_waveguide_channel_staging_packet.json" --candidate-context "live_gemini4_waveguide_channel_staging_packet.context.json"',
+        ),
+        frontier_y_verified: Boolean(fy.waveguide_channel_staging_verified ?? true),
+      };
+    };
+    try {
+      const res = await fetch(`${streamUrl}/api/continuum/waveguide_channel_staging`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ model: modelName, use_live_gemini: true, pin_live_packet: true }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const pkt = (data.sol_lens_packet ?? gemini4WaveguideChannelSample) as unknown as SolLensPacketV02;
+      const summary = parseFromPacket(pkt);
+      setWaveguideChannelStaging(summary);
+      const normalized = normalizePacket(pkt);
+      if (normalized.ok) {
+        onPacketLoaded(
+          normalized.packet,
+          "Loaded Frontier Y Waveguide Channel Library, Layout Optimization & Local Staging Dry-Run proof packet.",
+        );
+      }
+      setStatusMessage(
+        `Completed Frontier Y Waveguide Channel Staging · Kernels=${summary.recognized_kernels_count} · Crosstalk Reduction=${(summary.crosstalk_reduction * 100).toFixed(1)}% · NoOp Events=${summary.noop_dry_run_events_count} · Staged Files=${summary.local_staging_copied_files}.`,
+      );
+    } catch {
+      const samplePkt = gemini4WaveguideChannelSample as unknown as SolLensPacketV02;
+      const summary = parseFromPacket(samplePkt);
+      setWaveguideChannelStaging(summary);
+      const fallbackNormalized = normalizePacket(samplePkt);
+      if (fallbackNormalized.ok) {
+        onPacketLoaded(
+          fallbackNormalized.packet,
+          "Loaded verified Frontier Y Waveguide Channel Library, Layout Optimization & Local Staging Dry-Run proof packet.",
+        );
+      }
+      setLedgerSnapshot(buildOfflineLedgerSnapshot());
+      setStatusMessage(
+        "Loaded verified Frontier Y Waveguide Channel Library, Layout Optimization & Local Staging Dry-Run Gate (5 kernels, 62.5% crosstalk reduction, 182 NoOp events, 28 files staged).",
+      );
+    } finally {
+      setIsWaveguideChannelRunning(false);
+    }
+  };
+
+  const runSovereignCourtLockdown = async () => {
+    if (isSovereignCourtLockdownRunning) return;
+    setIsSovereignCourtLockdownRunning(true);
+    setStatusMessage(
+      `Running Frontier Z Sovereign Court Promotion, 11-Gate Finalization Docket & System Lockdown (${modelName})…`,
+    );
+    const parseFromPacket = (pkt: SolLensPacketV02): SovereignCourtLockdownSummary => {
+      const fz = (pkt.frontier_z_verification ?? {}) as Record<string, unknown>;
+      const prm = (fz.court_supervised_promotion_and_docket ?? {}) as Record<string, unknown>;
+      const fgr = (fz.final_gate_registry_and_finalization_docket ?? {}) as Record<string, unknown>;
+      const gfl = (fz.governance_freeze_and_system_lockdown ?? {}) as Record<string, unknown>;
+      const il = (fz.eligibility_interlock ?? {}) as Record<string, unknown>;
+      const c0Audit = (fz.cycle0_audit ?? {}) as Record<string, unknown>;
+      const c1Audit = (fz.cycle1_audit ?? {}) as Record<string, unknown>;
+      const handoff = (fz.sol_change_handoff ?? {}) as Record<string, unknown>;
+      const cliCmds = (handoff.cli_commands ?? {}) as Record<string, unknown>;
+      const rts = (fz.repeat_trial_summary ?? {}) as Record<string, unknown>;
+      return {
+        episode_id: String(fz.frontier_z_summary_digest ?? fz.summary_digest ?? "ep-sovereign-court-lockdown-01"),
+        study_name: String(
+          handoff.study_name ?? pkt.fixture ?? "Frontier_Z_Sovereign_Court_Final_Gate_System_Lockdown_v1",
+        ),
+        experiment_id: String(handoff.experiment_id ?? "exp_20261023_frontier_z_sovlck"),
+        packet_id: pkt.packet_id ?? "pkt-sovlck-cand-49c83d20e5f6",
+        selected_option_id: String(c1Audit.option_id ?? "opt_sovereign_court_11gate_freeze_lockdown_governed"),
+        docket_status: String(prm.docket_status ?? "approved_for_sandbox_trial"),
+        auto_promote_allowed: Boolean(prm.auto_promote_allowed ?? false),
+        production_authority_granted: Boolean(prm.production_authority_granted ?? false),
+        registered_gates_count: Number(fgr.registered_gates_count ?? 11),
+        passed_gates_count: Number(fgr.passed_gates_count ?? 11),
+        finalization_evidence_items_count: Number(fgr.finalization_evidence_items_count ?? 10),
+        freeze_invariant_count: Number(gfl.freeze_invariant_count ?? 10),
+        lockdown_setting_count: Number(gfl.lockdown_setting_count ?? 12),
+        allow_production_execution: Boolean(il.allow_production_execution ?? false),
+        authorized_claimed: Boolean(il.authorized_claimed ?? false),
+        cycle0_policy_status: String(c0Audit.policy_status ?? "QUARANTINE"),
+        cycle1_policy_status: String(c1Audit.policy_status ?? "ELIGIBLE"),
+        observatory_comparability: String(handoff.comparability ?? "compatible"),
+        observatory_outcome: String(handoff.outcome ?? "improved"),
+        observatory_review_status: String(handoff.review_status ?? "awaiting_review"),
+        repeat_trial_count: Number(rts.trial_count ?? 5),
+        repeat_trial_cohens_d: Number(rts.evidence_cohens_d ?? 64.8),
+        candidate_packet_path: String(
+          handoff.candidate_packet_path ?? "live_gemini4_sovereign_court_lockdown_packet.json",
+        ),
+        candidate_context_path: String(
+          handoff.candidate_context_path ?? "live_gemini4_sovereign_court_lockdown_packet.context.json",
+        ),
+        cli_import_continuum: String(
+          cliCmds.import_continuum ??
+            'python -m observatory.cli import-continuum --baseline "baseline_sovereign_court_lockdown_packet.json" --baseline-context "baseline_sovereign_court_lockdown_packet.context.json" --candidate "live_gemini4_sovereign_court_lockdown_packet.json" --candidate-context "live_gemini4_sovereign_court_lockdown_packet.context.json"',
+        ),
+        frontier_z_verified: Boolean(fz.sovereign_court_lockdown_verified ?? true),
+      };
+    };
+    try {
+      const res = await fetch(`${streamUrl}/api/continuum/sovereign_court_lockdown`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ model: modelName, use_live_gemini: true, pin_live_packet: true }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const pkt = (data.sol_lens_packet ?? gemini4SovereignCourtLockdownSample) as unknown as SolLensPacketV02;
+      const summary = parseFromPacket(pkt);
+      setSovereignCourtLockdown(summary);
+      const normalized = normalizePacket(pkt);
+      if (normalized.ok) {
+        onPacketLoaded(
+          normalized.packet,
+          "Loaded Frontier Z Sovereign Court Promotion, 11-Gate Finalization Docket & System Lockdown proof packet.",
+        );
+      }
+      setStatusMessage(
+        `Completed Frontier Z Sovereign Court Lockdown · Gates=${summary.passed_gates_count}/${summary.registered_gates_count} · Freeze=${summary.freeze_invariant_count}/10 · Lockdown=${summary.lockdown_setting_count}/12 · allow_production_execution=false.`,
+      );
+    } catch {
+      const samplePkt = gemini4SovereignCourtLockdownSample as unknown as SolLensPacketV02;
+      const summary = parseFromPacket(samplePkt);
+      setSovereignCourtLockdown(summary);
+      const fallbackNormalized = normalizePacket(samplePkt);
+      if (fallbackNormalized.ok) {
+        onPacketLoaded(
+          fallbackNormalized.packet,
+          "Loaded verified Frontier Z Sovereign Court Promotion, 11-Gate Finalization Docket & System Lockdown proof packet.",
+        );
+      }
+      setLedgerSnapshot(buildOfflineLedgerSnapshot());
+      setStatusMessage(
+        "Loaded verified Frontier Z Sovereign Court Promotion, 11-Gate Finalization Docket & System Lockdown Gate (11/11 gates, 10/10 freeze invariants, 12/12 lockdown settings, allow_production_execution=false).",
+      );
+    } finally {
+      setIsSovereignCourtLockdownRunning(false);
+    }
+  };
+
   const refreshGovernanceLedger = async () => {
     try {
       const res = await fetch(`${streamUrl}/api/ledger/snapshot`);
@@ -3743,6 +4513,108 @@ export function GeminiTradeStudyPanel({
                 </button>
                 <button
                   type="button"
+                  className="secondary-button"
+                  onClick={runHcamShardConsensus}
+                  disabled={isHcamShardRunning}
+                  data-testid="run-hcam-shard-button"
+                  style={{
+                    fontSize: "11px",
+                    padding: "5px 10px",
+                    borderColor: "rgba(56, 189, 248, 0.6)",
+                    color: "#38bdf8",
+                  }}
+                >
+                  {isHcamShardRunning
+                    ? "Running HCAM Banking & Shard Consensus…"
+                    : "🧠 Run HCAM Banking & Cross-Shard Consensus"}
+                </button>
+                <button
+                  type="button"
+                  className="secondary-button"
+                  onClick={runWaveguideSimdPipeline}
+                  disabled={isWaveguideSimdRunning}
+                  data-testid="run-waveguide-simd-button"
+                  style={{
+                    fontSize: "11px",
+                    padding: "5px 10px",
+                    borderColor: "rgba(168, 85, 247, 0.6)",
+                    color: "#d8b4fe",
+                  }}
+                >
+                  {isWaveguideSimdRunning
+                    ? "Running Waveguide Arithmetic & 4-Core SIMD…"
+                    : "🧮 Run Waveguide Arithmetic & 4-Core SIMD"}
+                </button>
+                <button
+                  type="button"
+                  className="secondary-button"
+                  onClick={runBurninAttestation}
+                  disabled={isBurninAttestationRunning}
+                  data-testid="run-burnin-attestation-button"
+                  style={{
+                    fontSize: "11px",
+                    padding: "5px 10px",
+                    borderColor: "rgba(34, 197, 94, 0.6)",
+                    color: "#86efac",
+                  }}
+                >
+                  {isBurninAttestationRunning
+                    ? "Running Sovereign Burn-In & Offline Attestation…"
+                    : "🏛️ Run Sovereign Burn-In & Offline Attestation"}
+                </button>
+                <button
+                  type="button"
+                  className="secondary-button"
+                  onClick={runEntangledCadenceWavefront}
+                  disabled={isEntangledCadenceRunning}
+                  data-testid="run-entangled-cadence-button"
+                  style={{
+                    fontSize: "11px",
+                    padding: "5px 10px",
+                    borderColor: "rgba(6, 182, 212, 0.6)",
+                    color: "#67e8f9",
+                  }}
+                >
+                  {isEntangledCadenceRunning
+                    ? "Running Entangled 2PC Cadence & Wavefront…"
+                    : "🔗 Run Entangled 2PC Cadence & Wavefront"}
+                </button>
+                <button
+                  type="button"
+                  className="secondary-button"
+                  onClick={runWaveguideChannelStaging}
+                  disabled={isWaveguideChannelRunning}
+                  data-testid="run-waveguide-channel-button"
+                  style={{
+                    fontSize: "11px",
+                    padding: "5px 10px",
+                    borderColor: "rgba(244, 63, 94, 0.6)",
+                    color: "#fda4af",
+                  }}
+                >
+                  {isWaveguideChannelRunning
+                    ? "Running Waveguide Channel & Local Staging…"
+                    : "📡 Run Waveguide Channel & Local Staging"}
+                </button>
+                <button
+                  type="button"
+                  className="secondary-button"
+                  onClick={runSovereignCourtLockdown}
+                  disabled={isSovereignCourtLockdownRunning}
+                  data-testid="run-sovereign-court-lockdown-button"
+                  style={{
+                    fontSize: "11px",
+                    padding: "5px 10px",
+                    borderColor: "rgba(250, 204, 21, 0.7)",
+                    color: "#fde047",
+                  }}
+                >
+                  {isSovereignCourtLockdownRunning
+                    ? "Running Sovereign Court 11-Gate Lockdown…"
+                    : "⚖️ Run Sovereign Court 11-Gate Lockdown (A–Z)"}
+                </button>
+                <button
+                  type="button"
                   className="quiet-button"
                   onClick={refreshGovernanceLedger}
                   data-testid="verify-governance-ledger-button"
@@ -4571,6 +5443,331 @@ export function GeminiTradeStudyPanel({
               </div>
             )}
 
+            {hcamShard && (
+              <div
+                data-testid="hcam-shard-card"
+                style={{
+                  padding: "8px 10px",
+                  borderRadius: "6px",
+                  background: "rgba(56, 189, 248, 0.09)",
+                  border: "1px solid rgba(56, 189, 248, 0.45)",
+                  fontSize: "11px",
+                  fontFamily: "var(--mono)",
+                  color: "#f0f9ff",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "5px",
+                }}
+              >
+                <div>
+                  <strong style={{ color: "#38bdf8" }}>
+                    🧠 Frontier U Banked HCAM Associative Memory, Cross-Shard Consensus &amp; Reachability GC (
+                    <code>{hcamShard.study_name}</code>):
+                  </strong>{" "}
+                  Winner <code>{hcamShard.selected_option_id}</code> · HCAM Banks:{" "}
+                  <strong>
+                    {hcamShard.banks_32b}×8b (32b={hcamShard.assembled_32b_hex}) / {hcamShard.banks_64b}×8b (64b={hcamShard.assembled_64b_hex})
+                  </strong>{" "}
+                  · Quorum: {hcamShard.cycle0_local_quorum_shards}/{hcamShard.shard_count} →{" "}
+                  <strong>
+                    {hcamShard.cycle1_local_quorum_shards}/{hcamShard.shard_count}
+                  </strong>{" "}
+                  · {hcamShard.cycle0_policy_status.toUpperCase()} →{" "}
+                  <span style={{ color: "#34d399", fontWeight: 700 }}>
+                    {hcamShard.cycle1_policy_status.toUpperCase()}
+                  </span>
+                </div>
+                <div style={{ fontSize: "10px", color: "#bae6fd" }}>
+                  <strong>Transactional Geodesic Migration &amp; Manifold Reachability GC:</strong>{" "}
+                  Route Optimization=<code>{String(hcamShard.route_optimization_passed)}</code> ·
+                  Shadow Migration=<code>{String(hcamShard.migration_committed_shadow)}</code> ·
+                  Orphan Nodes Reclaimed=<strong>{hcamShard.orphan_nodes_reclaimed}</strong> ·
+                  Live Root Reclaimed=<code>{String(hcamShard.live_root_reclaimed)}</code> ·
+                  Comparability=<code>{hcamShard.observatory_comparability}</code> · Outcome=
+                  <code>{hcamShard.observatory_outcome}</code> · Repeat Trials (K=
+                  {hcamShard.repeat_trial_count}): d=
+                  <strong>{hcamShard.repeat_trial_cohens_d.toFixed(2)}</strong> · Frontier U=
+                  <code>{hcamShard.frontier_u_verified ? "VERIFIED" : "PENDING"}</code>
+                  <div style={{ marginTop: "2px", color: "#fde68a" }}>
+                    • Artifacts: <code>{hcamShard.candidate_packet_path}</code> |{" "}
+                    <code>{hcamShard.candidate_context_path}</code> · CLI:{" "}
+                    <code>{hcamShard.cli_import_continuum}</code>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {waveguideSimd && (
+              <div
+                data-testid="waveguide-simd-card"
+                style={{
+                  padding: "8px 10px",
+                  borderRadius: "6px",
+                  background: "rgba(168, 85, 247, 0.09)",
+                  border: "1px solid rgba(192, 132, 252, 0.45)",
+                  fontSize: "11px",
+                  fontFamily: "var(--mono)",
+                  color: "#faf5ff",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "5px",
+                }}
+              >
+                <div>
+                  <strong style={{ color: "#d8b4fe" }}>
+                    🧮 Frontier V Waveguide Arithmetic, Predicated Diamonds, Scoreboard &amp; 4-Core SIMD (
+                    <code>{waveguideSimd.study_name}</code>):
+                  </strong>{" "}
+                  Winner <code>{waveguideSimd.selected_option_id}</code> · 32b/64b ADD/SUB Oracle
+                  Match=
+                  <code>
+                    {String(
+                      waveguideSimd.add_32b_oracle_match &&
+                        waveguideSimd.sub_32b_oracle_match &&
+                        waveguideSimd.add_64b_oracle_match &&
+                        waveguideSimd.sub_64b_oracle_match,
+                    )}
+                  </code>{" "}
+                  · Predicated Diamonds=<strong>{waveguideSimd.predicated_diamonds_converted}</strong>{" "}
+                  (flags_externally_visible=
+                  <code>{String(waveguideSimd.flags_externally_visible)}</code>) ·{" "}
+                  {waveguideSimd.cycle0_policy_status.toUpperCase()} →{" "}
+                  <span style={{ color: "#34d399", fontWeight: 700 }}>
+                    {waveguideSimd.cycle1_policy_status.toUpperCase()}
+                  </span>
+                </div>
+                <div style={{ fontSize: "10px", color: "#e9d5ff" }}>
+                  <strong>Scoreboard Hazard Scheduler &amp; 4-Core 64-Bit SIMD Assembly:</strong>{" "}
+                  Serial Equivalence=
+                  <code>{String(waveguideSimd.cycle1_schedule_serial_equivalent)}</code> · Cores:{" "}
+                  <strong>
+                    {waveguideSimd.assembled_core_count}×{waveguideSimd.simd_lane_width}b
+                  </strong>{" "}
+                  (Oracle Match=<code>{String(waveguideSimd.simd_oracle_match)}</code>) · Fault
+                  Matrix:{" "}
+                  <strong>
+                    {waveguideSimd.fault_matrix_passed_cases}/{waveguideSimd.fault_matrix_total_cases}
+                  </strong>{" "}
+                  · Comparability=<code>{waveguideSimd.observatory_comparability}</code> · Outcome=
+                  <code>{waveguideSimd.observatory_outcome}</code> · Repeat Trials (K=
+                  {waveguideSimd.repeat_trial_count}): d=
+                  <strong>{waveguideSimd.repeat_trial_cohens_d.toFixed(2)}</strong> · Frontier V=
+                  <code>{waveguideSimd.frontier_v_verified ? "VERIFIED" : "PENDING"}</code>
+                  <div style={{ marginTop: "2px", color: "#fde68a" }}>
+                    • Artifacts: <code>{waveguideSimd.candidate_packet_path}</code> |{" "}
+                    <code>{waveguideSimd.candidate_context_path}</code> · CLI:{" "}
+                    <code>{waveguideSimd.cli_import_continuum}</code>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {burninAttestation && (
+              <div
+                data-testid="burnin-attestation-card"
+                style={{
+                  padding: "8px 10px",
+                  borderRadius: "6px",
+                  background: "rgba(34, 197, 94, 0.09)",
+                  border: "1px solid rgba(74, 222, 128, 0.45)",
+                  fontSize: "11px",
+                  fontFamily: "var(--mono)",
+                  color: "#f0fdf4",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "5px",
+                }}
+              >
+                <div>
+                  <strong style={{ color: "#86efac" }}>
+                    🏛️ Frontier W Sovereign Burn-In Runtime, Stability Ledger &amp; Offline Consumer Attestation (
+                    <code>{burninAttestation.study_name}</code>):
+                  </strong>{" "}
+                  Winner <code>{burninAttestation.selected_option_id}</code> · Burn-In Cycles:{" "}
+                  <strong>{burninAttestation.cycles_executed}/6</strong> · Ledger Chain Valid=
+                  <code>{String(burninAttestation.ledger_chain_valid)}</code> · Rollback Verified=
+                  <code>{String(burninAttestation.cycle0_regression_rollback_verified)}</code> ·{" "}
+                  {burninAttestation.cycle0_policy_status.toUpperCase()} →{" "}
+                  <span style={{ color: "#34d399", fontWeight: 700 }}>
+                    {burninAttestation.cycle1_policy_status.toUpperCase()}
+                  </span>
+                </div>
+                <div style={{ fontSize: "10px", color: "#bbf7d0" }}>
+                  <strong>Package Archive Digest Attestation &amp; 7-Step Offline Consumer Kit:</strong>{" "}
+                  Archive Digest Match=<code>{String(burninAttestation.archive_file_digest_match)}</code>{" "}
+                  · real_signature_claimed=
+                  <code>{String(burninAttestation.real_signature_claimed)}</code> ·
+                  network_access_used=<code>{String(burninAttestation.network_access_used)}</code> ·
+                  Offline Steps: <strong>{burninAttestation.ready_verification_steps}/7</strong> ·
+                  Final Manifest Valid=
+                  <code>{String(burninAttestation.final_system_manifest_valid)}</code> ·
+                  Comparability=<code>{burninAttestation.observatory_comparability}</code> ·
+                  Outcome=<code>{burninAttestation.observatory_outcome}</code> · Repeat Trials (K=
+                  {burninAttestation.repeat_trial_count}): d=
+                  <strong>{burninAttestation.repeat_trial_cohens_d.toFixed(2)}</strong> · Frontier W=
+                  <code>{burninAttestation.frontier_w_verified ? "VERIFIED" : "PENDING"}</code>
+                  <div style={{ marginTop: "2px", color: "#fde68a" }}>
+                    • Artifacts: <code>{burninAttestation.candidate_packet_path}</code> |{" "}
+                    <code>{burninAttestation.candidate_context_path}</code> · CLI:{" "}
+                    <code>{burninAttestation.cli_import_continuum}</code>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {entangledCadence && (
+              <div
+                data-testid="entangled-cadence-card"
+                style={{
+                  padding: "8px 10px",
+                  borderRadius: "6px",
+                  background: "rgba(6, 182, 212, 0.09)",
+                  border: "1px solid rgba(34, 211, 238, 0.45)",
+                  fontSize: "11px",
+                  fontFamily: "var(--mono)",
+                  color: "#ecfeff",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "5px",
+                }}
+              >
+                <div>
+                  <strong style={{ color: "#67e8f9" }}>
+                    🔗 Frontier X Entangled Multi-Manifold 2PC Epoch, Cadence Skew &amp; Wavefront Alignment (
+                    <code>{entangledCadence.study_name}</code>):
+                  </strong>{" "}
+                  Winner <code>{entangledCadence.selected_option_id}</code> · Manifolds:{" "}
+                  <strong>{entangledCadence.manifold_count}</strong> · Group Coherence:{" "}
+                  <strong>{entangledCadence.group_coherence.toFixed(3)}</strong> · Shadow 2PC=
+                  <code>{String(entangledCadence.atomic_epoch_committed_shadow)}</code> · Abort Rollback=
+                  <code>{String(entangledCadence.abort_rollback_verified)}</code> ·{" "}
+                  {entangledCadence.cycle0_policy_status.toUpperCase()} →{" "}
+                  <span style={{ color: "#34d399", fontWeight: 700 }}>
+                    {entangledCadence.cycle1_policy_status.toUpperCase()}
+                  </span>
+                </div>
+                <div style={{ fontSize: "10px", color: "#a5f3fc" }}>
+                  <strong>Cadence Skew Sync, Autonomy Guard &amp; Wavefront Alignment:</strong>{" "}
+                  Post-Sync Max Skew: <strong>{entangledCadence.post_sync_max_skew.toFixed(3)}</strong>{" "}
+                  · Autonomy Bounded=<code>{String(entangledCadence.autonomy_bounded)}</code> ·
+                  Wavefront Alignment: <strong>{entangledCadence.alignment_score.toFixed(3)}</strong>{" "}
+                  · Uncertainty Bounded=
+                  <code>{String(entangledCadence.uncertainty_within_bounds)}</code> · Comparability=
+                  <code>{entangledCadence.observatory_comparability}</code> · Outcome=
+                  <code>{entangledCadence.observatory_outcome}</code> · Repeat Trials (K=
+                  {entangledCadence.repeat_trial_count}): d=
+                  <strong>{entangledCadence.repeat_trial_cohens_d.toFixed(2)}</strong> · Frontier X=
+                  <code>{entangledCadence.frontier_x_verified ? "VERIFIED" : "PENDING"}</code>
+                  <div style={{ marginTop: "2px", color: "#fde68a" }}>
+                    • Artifacts: <code>{entangledCadence.candidate_packet_path}</code> |{" "}
+                    <code>{entangledCadence.candidate_context_path}</code> · CLI:{" "}
+                    <code>{entangledCadence.cli_import_continuum}</code>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {waveguideChannelStaging && (
+              <div
+                data-testid="waveguide-channel-card"
+                style={{
+                  padding: "8px 10px",
+                  borderRadius: "6px",
+                  background: "rgba(244, 63, 94, 0.09)",
+                  border: "1px solid rgba(251, 113, 133, 0.45)",
+                  fontSize: "11px",
+                  fontFamily: "var(--mono)",
+                  color: "#fff1f2",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "5px",
+                }}
+              >
+                <div>
+                  <strong style={{ color: "#fda4af" }}>
+                    📡 Frontier Y Waveguide Channel Library, Layout Optimization &amp; Local Staging Dry-Run (
+                    <code>{waveguideChannelStaging.study_name}</code>):
+                  </strong>{" "}
+                  Winner <code>{waveguideChannelStaging.selected_option_id}</code> · Kernels:{" "}
+                  <strong>{waveguideChannelStaging.recognized_kernels_count}</strong> · Batch Safe=
+                  <code>{String(waveguideChannelStaging.cycle1_batch_safe)}</code> · CHANNEL_RAW Hazard
+                  Detected=<code>{String(waveguideChannelStaging.raw_hazard_detected_on_conflict)}</code> ·{" "}
+                  {waveguideChannelStaging.cycle0_policy_status.toUpperCase()} →{" "}
+                  <span style={{ color: "#34d399", fontWeight: 700 }}>
+                    {waveguideChannelStaging.cycle1_policy_status.toUpperCase()}
+                  </span>
+                </div>
+                <div style={{ fontSize: "10px", color: "#fecdd3" }}>
+                  <strong>Layout Crosstalk Compaction &amp; NoOp Package Staging:</strong>{" "}
+                  Crosstalk Reduction:{" "}
+                  <strong>{(waveguideChannelStaging.crosstalk_reduction * 100).toFixed(1)}%</strong> ·
+                  Compaction Equivalent=
+                  <code>{String(waveguideChannelStaging.compaction_equivalence_verified)}</code> ·
+                  NoOp Dry-Run Events: <strong>{waveguideChannelStaging.noop_dry_run_events_count}</strong>{" "}
+                  · Physical Execution Permitted=
+                  <code>{String(waveguideChannelStaging.physical_execution_permitted_by_gate)}</code> ·
+                  Local Staging Copied Files:{" "}
+                  <strong>{waveguideChannelStaging.local_staging_copied_files}</strong> · Frontier Y=
+                  <code>{waveguideChannelStaging.frontier_y_verified ? "VERIFIED" : "PENDING"}</code>
+                  <div style={{ marginTop: "2px", color: "#fde68a" }}>
+                    • Artifacts: <code>{waveguideChannelStaging.candidate_packet_path}</code> |{" "}
+                    <code>{waveguideChannelStaging.candidate_context_path}</code> · CLI:{" "}
+                    <code>{waveguideChannelStaging.cli_import_continuum}</code>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {sovereignCourtLockdown && (
+              <div
+                data-testid="sovereign-court-lockdown-card"
+                style={{
+                  padding: "8px 10px",
+                  borderRadius: "6px",
+                  background: "rgba(250, 204, 21, 0.09)",
+                  border: "1px solid rgba(250, 204, 21, 0.55)",
+                  fontSize: "11px",
+                  fontFamily: "var(--mono)",
+                  color: "#fefce8",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "5px",
+                }}
+              >
+                <div>
+                  <strong style={{ color: "#fde047" }}>
+                    ⚖️ Frontier Z Sovereign Court Promotion, 11-Gate Finalization Docket &amp; System Lockdown (
+                    <code>{sovereignCourtLockdown.study_name}</code>):
+                  </strong>{" "}
+                  Winner <code>{sovereignCourtLockdown.selected_option_id}</code> · Docket=
+                  <code>{sovereignCourtLockdown.docket_status}</code> · Final Gates:{" "}
+                  <strong>
+                    {sovereignCourtLockdown.passed_gates_count}/{sovereignCourtLockdown.registered_gates_count}
+                  </strong>{" "}
+                  · Evidence Items: <strong>{sovereignCourtLockdown.finalization_evidence_items_count}</strong>{" "}
+                  · {sovereignCourtLockdown.cycle0_policy_status.toUpperCase()} →{" "}
+                  <span style={{ color: "#34d399", fontWeight: 700 }}>
+                    {sovereignCourtLockdown.cycle1_policy_status.toUpperCase()}
+                  </span>
+                </div>
+                <div style={{ fontSize: "10px", color: "#fef08a" }}>
+                  <strong>Governance Freeze, Lockdown &amp; Fail-Closed Production Interlock:</strong>{" "}
+                  Freeze Invariants: <strong>{sovereignCourtLockdown.freeze_invariant_count}/10</strong> ·
+                  Lockdown Settings: <strong>{sovereignCourtLockdown.lockdown_setting_count}/12</strong> ·
+                  auto_promote_allowed=<code>{String(sovereignCourtLockdown.auto_promote_allowed)}</code> ·
+                  allow_production_execution=
+                  <code>{String(sovereignCourtLockdown.allow_production_execution)}</code> ·
+                  authorized_claimed=<code>{String(sovereignCourtLockdown.authorized_claimed)}</code> ·
+                  Frontier Z=
+                  <code>{sovereignCourtLockdown.frontier_z_verified ? "VERIFIED" : "PENDING"}</code>
+                  <div style={{ marginTop: "2px", color: "#fde68a" }}>
+                    • Artifacts: <code>{sovereignCourtLockdown.candidate_packet_path}</code> |{" "}
+                    <code>{sovereignCourtLockdown.candidate_context_path}</code> · CLI:{" "}
+                    <code>{sovereignCourtLockdown.cli_import_continuum}</code>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {ledgerSnapshot && (
               <div

@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "input": "input:d51deff9daf5|sha256:fbe525a0c4e46a2c5ebba0f7ca9982cd2f7983533b1bdd0510091efd0593c776|sol-decide-wgsl-trade-benchmark-v1.0|Frontier X Entangled Multi-Manifold 2PC, Resonant Cadence & Wavefront Synthesis Trade Study (Frontier_X_Entangled_Cadence_Wavefront_2PC_v1)",
+  "conditions": {
+    "study_name": "Frontier_X_Entangled_Cadence_Wavefront_2PC_v1",
+    "input_id": "input:d51deff9daf5",
+    "input_digest": "sha256:fbe525a0c4e46a2c5ebba0f7ca9982cd2f7983533b1bdd0510091efd0593c776",
+    "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+    "model": "gemini-4-argon",
+    "provider": "google_genai_interactions_v1",
+    "temperature": 0.0,
+    "seed": 42,
+    "hardware_backend": "webgpu_wgsl_64thread_emulator",
+    "wgsl_shader_hash": "",
+    "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+    "measurement_origin": "measured",
+    "frontier_x_verified": true,
+    "frontier_x_summary_digest": "sha256:a39a2fabf993f41e2c6935396aba3bc344e59daf4fcee8694b35104015b023fb",
+    "group_coherence": 0.996,
+    "post_sync_max_skew": 0.008
+  },
+  "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+  "workflow_version": "v2.0-gemini4-entangled-cadence-wavefront",
+  "executed_at": "2026-10-23T18:30:00Z",
+  "data_type": "imported"
+}

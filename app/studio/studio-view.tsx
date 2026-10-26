@@ -161,6 +161,126 @@ export default function StudioView() {
     }
   };
 
+  const triggerHcamShard = async () => {
+    setIsSyncing(true);
+    try {
+      const res = await fetch(`${streamUrl}/api/continuum/hcam_shard_consensus`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pin_live_packet: true }),
+      });
+      if (res.ok) {
+        showToast("Frontier U Banked HCAM & 4-Shard Consensus Governed (ELIGIBLE)");
+      } else {
+        showToast("HCAM shard consensus request failed");
+      }
+    } catch {
+      showToast("HCAM shard consensus failed - server unreachable");
+    } finally {
+      setIsSyncing(false);
+    }
+  };
+
+  const triggerWaveguideSimd = async () => {
+    setIsSyncing(true);
+    try {
+      const res = await fetch(`${streamUrl}/api/continuum/waveguide_simd_pipeline`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pin_live_packet: true }),
+      });
+      if (res.ok) {
+        showToast("Frontier V Waveguide Arithmetic, Predication & 4-Core SIMD Governed (ELIGIBLE)");
+      } else {
+        showToast("Waveguide SIMD pipeline request failed");
+      }
+    } catch {
+      showToast("Waveguide SIMD pipeline failed - server unreachable");
+    } finally {
+      setIsSyncing(false);
+    }
+  };
+
+  const triggerBurninAttestation = async () => {
+    setIsSyncing(true);
+    try {
+      const res = await fetch(`${streamUrl}/api/continuum/burnin_attestation`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pin_live_packet: true }),
+      });
+      if (res.ok) {
+        showToast("Frontier W Sovereign Burn-In & 7-Step Offline Attestation Governed (ELIGIBLE)");
+      } else {
+        showToast("Burn-in attestation request failed");
+      }
+    } catch {
+      showToast("Burn-in attestation failed - server unreachable");
+    } finally {
+      setIsSyncing(false);
+    }
+  };
+
+  const triggerEntangledCadence = async () => {
+    setIsSyncing(true);
+    try {
+      const res = await fetch(`${streamUrl}/api/continuum/entangled_cadence`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pin_live_packet: true }),
+      });
+      if (res.ok) {
+        showToast("Frontier X Entangled 2PC Cadence & Wavefront Alignment Governed (ELIGIBLE)");
+      } else {
+        showToast("Entangled cadence request failed");
+      }
+    } catch {
+      showToast("Entangled cadence failed - server unreachable");
+    } finally {
+      setIsSyncing(false);
+    }
+  };
+
+  const triggerWaveguideChannel = async () => {
+    setIsSyncing(true);
+    try {
+      const res = await fetch(`${streamUrl}/api/continuum/waveguide_channel_staging`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pin_live_packet: true }),
+      });
+      if (res.ok) {
+        showToast("Frontier Y Waveguide Channel & Local Staging Dry-Run Governed (ELIGIBLE)");
+      } else {
+        showToast("Waveguide channel staging request failed");
+      }
+    } catch {
+      showToast("Waveguide channel staging failed - server unreachable");
+    } finally {
+      setIsSyncing(false);
+    }
+  };
+
+  const triggerSovereignCourtLockdown = async () => {
+    setIsSyncing(true);
+    try {
+      const res = await fetch(`${streamUrl}/api/continuum/sovereign_court_lockdown`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pin_live_packet: true }),
+      });
+      if (res.ok) {
+        showToast("Frontier Z Sovereign Court 11-Gate Finalization & Lockdown Governed (ELIGIBLE)");
+      } else {
+        showToast("Sovereign court lockdown request failed");
+      }
+    } catch {
+      showToast("Sovereign court lockdown failed - server unreachable");
+    } finally {
+      setIsSyncing(false);
+    }
+  };
+
   return (
     <div
       style={{
@@ -338,7 +458,7 @@ export default function StudioView() {
           </div>
 
           {/* Right Action Island */}
-          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
             <button
               type="button"
               onClick={triggerGovernedWormholeBridge}
@@ -414,6 +534,120 @@ export default function StudioView() {
               title="Execute Frontier T Governed RSI & Waveguide Pass Replay"
             >
               📜 RSI Compiler
+            </button>
+
+            <button
+              type="button"
+              onClick={triggerHcamShard}
+              disabled={!online || isSyncing}
+              style={{
+                background: "rgba(56, 189, 248, 0.14)",
+                border: "1px solid rgba(56, 189, 248, 0.42)",
+                color: "#38bdf8",
+                fontSize: "11px",
+                fontWeight: 600,
+                padding: "5px 10px",
+                borderRadius: "8px",
+                cursor: online ? "pointer" : "default",
+              }}
+              title="Execute Frontier U Banked HCAM & Cross-Shard Consensus"
+            >
+              🧠 HCAM Consensus
+            </button>
+
+            <button
+              type="button"
+              onClick={triggerWaveguideSimd}
+              disabled={!online || isSyncing}
+              style={{
+                background: "rgba(168, 85, 247, 0.14)",
+                border: "1px solid rgba(168, 85, 247, 0.42)",
+                color: "#d8b4fe",
+                fontSize: "11px",
+                fontWeight: 600,
+                padding: "5px 10px",
+                borderRadius: "8px",
+                cursor: online ? "pointer" : "default",
+              }}
+              title="Execute Frontier V Waveguide Arithmetic & 4-Core SIMD"
+            >
+              🧮 Waveguide SIMD
+            </button>
+
+            <button
+              type="button"
+              onClick={triggerBurninAttestation}
+              disabled={!online || isSyncing}
+              style={{
+                background: "rgba(34, 197, 94, 0.14)",
+                border: "1px solid rgba(34, 197, 94, 0.42)",
+                color: "#86efac",
+                fontSize: "11px",
+                fontWeight: 600,
+                padding: "5px 10px",
+                borderRadius: "8px",
+                cursor: online ? "pointer" : "default",
+              }}
+              title="Execute Frontier W Sovereign Burn-In & Offline Attestation"
+            >
+              🏛️ Burn-In Attest
+            </button>
+
+            <button
+              type="button"
+              onClick={triggerEntangledCadence}
+              disabled={!online || isSyncing}
+              style={{
+                background: "rgba(6, 182, 212, 0.14)",
+                border: "1px solid rgba(6, 182, 212, 0.42)",
+                color: "#67e8f9",
+                fontSize: "11px",
+                fontWeight: 600,
+                padding: "5px 10px",
+                borderRadius: "8px",
+                cursor: online ? "pointer" : "default",
+              }}
+              title="Execute Frontier X Entangled 2PC Cadence & Wavefront Alignment"
+            >
+              🔗 Entangled 2PC
+            </button>
+
+            <button
+              type="button"
+              onClick={triggerWaveguideChannel}
+              disabled={!online || isSyncing}
+              style={{
+                background: "rgba(244, 63, 94, 0.14)",
+                border: "1px solid rgba(244, 63, 94, 0.42)",
+                color: "#fda4af",
+                fontSize: "11px",
+                fontWeight: 600,
+                padding: "5px 10px",
+                borderRadius: "8px",
+                cursor: online ? "pointer" : "default",
+              }}
+              title="Execute Frontier Y Waveguide Channel & Local Staging Dry-Run"
+            >
+              📡 Channel Staging
+            </button>
+
+            <button
+              type="button"
+              onClick={triggerSovereignCourtLockdown}
+              disabled={!online || isSyncing}
+              style={{
+                background: "rgba(250, 204, 21, 0.14)",
+                border: "1px solid rgba(250, 204, 21, 0.52)",
+                color: "#fde047",
+                fontSize: "11px",
+                fontWeight: 600,
+                padding: "5px 10px",
+                borderRadius: "8px",
+                cursor: online ? "pointer" : "default",
+              }}
+              title="Execute Frontier Z Sovereign Court 11-Gate Finalization & System Lockdown (A–Z)"
+            >
+              ⚖️ Court Lockdown
             </button>
 
             <button

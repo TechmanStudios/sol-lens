@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "input": "input:0c46cde0f0bf|sha256:d070ead25dd62490896a18cb7a1033dc1f0c691d449b6220477fc794133b50c6|sol-decide-wgsl-trade-benchmark-v1.0|Frontier Z Sovereign Court Promotion, Final Gate Registry & System Lockdown Trade Study (Frontier_Z_Sovereign_Court_Final_Gate_System_Lockdown_v1)",
+  "conditions": {
+    "study_name": "Frontier_Z_Sovereign_Court_Final_Gate_System_Lockdown_v1",
+    "input_id": "input:0c46cde0f0bf",
+    "input_digest": "sha256:d070ead25dd62490896a18cb7a1033dc1f0c691d449b6220477fc794133b50c6",
+    "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+    "model": "gemini-4-argon",
+    "provider": "google_genai_interactions_v1",
+    "temperature": 0.0,
+    "seed": 42,
+    "hardware_backend": "webgpu_wgsl_64thread_emulator",
+    "wgsl_shader_hash": "",
+    "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+    "measurement_origin": "measured",
+    "frontier_z_verified": true,
+    "frontier_z_summary_digest": "sha256:15ba084e248aeed411f88ea0a1d3ca9ddac0e2c4a4c1c6c8350c1daa15cc521a",
+    "registered_gates_count": 11,
+    "finalization_evidence_items_count": 10
+  },
+  "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+  "workflow_version": "v2.0-gemini4-sovereign-court-lockdown-closure",
+  "executed_at": "2026-10-23T18:30:00Z",
+  "data_type": "imported"
+}

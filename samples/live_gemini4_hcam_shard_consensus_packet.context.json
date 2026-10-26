@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "input": "input:c4795d601b8b|sha256:dcb7b0513fba77872818b4fb0d86970d7f763c0de81a638dea9e0ef9c6596043|sol-decide-wgsl-trade-benchmark-v1.0|Frontier U Banked HCAM Associative Memory, Cross-Shard Geodesic Consensus & Live Topology Migration / Reachability GC Trade Study (Frontier_U_HCAM_Banking_Cross_Shard_Consensus_GC_v1)",
+  "conditions": {
+    "study_name": "Frontier_U_HCAM_Banking_Cross_Shard_Consensus_GC_v1",
+    "input_id": "input:c4795d601b8b",
+    "input_digest": "sha256:dcb7b0513fba77872818b4fb0d86970d7f763c0de81a638dea9e0ef9c6596043",
+    "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+    "model": "gemini-4-argon",
+    "provider": "google_genai_interactions_v1",
+    "temperature": 0.0,
+    "seed": 42,
+    "hardware_backend": "webgpu_wgsl_64thread_emulator",
+    "wgsl_shader_hash": "",
+    "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+    "measurement_origin": "measured",
+    "frontier_u_verified": true,
+    "frontier_u_summary_digest": "sha256:7e13962aab870a865b724f6c60194d7a494421ad486cd0f70ff4df073a467248",
+    "hcam_32b_banks": 4,
+    "hcam_64b_banks": 8,
+    "shard_count": 4
+  },
+  "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+  "workflow_version": "v2.0-gemini4-banked-hcam-4shard-consensus-gc",
+  "executed_at": "2026-10-23T14:00:05Z",
+  "data_type": "imported"
+}

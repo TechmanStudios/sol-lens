@@ -1,0 +1,403 @@
+{
+  "schema": "techman.sol-lens.proof-packet/v0.2",
+  "packet_id": "pkt-sovlck-cand-49c83d20e5f6",
+  "generated_at": "2026-10-23T18:30:00Z",
+  "observable_trace_only": true,
+  "fixture": "Frontier_Z_Sovereign_Court_Final_Gate_System_Lockdown_v1_Cycle1_Candidate",
+  "models": {
+    "baseline": "v1.0-unfrozen-governance-auto-promote-breach",
+    "candidate": "gemini-4-argon"
+  },
+  "baseline_evaluation": {
+    "label": "Cycle 0 Revoked Token, Freeze Violation & Lockdown Breach (QUARANTINE)",
+    "logon_count": 2,
+    "metrics": {
+      "evidence": 0.62,
+      "coherence": 0.5198,
+      "contradiction": 0.16666666666666666,
+      "continuity": 0.5249999999999999,
+      "authority": 0.645,
+      "faithfulness": 0.43499999999999994
+    },
+    "verdict": "QUARANTINE",
+    "source": "sol_decide.sovereign_court_lockdown_bridge"
+  },
+  "frontier_z_verification": {
+    "sovereign_court_lockdown_verified": true,
+    "experiment_id": "exp_frontier_z_sovlck_49c83d20e5f6",
+    "frontier_id": "Frontier_Z",
+    "allow_production_execution": false,
+    "authorized_claimed": false,
+    "court_supervised_promotion_and_docket": {
+      "docket_id": "DOCKET_L36_SOVEREIGN_CAPSTONE_01",
+      "docket_status": "approved_for_sandbox_trial",
+      "evidence_bundle_count": 4,
+      "review_decision_verdict": "approve_sandbox_trial",
+      "auto_promote_allowed": false,
+      "production_authority_granted": false
+    },
+    "final_gate_registry_and_finalization_docket": {
+      "registered_gates_count": 11,
+      "passed_gates_count": 11,
+      "failed_gates_count": 0,
+      "all_gates_passed": true,
+      "registry_immutable_verified": true,
+      "finalization_docket_id": "FINAL_DOCKET_L50_CAPSTONE_01",
+      "finalization_evidence_items_count": 10,
+      "finalization_docket_valid": true,
+      "court_final_decision": "approve"
+    },
+    "governance_freeze_and_system_lockdown": {
+      "freeze_invariant_count": 10,
+      "cycle0_freeze_violations_count": 2,
+      "cycle1_freeze_violations_count": 0,
+      "cycle1_frozen": true,
+      "lockdown_setting_count": 12,
+      "cycle0_lockdown_violations_count": 3,
+      "cycle1_lockdown_violations_count": 0,
+      "cycle1_locked": true,
+      "runtime_token_shadow_only_verified": true,
+      "production_gateway_blocked_verified": true
+    },
+    "formal_theorem_proof": {
+      "theorem_id": "THM_CONJ_SOVEREIGN_COURT_LOCKDOWN_FINALIZATION",
+      "conjecture_id": "conj_sovereign_court_lockdown_finalization",
+      "verdict": "PROVED_THEOREM"
+    },
+    "eligibility_interlock": {
+      "cycle0_safe_state_triggered": true,
+      "cycle1_safe_state_triggered": false,
+      "cycle0_safe_state_action": "REVOKE_RUNTIME_TOKEN_AND_ENFORCE_SYSTEM_LOCKDOWN",
+      "cycle1_safe_state_action": "NONE",
+      "release_gate_status": "ELIGIBLE_AWAITING_HUMAN_RELEASE_AUTHORITY",
+      "authorized_claimed": false,
+      "allow_production_execution": false,
+      "production_mutation_allowed": false,
+      "sacred_core_immutable": true
+    },
+    "edge_gate": {
+      "policy_gate_passed": true,
+      "cycle0_status": "QUARANTINE",
+      "cycle1_status": "ELIGIBLE"
+    },
+    "cycle0_audit": {
+      "cycle_index": 0,
+      "designation": "baseline",
+      "option_id": "opt_sovereign_court_final_gate_system_lockdown_cycle0_quarantine",
+      "policy_status": "QUARANTINE",
+      "is_quarantined": true,
+      "registered_gates_count": 7,
+      "all_gates_passed": false,
+      "finalization_evidence_items_count": 6,
+      "cycle1_frozen": false,
+      "cycle1_locked": false,
+      "effective_beta_1": 1,
+      "safe_state_triggered": true,
+      "safe_state_action": "REVOKE_RUNTIME_TOKEN_AND_ENFORCE_SYSTEM_LOCKDOWN",
+      "release_gate_status": "BLOCKED_QUARANTINE",
+      "authorized_claimed": false,
+      "reasons": [
+        "RUNTIME_TOKEN_REVOKED_OR_EXPIRED",
+        "GOVERNANCE_FREEZE_INVARIANT_VIOLATION",
+        "SYSTEM_LOCKDOWN_BREACH_DETECTED",
+        "UNAUTHORIZED_PRODUCTION_GATEWAY_BYPASS"
+      ],
+      "event_count": 4,
+      "events": [
+        {
+          "event_id": "ev:run:frontier_z_sovereign_court_final_gate_system_lockdown_v1:c0:1",
+          "run_id": "run:frontier_z_sovereign_court_final_gate_system_lockdown_v1:c0",
+          "sequence_number": 1,
+          "event_type": "RUN_OPENED",
+          "previous_event_digest": null,
+          "event_digest": "sha256:351fb75c250c645ac61dbaf9d1db646a93eddaa116a658e9c8c5624b2668cc11"
+        },
+        {
+          "event_id": "ev:run:frontier_z_sovereign_court_final_gate_system_lockdown_v1:c0:2",
+          "run_id": "run:frontier_z_sovereign_court_final_gate_system_lockdown_v1:c0",
+          "sequence_number": 2,
+          "event_type": "PROPOSAL_RECORDED",
+          "previous_event_digest": "sha256:351fb75c250c645ac61dbaf9d1db646a93eddaa116a658e9c8c5624b2668cc11",
+          "event_digest": "sha256:4a21506ed5949173243f037b4462209ab1e0b1a4923d4816c8aeb54489a2eaae"
+        },
+        {
+          "event_id": "ev:run:frontier_z_sovereign_court_final_gate_system_lockdown_v1:c0:3",
+          "run_id": "run:frontier_z_sovereign_court_final_gate_system_lockdown_v1:c0",
+          "sequence_number": 3,
+          "event_type": "EVIDENCE_RECORDED",
+          "previous_event_digest": "sha256:4a21506ed5949173243f037b4462209ab1e0b1a4923d4816c8aeb54489a2eaae",
+          "event_digest": "sha256:f526092b213e1bba68aed752ae76fc5133e752916a34ebabbfc22817a22d503f"
+        },
+        {
+          "event_id": "ev:run:frontier_z_sovereign_court_final_gate_system_lockdown_v1:c0:4",
+          "run_id": "run:frontier_z_sovereign_court_final_gate_system_lockdown_v1:c0",
+          "sequence_number": 4,
+          "event_type": "POLICY_DECISION_RECORDED",
+          "previous_event_digest": "sha256:f526092b213e1bba68aed752ae76fc5133e752916a34ebabbfc22817a22d503f",
+          "event_digest": "sha256:506aaa242aaf61b033598794e8155fda9cb7fa7f3b27bee6f226adad581a159b"
+        }
+      ],
+      "final_chain_hash": "sha256:506aaa242aaf61b033598794e8155fda9cb7fa7f3b27bee6f226adad581a159b"
+    },
+    "cycle1_audit": {
+      "cycle_index": 1,
+      "designation": "candidate",
+      "option_id": "opt_sovereign_court_final_gate_system_lockdown",
+      "policy_status": "ELIGIBLE",
+      "is_quarantined": false,
+      "registered_gates_count": 11,
+      "all_gates_passed": true,
+      "finalization_evidence_items_count": 10,
+      "cycle1_frozen": true,
+      "cycle1_locked": true,
+      "effective_beta_1": 0,
+      "safe_state_triggered": false,
+      "safe_state_action": "NONE",
+      "release_gate_status": "ELIGIBLE_AWAITING_HUMAN_RELEASE_AUTHORITY",
+      "authorized_claimed": false,
+      "reasons": [
+        "SOVEREIGN_COURT_L36_DOCKET_11_FINAL_GATES_FREEZE_LOCKDOWN_CAPSTONE_ELIGIBLE"
+      ],
+      "event_count": 4,
+      "events": [
+        {
+          "event_id": "ev:run:frontier_z_sovereign_court_final_gate_system_lockdown_v1:c1:1",
+          "run_id": "run:frontier_z_sovereign_court_final_gate_system_lockdown_v1:c1",
+          "sequence_number": 1,
+          "event_type": "RUN_OPENED",
+          "previous_event_digest": null,
+          "event_digest": "sha256:291eee3d99c972e66de71b0fe1e9b54e5f9efe00adc750cab007ef36eff380b3"
+        },
+        {
+          "event_id": "ev:run:frontier_z_sovereign_court_final_gate_system_lockdown_v1:c1:2",
+          "run_id": "run:frontier_z_sovereign_court_final_gate_system_lockdown_v1:c1",
+          "sequence_number": 2,
+          "event_type": "PROPOSAL_RECORDED",
+          "previous_event_digest": "sha256:291eee3d99c972e66de71b0fe1e9b54e5f9efe00adc750cab007ef36eff380b3",
+          "event_digest": "sha256:14caf45b5464794c3ccee5ff730aa2d9c41554ad8d856acc64951b5dafbb4b43"
+        },
+        {
+          "event_id": "ev:run:frontier_z_sovereign_court_final_gate_system_lockdown_v1:c1:3",
+          "run_id": "run:frontier_z_sovereign_court_final_gate_system_lockdown_v1:c1",
+          "sequence_number": 3,
+          "event_type": "EVIDENCE_RECORDED",
+          "previous_event_digest": "sha256:14caf45b5464794c3ccee5ff730aa2d9c41554ad8d856acc64951b5dafbb4b43",
+          "event_digest": "sha256:7a13914447c276756832ac1f0b1c2dbb1ce18baeb170ce10fed76982bce486ad"
+        },
+        {
+          "event_id": "ev:run:frontier_z_sovereign_court_final_gate_system_lockdown_v1:c1:4",
+          "run_id": "run:frontier_z_sovereign_court_final_gate_system_lockdown_v1:c1",
+          "sequence_number": 4,
+          "event_type": "POLICY_DECISION_RECORDED",
+          "previous_event_digest": "sha256:7a13914447c276756832ac1f0b1c2dbb1ce18baeb170ce10fed76982bce486ad",
+          "event_digest": "sha256:e547b96723117a7d367653670e217f4b6537ee9ee5301622a846997d4bd5b5c9"
+        }
+      ],
+      "final_chain_hash": "sha256:e547b96723117a7d367653670e217f4b6537ee9ee5301622a846997d4bd5b5c9"
+    },
+    "repeat_trial_summary": {
+      "group_id": "rtg_sovlck_49c83d20e5f6",
+      "trial_count": 5,
+      "comparability": "compatible",
+      "verdict": "improved"
+    },
+    "gemini_reasoning": {
+      "model_used": "gemini-4-argon",
+      "interaction_id": "v1_gemini4_sovlck_8d63ea4fb3296c34",
+      "thinking_level": "high",
+      "thought_signature_digests": [
+        "sha256:1f996cf1edf160cbb59ca9e4189f8a574d3db7accb03d58d15c903f92181ef8f",
+        "sha256:2ca9b307d9b85d4bda864f96d2a48acdfafeb4e72ff00892fd5fb295f6295f3b"
+      ],
+      "thought_signature_lengths": [
+        816,
+        744
+      ],
+      "thought_summaries": [
+        "Diagnosed Cycle 0 expired/revoked runtime token, governance freeze violation, system lockdown drift, and unauthorized production gateway invocation.",
+        "Synthesized Level 36 court-supervised sandbox promotion docket, 11/11 Level 50 FinalGateRegistry, 10/10 governance freeze invariants, 12/12 system lockdown settings, and 10-item FinalizationDocket with allow_production_execution=False."
+      ],
+      "total_input_tokens": 610,
+      "total_thought_tokens": 980,
+      "total_output_tokens": 325,
+      "live_api_invoked": false
+    },
+    "frontier_z_summary_digest": "sha256:15ba084e248aeed411f88ea0a1d3ca9ddac0e2c4a4c1c6c8350c1daa15cc521a",
+    "summary_digest": "sha256:15ba084e248aeed411f88ea0a1d3ca9ddac0e2c4a4c1c6c8350c1daa15cc521a",
+    "sol_change_handoff": {
+      "experiment_id": "exp_frontier_z_sovlck_49c83d20e5f6",
+      "study_name": "Frontier_Z_Sovereign_Court_Final_Gate_System_Lockdown_v1",
+      "baseline_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_z_sovlck_49c83d20e5f6\\baseline_packet.json",
+      "baseline_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_z_sovlck_49c83d20e5f6\\baseline_packet.context.json",
+      "candidate_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_z_sovlck_49c83d20e5f6\\candidate_packet.json",
+      "candidate_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_z_sovlck_49c83d20e5f6\\candidate_packet.context.json",
+      "experiment_archive_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_z_sovlck_49c83d20e5f6\\experiment.json",
+      "markdown_report_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_z_sovlck_49c83d20e5f6\\comparison.md",
+      "repeat_trial_bundle_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_z_sovlck_49c83d20e5f6\\repeat_trials.json",
+      "repeat_trials_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_z_sovlck_49c83d20e5f6\\repeat_trials.json",
+      "experiment_dir": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_z_sovlck_49c83d20e5f6",
+      "observatory_db_registered": false,
+      "comparability": "compatible",
+      "outcome": "improved",
+      "review_status": "awaiting_review",
+      "measured_baseline_time_s": 0.382104,
+      "measured_candidate_time_s": 0.12845,
+      "measured_execution_time_s": 0.510554,
+      "measured_cost_usd": null,
+      "warnings": [],
+      "adapter_version": "sol-lens-proof-packet/1.0"
+    }
+  },
+  "reasoning_telemetry": {
+    "model_used": "gemini-4-argon",
+    "interaction_id": "v1_gemini4_sovlck_8d63ea4fb3296c34",
+    "thinking_level": "high",
+    "thought_signature_digests": [
+      "sha256:1f996cf1edf160cbb59ca9e4189f8a574d3db7accb03d58d15c903f92181ef8f",
+      "sha256:2ca9b307d9b85d4bda864f96d2a48acdfafeb4e72ff00892fd5fb295f6295f3b"
+    ],
+    "thought_signature_lengths": [
+      816,
+      744
+    ],
+    "thought_summaries": [
+      "Diagnosed Cycle 0 expired/revoked runtime token, governance freeze violation, system lockdown drift, and unauthorized production gateway invocation.",
+      "Synthesized Level 36 court-supervised sandbox promotion docket, 11/11 Level 50 FinalGateRegistry, 10/10 governance freeze invariants, 12/12 system lockdown settings, and 10-item FinalizationDocket with allow_production_execution=False."
+    ],
+    "total_input_tokens": 610,
+    "total_thought_tokens": 980,
+    "total_output_tokens": 325,
+    "live_api_invoked": false
+  },
+  "logons": [
+    {
+      "id": "L01",
+      "label": "Level 36 Court-Supervised Promotion Docket & 11/11 Immutable Final Gate Registry",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "Verified 4-bundle Level 36 PromotionDocket (approved_for_sandbox_trial) and 11/11 Level 50 FinalGateRegistry gates across L34-L50.",
+      "source": "sol_decide.SovereignCourtLockdownOrchestrator",
+      "phase_id": "P1_COURT_DOCKET",
+      "group_id": "G01",
+      "evidence_refs": [
+        "sovlck:cycle1:court_docket"
+      ]
+    },
+    {
+      "id": "L02",
+      "label": "10-Invariant Governance Freeze, 12-Setting System Lockdown & Shadow Runtime Token Vault",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "Enforced 10/10 governance freeze invariants, 12/12 system lockdown settings, shadow-only runtime tokens, and blocked production gateway.",
+      "source": "sol_decide.SolEdgeSovereignCourtLockdownGate",
+      "phase_id": "P2_FREEZE_LOCKDOWN",
+      "group_id": "G01",
+      "evidence_refs": [
+        "sovlck:cycle1:freeze_lockdown"
+      ]
+    },
+    {
+      "id": "L03",
+      "label": "Level 50 10-Item Finalization Docket Closure & Proved THM_CONJ_SOVEREIGN_COURT_LOCKDOWN_FINALIZATION",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "Completed 10-item FinalizationDocket court review (approve) with allow_production_execution=False and proved conj_sovereign_court_lockdown_finalization.",
+      "source": "Frontier_OS.AutomatedProofEngine",
+      "phase_id": "P3_ELIGIBLE",
+      "group_id": "G01",
+      "evidence_refs": [
+        "sovlck:cycle1:eligible"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "E01",
+      "from": "L01",
+      "to": "L02",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.98,
+      "active": true
+    },
+    {
+      "id": "E02",
+      "from": "L02",
+      "to": "L03",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.98,
+      "active": true
+    }
+  ],
+  "groups": [
+    {
+      "id": "G01",
+      "label": "Cycle 1 Sovereign Court Promotion, Final Gate Registry & System Lockdown Closure",
+      "logon_ids": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "phase": "P1_COURT_DOCKET"
+    }
+  ],
+  "metrics": {
+    "evidence": 0.98,
+    "coherence": 0.9787,
+    "contradiction": 0.0,
+    "continuity": 1.0,
+    "authority": 1.0,
+    "faithfulness": 0.98
+  },
+  "verdict": "PROMOTE",
+  "evaluation": {
+    "engine": "SOL Engine",
+    "scoring_profile": "sol-court-v1",
+    "metrics": {
+      "evidence": 0.98,
+      "coherence": 0.9787,
+      "contradiction": 0.0,
+      "continuity": 1.0,
+      "authority": 1.0,
+      "faithfulness": 0.98
+    },
+    "verdict": "PROMOTE",
+    "claimed_evaluation_match": true
+  },
+  "observatory_context": {
+    "schema_version": "1.0",
+    "input": "input:0c46cde0f0bf|sha256:d070ead25dd62490896a18cb7a1033dc1f0c691d449b6220477fc794133b50c6|sol-decide-wgsl-trade-benchmark-v1.0|Frontier Z Sovereign Court Promotion, Final Gate Registry & System Lockdown Trade Study (Frontier_Z_Sovereign_Court_Final_Gate_System_Lockdown_v1)",
+    "conditions": {
+      "study_name": "Frontier_Z_Sovereign_Court_Final_Gate_System_Lockdown_v1",
+      "input_id": "input:0c46cde0f0bf",
+      "input_digest": "sha256:d070ead25dd62490896a18cb7a1033dc1f0c691d449b6220477fc794133b50c6",
+      "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+      "model": "gemini-4-argon",
+      "provider": "google_genai_interactions_v1",
+      "temperature": 0.0,
+      "seed": 42,
+      "hardware_backend": "webgpu_wgsl_64thread_emulator",
+      "wgsl_shader_hash": "",
+      "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+      "measurement_origin": "measured",
+      "frontier_z_verified": true,
+      "frontier_z_summary_digest": "sha256:15ba084e248aeed411f88ea0a1d3ca9ddac0e2c4a4c1c6c8350c1daa15cc521a",
+      "registered_gates_count": 11,
+      "finalization_evidence_items_count": 10
+    },
+    "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+    "workflow_version": "v2.0-gemini4-sovereign-court-lockdown-closure",
+    "executed_at": "2026-10-23T18:30:00Z",
+    "data_type": "imported"
+  }
+}

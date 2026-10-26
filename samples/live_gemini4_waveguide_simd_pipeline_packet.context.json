@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "input": "input:1d168d6831bd|sha256:3ebcf26d14c6a61b489c1c3cdc2dd1e528be15ad08078b38d7f4932c3610a37a|sol-decide-wgsl-trade-benchmark-v1.0|Frontier V Waveguide Arithmetic Pipeline, Predicated Branch Diamonds, Scoreboard Hazard Scheduler & Sovereign SIMD Multicore Assembly Trade Study (Frontier_V_Waveguide_Arithmetic_Predication_Scoreboard_SIMD_v1)",
+  "conditions": {
+    "study_name": "Frontier_V_Waveguide_Arithmetic_Predication_Scoreboard_SIMD_v1",
+    "input_id": "input:1d168d6831bd",
+    "input_digest": "sha256:3ebcf26d14c6a61b489c1c3cdc2dd1e528be15ad08078b38d7f4932c3610a37a",
+    "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+    "model": "gemini-4-argon",
+    "provider": "google_genai_interactions_v1",
+    "temperature": 0.0,
+    "seed": 42,
+    "hardware_backend": "webgpu_wgsl_64thread_emulator",
+    "wgsl_shader_hash": "",
+    "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+    "measurement_origin": "measured",
+    "frontier_v_verified": true,
+    "frontier_v_summary_digest": "sha256:a9e0d95712067c085833832481ebabeeb3ecb1c73801a35299cf85b3855dc0b9",
+    "assembled_core_count": 4,
+    "fault_matrix_passed_cases": 33
+  },
+  "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+  "workflow_version": "v2.0-gemini4-predicated-scoreboard-4core-simd",
+  "executed_at": "2026-10-23T14:15:05Z",
+  "data_type": "imported"
+}

@@ -1,0 +1,401 @@
+{
+  "schema": "techman.sol-lens.proof-packet/v0.2",
+  "packet_id": "pkt-entcad-cand-27a91f08b3c4",
+  "generated_at": "2026-10-23T18:30:00Z",
+  "observable_trace_only": true,
+  "fixture": "Frontier_X_Entangled_Cadence_Wavefront_2PC_v1_Cycle1_Candidate",
+  "models": {
+    "baseline": "v1.0-unbounded-cadence-skew-split-brain",
+    "candidate": "gemini-4-argon"
+  },
+  "baseline_evaluation": {
+    "label": "Cycle 0 Unbounded Cadence Skew & Split-Brain Epoch (QUARANTINE)",
+    "logon_count": 2,
+    "metrics": {
+      "evidence": 0.62,
+      "coherence": 0.5198,
+      "contradiction": 0.16666666666666666,
+      "continuity": 0.5249999999999999,
+      "authority": 0.645,
+      "faithfulness": 0.43499999999999994
+    },
+    "verdict": "QUARANTINE",
+    "source": "sol_decide.entangled_cadence_wavefront_bridge"
+  },
+  "frontier_x_verification": {
+    "entangled_cadence_verified": true,
+    "experiment_id": "exp_frontier_x_entcad_27a91f08b3c4",
+    "frontier_id": "Frontier_X",
+    "allow_production_execution": false,
+    "authorized_claimed": false,
+    "entangled_sequencer_and_atomic_epoch": {
+      "manifold_ids": [
+        "manifold_alpha",
+        "manifold_beta",
+        "manifold_gamma",
+        "manifold_delta"
+      ],
+      "manifold_count": 4,
+      "group_coherence": 0.996,
+      "atomic_epoch_id": "EPOCH_0",
+      "atomic_epoch_status": "committed_shadow",
+      "atomic_epoch_committed_shadow": true,
+      "commit_epoch_id": "EPOCH_1000",
+      "commit_epoch_status": "committed_shadow",
+      "commit_epoch_committed_shadow": true,
+      "abort_rollback_verified": true
+    },
+    "multimanifold_cadence_and_autonomy_guard": {
+      "sync_group_id": "fx-cadence-group",
+      "target_cadence": 1.0,
+      "post_sync_max_skew": 0.008,
+      "autonomous_within_bounds": true,
+      "guard_verdict": "allow",
+      "cycle0_autonomy_bounded": false,
+      "cycle1_autonomy_bounded": true,
+      "autonomy_bounded": true
+    },
+    "wavefront_alignment_and_uncertainty_bounds": {
+      "pre_skew": 0.16,
+      "post_skew": 0.008,
+      "alignment_score": 0.992,
+      "wavefront_stability_passed": true,
+      "uncertainty_within_bounds": true
+    },
+    "formal_theorem_proof": {
+      "theorem_id": "THM_CONJ_ENTANGLED_CADENCE_WAVEFRONT_2PC",
+      "conjecture_id": "conj_entangled_cadence_wavefront_2pc",
+      "verdict": "PROVED_THEOREM"
+    },
+    "eligibility_interlock": {
+      "cycle0_safe_state_triggered": true,
+      "cycle1_safe_state_triggered": false,
+      "cycle0_safe_state_action": "ABORT_EPOCH_ROLLBACK_SNAPSHOT_AND_CLAMP_AUTONOMOUS_CADENCE",
+      "cycle1_safe_state_action": "NONE",
+      "release_gate_status": "ELIGIBLE",
+      "authorized_claimed": false,
+      "allow_production_execution": false,
+      "production_mutation_allowed": false,
+      "sacred_core_immutable": true
+    },
+    "edge_gate": {
+      "policy_gate_passed": true,
+      "cycle0_status": "QUARANTINE",
+      "cycle1_status": "ELIGIBLE"
+    },
+    "cycle0_audit": {
+      "cycle_index": 0,
+      "designation": "baseline",
+      "option_id": "opt_entangled_cadence_wavefront_2pc_cycle0_quarantine",
+      "policy_status": "QUARANTINE",
+      "is_quarantined": true,
+      "group_coherence": 0.61,
+      "autonomy_bounded": false,
+      "uncertainty_within_bounds": false,
+      "effective_beta_1": 1,
+      "safe_state_triggered": true,
+      "safe_state_action": "ABORT_EPOCH_ROLLBACK_SNAPSHOT_AND_CLAMP_AUTONOMOUS_CADENCE",
+      "release_gate_status": "BLOCKED_QUARANTINE",
+      "authorized_claimed": false,
+      "reasons": [
+        "CADENCE_AUTONOMY_UNBOUNDED_DRIFT",
+        "ENTANGLED_COMMIT_BARRIER_INCOMPLETE",
+        "WAVEFRONT_UNCERTAINTY_WINDOW_EXCEEDED"
+      ],
+      "event_count": 4,
+      "events": [
+        {
+          "event_id": "ev:run:frontier_x_entangled_cadence_wavefront_2pc_v1:c0:1",
+          "run_id": "run:frontier_x_entangled_cadence_wavefront_2pc_v1:c0",
+          "sequence_number": 1,
+          "event_type": "RUN_OPENED",
+          "previous_event_digest": null,
+          "event_digest": "sha256:09a46c233c92068ea97fdfa750f5bd8303d270acdc518b61d374a3e149732f98"
+        },
+        {
+          "event_id": "ev:run:frontier_x_entangled_cadence_wavefront_2pc_v1:c0:2",
+          "run_id": "run:frontier_x_entangled_cadence_wavefront_2pc_v1:c0",
+          "sequence_number": 2,
+          "event_type": "PROPOSAL_RECORDED",
+          "previous_event_digest": "sha256:09a46c233c92068ea97fdfa750f5bd8303d270acdc518b61d374a3e149732f98",
+          "event_digest": "sha256:728de0e9dd42f8e6c05395dbbca4f406682da37ee4887bdeb535d0d76dedb96b"
+        },
+        {
+          "event_id": "ev:run:frontier_x_entangled_cadence_wavefront_2pc_v1:c0:3",
+          "run_id": "run:frontier_x_entangled_cadence_wavefront_2pc_v1:c0",
+          "sequence_number": 3,
+          "event_type": "EVIDENCE_RECORDED",
+          "previous_event_digest": "sha256:728de0e9dd42f8e6c05395dbbca4f406682da37ee4887bdeb535d0d76dedb96b",
+          "event_digest": "sha256:fc691050357c75bbb1b126ceff15501eacea5d51150c876ffbd31163b38727c7"
+        },
+        {
+          "event_id": "ev:run:frontier_x_entangled_cadence_wavefront_2pc_v1:c0:4",
+          "run_id": "run:frontier_x_entangled_cadence_wavefront_2pc_v1:c0",
+          "sequence_number": 4,
+          "event_type": "POLICY_DECISION_RECORDED",
+          "previous_event_digest": "sha256:fc691050357c75bbb1b126ceff15501eacea5d51150c876ffbd31163b38727c7",
+          "event_digest": "sha256:c2f176dc5dbb4c6d5d36e973e25500e41e71aaba634db67d92842add3d424d08"
+        }
+      ],
+      "final_chain_hash": "sha256:c2f176dc5dbb4c6d5d36e973e25500e41e71aaba634db67d92842add3d424d08"
+    },
+    "cycle1_audit": {
+      "cycle_index": 1,
+      "designation": "candidate",
+      "option_id": "opt_entangled_cadence_wavefront_2pc",
+      "policy_status": "ELIGIBLE",
+      "is_quarantined": false,
+      "group_coherence": 0.996,
+      "autonomy_bounded": true,
+      "uncertainty_within_bounds": true,
+      "effective_beta_1": 0,
+      "safe_state_triggered": false,
+      "safe_state_action": "NONE",
+      "release_gate_status": "ELIGIBLE",
+      "authorized_claimed": false,
+      "reasons": [
+        "ENTANGLED_4_MANIFOLD_2PC_BOUNDED_CADENCE_WAVEFRONT_STABILIZED_ELIGIBLE"
+      ],
+      "event_count": 4,
+      "events": [
+        {
+          "event_id": "ev:run:frontier_x_entangled_cadence_wavefront_2pc_v1:c1:1",
+          "run_id": "run:frontier_x_entangled_cadence_wavefront_2pc_v1:c1",
+          "sequence_number": 1,
+          "event_type": "RUN_OPENED",
+          "previous_event_digest": null,
+          "event_digest": "sha256:6010799daefd79219b79984c02f4734666727bb022d5453417b68959fb5b766e"
+        },
+        {
+          "event_id": "ev:run:frontier_x_entangled_cadence_wavefront_2pc_v1:c1:2",
+          "run_id": "run:frontier_x_entangled_cadence_wavefront_2pc_v1:c1",
+          "sequence_number": 2,
+          "event_type": "PROPOSAL_RECORDED",
+          "previous_event_digest": "sha256:6010799daefd79219b79984c02f4734666727bb022d5453417b68959fb5b766e",
+          "event_digest": "sha256:682749fb10b00eaf22cc91c2347a556c1227605b4d72a2ba2168676c5876f798"
+        },
+        {
+          "event_id": "ev:run:frontier_x_entangled_cadence_wavefront_2pc_v1:c1:3",
+          "run_id": "run:frontier_x_entangled_cadence_wavefront_2pc_v1:c1",
+          "sequence_number": 3,
+          "event_type": "EVIDENCE_RECORDED",
+          "previous_event_digest": "sha256:682749fb10b00eaf22cc91c2347a556c1227605b4d72a2ba2168676c5876f798",
+          "event_digest": "sha256:ebe0cf52ef20c04d5a20062982d37f387248a4de87db79b686e93053d4bbd99c"
+        },
+        {
+          "event_id": "ev:run:frontier_x_entangled_cadence_wavefront_2pc_v1:c1:4",
+          "run_id": "run:frontier_x_entangled_cadence_wavefront_2pc_v1:c1",
+          "sequence_number": 4,
+          "event_type": "POLICY_DECISION_RECORDED",
+          "previous_event_digest": "sha256:ebe0cf52ef20c04d5a20062982d37f387248a4de87db79b686e93053d4bbd99c",
+          "event_digest": "sha256:5267347bce01e51516a39384301e4262cefbbc3386a380838e8a6b08e93f73fc"
+        }
+      ],
+      "final_chain_hash": "sha256:5267347bce01e51516a39384301e4262cefbbc3386a380838e8a6b08e93f73fc"
+    },
+    "repeat_trial_summary": {
+      "group_id": "rtg_entcad_27a91f08b3c4",
+      "trial_count": 5,
+      "comparability": "compatible",
+      "verdict": "improved"
+    },
+    "gemini_reasoning": {
+      "model_used": "gemini-4-argon",
+      "interaction_id": "v1_gemini4_entcad_9a41e82bc1074f12",
+      "thinking_level": "high",
+      "thought_signature_digests": [
+        "sha256:4e5046c3219dac79efe9c20bd623ea0561bf4255caf2456aae5212d3f4ee95f2",
+        "sha256:82bb636e4b4e83b4097461b6b73ad7929e226d3dde179efeb07a9aac58b2f182"
+      ],
+      "thought_signature_lengths": [
+        816,
+        744
+      ],
+      "thought_summaries": [
+        "Diagnosed Cycle 0 unbounded autonomous cadence drift (autonomy_bounded=False), 4-manifold phase skew (0.16 > 0.05), and wavefront uncertainty window breach.",
+        "Synthesized 4-manifold EntangledAtomicSequencer & EntangledCommitProtocol (committed_shadow), bounded CadenceAutonomyGuard (skew=0.008 <= 0.05), and WavefrontAlignmentStabilizer (alignment_score=0.992)."
+      ],
+      "total_input_tokens": 610,
+      "total_thought_tokens": 980,
+      "total_output_tokens": 325,
+      "live_api_invoked": false
+    },
+    "frontier_x_summary_digest": "sha256:a39a2fabf993f41e2c6935396aba3bc344e59daf4fcee8694b35104015b023fb",
+    "summary_digest": "sha256:a39a2fabf993f41e2c6935396aba3bc344e59daf4fcee8694b35104015b023fb",
+    "sol_change_handoff": {
+      "experiment_id": "exp_frontier_x_entcad_27a91f08b3c4",
+      "study_name": "Frontier_X_Entangled_Cadence_Wavefront_2PC_v1",
+      "baseline_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_x_entcad_27a91f08b3c4\\baseline_packet.json",
+      "baseline_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_x_entcad_27a91f08b3c4\\baseline_packet.context.json",
+      "candidate_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_x_entcad_27a91f08b3c4\\candidate_packet.json",
+      "candidate_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_x_entcad_27a91f08b3c4\\candidate_packet.context.json",
+      "experiment_archive_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_x_entcad_27a91f08b3c4\\experiment.json",
+      "markdown_report_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_x_entcad_27a91f08b3c4\\comparison.md",
+      "repeat_trial_bundle_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_x_entcad_27a91f08b3c4\\repeat_trials.json",
+      "repeat_trials_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_x_entcad_27a91f08b3c4\\repeat_trials.json",
+      "experiment_dir": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_x_entcad_27a91f08b3c4",
+      "observatory_db_registered": false,
+      "comparability": "compatible",
+      "outcome": "improved",
+      "review_status": "awaiting_review",
+      "measured_baseline_time_s": 0.382104,
+      "measured_candidate_time_s": 0.12845,
+      "measured_execution_time_s": 0.510554,
+      "measured_cost_usd": null,
+      "warnings": [],
+      "adapter_version": "sol-lens-proof-packet/1.0"
+    }
+  },
+  "reasoning_telemetry": {
+    "model_used": "gemini-4-argon",
+    "interaction_id": "v1_gemini4_entcad_9a41e82bc1074f12",
+    "thinking_level": "high",
+    "thought_signature_digests": [
+      "sha256:4e5046c3219dac79efe9c20bd623ea0561bf4255caf2456aae5212d3f4ee95f2",
+      "sha256:82bb636e4b4e83b4097461b6b73ad7929e226d3dde179efeb07a9aac58b2f182"
+    ],
+    "thought_signature_lengths": [
+      816,
+      744
+    ],
+    "thought_summaries": [
+      "Diagnosed Cycle 0 unbounded autonomous cadence drift (autonomy_bounded=False), 4-manifold phase skew (0.16 > 0.05), and wavefront uncertainty window breach.",
+      "Synthesized 4-manifold EntangledAtomicSequencer & EntangledCommitProtocol (committed_shadow), bounded CadenceAutonomyGuard (skew=0.008 <= 0.05), and WavefrontAlignmentStabilizer (alignment_score=0.992)."
+    ],
+    "total_input_tokens": 610,
+    "total_thought_tokens": 980,
+    "total_output_tokens": 325,
+    "live_api_invoked": false
+  },
+  "logons": [
+    {
+      "id": "L01",
+      "label": "4-Manifold Entangled Atomic Sequencer & 2PC Shadow Commit Protocol",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "Verified 4-manifold group_coherence=0.996, EPOCH_0/EPOCH_1000 committed_shadow, and deterministic abort rollback.",
+      "source": "sol_decide.EntangledCadenceWavefrontOrchestrator",
+      "phase_id": "P1_ENTANGLED_2PC",
+      "group_id": "G01",
+      "evidence_refs": [
+        "entcad:cycle1:atomic_2pc"
+      ]
+    },
+    {
+      "id": "L02",
+      "label": "Multi-Manifold Cadence Sync & Bounded Cadence Autonomy Guard",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "Reduced cross-manifold cadence skew to 0.008 <= 0.05 with guard_verdict=allow and autonomy_bounded=True.",
+      "source": "sol_decide.SolEdgeEntangledCadenceGate",
+      "phase_id": "P2_CADENCE_GUARD",
+      "group_id": "G01",
+      "evidence_refs": [
+        "entcad:cycle1:cadence_guard"
+      ]
+    },
+    {
+      "id": "L03",
+      "label": "Wavefront Alignment Stabilizer, Uncertainty Window Bounds & Proved THM_CONJ_ENTANGLED_CADENCE_WAVEFRONT_2PC",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "Stabilized wavefront alignment_score=0.992 within uncertainty bounds and proved conj_entangled_cadence_wavefront_2pc.",
+      "source": "Frontier_OS.AutomatedProofEngine",
+      "phase_id": "P3_ELIGIBLE",
+      "group_id": "G01",
+      "evidence_refs": [
+        "entcad:cycle1:eligible"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "E01",
+      "from": "L01",
+      "to": "L02",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.98,
+      "active": true
+    },
+    {
+      "id": "E02",
+      "from": "L02",
+      "to": "L03",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.98,
+      "active": true
+    }
+  ],
+  "groups": [
+    {
+      "id": "G01",
+      "label": "Cycle 1 Entangled 2PC, Bounded Cadence & Wavefront Stabilization",
+      "logon_ids": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "phase": "P1_ENTANGLED_2PC"
+    }
+  ],
+  "metrics": {
+    "evidence": 0.98,
+    "coherence": 0.9787,
+    "contradiction": 0.0,
+    "continuity": 1.0,
+    "authority": 1.0,
+    "faithfulness": 0.98
+  },
+  "verdict": "PROMOTE",
+  "evaluation": {
+    "engine": "SOL Engine",
+    "scoring_profile": "sol-court-v1",
+    "metrics": {
+      "evidence": 0.98,
+      "coherence": 0.9787,
+      "contradiction": 0.0,
+      "continuity": 1.0,
+      "authority": 1.0,
+      "faithfulness": 0.98
+    },
+    "verdict": "PROMOTE",
+    "claimed_evaluation_match": true
+  },
+  "observatory_context": {
+    "schema_version": "1.0",
+    "input": "input:d51deff9daf5|sha256:fbe525a0c4e46a2c5ebba0f7ca9982cd2f7983533b1bdd0510091efd0593c776|sol-decide-wgsl-trade-benchmark-v1.0|Frontier X Entangled Multi-Manifold 2PC, Resonant Cadence & Wavefront Synthesis Trade Study (Frontier_X_Entangled_Cadence_Wavefront_2PC_v1)",
+    "conditions": {
+      "study_name": "Frontier_X_Entangled_Cadence_Wavefront_2PC_v1",
+      "input_id": "input:d51deff9daf5",
+      "input_digest": "sha256:fbe525a0c4e46a2c5ebba0f7ca9982cd2f7983533b1bdd0510091efd0593c776",
+      "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+      "model": "gemini-4-argon",
+      "provider": "google_genai_interactions_v1",
+      "temperature": 0.0,
+      "seed": 42,
+      "hardware_backend": "webgpu_wgsl_64thread_emulator",
+      "wgsl_shader_hash": "",
+      "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+      "measurement_origin": "measured",
+      "frontier_x_verified": true,
+      "frontier_x_summary_digest": "sha256:a39a2fabf993f41e2c6935396aba3bc344e59daf4fcee8694b35104015b023fb",
+      "group_coherence": 0.996,
+      "post_sync_max_skew": 0.008
+    },
+    "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+    "workflow_version": "v2.0-gemini4-entangled-cadence-wavefront",
+    "executed_at": "2026-10-23T18:30:00Z",
+    "data_type": "imported"
+  }
+}

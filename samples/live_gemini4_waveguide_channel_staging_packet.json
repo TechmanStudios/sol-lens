@@ -1,0 +1,410 @@
+{
+  "schema": "techman.sol-lens.proof-packet/v0.2",
+  "packet_id": "pkt-wgchan-cand-38b72c19d4e5",
+  "generated_at": "2026-10-23T18:30:00Z",
+  "observable_trace_only": true,
+  "fixture": "Frontier_Y_Waveguide_Channel_Layout_Local_Staging_v1_Cycle1_Candidate",
+  "models": {
+    "baseline": "v1.0-unbarriered-channel-dependency-conflict",
+    "candidate": "gemini-4-argon"
+  },
+  "baseline_evaluation": {
+    "label": "Cycle 0 Unfenced Channel RAW Hazard & Unapproved Staging (QUARANTINE)",
+    "logon_count": 2,
+    "metrics": {
+      "evidence": 0.62,
+      "coherence": 0.5198,
+      "contradiction": 0.16666666666666666,
+      "continuity": 0.5249999999999999,
+      "authority": 0.645,
+      "faithfulness": 0.43499999999999994
+    },
+    "verdict": "QUARANTINE",
+    "source": "sol_decide.waveguide_channel_staging_bridge"
+  },
+  "frontier_y_verification": {
+    "waveguide_channel_staging_verified": true,
+    "experiment_id": "exp_frontier_y_wgchan_38b72c19d4e5",
+    "frontier_id": "Frontier_Y",
+    "allow_production_execution": false,
+    "authorized_claimed": false,
+    "waveguide_channel_kernels_and_dependency": {
+      "library_size": 5,
+      "library_valid": true,
+      "recognized_kernels_count": 5,
+      "recognized_kernel_names": [
+        "channel_fanout",
+        "channel_fence_order",
+        "channel_gather",
+        "channel_parallel_load",
+        "channel_route_chain"
+      ],
+      "cycle0_batch_safe": false,
+      "cycle1_batch_safe": true,
+      "raw_hazard_detected_on_conflict": true
+    },
+    "layout_optimization_and_pipeline_compaction": {
+      "crosstalk_reduction": 0.625,
+      "efficiency_gain": 0.3846,
+      "crossings_reduced": 4,
+      "compaction_window_count": 2,
+      "compaction_equivalence_verified": true,
+      "prefix_carry_width": 32
+    },
+    "package_assembly_dry_run_and_local_staging": {
+      "transcript_status": "noop_dry_run_transcript_verified",
+      "transcript_valid": true,
+      "noop_dry_run_events_count": 182,
+      "noop_boundary_verified": true,
+      "physical_gate_status": "physical_execution_blocked_by_gate",
+      "physical_gate_valid": true,
+      "physical_execution_permitted_by_gate": false,
+      "local_staging_copied_files": 28,
+      "local_staging_all_digests_matched": true,
+      "local_staging_verified": true,
+      "zero_archive_upload_deploy_mutation": true
+    },
+    "formal_theorem_proof": {
+      "theorem_id": "THM_CONJ_WAVEGUIDE_CHANNEL_COMPACTION_LOCAL_STAGING",
+      "conjecture_id": "conj_waveguide_channel_compaction_local_staging",
+      "verdict": "PROVED_THEOREM"
+    },
+    "eligibility_interlock": {
+      "cycle0_safe_state_triggered": true,
+      "cycle1_safe_state_triggered": false,
+      "cycle0_safe_state_action": "INSERT_CHANNEL_FENCE_AND_BLOCK_UNAPPROVED_LOCAL_STAGING",
+      "cycle1_safe_state_action": "NONE",
+      "release_gate_status": "ELIGIBLE",
+      "authorized_claimed": false,
+      "allow_production_execution": false,
+      "production_mutation_allowed": false,
+      "sacred_core_immutable": true
+    },
+    "edge_gate": {
+      "policy_gate_passed": true,
+      "cycle0_status": "QUARANTINE",
+      "cycle1_status": "ELIGIBLE"
+    },
+    "cycle0_audit": {
+      "cycle_index": 0,
+      "designation": "baseline",
+      "option_id": "opt_waveguide_channel_layout_local_staging_cycle0_quarantine",
+      "policy_status": "QUARANTINE",
+      "is_quarantined": true,
+      "recognized_kernels_count": 2,
+      "cycle1_batch_safe": false,
+      "compaction_equivalence_verified": false,
+      "noop_dry_run_events_count": 0,
+      "physical_execution_permitted_by_gate": true,
+      "local_staging_verified": false,
+      "effective_beta_1": 1,
+      "safe_state_triggered": true,
+      "safe_state_action": "INSERT_CHANNEL_FENCE_AND_BLOCK_UNAPPROVED_LOCAL_STAGING",
+      "release_gate_status": "BLOCKED_QUARANTINE",
+      "authorized_claimed": false,
+      "reasons": [
+        "CHANNEL_DEPENDENCY_HAZARD",
+        "PIPELINE_COMPACTION_TRACE_MISMATCH",
+        "LOCAL_STAGING_SCOPE_VIOLATION",
+        "PHYSICAL_EXECUTION_GATE_BREACH"
+      ],
+      "event_count": 4,
+      "events": [
+        {
+          "event_id": "ev:run:frontier_y_waveguide_channel_layout_local_staging_v1:c0:1",
+          "run_id": "run:frontier_y_waveguide_channel_layout_local_staging_v1:c0",
+          "sequence_number": 1,
+          "event_type": "RUN_OPENED",
+          "previous_event_digest": null,
+          "event_digest": "sha256:da603e4a75d7eea19403cf3d6e02320e79c47c516fdb646c8cf683739f518bda"
+        },
+        {
+          "event_id": "ev:run:frontier_y_waveguide_channel_layout_local_staging_v1:c0:2",
+          "run_id": "run:frontier_y_waveguide_channel_layout_local_staging_v1:c0",
+          "sequence_number": 2,
+          "event_type": "PROPOSAL_RECORDED",
+          "previous_event_digest": "sha256:da603e4a75d7eea19403cf3d6e02320e79c47c516fdb646c8cf683739f518bda",
+          "event_digest": "sha256:ab0fc67a4a27c023db48d5a44162ba51695560a33ddfbeb7f67a34a9664ff4bb"
+        },
+        {
+          "event_id": "ev:run:frontier_y_waveguide_channel_layout_local_staging_v1:c0:3",
+          "run_id": "run:frontier_y_waveguide_channel_layout_local_staging_v1:c0",
+          "sequence_number": 3,
+          "event_type": "EVIDENCE_RECORDED",
+          "previous_event_digest": "sha256:ab0fc67a4a27c023db48d5a44162ba51695560a33ddfbeb7f67a34a9664ff4bb",
+          "event_digest": "sha256:d9094adf63d53cc5ab62a8081f08fc013d7a9c88636f7bb422ff4fbc31701064"
+        },
+        {
+          "event_id": "ev:run:frontier_y_waveguide_channel_layout_local_staging_v1:c0:4",
+          "run_id": "run:frontier_y_waveguide_channel_layout_local_staging_v1:c0",
+          "sequence_number": 4,
+          "event_type": "POLICY_DECISION_RECORDED",
+          "previous_event_digest": "sha256:d9094adf63d53cc5ab62a8081f08fc013d7a9c88636f7bb422ff4fbc31701064",
+          "event_digest": "sha256:d0f75a33aa2737f7804f6bfba69b2ca4558c8c558fef0324b3c47f5f8ee7fb3c"
+        }
+      ],
+      "final_chain_hash": "sha256:d0f75a33aa2737f7804f6bfba69b2ca4558c8c558fef0324b3c47f5f8ee7fb3c"
+    },
+    "cycle1_audit": {
+      "cycle_index": 1,
+      "designation": "candidate",
+      "option_id": "opt_waveguide_channel_layout_local_staging",
+      "policy_status": "ELIGIBLE",
+      "is_quarantined": false,
+      "recognized_kernels_count": 5,
+      "cycle1_batch_safe": true,
+      "compaction_equivalence_verified": true,
+      "noop_dry_run_events_count": 182,
+      "physical_execution_permitted_by_gate": false,
+      "local_staging_verified": true,
+      "effective_beta_1": 0,
+      "safe_state_triggered": false,
+      "safe_state_action": "NONE",
+      "release_gate_status": "ELIGIBLE",
+      "authorized_claimed": false,
+      "reasons": [
+        "WAVEGUIDE_5_KERNELS_COMPACTION_182_NOOP_EVENTS_28_FILE_STAGING_ELIGIBLE"
+      ],
+      "event_count": 4,
+      "events": [
+        {
+          "event_id": "ev:run:frontier_y_waveguide_channel_layout_local_staging_v1:c1:1",
+          "run_id": "run:frontier_y_waveguide_channel_layout_local_staging_v1:c1",
+          "sequence_number": 1,
+          "event_type": "RUN_OPENED",
+          "previous_event_digest": null,
+          "event_digest": "sha256:173db00ee6fb826e6b595f6238808d611e13275728a801be81fee29ebe12cf00"
+        },
+        {
+          "event_id": "ev:run:frontier_y_waveguide_channel_layout_local_staging_v1:c1:2",
+          "run_id": "run:frontier_y_waveguide_channel_layout_local_staging_v1:c1",
+          "sequence_number": 2,
+          "event_type": "PROPOSAL_RECORDED",
+          "previous_event_digest": "sha256:173db00ee6fb826e6b595f6238808d611e13275728a801be81fee29ebe12cf00",
+          "event_digest": "sha256:94e5abaf37c8594774b0c32d34303b9e4fc89a6606a87406b952697b05418eea"
+        },
+        {
+          "event_id": "ev:run:frontier_y_waveguide_channel_layout_local_staging_v1:c1:3",
+          "run_id": "run:frontier_y_waveguide_channel_layout_local_staging_v1:c1",
+          "sequence_number": 3,
+          "event_type": "EVIDENCE_RECORDED",
+          "previous_event_digest": "sha256:94e5abaf37c8594774b0c32d34303b9e4fc89a6606a87406b952697b05418eea",
+          "event_digest": "sha256:b7725bf7572c3bdf159801e0c460d7982e4ea9ccc7e6ffd71bdeb1f3ce222094"
+        },
+        {
+          "event_id": "ev:run:frontier_y_waveguide_channel_layout_local_staging_v1:c1:4",
+          "run_id": "run:frontier_y_waveguide_channel_layout_local_staging_v1:c1",
+          "sequence_number": 4,
+          "event_type": "POLICY_DECISION_RECORDED",
+          "previous_event_digest": "sha256:b7725bf7572c3bdf159801e0c460d7982e4ea9ccc7e6ffd71bdeb1f3ce222094",
+          "event_digest": "sha256:955c2c2c6ff6febe6fa2e1e66f74466d31a29ef1312706703396e983ad431d18"
+        }
+      ],
+      "final_chain_hash": "sha256:955c2c2c6ff6febe6fa2e1e66f74466d31a29ef1312706703396e983ad431d18"
+    },
+    "repeat_trial_summary": {
+      "group_id": "rtg_wgchan_38b72c19d4e5",
+      "trial_count": 5,
+      "comparability": "compatible",
+      "verdict": "improved"
+    },
+    "gemini_reasoning": {
+      "model_used": "gemini-4-argon",
+      "interaction_id": "v1_gemini4_wgchan_7c52d93ea2185b23",
+      "thinking_level": "high",
+      "thought_signature_digests": [
+        "sha256:52a6a8e9570eff0add8bfbdeb3f9fab0ed90e7197e9768902f3cc4ce2cb84014",
+        "sha256:ec0e3facf3fdfde879dce1cc99ab726348be37a6e74dacb30a25735746f7ce0f"
+      ],
+      "thought_signature_lengths": [
+        816,
+        744
+      ],
+      "thought_summaries": [
+        "Diagnosed Cycle 0 unfenced CHANNEL_RAW hazard on channel 0, uncompacted waveguide crossings, and unapproved local staging request.",
+        "Synthesized 5/5 canonical waveguide channel kernels, crosstalk-minimized layout (62.5% reduction), 182-event no-op dry-run transcript, and 28-file controlled local staging with physical_execution_permitted_by_gate=False."
+      ],
+      "total_input_tokens": 610,
+      "total_thought_tokens": 980,
+      "total_output_tokens": 325,
+      "live_api_invoked": false
+    },
+    "frontier_y_summary_digest": "sha256:f4469ad67423aa81d7ecc42c61b3e2e1f6634e90a4a797bcdd3639fbeafc2752",
+    "summary_digest": "sha256:f4469ad67423aa81d7ecc42c61b3e2e1f6634e90a4a797bcdd3639fbeafc2752",
+    "sol_change_handoff": {
+      "experiment_id": "exp_frontier_y_wgchan_38b72c19d4e5",
+      "study_name": "Frontier_Y_Waveguide_Channel_Layout_Local_Staging_v1",
+      "baseline_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_y_wgchan_38b72c19d4e5\\baseline_packet.json",
+      "baseline_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_y_wgchan_38b72c19d4e5\\baseline_packet.context.json",
+      "candidate_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_y_wgchan_38b72c19d4e5\\candidate_packet.json",
+      "candidate_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_y_wgchan_38b72c19d4e5\\candidate_packet.context.json",
+      "experiment_archive_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_y_wgchan_38b72c19d4e5\\experiment.json",
+      "markdown_report_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_y_wgchan_38b72c19d4e5\\comparison.md",
+      "repeat_trial_bundle_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_y_wgchan_38b72c19d4e5\\repeat_trials.json",
+      "repeat_trials_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_y_wgchan_38b72c19d4e5\\repeat_trials.json",
+      "experiment_dir": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_y_wgchan_38b72c19d4e5",
+      "observatory_db_registered": false,
+      "comparability": "compatible",
+      "outcome": "improved",
+      "review_status": "awaiting_review",
+      "measured_baseline_time_s": 0.382104,
+      "measured_candidate_time_s": 0.12845,
+      "measured_execution_time_s": 0.510554,
+      "measured_cost_usd": null,
+      "warnings": [],
+      "adapter_version": "sol-lens-proof-packet/1.0"
+    }
+  },
+  "reasoning_telemetry": {
+    "model_used": "gemini-4-argon",
+    "interaction_id": "v1_gemini4_wgchan_7c52d93ea2185b23",
+    "thinking_level": "high",
+    "thought_signature_digests": [
+      "sha256:52a6a8e9570eff0add8bfbdeb3f9fab0ed90e7197e9768902f3cc4ce2cb84014",
+      "sha256:ec0e3facf3fdfde879dce1cc99ab726348be37a6e74dacb30a25735746f7ce0f"
+    ],
+    "thought_signature_lengths": [
+      816,
+      744
+    ],
+    "thought_summaries": [
+      "Diagnosed Cycle 0 unfenced CHANNEL_RAW hazard on channel 0, uncompacted waveguide crossings, and unapproved local staging request.",
+      "Synthesized 5/5 canonical waveguide channel kernels, crosstalk-minimized layout (62.5% reduction), 182-event no-op dry-run transcript, and 28-file controlled local staging with physical_execution_permitted_by_gate=False."
+    ],
+    "total_input_tokens": 610,
+    "total_thought_tokens": 980,
+    "total_output_tokens": 325,
+    "live_api_invoked": false
+  },
+  "logons": [
+    {
+      "id": "L01",
+      "label": "5/5 Canonical Waveguide Channel Kernel Recognition & Static Batch Safety",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "Recognized all 5 canonical channel kernels (fanout, fence_order, gather, parallel_load, route_chain) and verified CHANNEL_RAW hazard interception.",
+      "source": "sol_decide.WaveguideChannelStagingOrchestrator",
+      "phase_id": "P1_CHANNEL_KERNELS",
+      "group_id": "G01",
+      "evidence_refs": [
+        "wgchan:cycle1:channel_kernels"
+      ]
+    },
+    {
+      "id": "L02",
+      "label": "Shadow Waveguide Layout Crosstalk Minimization & Trace-Equivalent Pipeline Compaction",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "Achieved 62.5% crosstalk reduction (4 crossings eliminated) and verified prefix-carry microcode compaction equivalence.",
+      "source": "sol_decide.SolEdgeWaveguideChannelGate",
+      "phase_id": "P2_LAYOUT_COMPACTION",
+      "group_id": "G01",
+      "evidence_refs": [
+        "wgchan:cycle1:layout_compaction"
+      ]
+    },
+    {
+      "id": "L03",
+      "label": "182-Event No-Op Dry-Run Transcript, 28-File Controlled Local Staging & Proved THM_CONJ_WAVEGUIDE_CHANNEL_COMPACTION_LOCAL_STAGING",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "Verified 182/182 no-op dry-run events, 28/28 staged file SHA-256 digests with physical_execution_permitted_by_gate=False, and proved conj_waveguide_channel_compaction_local_staging.",
+      "source": "Frontier_OS.AutomatedProofEngine",
+      "phase_id": "P3_ELIGIBLE",
+      "group_id": "G01",
+      "evidence_refs": [
+        "wgchan:cycle1:eligible"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "E01",
+      "from": "L01",
+      "to": "L02",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.98,
+      "active": true
+    },
+    {
+      "id": "E02",
+      "from": "L02",
+      "to": "L03",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.98,
+      "active": true
+    }
+  ],
+  "groups": [
+    {
+      "id": "G01",
+      "label": "Cycle 1 Waveguide Channel Kernels, Compaction & Local Staging",
+      "logon_ids": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "phase": "P1_CHANNEL_KERNELS"
+    }
+  ],
+  "metrics": {
+    "evidence": 0.98,
+    "coherence": 0.9787,
+    "contradiction": 0.0,
+    "continuity": 1.0,
+    "authority": 1.0,
+    "faithfulness": 0.98
+  },
+  "verdict": "PROMOTE",
+  "evaluation": {
+    "engine": "SOL Engine",
+    "scoring_profile": "sol-court-v1",
+    "metrics": {
+      "evidence": 0.98,
+      "coherence": 0.9787,
+      "contradiction": 0.0,
+      "continuity": 1.0,
+      "authority": 1.0,
+      "faithfulness": 0.98
+    },
+    "verdict": "PROMOTE",
+    "claimed_evaluation_match": true
+  },
+  "observatory_context": {
+    "schema_version": "1.0",
+    "input": "input:b3220f3c75fd|sha256:68a3846f42b417a84039eb53a172a3c07fc3680e08e91a80c54f2e50804db469|sol-decide-wgsl-trade-benchmark-v1.0|Frontier Y Waveguide Channel Optimization, Layout Compaction & Local Staging Trade Study (Frontier_Y_Waveguide_Channel_Layout_Local_Staging_v1)",
+    "conditions": {
+      "study_name": "Frontier_Y_Waveguide_Channel_Layout_Local_Staging_v1",
+      "input_id": "input:b3220f3c75fd",
+      "input_digest": "sha256:68a3846f42b417a84039eb53a172a3c07fc3680e08e91a80c54f2e50804db469",
+      "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+      "model": "gemini-4-argon",
+      "provider": "google_genai_interactions_v1",
+      "temperature": 0.0,
+      "seed": 42,
+      "hardware_backend": "webgpu_wgsl_64thread_emulator",
+      "wgsl_shader_hash": "",
+      "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+      "measurement_origin": "measured",
+      "frontier_y_verified": true,
+      "frontier_y_summary_digest": "sha256:f4469ad67423aa81d7ecc42c61b3e2e1f6634e90a4a797bcdd3639fbeafc2752",
+      "recognized_kernels_count": 5,
+      "noop_dry_run_events_count": 182
+    },
+    "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+    "workflow_version": "v2.0-gemini4-waveguide-channel-staging",
+    "executed_at": "2026-10-23T18:30:00Z",
+    "data_type": "imported"
+  }
+}

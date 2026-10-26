@@ -1,0 +1,432 @@
+{
+  "schema": "techman.sol-lens.proof-packet/v0.2",
+  "packet_id": "pkt-hcam-cand-90b3ce40662e",
+  "generated_at": "2026-10-23T14:00:05Z",
+  "observable_trace_only": true,
+  "fixture": "Frontier_U_HCAM_Banking_Cross_Shard_Consensus_GC_v1_Cycle1_Candidate",
+  "models": {
+    "baseline": "v1.0-split-brain-shard-unbarriered-gc",
+    "candidate": "gemini-4-argon"
+  },
+  "baseline_evaluation": {
+    "label": "Cycle 0 Split-Brain Shard Consensus & Unbarriered GC (QUARANTINE)",
+    "logon_count": 2,
+    "metrics": {
+      "evidence": 0.62,
+      "coherence": 0.5198,
+      "contradiction": 0.16666666666666666,
+      "continuity": 0.5249999999999999,
+      "authority": 0.645,
+      "faithfulness": 0.43499999999999994
+    },
+    "verdict": "QUARANTINE",
+    "source": "sol_decide.hcam_shard_consensus_bridge"
+  },
+  "frontier_u_verification": {
+    "hcam_shard_verified": true,
+    "experiment_id": "exp_frontier_u_hcam_90b3ce40662e",
+    "frontier_id": "Frontier_U",
+    "hcam_associative_recall": {
+      "32b_banks": 4,
+      "64b_banks": 8,
+      "32b_reduction_depth": 3,
+      "64b_reduction_depth": 4,
+      "assembled_32b_hex": "0x7d5d7757",
+      "assembled_64b_hex": "0x78005655775757",
+      "word_assembly_verified": true
+    },
+    "cross_shard_consensus": {
+      "shard_count": 4,
+      "mapped_fabric_lanes": 8,
+      "cross_shard_query_passed": true,
+      "cycle0_local_quorum_shards": 1,
+      "cycle1_local_quorum_shards": 4,
+      "cycle1_global_quorum_met": true,
+      "consensus_commit_verified": true
+    },
+    "transactional_geodesic_and_migration": {
+      "route_optimization_passed": true,
+      "migration_prepared": true,
+      "migration_transferred_shadow": true,
+      "migration_verified": true,
+      "migration_committed_shadow": true
+    },
+    "manifold_garbage_collection": {
+      "live_roots_count": 1,
+      "reachable_nodes_count": 3,
+      "orphan_nodes_reclaimed": 2,
+      "reclaimed_nodes": [
+        "orphan_node_B",
+        "orphan_node_A"
+      ],
+      "live_root_reclaimed": false
+    },
+    "ranger_evidence": {
+      "hcam_ranger_packet_id": "PKT_HCAM_OBS_2393593131664_163605",
+      "shard_ranger_packet_id": "PKT_SHARD_OBS_TOPOLOGY_4S_R2_1792773365_163605",
+      "transaction_ranger_packet_id": "PKT_TX_OBS_TX_FRONTIER_U_01_163605",
+      "gc_ranger_packet_id": "PKT_GC_OBS_163605",
+      "ranger_packets_count": 4
+    },
+    "formal_theorem_proof": {
+      "theorem_id": "THM_CONJ_HCAM_CROSS_SHARD_CONSENSUS_GC",
+      "conjecture_id": "conj_hcam_cross_shard_consensus_gc",
+      "verdict": "PROVED_THEOREM"
+    },
+    "eligibility_interlock": {
+      "cycle0_safe_state_triggered": true,
+      "cycle1_safe_state_triggered": false,
+      "cycle0_safe_state_action": "ABORT_SHARD_MIGRATION_AND_QUARANTINE_PARTITION",
+      "cycle1_safe_state_action": "NONE",
+      "release_gate_status": "ELIGIBLE",
+      "authorized_claimed": false,
+      "production_mutation_allowed": false,
+      "sacred_core_immutable": true
+    },
+    "cycle0_audit": {
+      "cycle_index": 0,
+      "designation": "baseline",
+      "option_id": "opt_banked_hcam_cross_shard_consensus_live_gc_cycle0_quarantine",
+      "policy_status": "QUARANTINE",
+      "is_quarantined": true,
+      "hcam_32b_banks": 4,
+      "hcam_64b_banks": 8,
+      "word_assembly_verified": false,
+      "assembled_32b_hex": "0x005d7757",
+      "assembled_64b_hex": "0x00005655775757",
+      "shard_count": 4,
+      "local_quorum_shards": 1,
+      "global_quorum_met": false,
+      "consensus_commit_verified": false,
+      "migration_committed_shadow": false,
+      "route_optimization_passed": false,
+      "orphan_nodes_reclaimed": 0,
+      "live_root_reclaimed": true,
+      "effective_beta_1": 2,
+      "safe_state_triggered": true,
+      "safe_state_action": "ABORT_SHARD_MIGRATION_AND_QUARANTINE_PARTITION",
+      "release_gate_status": "BLOCKED_QUARANTINE",
+      "authorized_claimed": false,
+      "reasons": [
+        "HCAM_WORD_ASSEMBLY_MISMATCH",
+        "LOCAL_SHARD_QUORUM_SHORTFALL(1/4)",
+        "GLOBAL_SHARD_QUORUM_FAILED",
+        "TOPOLOGY_MIGRATION_OR_ROUTE_OPTIMIZATION_ABORTED",
+        "LIVE_ROOT_REACHABILITY_VIOLATION",
+        "ORPHAN_GC_INCOMPLETE(0/2)",
+        "NON_ZERO_BETTI_1_OBSTRUCTION(2)"
+      ],
+      "event_count": 4,
+      "final_chain_hash": "sha256:cd95334004f732af9f321255a1342140f87d1528b3f8ff4996660ae2401f175c",
+      "events": [
+        {
+          "event_id": "ev:run:frontier_u_hcam_banking_cross_shard_consensus_gc_v1:opt_banked_hcam_cross_shard_consensus_li:c0:1",
+          "run_id": "run:frontier_u_hcam_banking_cross_shard_consensus_gc_v1:opt_banked_hcam_cross_shard_consensus_li:c0",
+          "sequence_number": 1,
+          "event_type": "RUN_OPENED",
+          "previous_event_digest": null,
+          "event_digest": "sha256:1f97fb4ab5a863dac5dac6027390f171b19250bbee6354239c7306d6fdea0613"
+        },
+        {
+          "event_id": "ev:run:frontier_u_hcam_banking_cross_shard_consensus_gc_v1:opt_banked_hcam_cross_shard_consensus_li:c0:2",
+          "run_id": "run:frontier_u_hcam_banking_cross_shard_consensus_gc_v1:opt_banked_hcam_cross_shard_consensus_li:c0",
+          "sequence_number": 2,
+          "event_type": "PROPOSAL_RECORDED",
+          "previous_event_digest": "sha256:1f97fb4ab5a863dac5dac6027390f171b19250bbee6354239c7306d6fdea0613",
+          "event_digest": "sha256:a4e9a7a03bec5f9772fb7bf7e7039947e55e6e03b1c5ea458642d5be9f497fc1"
+        },
+        {
+          "event_id": "ev:run:frontier_u_hcam_banking_cross_shard_consensus_gc_v1:opt_banked_hcam_cross_shard_consensus_li:c0:3",
+          "run_id": "run:frontier_u_hcam_banking_cross_shard_consensus_gc_v1:opt_banked_hcam_cross_shard_consensus_li:c0",
+          "sequence_number": 3,
+          "event_type": "EVIDENCE_RECORDED",
+          "previous_event_digest": "sha256:a4e9a7a03bec5f9772fb7bf7e7039947e55e6e03b1c5ea458642d5be9f497fc1",
+          "event_digest": "sha256:a44ac7f69e743860a49f986e00f40176bba0574da2ad10f063f4708c9d6fc6e2"
+        },
+        {
+          "event_id": "ev:run:frontier_u_hcam_banking_cross_shard_consensus_gc_v1:opt_banked_hcam_cross_shard_consensus_li:c0:4",
+          "run_id": "run:frontier_u_hcam_banking_cross_shard_consensus_gc_v1:opt_banked_hcam_cross_shard_consensus_li:c0",
+          "sequence_number": 4,
+          "event_type": "POLICY_DECISION_RECORDED",
+          "previous_event_digest": "sha256:a44ac7f69e743860a49f986e00f40176bba0574da2ad10f063f4708c9d6fc6e2",
+          "event_digest": "sha256:39f2591237df86d79d7edcb3a20c7110b52c3562bd348890d4d05257a5cf4d82"
+        }
+      ]
+    },
+    "cycle1_audit": {
+      "cycle_index": 1,
+      "designation": "candidate",
+      "option_id": "opt_banked_hcam_cross_shard_consensus_live_gc",
+      "policy_status": "ELIGIBLE",
+      "is_quarantined": false,
+      "hcam_32b_banks": 4,
+      "hcam_64b_banks": 8,
+      "word_assembly_verified": true,
+      "assembled_32b_hex": "0x7d5d7757",
+      "assembled_64b_hex": "0x78005655775757",
+      "shard_count": 4,
+      "local_quorum_shards": 4,
+      "global_quorum_met": true,
+      "consensus_commit_verified": true,
+      "migration_committed_shadow": true,
+      "route_optimization_passed": true,
+      "orphan_nodes_reclaimed": 2,
+      "live_root_reclaimed": false,
+      "effective_beta_1": 0,
+      "safe_state_triggered": false,
+      "safe_state_action": "NONE",
+      "release_gate_status": "ELIGIBLE",
+      "authorized_claimed": false,
+      "reasons": [
+        "HCAM_32B_64B_RECALL_4_SHARD_QUORUM_SHADOW_MIGRATION_AND_GC_ELIGIBLE"
+      ],
+      "event_count": 4,
+      "final_chain_hash": "sha256:38731779102a4794332bf3c12f4657e810ba09c56904668aca640269af742e2d",
+      "events": [
+        {
+          "event_id": "ev:run:frontier_u_hcam_banking_cross_shard_consensus_gc_v1:opt_banked_hcam_cross_shard_consensus_li:c1:1",
+          "run_id": "run:frontier_u_hcam_banking_cross_shard_consensus_gc_v1:opt_banked_hcam_cross_shard_consensus_li:c1",
+          "sequence_number": 1,
+          "event_type": "RUN_OPENED",
+          "previous_event_digest": null,
+          "event_digest": "sha256:e9bf24cb93039effb25d729c3fbe475a316bedd4387a75a8348461bc01b590f4"
+        },
+        {
+          "event_id": "ev:run:frontier_u_hcam_banking_cross_shard_consensus_gc_v1:opt_banked_hcam_cross_shard_consensus_li:c1:2",
+          "run_id": "run:frontier_u_hcam_banking_cross_shard_consensus_gc_v1:opt_banked_hcam_cross_shard_consensus_li:c1",
+          "sequence_number": 2,
+          "event_type": "PROPOSAL_RECORDED",
+          "previous_event_digest": "sha256:e9bf24cb93039effb25d729c3fbe475a316bedd4387a75a8348461bc01b590f4",
+          "event_digest": "sha256:9363f6eb350665e5896d66e5797ddb70edcb55e65005417963cb5a6892049af3"
+        },
+        {
+          "event_id": "ev:run:frontier_u_hcam_banking_cross_shard_consensus_gc_v1:opt_banked_hcam_cross_shard_consensus_li:c1:3",
+          "run_id": "run:frontier_u_hcam_banking_cross_shard_consensus_gc_v1:opt_banked_hcam_cross_shard_consensus_li:c1",
+          "sequence_number": 3,
+          "event_type": "EVIDENCE_RECORDED",
+          "previous_event_digest": "sha256:9363f6eb350665e5896d66e5797ddb70edcb55e65005417963cb5a6892049af3",
+          "event_digest": "sha256:31183b30bf3817e79093c8ee0b55b920bf54c8acfed434e945563d16a94bac5a"
+        },
+        {
+          "event_id": "ev:run:frontier_u_hcam_banking_cross_shard_consensus_gc_v1:opt_banked_hcam_cross_shard_consensus_li:c1:4",
+          "run_id": "run:frontier_u_hcam_banking_cross_shard_consensus_gc_v1:opt_banked_hcam_cross_shard_consensus_li:c1",
+          "sequence_number": 4,
+          "event_type": "POLICY_DECISION_RECORDED",
+          "previous_event_digest": "sha256:31183b30bf3817e79093c8ee0b55b920bf54c8acfed434e945563d16a94bac5a",
+          "event_digest": "sha256:6f6792d07e5bed20f5909ebcac8832fc499fb3feedf4344cb09e857f95d09413"
+        }
+      ]
+    },
+    "gemini_reasoning": {
+      "model_used": "gemini-4-argon",
+      "interaction_id": "v1_gemini4_hcam_627a4f99f19dbd12",
+      "thinking_level": "high",
+      "thought_signature_digests": [
+        "sha256:f79f2f960f72c1351a1259c093f071d8138ec1122e23dbc45155ca57ed796f4d",
+        "sha256:529d0539dea590ec09248406c98b5eca7e562df5f3ae0f8fb3aa660571fe1bac"
+      ],
+      "thought_signature_lengths": [
+        792,
+        684
+      ],
+      "thought_summaries": [
+        "Diagnosed Cycle 0 split-brain shard consensus failure (local_quorum_shards=1/4, global_quorum_met=False) and unsafe live-root GC attempt.",
+        "Synthesized 4-bank (32b -> 0x7d5d7757) and 8-bank (64b -> 0x78005655775757) HCAM associative reduction trees with 4/4 local + global shard quorum, shadow topology migration, and root-preserving GC (2 orphans reclaimed, 0 live roots reclaimed)."
+      ],
+      "total_input_tokens": 560,
+      "total_thought_tokens": 910,
+      "total_output_tokens": 295,
+      "live_api_invoked": false
+    },
+    "repeat_trial_summary": {
+      "group_id": "rtg_hcam_450aadd37023",
+      "trial_count": 5,
+      "comparability": "compatible",
+      "verdict": "improved"
+    },
+    "frontier_u_summary_digest": "sha256:7e13962aab870a865b724f6c60194d7a494421ad486cd0f70ff4df073a467248",
+    "summary_digest": "sha256:7e13962aab870a865b724f6c60194d7a494421ad486cd0f70ff4df073a467248",
+    "sol_change_handoff": {
+      "experiment_id": "exp_frontier_u_hcam_90b3ce40662e",
+      "study_name": "Frontier_U_HCAM_Banking_Cross_Shard_Consensus_GC_v1",
+      "baseline_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e\\baseline_packet.json",
+      "baseline_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e\\baseline_packet.context.json",
+      "candidate_packet_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e\\candidate_packet.json",
+      "candidate_context_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e\\candidate_packet.context.json",
+      "experiment_archive_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e\\experiment.json",
+      "markdown_report_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e\\comparison.md",
+      "repeat_trial_bundle_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e\\repeat_trials.json",
+      "repeat_trials_path": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e\\repeat_trials.json",
+      "experiment_dir": "C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e",
+      "observatory_db_registered": false,
+      "comparability": "compatible",
+      "outcome": "improved",
+      "review_status": "awaiting_review",
+      "measured_baseline_time_s": 0.066391,
+      "measured_candidate_time_s": 0.022573,
+      "measured_execution_time_s": 0.088964,
+      "measured_cost_usd": null,
+      "cli_commands": {
+        "import_continuum": "python -m observatory.cli import-continuum --baseline \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e\\baseline_packet.json\" --baseline-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e\\baseline_packet.context.json\" --candidate \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e\\candidate_packet.json\" --candidate-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e\\candidate_packet.context.json\" --baseline-measured-time-s 0.066391 --candidate-measured-time-s 0.022573 --title \"Frontier_U_HCAM_Banking_Cross_Shard_Consensus_GC_v1\" --change \"WGSL Decision Prover Cycle 0 -> Cycle 1\" --output-dir \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e-reimport\"",
+        "compare": "python -m observatory.cli compare --baseline \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e\\baseline_packet.json\" --baseline-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e\\baseline_packet.context.json\" --candidate \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e\\candidate_packet.json\" --candidate-context \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e\\candidate_packet.context.json\" --baseline-measured-time-s 0.066391 --candidate-measured-time-s 0.022573 --title \"Frontier_U_HCAM_Banking_Cross_Shard_Consensus_GC_v1\" --change \"WGSL Decision Prover Cycle 0 -> Cycle 1\" --output-dir \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e-compare\"",
+        "evaluate_trials": "python -m observatory.cli evaluate-trials --group \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e\\repeat_trials.json\" --format text",
+        "assess": "python -m observatory.cli assess --experiment \"C:\\sol-systems\\sol-decide\\experiments\\exp_frontier_u_hcam_90b3ce40662e\\experiment.json\""
+      },
+      "warnings": [],
+      "adapter_version": "sol-lens-proof-packet/1.0"
+    }
+  },
+  "reasoning_telemetry": {
+    "model_used": "gemini-4-argon",
+    "interaction_id": "v1_gemini4_hcam_627a4f99f19dbd12",
+    "thinking_level": "high",
+    "thought_signature_digests": [
+      "sha256:f79f2f960f72c1351a1259c093f071d8138ec1122e23dbc45155ca57ed796f4d",
+      "sha256:529d0539dea590ec09248406c98b5eca7e562df5f3ae0f8fb3aa660571fe1bac"
+    ],
+    "thought_signature_lengths": [
+      792,
+      684
+    ],
+    "thought_summaries": [
+      "Diagnosed Cycle 0 split-brain shard consensus failure (local_quorum_shards=1/4, global_quorum_met=False) and unsafe live-root GC attempt.",
+      "Synthesized 4-bank (32b -> 0x7d5d7757) and 8-bank (64b -> 0x78005655775757) HCAM associative reduction trees with 4/4 local + global shard quorum, shadow topology migration, and root-preserving GC (2 orphans reclaimed, 0 live roots reclaimed)."
+    ],
+    "total_input_tokens": 560,
+    "total_thought_tokens": 910,
+    "total_output_tokens": 295,
+    "live_api_invoked": false
+  },
+  "logons": [
+    {
+      "id": "L01",
+      "label": "Banked HCAM 32-Bit (4 Banks -> 0x7d5d7757) & 64-Bit (8 Banks -> 0x78005655775757) Recall",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "Verified 4-bank 32b (0x7d5d7757) and 8-bank 64b (0x78005655775757) associative recall reduction trees.",
+      "source": "sol_decide.HCAMShardConsensusOrchestrator",
+      "phase_id": "P1_HCAM_RECALL",
+      "group_id": "G01",
+      "evidence_refs": [
+        "hcam_shard:cycle1:hcam_recall"
+      ]
+    },
+    {
+      "id": "L02",
+      "label": "4-Shard Local & Global Quorum Consensus + Shadow Geodesic Topology Migration",
+      "status": "supported",
+      "evidence": 0.98,
+      "rho": 0.97,
+      "psi": 0.98,
+      "pressure": 0.03,
+      "detail": "Achieved 4/4 local shard quorums, global quorum commit, and shadow topology migration.",
+      "source": "sol_decide.SolEdgeHCAMShardGate",
+      "phase_id": "P2_SHARD_CONSENSUS",
+      "group_id": "G01",
+      "evidence_refs": [
+        "hcam_shard:cycle1:shard_consensus"
+      ]
+    },
+    {
+      "id": "L03",
+      "label": "Root-Preserving Manifold GC (2 Orphans Reclaimed) & Proved THM_CONJ_HCAM_CROSS_SHARD_CONSENSUS_GC",
+      "status": "supported",
+      "evidence": 0.97,
+      "rho": 0.96,
+      "psi": 0.97,
+      "pressure": 0.04,
+      "detail": "Reclaimed 2 orphan nodes with live_root_reclaimed=False and proved PROVED_THEOREM.",
+      "source": "Frontier_OS.AutomatedProofEngine",
+      "phase_id": "P3_ELIGIBLE",
+      "group_id": "G01",
+      "evidence_refs": [
+        "hcam_shard:cycle1:eligible"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "E01",
+      "from": "L01",
+      "to": "L02",
+      "status": "supported",
+      "kind": "evidence",
+      "weight": 0.98,
+      "active": true
+    },
+    {
+      "id": "E02",
+      "from": "L02",
+      "to": "L03",
+      "status": "supported",
+      "kind": "flow",
+      "weight": 0.98,
+      "active": true
+    }
+  ],
+  "groups": [
+    {
+      "id": "G01",
+      "label": "Cycle 1 Banked HCAM, 4-Shard Quorum & Reachability GC",
+      "logon_ids": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "phase": "P1_HCAM_RECALL"
+    }
+  ],
+  "metrics": {
+    "evidence": 0.9766666666666666,
+    "coherence": 0.9753666666666666,
+    "contradiction": 0.0,
+    "continuity": 1.0,
+    "authority": 1.0,
+    "faithfulness": 0.9766666666666666
+  },
+  "verdict": "PROMOTE",
+  "evaluation": {
+    "engine": "SOL Engine",
+    "scoring_profile": "sol-court-v1",
+    "metrics": {
+      "evidence": 0.9766666666666666,
+      "coherence": 0.9753666666666666,
+      "contradiction": 0.0,
+      "continuity": 1.0,
+      "authority": 1.0,
+      "faithfulness": 0.9766666666666666
+    },
+    "verdict": "PROMOTE",
+    "claimed_evaluation_match": true
+  },
+  "observatory_context": {
+    "schema_version": "1.0",
+    "input": "input:c4795d601b8b|sha256:dcb7b0513fba77872818b4fb0d86970d7f763c0de81a638dea9e0ef9c6596043|sol-decide-wgsl-trade-benchmark-v1.0|Frontier U Banked HCAM Associative Memory, Cross-Shard Geodesic Consensus & Live Topology Migration / Reachability GC Trade Study (Frontier_U_HCAM_Banking_Cross_Shard_Consensus_GC_v1)",
+    "conditions": {
+      "study_name": "Frontier_U_HCAM_Banking_Cross_Shard_Consensus_GC_v1",
+      "input_id": "input:c4795d601b8b",
+      "input_digest": "sha256:dcb7b0513fba77872818b4fb0d86970d7f763c0de81a638dea9e0ef9c6596043",
+      "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+      "model": "gemini-4-argon",
+      "provider": "google_genai_interactions_v1",
+      "temperature": 0.0,
+      "seed": 42,
+      "hardware_backend": "webgpu_wgsl_64thread_emulator",
+      "wgsl_shader_hash": "",
+      "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+      "measurement_origin": "measured",
+      "frontier_u_verified": true,
+      "frontier_u_summary_digest": "sha256:7e13962aab870a865b724f6c60194d7a494421ad486cd0f70ff4df073a467248",
+      "hcam_32b_banks": 4,
+      "hcam_64b_banks": 8,
+      "shard_count": 4
+    },
+    "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+    "workflow_version": "v2.0-gemini4-banked-hcam-4shard-consensus-gc",
+    "executed_at": "2026-10-23T14:00:05Z",
+    "data_type": "imported"
+  }
+}

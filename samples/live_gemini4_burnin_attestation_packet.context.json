@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "input": "input:02f5e19354a5|sha256:6d823edc2965a745f2396d58dcdb9e192a76bcf0414155ace41f23aee0782811|sol-decide-wgsl-trade-benchmark-v1.0|Frontier W Sovereign Burn-In Runtime, Long-Horizon Stability Ledger & Attested Distribution Package Archive / Offline Consumer Verification Kit Trade Study (Frontier_W_Sovereign_BurnIn_Stability_Ledger_Offline_Attestation_v1)",
+  "conditions": {
+    "study_name": "Frontier_W_Sovereign_BurnIn_Stability_Ledger_Offline_Attestation_v1",
+    "input_id": "input:02f5e19354a5",
+    "input_digest": "sha256:6d823edc2965a745f2396d58dcdb9e192a76bcf0414155ace41f23aee0782811",
+    "dataset_version": "sol-decide-wgsl-trade-benchmark-v1.0",
+    "model": "gemini-4-argon",
+    "provider": "google_genai_interactions_v1",
+    "temperature": 0.0,
+    "seed": 42,
+    "hardware_backend": "webgpu_wgsl_64thread_emulator",
+    "wgsl_shader_hash": "",
+    "evaluation_rubric": "sol_lens_6_criteria_court_v0.2",
+    "measurement_origin": "measured",
+    "frontier_w_verified": true,
+    "frontier_w_summary_digest": "sha256:518bd761cd7692392bfa211e772c76114938defcc6a53caa02612bd5b92943a2",
+    "cycles_executed": 6,
+    "ready_verification_steps": 7
+  },
+  "evaluator_version": "sol-lens-evaluate-logons/v0.2",
+  "workflow_version": "v2.0-gemini4-sovereign-burnin-offline-attestation",
+  "executed_at": "2026-10-23T14:30:05Z",
+  "data_type": "imported"
+}

@@ -1144,7 +1144,328 @@ test("validates and round-trips Frontier T Governed RSI & Waveguide Compiler Pas
   );
 });
 
+test("validates and round-trips Frontier U Banked HCAM, Cross-Shard Consensus, Geodesic Migration & GC packet (live_gemini4_hcam_shard_consensus_packet.json)", async () => {
+  const fs = await import("node:fs/promises");
+  const path = await import("node:path");
+  const samplePath = path.resolve(
+    import.meta.dirname,
+    "../samples/live_gemini4_hcam_shard_consensus_packet.json",
+  );
+  const rawJson = await fs.readFile(samplePath, "utf8");
+  const packet = requirePacket(parsePacketJson(rawJson));
 
+  assert.equal(packet.schema, PACKET_SCHEMA_V02);
+  assert.equal(packet.evaluation.verdict, "PROMOTE");
+  assert.equal(packet.baseline_evaluation.verdict, "QUARANTINE");
+  assert.ok(packet.frontier_u_verification);
+  assert.equal(packet.frontier_u_verification.hcam_shard_verified, true);
+  assert.equal(
+    packet.frontier_u_verification.hcam_associative_recall.word_assembly_verified,
+    true,
+  );
+  assert.equal(
+    packet.frontier_u_verification.cross_shard_consensus.consensus_commit_verified,
+    true,
+  );
+  assert.equal(
+    packet.frontier_u_verification.transactional_geodesic_and_migration.route_optimization_passed,
+    true,
+  );
+  assert.equal(
+    packet.frontier_u_verification.manifold_garbage_collection.live_root_reclaimed,
+    false,
+  );
+  assert.equal(packet.frontier_u_verification.eligibility_interlock.authorized_claimed, false);
+  assert.equal(packet.frontier_u_verification.cycle1_audit.policy_status, "ELIGIBLE");
 
+  const exported = createProofPacket(packet, "2026-10-23T14:00:05.000Z");
+  assert.deepEqual(exported.frontier_u_verification, packet.frontier_u_verification);
 
+  const badGcU = structuredClone(exported);
+  badGcU.frontier_u_verification.manifold_garbage_collection.live_root_reclaimed = true;
+  const resBadGcU = normalizePacket(badGcU);
+  assert.equal(resBadGcU.ok, false);
+  assert.match(
+    resBadGcU.errors.join(" "),
+    /frontier_u_verification\.manifold_garbage_collection\.live_root_reclaimed must be false/,
+  );
+
+  const badConsU = structuredClone(exported);
+  badConsU.frontier_u_verification.cross_shard_consensus.consensus_commit_verified = false;
+  const resBadConsU = normalizePacket(badConsU);
+  assert.equal(resBadConsU.ok, false);
+  assert.match(
+    resBadConsU.errors.join(" "),
+    /frontier_u_verification\.cross_shard_consensus\.consensus_commit_verified must be true/,
+  );
+});
+
+test("validates and round-trips Frontier V Waveguide Arithmetic, Predication, Scoreboard & 4-Core SIMD packet (live_gemini4_waveguide_simd_pipeline_packet.json)", async () => {
+  const fs = await import("node:fs/promises");
+  const path = await import("node:path");
+  const samplePath = path.resolve(
+    import.meta.dirname,
+    "../samples/live_gemini4_waveguide_simd_pipeline_packet.json",
+  );
+  const rawJson = await fs.readFile(samplePath, "utf8");
+  const packet = requirePacket(parsePacketJson(rawJson));
+
+  assert.equal(packet.schema, PACKET_SCHEMA_V02);
+  assert.equal(packet.evaluation.verdict, "PROMOTE");
+  assert.equal(packet.baseline_evaluation.verdict, "QUARANTINE");
+  assert.ok(packet.frontier_v_verification);
+  assert.equal(packet.frontier_v_verification.waveguide_simd_verified, true);
+  assert.equal(
+    packet.frontier_v_verification.waveguide_arithmetic_and_predication.flags_externally_visible,
+    false,
+  );
+  assert.equal(
+    packet.frontier_v_verification.scoreboard_and_memory_alias.cycle1_schedule_serial_equivalent,
+    true,
+  );
+  assert.equal(
+    packet.frontier_v_verification.simd_multicore_and_route_rebalance.simd_oracle_match,
+    true,
+  );
+  assert.equal(packet.frontier_v_verification.eligibility_interlock.authorized_claimed, false);
+  assert.equal(packet.frontier_v_verification.cycle1_audit.policy_status, "ELIGIBLE");
+
+  const exported = createProofPacket(packet, "2026-10-23T14:15:05.000Z");
+  assert.deepEqual(exported.frontier_v_verification, packet.frontier_v_verification);
+
+  const badFlagsV = structuredClone(exported);
+  badFlagsV.frontier_v_verification.waveguide_arithmetic_and_predication.flags_externally_visible = true;
+  const resBadFlagsV = normalizePacket(badFlagsV);
+  assert.equal(resBadFlagsV.ok, false);
+  assert.match(
+    resBadFlagsV.errors.join(" "),
+    /frontier_v_verification\.waveguide_arithmetic_and_predication\.flags_externally_visible must be false/,
+  );
+
+  const badSimdV = structuredClone(exported);
+  badSimdV.frontier_v_verification.simd_multicore_and_route_rebalance.simd_oracle_match = false;
+  const resBadSimdV = normalizePacket(badSimdV);
+  assert.equal(resBadSimdV.ok, false);
+  assert.match(
+    resBadSimdV.errors.join(" "),
+    /frontier_v_verification\.simd_multicore_and_route_rebalance\.simd_oracle_match must be true/,
+  );
+});
+
+test("validates and round-trips Frontier W Sovereign Burn-In, Stability Ledger & Offline Attestation packet (live_gemini4_burnin_attestation_packet.json)", async () => {
+  const fs = await import("node:fs/promises");
+  const path = await import("node:path");
+  const samplePath = path.resolve(
+    import.meta.dirname,
+    "../samples/live_gemini4_burnin_attestation_packet.json",
+  );
+  const rawJson = await fs.readFile(samplePath, "utf8");
+  const packet = requirePacket(parsePacketJson(rawJson));
+
+  assert.equal(packet.schema, PACKET_SCHEMA_V02);
+  assert.equal(packet.evaluation.verdict, "PROMOTE");
+  assert.equal(packet.baseline_evaluation.verdict, "QUARANTINE");
+  assert.ok(packet.frontier_w_verification);
+  assert.equal(packet.frontier_w_verification.burnin_attestation_verified, true);
+  assert.equal(
+    packet.frontier_w_verification.sovereign_burnin_and_stability_ledger.ledger_chain_valid,
+    true,
+  );
+  assert.equal(
+    packet.frontier_w_verification.package_archive_digest_attestation.archive_file_digest_match,
+    true,
+  );
+  assert.equal(
+    packet.frontier_w_verification.package_archive_digest_attestation.real_signature_claimed,
+    false,
+  );
+  assert.equal(
+    packet.frontier_w_verification.offline_consumer_verification_and_final_manifest.final_system_manifest_valid,
+    true,
+  );
+  assert.equal(packet.frontier_w_verification.eligibility_interlock.authorized_claimed, false);
+  assert.equal(packet.frontier_w_verification.cycle1_audit.policy_status, "ELIGIBLE");
+
+  const exported = createProofPacket(packet, "2026-10-23T14:30:05.000Z");
+  assert.deepEqual(exported.frontier_w_verification, packet.frontier_w_verification);
+
+  const badSigW = structuredClone(exported);
+  badSigW.frontier_w_verification.package_archive_digest_attestation.real_signature_claimed = true;
+  const resBadSigW = normalizePacket(badSigW);
+  assert.equal(resBadSigW.ok, false);
+  assert.match(
+    resBadSigW.errors.join(" "),
+    /frontier_w_verification\.package_archive_digest_attestation\.real_signature_claimed must be false/,
+  );
+
+  const badLedgerW = structuredClone(exported);
+  badLedgerW.frontier_w_verification.sovereign_burnin_and_stability_ledger.ledger_chain_valid = false;
+  const resBadLedgerW = normalizePacket(badLedgerW);
+  assert.equal(resBadLedgerW.ok, false);
+  assert.match(
+    resBadLedgerW.errors.join(" "),
+    /frontier_w_verification\.sovereign_burnin_and_stability_ledger\.ledger_chain_valid must be true/,
+  );
+});
+
+test("validates and round-trips Frontier X Entangled Multi-Manifold 2PC Epoch, Cadence Skew & Wavefront Alignment packet (live_gemini4_entangled_cadence_wavefront_packet.json)", async () => {
+  const fs = await import("node:fs/promises");
+  const path = await import("node:path");
+  const samplePath = path.resolve(
+    import.meta.dirname,
+    "../samples/live_gemini4_entangled_cadence_wavefront_packet.json",
+  );
+  const rawJson = await fs.readFile(samplePath, "utf8");
+  const packet = requirePacket(parsePacketJson(rawJson));
+
+  assert.equal(packet.schema, PACKET_SCHEMA_V02);
+  assert.equal(packet.evaluation.verdict, "PROMOTE");
+  assert.equal(packet.baseline_evaluation.verdict, "QUARANTINE");
+  assert.ok(packet.frontier_x_verification);
+  assert.equal(packet.frontier_x_verification.entangled_cadence_verified, true);
+  assert.equal(
+    packet.frontier_x_verification.entangled_sequencer_and_atomic_epoch.abort_rollback_verified,
+    true,
+  );
+  assert.equal(
+    packet.frontier_x_verification.multimanifold_cadence_and_autonomy_guard.autonomy_bounded,
+    true,
+  );
+  assert.equal(
+    packet.frontier_x_verification.wavefront_alignment_and_uncertainty_bounds.uncertainty_within_bounds,
+    true,
+  );
+  assert.equal(packet.frontier_x_verification.eligibility_interlock.authorized_claimed, false);
+  assert.equal(packet.frontier_x_verification.cycle1_audit.policy_status, "ELIGIBLE");
+
+  const exported = createProofPacket(packet, "2026-10-23T15:00:05.000Z");
+  assert.deepEqual(exported.frontier_x_verification, packet.frontier_x_verification);
+
+  const badAbortX = structuredClone(exported);
+  badAbortX.frontier_x_verification.entangled_sequencer_and_atomic_epoch.abort_rollback_verified = false;
+  const resBadAbortX = normalizePacket(badAbortX);
+  assert.equal(resBadAbortX.ok, false);
+  assert.match(
+    resBadAbortX.errors.join(" "),
+    /frontier_x_verification\.entangled_sequencer_and_atomic_epoch\.abort_rollback_verified must be true/,
+  );
+
+  const badAutonomyX = structuredClone(exported);
+  badAutonomyX.frontier_x_verification.multimanifold_cadence_and_autonomy_guard.autonomy_bounded = false;
+  const resBadAutonomyX = normalizePacket(badAutonomyX);
+  assert.equal(resBadAutonomyX.ok, false);
+  assert.match(
+    resBadAutonomyX.errors.join(" "),
+    /frontier_x_verification\.multimanifold_cadence_and_autonomy_guard\.autonomy_bounded must be true/,
+  );
+});
+
+test("validates and round-trips Frontier Y Waveguide Channel Library, Layout Optimization & Local Staging packet (live_gemini4_waveguide_channel_staging_packet.json)", async () => {
+  const fs = await import("node:fs/promises");
+  const path = await import("node:path");
+  const samplePath = path.resolve(
+    import.meta.dirname,
+    "../samples/live_gemini4_waveguide_channel_staging_packet.json",
+  );
+  const rawJson = await fs.readFile(samplePath, "utf8");
+  const packet = requirePacket(parsePacketJson(rawJson));
+
+  assert.equal(packet.schema, PACKET_SCHEMA_V02);
+  assert.equal(packet.evaluation.verdict, "PROMOTE");
+  assert.equal(packet.baseline_evaluation.verdict, "QUARANTINE");
+  assert.ok(packet.frontier_y_verification);
+  assert.equal(packet.frontier_y_verification.waveguide_channel_staging_verified, true);
+  assert.equal(
+    packet.frontier_y_verification.waveguide_channel_kernels_and_dependency.cycle1_batch_safe,
+    true,
+  );
+  assert.equal(
+    packet.frontier_y_verification.waveguide_channel_kernels_and_dependency.raw_hazard_detected_on_conflict,
+    true,
+  );
+  assert.equal(
+    packet.frontier_y_verification.package_assembly_dry_run_and_local_staging.physical_execution_permitted_by_gate,
+    false,
+  );
+  assert.equal(packet.frontier_y_verification.eligibility_interlock.authorized_claimed, false);
+  assert.equal(packet.frontier_y_verification.cycle1_audit.policy_status, "ELIGIBLE");
+
+  const exported = createProofPacket(packet, "2026-10-23T15:15:05.000Z");
+  assert.deepEqual(exported.frontier_y_verification, packet.frontier_y_verification);
+
+  const badPhysY = structuredClone(exported);
+  badPhysY.frontier_y_verification.package_assembly_dry_run_and_local_staging.physical_execution_permitted_by_gate = true;
+  const resBadPhysY = normalizePacket(badPhysY);
+  assert.equal(resBadPhysY.ok, false);
+  assert.match(
+    resBadPhysY.errors.join(" "),
+    /frontier_y_verification\.package_assembly_dry_run_and_local_staging\.physical_execution_permitted_by_gate must be false/,
+  );
+
+  const badRawY = structuredClone(exported);
+  badRawY.frontier_y_verification.waveguide_channel_kernels_and_dependency.raw_hazard_detected_on_conflict = false;
+  const resBadRawY = normalizePacket(badRawY);
+  assert.equal(resBadRawY.ok, false);
+  assert.match(
+    resBadRawY.errors.join(" "),
+    /frontier_y_verification\.waveguide_channel_kernels_and_dependency\.raw_hazard_detected_on_conflict must be true/,
+  );
+});
+
+test("validates and round-trips Frontier Z Sovereign Court Promotion, 11-Gate Finalization Docket & System Lockdown packet (live_gemini4_sovereign_court_lockdown_packet.json)", async () => {
+  const fs = await import("node:fs/promises");
+  const path = await import("node:path");
+  const samplePath = path.resolve(
+    import.meta.dirname,
+    "../samples/live_gemini4_sovereign_court_lockdown_packet.json",
+  );
+  const rawJson = await fs.readFile(samplePath, "utf8");
+  const packet = requirePacket(parsePacketJson(rawJson));
+
+  assert.equal(packet.schema, PACKET_SCHEMA_V02);
+  assert.equal(packet.evaluation.verdict, "PROMOTE");
+  assert.equal(packet.baseline_evaluation.verdict, "QUARANTINE");
+  assert.ok(packet.frontier_z_verification);
+  assert.equal(packet.frontier_z_verification.sovereign_court_lockdown_verified, true);
+  assert.equal(
+    packet.frontier_z_verification.court_supervised_promotion_and_docket.auto_promote_allowed,
+    false,
+  );
+  assert.equal(
+    packet.frontier_z_verification.court_supervised_promotion_and_docket.production_authority_granted,
+    false,
+  );
+  assert.equal(
+    packet.frontier_z_verification.final_gate_registry_and_finalization_docket.all_gates_passed,
+    true,
+  );
+  assert.equal(
+    packet.frontier_z_verification.governance_freeze_and_system_lockdown.production_gateway_blocked_verified,
+    true,
+  );
+  assert.equal(packet.frontier_z_verification.eligibility_interlock.allow_production_execution, false);
+  assert.equal(packet.frontier_z_verification.eligibility_interlock.authorized_claimed, false);
+  assert.equal(packet.frontier_z_verification.cycle1_audit.policy_status, "ELIGIBLE");
+
+  const exported = createProofPacket(packet, "2026-10-23T15:30:05.000Z");
+  assert.deepEqual(exported.frontier_z_verification, packet.frontier_z_verification);
+
+  const badAutoZ = structuredClone(exported);
+  badAutoZ.frontier_z_verification.court_supervised_promotion_and_docket.auto_promote_allowed = true;
+  const resBadAutoZ = normalizePacket(badAutoZ);
+  assert.equal(resBadAutoZ.ok, false);
+  assert.match(
+    resBadAutoZ.errors.join(" "),
+    /frontier_z_verification\.court_supervised_promotion_and_docket\.auto_promote_allowed must be false/,
+  );
+
+  const badProdZ = structuredClone(exported);
+  badProdZ.frontier_z_verification.eligibility_interlock.allow_production_execution = true;
+  const resBadProdZ = normalizePacket(badProdZ);
+  assert.equal(resBadProdZ.ok, false);
+  assert.match(
+    resBadProdZ.errors.join(" "),
+    /frontier_z_verification\.eligibility_interlock\.allow_production_execution must be false/,
+  );
+});
 
