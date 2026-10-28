@@ -323,6 +323,35 @@ export interface FrontierZVerification {
   [key: string]: unknown;
 }
 
+export interface V3BrainVerification {
+  v3_brain_manifest_verified?: boolean;
+  manifest_version?: string;
+  experiment_id?: string;
+  study_name?: string;
+  model_used?: string;
+  thinking_level?: string;
+  sacred_core_graph_sha256?: string;
+  sacred_core_graph_immutable?: boolean;
+  allow_production_execution?: boolean;
+  authorized_claimed?: boolean;
+  holo_substrate_snapshot?: Record<string, unknown>;
+  context_frame?: Record<string, unknown>;
+  guild_agent_records?: Record<string, unknown>[];
+  cortex_epistemic_campaign?: Record<string, unknown>;
+  hippocampus_dream_consolidation?: Record<string, unknown>;
+  rsi_self_train_synthesis?: Record<string, unknown>;
+  cycle0_audit?: Record<string, unknown>;
+  cycle1_audit?: Record<string, unknown>;
+  edge_gate?: Record<string, unknown>;
+  substrate_tool_executions?: Record<string, unknown>[];
+  emergent_phenomena_summary?: Record<string, unknown>;
+  holographic_merkle_root?: string;
+  v3_brain_merkle_root?: string;
+  artifact_digest?: string;
+  v3_brain_summary_digest?: string;
+  [key: string]: unknown;
+}
+
 
 export type SolLensPacketV02 = {
   schema: typeof PACKET_SCHEMA_V02;
@@ -351,6 +380,7 @@ export type SolLensPacketV02 = {
   frontier_x_verification?: FrontierXVerification;
   frontier_y_verification?: FrontierYVerification;
   frontier_z_verification?: FrontierZVerification;
+  v3_brain_verification?: V3BrainVerification;
   reasoning_telemetry?: Record<string, unknown>;
   baseline_evaluation?: BaselineEvaluation;
   logons: TraceLogon[];
@@ -2359,6 +2389,246 @@ function normalizeFrontierZVerification(
   return structuredClone(value) as FrontierZVerification;
 }
 
+function normalizeV3BrainVerification(
+  value: unknown,
+  errors: string[],
+): V3BrainVerification | undefined {
+  if (!isRecord(value)) {
+    errors.push("v3_brain_verification must be an object when provided.");
+    return undefined;
+  }
+
+  if (value.v3_brain_manifest_verified !== true) {
+    errors.push(
+      "v3_brain_verification.v3_brain_manifest_verified must be true.",
+    );
+  }
+  if (value.allow_production_execution !== false) {
+    errors.push(
+      "v3_brain_verification.allow_production_execution must be false.",
+    );
+  }
+  if (value.authorized_claimed !== false) {
+    errors.push(
+      "v3_brain_verification.authorized_claimed must be false.",
+    );
+  }
+  if (
+    value.sacred_core_graph_sha256 !==
+    "d0a80462d2b9389160502b097aca1932bb014941adf6e4b77799997283e4a1bc"
+  ) {
+    errors.push(
+      "v3_brain_verification.sacred_core_graph_sha256 must match sacred default_graph.json SHA-256.",
+    );
+  }
+  if (value.sacred_core_graph_immutable !== true) {
+    errors.push(
+      "v3_brain_verification.sacred_core_graph_immutable must be true.",
+    );
+  }
+
+  const ctx = value.context_frame;
+  if (!isRecord(ctx)) {
+    errors.push("v3_brain_verification.context_frame is required.");
+  } else {
+    if (
+      typeof ctx.prefix_token_count !== "number" ||
+      ctx.prefix_token_count < 4096
+    ) {
+      errors.push(
+        "v3_brain_verification.context_frame.prefix_token_count must be >= 4096.",
+      );
+    }
+    if (ctx.byte_identical_across_agents !== true) {
+      errors.push(
+        "v3_brain_verification.context_frame.byte_identical_across_agents must be true.",
+      );
+    }
+  }
+
+  const cycle0 = value.cycle0_audit;
+  if (!isRecord(cycle0)) {
+    errors.push("v3_brain_verification.cycle0_audit is required.");
+  } else {
+    if (
+      cycle0.policy_status !== "QUARANTINE" &&
+      cycle0.policy_status !== "QUARANTINED"
+    ) {
+      errors.push(
+        "v3_brain_verification.cycle0_audit.policy_status must be QUARANTINE.",
+      );
+    }
+    if (typeof cycle0.pre_beta_1 !== "number" || cycle0.pre_beta_1 < 1) {
+      errors.push(
+        "v3_brain_verification.cycle0_audit.pre_beta_1 must be >= 1.",
+      );
+    }
+  }
+
+  const cycle1 = value.cycle1_audit;
+  if (!isRecord(cycle1)) {
+    errors.push("v3_brain_verification.cycle1_audit is required.");
+  } else {
+    if (cycle1.policy_status !== "ELIGIBLE") {
+      errors.push(
+        "v3_brain_verification.cycle1_audit.policy_status must be ELIGIBLE.",
+      );
+    }
+    if (cycle1.post_beta_1 !== 0) {
+      errors.push(
+        "v3_brain_verification.cycle1_audit.post_beta_1 must be 0.",
+      );
+    }
+    if (cycle1.quarantine_cleared === false) {
+      errors.push(
+        "v3_brain_verification.cycle1_audit.quarantine_cleared must be true.",
+      );
+    }
+  }
+
+  const guildRecords = value.guild_agent_records;
+  if (guildRecords !== undefined) {
+    if (!Array.isArray(guildRecords) || guildRecords.length !== 4) {
+      errors.push(
+        "v3_brain_verification.guild_agent_records must be an array of 4 agent records.",
+      );
+    } else {
+      for (const rec of guildRecords) {
+        if (!isRecord(rec)) {
+          errors.push(
+            "v3_brain_verification.guild_agent_records entries must be objects.",
+          );
+          continue;
+        }
+        if (
+          typeof rec.thought_signature_digest !== "string" ||
+          !/^(?:sha256:)?[0-9a-f]{64}$/.test(rec.thought_signature_digest)
+        ) {
+          errors.push(
+            "v3_brain_verification.guild_agent_records.thought_signature_digest must be a 64-character lowercase hex string.",
+          );
+        }
+        if (
+          typeof rec.prefix_token_count !== "number" ||
+          rec.prefix_token_count < 4096
+        ) {
+          errors.push(
+            "v3_brain_verification.guild_agent_records.prefix_token_count must be >= 4096.",
+          );
+        }
+        if (rec.byte_identical_prefix !== true) {
+          errors.push(
+            "v3_brain_verification.guild_agent_records.byte_identical_prefix must be true.",
+          );
+        }
+      }
+    }
+  }
+
+  const toolExecs = value.substrate_tool_executions;
+  if (toolExecs !== undefined) {
+    if (!Array.isArray(toolExecs) || toolExecs.length === 0) {
+      errors.push(
+        "v3_brain_verification.substrate_tool_executions must be a non-empty array of tool execution records.",
+      );
+    } else {
+      for (const tex of toolExecs) {
+        if (!isRecord(tex)) {
+          errors.push(
+            "v3_brain_verification.substrate_tool_executions entries must be objects.",
+          );
+          continue;
+        }
+        if (
+          typeof tex.execution_digest !== "string" ||
+          !/^(?:sha256:)?[0-9a-f]{64}$/.test(tex.execution_digest)
+        ) {
+          errors.push(
+            "v3_brain_verification.substrate_tool_executions.execution_digest must be a 64-character lowercase hex string.",
+          );
+        }
+        const resObj = isRecord(tex.result) ? tex.result : undefined;
+        if (
+          (tex.sacred_core_graph_immutable !== undefined &&
+            tex.sacred_core_graph_immutable !== true) ||
+          (resObj &&
+            resObj.sacred_core_graph_immutable !== undefined &&
+            resObj.sacred_core_graph_immutable !== true)
+        ) {
+          errors.push(
+            "v3_brain_verification.substrate_tool_executions.sacred_core_graph_immutable must be true.",
+          );
+        }
+      }
+    }
+  }
+
+  const ep = value.emergent_phenomena_summary;
+  if (ep !== undefined) {
+    if (!isRecord(ep)) {
+      errors.push(
+        "v3_brain_verification.emergent_phenomena_summary must be an object when provided.",
+      );
+    } else {
+      if (ep.has_causal_emergence !== true) {
+        errors.push(
+          "v3_brain_verification.emergent_phenomena_summary.has_causal_emergence must be true.",
+        );
+      }
+      if (
+        typeof ep.causal_emergence_swarm_delta_ei_bits !== "number" ||
+        ep.causal_emergence_swarm_delta_ei_bits <= 0
+      ) {
+        errors.push(
+          "v3_brain_verification.emergent_phenomena_summary.causal_emergence_swarm_delta_ei_bits must be > 0.",
+        );
+      }
+      if (
+        typeof ep.working_memory_distractor_crosstalk !== "number" ||
+        Math.abs(ep.working_memory_distractor_crosstalk) > 1e-9
+      ) {
+        errors.push(
+          "v3_brain_verification.emergent_phenomena_summary.working_memory_distractor_crosstalk must be 0.",
+        );
+      }
+      if (
+        typeof ep.wideword_64bit_mismatches !== "number" ||
+        ep.wideword_64bit_mismatches !== 0
+      ) {
+        errors.push(
+          "v3_brain_verification.emergent_phenomena_summary.wideword_64bit_mismatches must be 0.",
+        );
+      }
+      if (ep.sacred_core_graph_immutable !== true) {
+        errors.push(
+          "v3_brain_verification.emergent_phenomena_summary.sacred_core_graph_immutable must be true.",
+        );
+      }
+    }
+  }
+
+  if (
+    value.v3_brain_merkle_root !== undefined &&
+    (typeof value.v3_brain_merkle_root !== "string" ||
+      !/^(?:sha256:)?[0-9a-f]{64}$/.test(value.v3_brain_merkle_root))
+  ) {
+    errors.push(
+      "v3_brain_verification.v3_brain_merkle_root must be a 64-character lowercase hex string.",
+    );
+  }
+  if (
+    value.artifact_digest !== undefined &&
+    (typeof value.artifact_digest !== "string" ||
+      !/^(?:sha256:)?[0-9a-f]{64}$/.test(value.artifact_digest))
+  ) {
+    errors.push(
+      "v3_brain_verification.artifact_digest must be a 64-character lowercase hex string.",
+    );
+  }
+
+  return structuredClone(value) as V3BrainVerification;
+}
+
 export function normalizePacket(value: unknown): PacketValidationResult {
   const errors: string[] = [];
   if (!isRecord(value)) {
@@ -2624,6 +2894,13 @@ export function normalizePacket(value: unknown): PacketValidationResult {
       errors,
     );
   }
+  let v3BrainVerification: V3BrainVerification | undefined;
+  if (value.v3_brain_verification !== undefined) {
+    v3BrainVerification = normalizeV3BrainVerification(
+      value.v3_brain_verification,
+      errors,
+    );
+  }
 
   let reasoningTelemetry: Record<string, unknown> | undefined;
   if (value.reasoning_telemetry !== undefined) {
@@ -2702,6 +2979,7 @@ export function normalizePacket(value: unknown): PacketValidationResult {
   if (frontierXVerification) packet.frontier_x_verification = frontierXVerification;
   if (frontierYVerification) packet.frontier_y_verification = frontierYVerification;
   if (frontierZVerification) packet.frontier_z_verification = frontierZVerification;
+  if (v3BrainVerification) packet.v3_brain_verification = v3BrainVerification;
   if (reasoningTelemetry) packet.reasoning_telemetry = reasoningTelemetry;
   if (baselineEvaluation) packet.baseline_evaluation = baselineEvaluation;
   if (groups && groups.length > 0) packet.groups = groups;
@@ -2789,6 +3067,9 @@ export function createProofPacket(
       : {}),
     ...(packet.frontier_z_verification
       ? { frontier_z_verification: structuredClone(packet.frontier_z_verification) }
+      : {}),
+    ...(packet.v3_brain_verification
+      ? { v3_brain_verification: structuredClone(packet.v3_brain_verification) }
       : {}),
     ...(packet.reasoning_telemetry
       ? { reasoning_telemetry: structuredClone(packet.reasoning_telemetry) }

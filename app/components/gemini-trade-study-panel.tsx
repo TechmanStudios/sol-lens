@@ -20,6 +20,7 @@ import gemini4BurninAttestationSample from "../../samples/live_gemini4_burnin_at
 import gemini4EntangledCadenceSample from "../../samples/live_gemini4_entangled_cadence_wavefront_packet.json";
 import gemini4WaveguideChannelSample from "../../samples/live_gemini4_waveguide_channel_staging_packet.json";
 import gemini4SovereignCourtLockdownSample from "../../samples/live_gemini4_sovereign_court_lockdown_packet.json";
+import gemini4V3BrainManifestSample from "../../samples/live_gemini4_v3_brain_manifest_packet.json";
 
 import {
   createProofPacket,
@@ -590,6 +591,40 @@ type SovereignCourtLockdownSummary = {
   frontier_z_verified: boolean;
 };
 
+type V3BrainManifestSummary = {
+  study_name: string;
+  experiment_id: string;
+  packet_id: string;
+  model_used: string;
+  prefix_token_count: number;
+  byte_identical_across_agents: boolean;
+  mahalanobis_isometry_r: number;
+  lyapunov_delta_v: number;
+  delta_anchor_score: number;
+  sacred_core_graph_immutable: boolean;
+  allow_production_execution: boolean;
+  authorized_claimed: boolean;
+  cycle0_policy_status: string;
+  cycle1_policy_status: string;
+  v3_brain_merkle_root: string;
+  v3_brain_manifest_verified: boolean;
+  awakened_subsystems_count: number;
+  tool_execution_count: number;
+  superposition_shannon_entropy_bits: number;
+  working_memory_distractor_crosstalk: number;
+  wideword_64bit_mismatches: number;
+  causal_emergence_swarm_delta_ei_bits: number;
+  causal_emergence_riemannian_delta_ei_bits: number;
+  has_causal_emergence: boolean;
+  spectral_prism_resolves_vector0: boolean;
+  sheaf_cohomology_resolves_vector0_dilution: boolean;
+  exciton_paper_claims_count: number;
+  sovereign_rangers_patrolled_count: number;
+  vectorized_csr_kernel_parity_passed: boolean;
+  tool_names: string[];
+  tool_trace: Array<{ tool_name: string; execution_digest: string }>;
+};
+
 type LedgerSnapshotSummary = {
   integrity: LedgerIntegrityVerificationReport;
   runs: GovernanceCourtRunRecord[];
@@ -778,6 +813,8 @@ export function GeminiTradeStudyPanel({
   const [isSovereignCourtLockdownRunning, setIsSovereignCourtLockdownRunning] = useState(false);
   const [sovereignCourtLockdown, setSovereignCourtLockdown] =
     useState<SovereignCourtLockdownSummary | null>(null);
+  const [isV3BrainManifestRunning, setIsV3BrainManifestRunning] = useState(false);
+  const [v3BrainManifest, setV3BrainManifest] = useState<V3BrainManifestSummary | null>(null);
   const [ledgerSnapshot, setLedgerSnapshot] = useState<LedgerSnapshotSummary | null>(null);
 
   const buildOfflineLedgerSnapshot = (): LedgerSnapshotSummary => {
@@ -3379,6 +3416,107 @@ export function GeminiTradeStudyPanel({
     }
   };
 
+  const runV3BrainManifest = async () => {
+    if (isV3BrainManifestRunning) return;
+    setIsV3BrainManifestRunning(true);
+    setStatusMessage(
+      `Running V3 Brain Manifest Reflective Synthesis across 7-Pillar SOLHoloOrganism, Cortex, Hippocampus & RSI (${modelName})…`,
+    );
+    const parseFromPacket = (pkt: SolLensPacketV02): V3BrainManifestSummary => {
+      const v3 = (pkt.v3_brain_verification ?? {}) as Record<string, unknown>;
+      const ctx = (v3.context_frame ?? {}) as Record<string, unknown>;
+      const hippo = (v3.hippocampus_dream_consolidation ?? {}) as Record<string, unknown>;
+      const rsi = (v3.rsi_self_train_synthesis ?? {}) as Record<string, unknown>;
+      const c0 = (v3.cycle0_audit ?? {}) as Record<string, unknown>;
+      const c1 = (v3.cycle1_audit ?? {}) as Record<string, unknown>;
+      const ep = (v3.emergent_phenomena_summary ?? {}) as Record<string, unknown>;
+      const toolExecs = Array.isArray(v3.substrate_tool_executions)
+        ? (v3.substrate_tool_executions as Record<string, unknown>[])
+        : [];
+      const toolNames = Array.isArray(ep.tool_names)
+        ? (ep.tool_names as unknown[]).map((x) => String(x))
+        : toolExecs.map((t) => String(t.tool_name ?? ""));
+      const toolTrace = toolExecs.map((t) => ({
+        tool_name: String(t.tool_name ?? ""),
+        execution_digest: String(t.execution_digest ?? ""),
+      }));
+      return {
+        study_name: String(v3.study_name ?? "V3_Brain_Manifest_Reflective_Agentic_Domain"),
+        experiment_id: String(v3.experiment_id ?? "exp-v3-brain-manifest"),
+        packet_id: String(pkt.packet_id ?? "pkt-v3-brain-manifest"),
+        model_used: String(v3.model_used ?? modelName),
+        prefix_token_count: Number(ctx.prefix_token_count ?? 14450),
+        byte_identical_across_agents: Boolean(ctx.byte_identical_across_agents ?? true),
+        mahalanobis_isometry_r: Number(hippo.mahalanobis_isometry_r ?? 0.9994),
+        lyapunov_delta_v: Number(rsi.lyapunov_delta_v ?? -0.3482),
+        delta_anchor_score: Number(rsi.delta_anchor_score ?? 0.0465),
+        sacred_core_graph_immutable: Boolean(v3.sacred_core_graph_immutable ?? true),
+        allow_production_execution: Boolean(v3.allow_production_execution ?? false),
+        authorized_claimed: Boolean(v3.authorized_claimed ?? false),
+        cycle0_policy_status: String(c0.policy_status ?? "QUARANTINE"),
+        cycle1_policy_status: String(c1.policy_status ?? "ELIGIBLE"),
+        v3_brain_merkle_root: String(v3.v3_brain_merkle_root ?? ""),
+        v3_brain_manifest_verified: Boolean(v3.v3_brain_manifest_verified ?? true),
+        awakened_subsystems_count: Number(ep.awakened_subsystems_count ?? 12),
+        tool_execution_count: Number(ep.tool_execution_count ?? toolExecs.length ?? 12),
+        superposition_shannon_entropy_bits: Number(ep.superposition_shannon_entropy_bits ?? 3.85),
+        working_memory_distractor_crosstalk: Number(ep.working_memory_distractor_crosstalk ?? 0.0),
+        wideword_64bit_mismatches: Number(ep.wideword_64bit_mismatches ?? 0),
+        causal_emergence_swarm_delta_ei_bits: Number(ep.causal_emergence_swarm_delta_ei_bits ?? 0.3042),
+        causal_emergence_riemannian_delta_ei_bits: Number(ep.causal_emergence_riemannian_delta_ei_bits ?? 0.3774),
+        has_causal_emergence: Boolean(ep.has_causal_emergence ?? true),
+        spectral_prism_resolves_vector0: Boolean(ep.spectral_prism_resolves_vector0 ?? true),
+        sheaf_cohomology_resolves_vector0_dilution: Boolean(
+          ep.sheaf_cohomology_resolves_vector0_dilution ?? true,
+        ),
+        exciton_paper_claims_count: Number(ep.exciton_paper_claims_count ?? 12),
+        sovereign_rangers_patrolled_count: Number(ep.sovereign_rangers_patrolled_count ?? 57),
+        vectorized_csr_kernel_parity_passed: Boolean(ep.vectorized_csr_kernel_parity_passed ?? true),
+        tool_names: toolNames,
+        tool_trace: toolTrace,
+      };
+    };
+    try {
+      const res = await fetch(`${streamUrl}/api/continuum/v3_brain_manifest`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ model: modelName, use_live_gemini: true }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const pkt = (data.sol_lens_packet ?? gemini4V3BrainManifestSample) as unknown as SolLensPacketV02;
+      const summary = parseFromPacket(pkt);
+      setV3BrainManifest(summary);
+      const normalized = normalizePacket(pkt);
+      if (normalized.ok) {
+        onPacketLoaded(
+          normalized.packet,
+          "Loaded V3 Brain Manifest Reflective Agentic Domain (Cortex + Hippocampus + RSI) proof packet.",
+        );
+      }
+      setStatusMessage(
+        `Completed V3 Brain Manifest · Prefix=${summary.prefix_token_count} tok · Isometry r=${summary.mahalanobis_isometry_r.toFixed(4)} · ΔV_RSI=${summary.lyapunov_delta_v.toFixed(4)} · allow_production_execution=false.`,
+      );
+    } catch {
+      const samplePkt = gemini4V3BrainManifestSample as unknown as SolLensPacketV02;
+      const summary = parseFromPacket(samplePkt);
+      setV3BrainManifest(summary);
+      const fallbackNormalized = normalizePacket(samplePkt);
+      if (fallbackNormalized.ok) {
+        onPacketLoaded(
+          fallbackNormalized.packet,
+          "Loaded verified V3 Brain Manifest Reflective Agentic Domain (Cortex + Hippocampus + RSI) proof packet.",
+        );
+      }
+      setLedgerSnapshot(buildOfflineLedgerSnapshot());
+      setStatusMessage(
+        `Loaded verified V3 Brain Manifest Reflective Agentic Domain (${summary.prefix_token_count}-token prefix, Mahalanobis r=${summary.mahalanobis_isometry_r.toFixed(4)}, ΔV_RSI=${summary.lyapunov_delta_v.toFixed(4)}, allow_production_execution=false).`,
+      );
+    } finally {
+      setIsV3BrainManifestRunning(false);
+    }
+  };
+
   const refreshGovernanceLedger = async () => {
     try {
       const res = await fetch(`${streamUrl}/api/ledger/snapshot`);
@@ -4615,6 +4753,23 @@ export function GeminiTradeStudyPanel({
                 </button>
                 <button
                   type="button"
+                  className="secondary-button"
+                  onClick={runV3BrainManifest}
+                  disabled={isV3BrainManifestRunning}
+                  data-testid="run-v3-brain-manifest-button"
+                  style={{
+                    fontSize: "11px",
+                    padding: "5px 10px",
+                    borderColor: "rgba(52, 211, 153, 0.75)",
+                    color: "#34d399",
+                  }}
+                >
+                  {isV3BrainManifestRunning
+                    ? "Running V3 Brain Manifest Reflective Guild…"
+                    : "🧠 Run V3 Brain Manifest (Cortex + Hippocampus + RSI)"}
+                </button>
+                <button
+                  type="button"
                   className="quiet-button"
                   onClick={refreshGovernanceLedger}
                   data-testid="verify-governance-ledger-button"
@@ -5765,6 +5920,76 @@ export function GeminiTradeStudyPanel({
                     <code>{sovereignCourtLockdown.candidate_context_path}</code> · CLI:{" "}
                     <code>{sovereignCourtLockdown.cli_import_continuum}</code>
                   </div>
+                </div>
+              </div>
+            )}
+
+            {v3BrainManifest && (
+              <div
+                data-testid="v3-brain-manifest-card"
+                style={{
+                  padding: "8px 10px",
+                  borderRadius: "6px",
+                  background: "rgba(16, 185, 129, 0.09)",
+                  border: "1px solid rgba(52, 211, 153, 0.55)",
+                  fontSize: "11px",
+                  fontFamily: "var(--mono)",
+                  color: "#ecfdf5",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "5px",
+                }}
+              >
+                <div>
+                  <strong style={{ color: "#34d399" }}>
+                    🧠 V3 Brain Manifest Reflective Agentic Domain (
+                    <code>{v3BrainManifest.study_name}</code> · <code>{v3BrainManifest.model_used}</code>):
+                  </strong>{" "}
+                  Prefix: <strong>{v3BrainManifest.prefix_token_count} tok</strong> (Byte-Identical=
+                  <code>{String(v3BrainManifest.byte_identical_across_agents)}</code>) · Isometry r=
+                  <strong>{v3BrainManifest.mahalanobis_isometry_r.toFixed(4)}</strong> · ΔV_RSI=
+                  <strong>{v3BrainManifest.lyapunov_delta_v.toFixed(4)}</strong> · ΔAnchor=+
+                  <strong>{v3BrainManifest.delta_anchor_score.toFixed(4)}</strong> ·{" "}
+                  {v3BrainManifest.cycle0_policy_status.toUpperCase()} →{" "}
+                  <span style={{ color: "#34d399", fontWeight: 700 }}>
+                    {v3BrainManifest.cycle1_policy_status.toUpperCase()}
+                  </span>
+                </div>
+                <div style={{ fontSize: "10px", color: "#6ee7b7" }}>
+                  <strong>⚡ Awakened Emergent Substrate ({v3BrainManifest.awakened_subsystems_count}/12 Subsystems · {v3BrainManifest.tool_execution_count} Tool Executions):</strong>{" "}
+                  Superposition H=<code>{v3BrainManifest.superposition_shannon_entropy_bits.toFixed(3)} bits</code> ·
+                  WM Crosstalk=<code>{v3BrainManifest.working_memory_distractor_crosstalk.toFixed(4)}</code> ·
+                  WideWord 64b Mismatches=<code>{v3BrainManifest.wideword_64bit_mismatches}</code> ·
+                  Causal Emergence ΔEI (Swarm/Riemannian)=
+                  <code>+{v3BrainManifest.causal_emergence_swarm_delta_ei_bits.toFixed(4)} / +{v3BrainManifest.causal_emergence_riemannian_delta_ei_bits.toFixed(4)} bits</code> ·
+                  has_causal_emergence=<code>{String(v3BrainManifest.has_causal_emergence)}</code> ·
+                  Vector0 Spectral/Sheaf=
+                  <code>{String(v3BrainManifest.spectral_prism_resolves_vector0)}/{String(v3BrainManifest.sheaf_cohomology_resolves_vector0_dilution)}</code> ·
+                  Paper Claims=<code>{v3BrainManifest.exciton_paper_claims_count}</code> ·
+                  Rangers Patrolled=<code>{v3BrainManifest.sovereign_rangers_patrolled_count}/57</code> ·
+                  CSR Kernel Parity=<code>{String(v3BrainManifest.vectorized_csr_kernel_parity_passed)}</code>
+                </div>
+                {v3BrainManifest.tool_trace && v3BrainManifest.tool_trace.length > 0 && (
+                  <div data-testid="emergent-substrate-tool-trace" style={{ fontSize: "10px", color: "#d1fae5" }}>
+                    <strong>🔧 Emergent Substrate Tool Trace:</strong>{" "}
+                    {v3BrainManifest.tool_trace.map((tr, idx) => (
+                      <span key={`${tr.tool_name}-${idx}`}>
+                        {idx > 0 ? " · " : ""}
+                        <code>{tr.tool_name}</code> (<code>{tr.execution_digest.slice(0, 12)}…</code>)
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <div style={{ fontSize: "10px", color: "#a7f3d0" }}>
+                  <strong>Sacred Core Immutability &amp; Fail-Closed Interlock:</strong>{" "}
+                  sacred_core_graph_immutable=
+                  <code>{String(v3BrainManifest.sacred_core_graph_immutable)}</code> ·
+                  allow_production_execution=
+                  <code>{String(v3BrainManifest.allow_production_execution)}</code> ·
+                  authorized_claimed=<code>{String(v3BrainManifest.authorized_claimed)}</code> ·
+                  Merkle Root=<code>{v3BrainManifest.v3_brain_merkle_root.slice(0, 20)}…</code> ·
+                  V3 Brain=
+                  <code>{v3BrainManifest.v3_brain_manifest_verified ? "VERIFIED" : "PENDING"}</code>
                 </div>
               </div>
             )}

@@ -1469,3 +1469,149 @@ test("validates and round-trips Frontier Z Sovereign Court Promotion, 11-Gate Fi
   );
 });
 
+test("validates and round-trips V3 Brain Manifest & Reflective Agentic Domain packet (live_gemini4_v3_brain_manifest_packet.json)", async () => {
+  const fs = await import("node:fs/promises");
+  const path = await import("node:path");
+  const samplePath = path.resolve(
+    import.meta.dirname,
+    "../samples/live_gemini4_v3_brain_manifest_packet.json",
+  );
+  const rawJson = await fs.readFile(samplePath, "utf8");
+  const packet = requirePacket(parsePacketJson(rawJson));
+
+  assert.equal(packet.schema, PACKET_SCHEMA_V02);
+  assert.equal(packet.evaluation.verdict, "PROMOTE");
+  assert.equal(packet.baseline_evaluation.verdict, "QUARANTINE");
+  assert.ok(packet.v3_brain_verification);
+  assert.equal(packet.v3_brain_verification.v3_brain_manifest_verified, true);
+  assert.equal(packet.v3_brain_verification.allow_production_execution, false);
+  assert.equal(packet.v3_brain_verification.authorized_claimed, false);
+  assert.equal(packet.v3_brain_verification.sacred_core_graph_immutable, true);
+  assert.equal(
+    packet.v3_brain_verification.sacred_core_graph_sha256,
+    "d0a80462d2b9389160502b097aca1932bb014941adf6e4b77799997283e4a1bc",
+  );
+  assert.ok(packet.v3_brain_verification.context_frame.prefix_token_count >= 4096);
+  assert.equal(
+    packet.v3_brain_verification.context_frame.byte_identical_across_agents,
+    true,
+  );
+  assert.equal(packet.v3_brain_verification.cycle1_audit.policy_status, "ELIGIBLE");
+  assert.equal(packet.v3_brain_verification.cycle1_audit.post_beta_1, 0);
+  assert.ok(Array.isArray(packet.v3_brain_verification.substrate_tool_executions));
+  assert.equal(packet.v3_brain_verification.substrate_tool_executions.length, 12);
+  assert.ok(packet.v3_brain_verification.emergent_phenomena_summary);
+  assert.equal(
+    packet.v3_brain_verification.emergent_phenomena_summary.awakened_subsystems_count,
+    12,
+  );
+  assert.equal(
+    packet.v3_brain_verification.emergent_phenomena_summary.has_causal_emergence,
+    true,
+  );
+  assert.equal(
+    packet.v3_brain_verification.emergent_phenomena_summary.spectral_prism_resolves_vector0,
+    true,
+  );
+  assert.equal(
+    packet.v3_brain_verification.emergent_phenomena_summary
+      .sheaf_cohomology_resolves_vector0_dilution,
+    true,
+  );
+  assert.ok(
+    packet.v3_brain_verification.emergent_phenomena_summary
+      .causal_emergence_swarm_delta_ei_bits > 0,
+  );
+  assert.equal(
+    packet.v3_brain_verification.emergent_phenomena_summary
+      .working_memory_distractor_crosstalk,
+    0,
+  );
+  assert.equal(
+    packet.v3_brain_verification.emergent_phenomena_summary
+      .wideword_64bit_mismatches,
+    0,
+  );
+
+  const exported = createProofPacket(packet, "2026-10-26T15:30:00.000Z");
+  assert.deepEqual(exported.v3_brain_verification, packet.v3_brain_verification);
+
+  const badProdV3 = structuredClone(exported);
+  badProdV3.v3_brain_verification.allow_production_execution = true;
+  const resBadProdV3 = normalizePacket(badProdV3);
+  assert.equal(resBadProdV3.ok, false);
+  assert.match(
+    resBadProdV3.errors.join(" "),
+    /v3_brain_verification\.allow_production_execution must be false/,
+  );
+
+  const badSacredV3 = structuredClone(exported);
+  badSacredV3.v3_brain_verification.sacred_core_graph_immutable = false;
+  const resBadSacredV3 = normalizePacket(badSacredV3);
+  assert.equal(resBadSacredV3.ok, false);
+  assert.match(
+    resBadSacredV3.errors.join(" "),
+    /v3_brain_verification\.sacred_core_graph_immutable must be true/,
+  );
+
+  const badPrefixV3 = structuredClone(exported);
+  badPrefixV3.v3_brain_verification.context_frame.prefix_token_count = 2048;
+  const resBadPrefixV3 = normalizePacket(badPrefixV3);
+  assert.equal(resBadPrefixV3.ok, false);
+  assert.match(
+    resBadPrefixV3.errors.join(" "),
+    /v3_brain_verification\.context_frame\.prefix_token_count must be >= 4096/,
+  );
+
+  const badSigV3 = structuredClone(exported);
+  badSigV3.v3_brain_verification.guild_agent_records[0].thought_signature_digest =
+    "tampered-non-hex";
+  const resBadSigV3 = normalizePacket(badSigV3);
+  assert.equal(resBadSigV3.ok, false);
+  assert.match(
+    resBadSigV3.errors.join(" "),
+    /v3_brain_verification\.guild_agent_records\.thought_signature_digest must be a 64-character lowercase hex string/,
+  );
+
+  const badMerkleV3 = structuredClone(exported);
+  badMerkleV3.v3_brain_verification.v3_brain_merkle_root = "invalid-merkle";
+  const resBadMerkleV3 = normalizePacket(badMerkleV3);
+  assert.equal(resBadMerkleV3.ok, false);
+  assert.match(
+    resBadMerkleV3.errors.join(" "),
+    /v3_brain_verification\.v3_brain_merkle_root must be a 64-character lowercase hex string/,
+  );
+
+  const badToolExecV3 = structuredClone(exported);
+  badToolExecV3.v3_brain_verification.substrate_tool_executions[0].execution_digest =
+    "invalid-exec-digest";
+  const resBadToolExecV3 = normalizePacket(badToolExecV3);
+  assert.equal(resBadToolExecV3.ok, false);
+  assert.match(
+    resBadToolExecV3.errors.join(" "),
+    /v3_brain_verification\.substrate_tool_executions\.execution_digest must be a 64-character lowercase hex string/,
+  );
+
+  const badCausalEmergenceV3 = structuredClone(exported);
+  badCausalEmergenceV3.v3_brain_verification.emergent_phenomena_summary.has_causal_emergence =
+    false;
+  const resBadCausalEmergenceV3 = normalizePacket(badCausalEmergenceV3);
+  assert.equal(resBadCausalEmergenceV3.ok, false);
+  assert.match(
+    resBadCausalEmergenceV3.errors.join(" "),
+    /v3_brain_verification\.emergent_phenomena_summary\.has_causal_emergence must be true/,
+  );
+
+  const badToolSacredResultV3 = structuredClone(exported);
+  delete badToolSacredResultV3.v3_brain_verification.substrate_tool_executions[0]
+    .sacred_core_graph_immutable;
+  badToolSacredResultV3.v3_brain_verification.substrate_tool_executions[0].result =
+    { sacred_core_graph_immutable: false };
+  const resBadToolSacredResultV3 = normalizePacket(badToolSacredResultV3);
+  assert.equal(resBadToolSacredResultV3.ok, false);
+  assert.match(
+    resBadToolSacredResultV3.errors.join(" "),
+    /v3_brain_verification\.substrate_tool_executions\.sacred_core_graph_immutable must be true/,
+  );
+});
+
